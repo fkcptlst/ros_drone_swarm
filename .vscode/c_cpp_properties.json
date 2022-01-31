@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/home/amov/drone_ws/devel/include/**",
+                "/opt/ros/melodic/include/**",
+                "/home/amov/drone_ws/src/common/include/**",
+                "/home/amov/drone_ws/src/swarm_control/include/**",
+                "/home/amov/drone_ws/src/uav_utils/**",
+                "/usr/include/**"
+
+            ],
+            "defines": [],
+            "compilerPath": "/opt/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc",
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "linux-gcc-arm"
+        }
+    ],
+    "version": 4
+}

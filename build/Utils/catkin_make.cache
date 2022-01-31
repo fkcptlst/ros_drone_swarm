@@ -1,0 +1,2 @@
+cmake_utils:multi_map_server:odom_visualization:pose_utils:quadrotor_msgs:rviz_plugins:uav_utils:waypoint_generator
+-DCATKIN_DEVEL_PREFIX=/home/amov/swarm_ws2/devel -DCMAKE_INSTALL_PREFIX=/home/amov/swarm_ws2/install -G Unix Makefiles

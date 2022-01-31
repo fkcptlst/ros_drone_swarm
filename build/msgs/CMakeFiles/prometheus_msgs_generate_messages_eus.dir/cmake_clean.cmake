@@ -1,0 +1,42 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/prometheus_msgs_generate_messages_eus"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/CheckForObjectsActionResult.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/LogMessagePlanning.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/Message.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/CheckForObjectsActionFeedback.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/DroneState.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/CheckForObjectsActionGoal.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/MultiArucoInfo.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/PositionReference.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/Case2Result.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/LogMessageControl.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/BoundingBoxes.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/DetectionInfo.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/UgvState.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/Msg104.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/ArucoInfo.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/CheckForObjectsAction.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/AttitudeReference.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/LogMessage.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/Formation.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/MultiDetectionInfo.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/CheckForObjectsFeedback.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/CheckForObjectsGoal.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/CheckForObjectsResult.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/Msg103.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/ControlCommand.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/Case3Result.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/StationCommand.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/UgvCommand.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/BoundingBox.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/SwarmCommand.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/ControlOutput.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/LogMessageDetection.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/IndoorSearch.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/manifest.l"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang )
+  include(CMakeFiles/prometheus_msgs_generate_messages_eus.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
