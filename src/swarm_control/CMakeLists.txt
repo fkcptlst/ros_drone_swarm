@@ -87,6 +87,15 @@ add_executable(swarm_terminal_control src/swarm_terminal_control.cpp)
 add_dependencies(swarm_terminal_control prometheus_swarm_control_gencpp)
 target_link_libraries(swarm_terminal_control ${catkin_LIBRARIES})
 
+## TODO Newly added
+add_executable(virtual_observer src/virtual_observer.cpp)
+add_dependencies(virtual_observer prometheus_swarm_control_gencpp)
+target_link_libraries(virtual_observer ${catkin_LIBRARIES})
+
+add_executable(vehicle_info_buffer src/vehicle_info_buffer.cpp)
+add_dependencies(vehicle_info_buffer prometheus_swarm_control_gencpp)
+target_link_libraries(vehicle_info_buffer ${catkin_LIBRARIES})
+
 #add_executable(ego_traj_to_cmd src/ego_traj_to_cmd.cpp)
 #add_dependencies(ego_traj_to_cmd prometheus_swarm_control_gencpp)
 #target_link_libraries(ego_traj_to_cmd ${catkin_LIBRARIES})

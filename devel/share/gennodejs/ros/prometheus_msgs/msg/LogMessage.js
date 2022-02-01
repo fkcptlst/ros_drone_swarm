@@ -123,7 +123,7 @@ class LogMessage {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'd3769b72ec7278159f00ed883861af41';
+    return '48f23090a2939de226bbb2911dd85096';
   }
 
   static messageDefinition() {
@@ -188,6 +188,10 @@ class LogMessage {
     geometry_msgs/Quaternion attitude_q ## 四元数
     float32[3] attitude_rate            ## [rad/s]
     float32 battery_state               ## 电池状态    #float32
+    
+    ## XXX implemented
+    float32[3] sitePos
+    float32 quality
     ================================================================================
     MSG: geometry_msgs/Quaternion
     # This represents an orientation in free space in quaternion form.

@@ -266,6 +266,10 @@ math_utils.h
 printf_utils.h
 /home/amov/swarm_ws2/src/swarm_control/include/printf_utils.h
 
+/home/amov/swarm_ws2/src/swarm_control/include/uav_utils/geometry_utils.h
+Eigen/Dense
+-
+
 /home/amov/swarm_ws2/src/swarm_control/src/swarm_controller.cpp
 swarm_controller.h
 /home/amov/swarm_ws2/src/swarm_control/src/swarm_controller.h

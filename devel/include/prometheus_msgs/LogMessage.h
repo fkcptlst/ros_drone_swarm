@@ -157,12 +157,12 @@ struct MD5Sum< ::prometheus_msgs::LogMessage_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "d3769b72ec7278159f00ed883861af41";
+    return "48f23090a2939de226bbb2911dd85096";
   }
 
   static const char* value(const ::prometheus_msgs::LogMessage_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xd3769b72ec727815ULL;
-  static const uint64_t static_value2 = 0x9f00ed883861af41ULL;
+  static const uint64_t static_value1 = 0x48f23090a2939de2ULL;
+  static const uint64_t static_value2 = 0x26bbb2911dd85096ULL;
 };
 
 template<class ContainerAllocator>
@@ -240,6 +240,10 @@ struct Definition< ::prometheus_msgs::LogMessage_<ContainerAllocator> >
 "geometry_msgs/Quaternion attitude_q ## 四元数\n"
 "float32[3] attitude_rate            ## [rad/s]\n"
 "float32 battery_state               ## 电池状态    #float32\n"
+"\n"
+"## XXX implemented\n"
+"float32[3] sitePos\n"
+"float32 quality\n"
 "================================================================================\n"
 "MSG: geometry_msgs/Quaternion\n"
 "# This represents an orientation in free space in quaternion form.\n"

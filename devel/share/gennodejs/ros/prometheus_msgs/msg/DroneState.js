@@ -34,6 +34,8 @@ class DroneState {
       this.attitude_q = null;
       this.attitude_rate = null;
       this.battery_state = null;
+      this.sitePos = null;
+      this.quality = null;
     }
     else {
       if (initObj.hasOwnProperty('header')) {
@@ -120,6 +122,18 @@ class DroneState {
       else {
         this.battery_state = 0.0;
       }
+      if (initObj.hasOwnProperty('sitePos')) {
+        this.sitePos = initObj.sitePos
+      }
+      else {
+        this.sitePos = new Array(3).fill(0);
+      }
+      if (initObj.hasOwnProperty('quality')) {
+        this.quality = initObj.quality
+      }
+      else {
+        this.quality = 0.0;
+      }
     }
   }
 
@@ -169,6 +183,14 @@ class DroneState {
     bufferOffset = _arraySerializer.float32(obj.attitude_rate, buffer, bufferOffset, 3);
     // Serialize message field [battery_state]
     bufferOffset = _serializer.float32(obj.battery_state, buffer, bufferOffset);
+    // Check that the constant length array field [sitePos] has the right length
+    if (obj.sitePos.length !== 3) {
+      throw new Error('Unable to serialize array field sitePos - length must be 3')
+    }
+    // Serialize message field [sitePos]
+    bufferOffset = _arraySerializer.float32(obj.sitePos, buffer, bufferOffset, 3);
+    // Serialize message field [quality]
+    bufferOffset = _serializer.float32(obj.quality, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -204,6 +226,10 @@ class DroneState {
     data.attitude_rate = _arrayDeserializer.float32(buffer, bufferOffset, 3)
     // Deserialize message field [battery_state]
     data.battery_state = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [sitePos]
+    data.sitePos = _arrayDeserializer.float32(buffer, bufferOffset, 3)
+    // Deserialize message field [quality]
+    data.quality = _deserializer.float32(buffer, bufferOffset);
     return data;
   }
 
@@ -211,7 +237,7 @@ class DroneState {
     let length = 0;
     length += std_msgs.msg.Header.getMessageSize(object.header);
     length += object.mode.length;
-    return length + 100;
+    return length + 116;
   }
 
   static datatype() {
@@ -221,7 +247,7 @@ class DroneState {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '617cd53e1bf2033ee7ce8098bf6675b8';
+    return '7b5a401b18836610cb1c416ad4e878af';
   }
 
   static messageDefinition() {
@@ -250,6 +276,10 @@ class DroneState {
     geometry_msgs/Quaternion attitude_q ## 四元数
     float32[3] attitude_rate            ## [rad/s]
     float32 battery_state               ## 电池状态    #float32
+    
+    ## XXX implemented
+    float32[3] sitePos
+    float32 quality
     ================================================================================
     MSG: std_msgs/Header
     # Standard metadata for higher-level stamped data types.
@@ -380,6 +410,20 @@ class DroneState {
     }
     else {
       resolved.battery_state = 0.0
+    }
+
+    if (msg.sitePos !== undefined) {
+      resolved.sitePos = msg.sitePos;
+    }
+    else {
+      resolved.sitePos = new Array(3).fill(0)
+    }
+
+    if (msg.quality !== undefined) {
+      resolved.quality = msg.quality;
+    }
+    else {
+      resolved.quality = 0.0
     }
 
     return resolved;

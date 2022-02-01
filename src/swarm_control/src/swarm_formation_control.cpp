@@ -22,6 +22,7 @@ ros::Publisher command_pub[MAX_NUM+1];
 
 int controller_num;
 float formation_size;
+
 bool sim_mode;
 
 Eigen::Vector3f virtual_leader_pos;
@@ -73,7 +74,7 @@ int main(int argc, char **argv)
     while(sim_mode && (start_flag == 0))
     {
         cout << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>Formation Flight Mission<<<<<<<<<<<<<<<<<<<<<<<<< "<< endl;
-        cout << "Please enter 1 to disarm all the UAVs."<<endl;
+        cout << "Please enter 1 to arm all the UAVs."<<endl;
         cin >> start_flag;
 
         for(int i = 1; i <= swarm_num_uav; i++) 

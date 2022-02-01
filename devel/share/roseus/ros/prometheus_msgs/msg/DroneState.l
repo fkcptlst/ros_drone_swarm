@@ -18,7 +18,7 @@
 
 (defclass prometheus_msgs::DroneState
   :super ros::object
-  :slots (_header _connected _armed _landed _mode _odom_valid _time_from_start _position _rel_alt _velocity _attitude _attitude_q _attitude_rate _battery_state ))
+  :slots (_header _connected _armed _landed _mode _odom_valid _time_from_start _position _rel_alt _velocity _attitude _attitude_q _attitude_rate _battery_state _sitePos _quality ))
 
 (defmethod prometheus_msgs::DroneState
   (:init
@@ -37,6 +37,8 @@
     ((:attitude_q __attitude_q) (instance geometry_msgs::Quaternion :init))
     ((:attitude_rate __attitude_rate) (make-array 3 :initial-element 0.0 :element-type :float))
     ((:battery_state __battery_state) 0.0)
+    ((:sitePos __sitePos) (make-array 3 :initial-element 0.0 :element-type :float))
+    ((:quality __quality) 0.0)
     )
    (send-super :init)
    (setq _header __header)
@@ -53,6 +55,8 @@
    (setq _attitude_q __attitude_q)
    (setq _attitude_rate __attitude_rate)
    (setq _battery_state (float __battery_state))
+   (setq _sitePos __sitePos)
+   (setq _quality (float __quality))
    self)
   (:header
    (&rest __header)
@@ -104,6 +108,12 @@
   (:battery_state
    (&optional __battery_state)
    (if __battery_state (setq _battery_state __battery_state)) _battery_state)
+  (:sitePos
+   (&optional __sitePos)
+   (if __sitePos (setq _sitePos __sitePos)) _sitePos)
+  (:quality
+   (&optional __quality)
+   (if __quality (setq _quality __quality)) _quality)
   (:serialization-length
    ()
    (+
@@ -134,6 +144,10 @@
     ;; float32[3] _attitude_rate
     (* 4    3)
     ;; float32 _battery_state
+    4
+    ;; float32[3] _sitePos
+    (* 4    3)
+    ;; float32 _quality
     4
     ))
   (:serialize
@@ -176,6 +190,12 @@
        )
      ;; float32 _battery_state
        (sys::poke _battery_state (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; float32[3] _sitePos
+     (dotimes (i 3)
+       (sys::poke (elt _sitePos i) (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+       )
+     ;; float32 _quality
+       (sys::poke _quality (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
@@ -216,11 +236,17 @@
      )
    ;; float32 _battery_state
      (setq _battery_state (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; float32[3] _sitePos
+   (dotimes (i (length _sitePos))
+     (setf (elt _sitePos i) (sys::peek buf ptr- :float)) (incf ptr- 4)
+     )
+   ;; float32 _quality
+     (setq _quality (sys::peek buf ptr- :float)) (incf ptr- 4)
    ;;
    self)
   )
 
-(setf (get prometheus_msgs::DroneState :md5sum-) "617cd53e1bf2033ee7ce8098bf6675b8")
+(setf (get prometheus_msgs::DroneState :md5sum-) "7b5a401b18836610cb1c416ad4e878af")
 (setf (get prometheus_msgs::DroneState :datatype-) "prometheus_msgs/DroneState")
 (setf (get prometheus_msgs::DroneState :definition-)
       "std_msgs/Header header
@@ -246,6 +272,10 @@ float32[3] attitude                 ## [rad]
 geometry_msgs/Quaternion attitude_q ## 四元数
 float32[3] attitude_rate            ## [rad/s]
 float32 battery_state               ## 电池状态    #float32
+
+## XXX implemented
+float32[3] sitePos
+float32 quality
 ================================================================================
 MSG: std_msgs/Header
 # Standard metadata for higher-level stamped data types.
@@ -275,6 +305,6 @@ float64 w
 
 
 
-(provide :prometheus_msgs/DroneState "617cd53e1bf2033ee7ce8098bf6675b8")
+(provide :prometheus_msgs/DroneState "7b5a401b18836610cb1c416ad4e878af")
 
 

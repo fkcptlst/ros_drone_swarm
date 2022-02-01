@@ -10,7 +10,7 @@ import geometry_msgs.msg
 import std_msgs.msg
 
 class DroneState(genpy.Message):
-  _md5sum = "617cd53e1bf2033ee7ce8098bf6675b8"
+  _md5sum = "7b5a401b18836610cb1c416ad4e878af"
   _type = "prometheus_msgs/DroneState"
   _has_header = True  # flag to mark the presence of a Header object
   _full_text = """std_msgs/Header header
@@ -36,6 +36,10 @@ float32[3] attitude                 ## [rad]
 geometry_msgs/Quaternion attitude_q ## 四元数
 float32[3] attitude_rate            ## [rad/s]
 float32 battery_state               ## 电池状态    #float32
+
+## XXX implemented
+float32[3] sitePos
+float32 quality
 ================================================================================
 MSG: std_msgs/Header
 # Standard metadata for higher-level stamped data types.
@@ -61,8 +65,8 @@ float64 y
 float64 z
 float64 w
 """
-  __slots__ = ['header','connected','armed','landed','mode','odom_valid','time_from_start','position','rel_alt','velocity','attitude','attitude_q','attitude_rate','battery_state']
-  _slot_types = ['std_msgs/Header','bool','bool','bool','string','bool','float32','float32[3]','float32','float32[3]','float32[3]','geometry_msgs/Quaternion','float32[3]','float32']
+  __slots__ = ['header','connected','armed','landed','mode','odom_valid','time_from_start','position','rel_alt','velocity','attitude','attitude_q','attitude_rate','battery_state','sitePos','quality']
+  _slot_types = ['std_msgs/Header','bool','bool','bool','string','bool','float32','float32[3]','float32','float32[3]','float32[3]','geometry_msgs/Quaternion','float32[3]','float32','float32[3]','float32']
 
   def __init__(self, *args, **kwds):
     """
@@ -72,7 +76,7 @@ float64 w
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       header,connected,armed,landed,mode,odom_valid,time_from_start,position,rel_alt,velocity,attitude,attitude_q,attitude_rate,battery_state
+       header,connected,armed,landed,mode,odom_valid,time_from_start,position,rel_alt,velocity,attitude,attitude_q,attitude_rate,battery_state,sitePos,quality
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -109,6 +113,10 @@ float64 w
         self.attitude_rate = [0.] * 3
       if self.battery_state is None:
         self.battery_state = 0.
+      if self.sitePos is None:
+        self.sitePos = [0.] * 3
+      if self.quality is None:
+        self.quality = 0.
     else:
       self.header = std_msgs.msg.Header()
       self.connected = False
@@ -124,6 +132,8 @@ float64 w
       self.attitude_q = geometry_msgs.msg.Quaternion()
       self.attitude_rate = [0.] * 3
       self.battery_state = 0.
+      self.sitePos = [0.] * 3
+      self.quality = 0.
 
   def _get_types(self):
     """
@@ -164,6 +174,9 @@ float64 w
       buff.write(_get_struct_4d().pack(_x.attitude_q.x, _x.attitude_q.y, _x.attitude_q.z, _x.attitude_q.w))
       buff.write(_get_struct_3f().pack(*self.attitude_rate))
       _x = self.battery_state
+      buff.write(_get_struct_f().pack(_x))
+      buff.write(_get_struct_3f().pack(*self.sitePos))
+      _x = self.quality
       buff.write(_get_struct_f().pack(_x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
@@ -236,6 +249,12 @@ float64 w
       start = end
       end += 4
       (self.battery_state,) = _get_struct_f().unpack(str[start:end])
+      start = end
+      end += 12
+      self.sitePos = _get_struct_3f().unpack(str[start:end])
+      start = end
+      end += 4
+      (self.quality,) = _get_struct_f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -275,6 +294,9 @@ float64 w
       buff.write(_get_struct_4d().pack(_x.attitude_q.x, _x.attitude_q.y, _x.attitude_q.z, _x.attitude_q.w))
       buff.write(self.attitude_rate.tostring())
       _x = self.battery_state
+      buff.write(_get_struct_f().pack(_x))
+      buff.write(self.sitePos.tostring())
+      _x = self.quality
       buff.write(_get_struct_f().pack(_x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
@@ -348,6 +370,12 @@ float64 w
       start = end
       end += 4
       (self.battery_state,) = _get_struct_f().unpack(str[start:end])
+      start = end
+      end += 12
+      self.sitePos = numpy.frombuffer(str[start:end], dtype=numpy.float32, count=3)
+      start = end
+      end += 4
+      (self.quality,) = _get_struct_f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill

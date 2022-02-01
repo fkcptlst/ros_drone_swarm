@@ -746,6 +746,7 @@
         <update_rate>30</update_rate>
         <visualize>1</visualize>
         <plugin name='camera_plugin' filename='libgazebo_ros_camera.so'>
+        <!-- TODO-->
             <robotNamespace>/uav1/prometheus/sensor</robotNamespace>
             <alwaysOn>true</alwaysOn>
             <imageTopicName>image_raw</imageTopicName>

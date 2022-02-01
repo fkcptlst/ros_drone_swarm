@@ -285,6 +285,19 @@ prometheus_swarm_control_generate_messages/fast:
 .PHONY : prometheus_swarm_control_generate_messages/fast
 
 #=============================================================================
+# Target rules for targets named vehicle_info_buffer
+
+# Build rule for target.
+vehicle_info_buffer: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vehicle_info_buffer
+.PHONY : vehicle_info_buffer
+
+# fast build rule for target.
+vehicle_info_buffer/fast:
+	$(MAKE) -f CMakeFiles/vehicle_info_buffer.dir/build.make CMakeFiles/vehicle_info_buffer.dir/build
+.PHONY : vehicle_info_buffer/fast
+
+#=============================================================================
 # Target rules for targets named prometheus_msgs_generate_messages_py
 
 # Build rule for target.
@@ -1468,6 +1481,19 @@ tf2_msgs_generate_messages_eus/fast:
 .PHONY : tf2_msgs_generate_messages_eus/fast
 
 #=============================================================================
+# Target rules for targets named virtual_observer
+
+# Build rule for target.
+virtual_observer: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 virtual_observer
+.PHONY : virtual_observer
+
+# fast build rule for target.
+virtual_observer/fast:
+	$(MAKE) -f CMakeFiles/virtual_observer.dir/build.make CMakeFiles/virtual_observer.dir/build
+.PHONY : virtual_observer/fast
+
+#=============================================================================
 # Target rules for targets named nav_msgs_generate_messages_py
 
 # Build rule for target.
@@ -1745,6 +1771,60 @@ src/swarm_terminal_control.cpp.s:
 	$(MAKE) -f CMakeFiles/swarm_terminal_control.dir/build.make CMakeFiles/swarm_terminal_control.dir/src/swarm_terminal_control.cpp.s
 .PHONY : src/swarm_terminal_control.cpp.s
 
+src/vehicle_info_buffer.o: src/vehicle_info_buffer.cpp.o
+
+.PHONY : src/vehicle_info_buffer.o
+
+# target to build an object file
+src/vehicle_info_buffer.cpp.o:
+	$(MAKE) -f CMakeFiles/vehicle_info_buffer.dir/build.make CMakeFiles/vehicle_info_buffer.dir/src/vehicle_info_buffer.cpp.o
+.PHONY : src/vehicle_info_buffer.cpp.o
+
+src/vehicle_info_buffer.i: src/vehicle_info_buffer.cpp.i
+
+.PHONY : src/vehicle_info_buffer.i
+
+# target to preprocess a source file
+src/vehicle_info_buffer.cpp.i:
+	$(MAKE) -f CMakeFiles/vehicle_info_buffer.dir/build.make CMakeFiles/vehicle_info_buffer.dir/src/vehicle_info_buffer.cpp.i
+.PHONY : src/vehicle_info_buffer.cpp.i
+
+src/vehicle_info_buffer.s: src/vehicle_info_buffer.cpp.s
+
+.PHONY : src/vehicle_info_buffer.s
+
+# target to generate assembly for a file
+src/vehicle_info_buffer.cpp.s:
+	$(MAKE) -f CMakeFiles/vehicle_info_buffer.dir/build.make CMakeFiles/vehicle_info_buffer.dir/src/vehicle_info_buffer.cpp.s
+.PHONY : src/vehicle_info_buffer.cpp.s
+
+src/virtual_observer.o: src/virtual_observer.cpp.o
+
+.PHONY : src/virtual_observer.o
+
+# target to build an object file
+src/virtual_observer.cpp.o:
+	$(MAKE) -f CMakeFiles/virtual_observer.dir/build.make CMakeFiles/virtual_observer.dir/src/virtual_observer.cpp.o
+.PHONY : src/virtual_observer.cpp.o
+
+src/virtual_observer.i: src/virtual_observer.cpp.i
+
+.PHONY : src/virtual_observer.i
+
+# target to preprocess a source file
+src/virtual_observer.cpp.i:
+	$(MAKE) -f CMakeFiles/virtual_observer.dir/build.make CMakeFiles/virtual_observer.dir/src/virtual_observer.cpp.i
+.PHONY : src/virtual_observer.cpp.i
+
+src/virtual_observer.s: src/virtual_observer.cpp.s
+
+.PHONY : src/virtual_observer.s
+
+# target to generate assembly for a file
+src/virtual_observer.cpp.s:
+	$(MAKE) -f CMakeFiles/virtual_observer.dir/build.make CMakeFiles/virtual_observer.dir/src/virtual_observer.cpp.s
+.PHONY : src/virtual_observer.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1763,6 +1843,7 @@ help:
 	@echo "... prometheus_swarm_control_gencpp"
 	@echo "... prometheus_swarm_control_generate_messages_cpp"
 	@echo "... prometheus_swarm_control_generate_messages"
+	@echo "... vehicle_info_buffer"
 	@echo "... prometheus_msgs_generate_messages_py"
 	@echo "... prometheus_msgs_generate_messages_nodejs"
 	@echo "... prometheus_msgs_generate_messages_lisp"
@@ -1858,6 +1939,7 @@ help:
 	@echo "... tf2_msgs_generate_messages_cpp"
 	@echo "... nav_msgs_generate_messages_eus"
 	@echo "... tf2_msgs_generate_messages_eus"
+	@echo "... virtual_observer"
 	@echo "... nav_msgs_generate_messages_py"
 	@echo "... tf2_msgs_generate_messages_lisp"
 	@echo "... actionlib_generate_messages_py"
@@ -1884,6 +1966,12 @@ help:
 	@echo "... src/swarm_terminal_control.o"
 	@echo "... src/swarm_terminal_control.i"
 	@echo "... src/swarm_terminal_control.s"
+	@echo "... src/vehicle_info_buffer.o"
+	@echo "... src/vehicle_info_buffer.i"
+	@echo "... src/vehicle_info_buffer.s"
+	@echo "... src/virtual_observer.o"
+	@echo "... src/virtual_observer.i"
+	@echo "... src/virtual_observer.s"
 .PHONY : help
 
 

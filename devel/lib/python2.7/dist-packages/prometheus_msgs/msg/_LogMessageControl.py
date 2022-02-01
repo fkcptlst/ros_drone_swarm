@@ -11,7 +11,7 @@ import prometheus_msgs.msg
 import std_msgs.msg
 
 class LogMessageControl(genpy.Message):
-  _md5sum = "633f069581da65bdf61c80ba91ae9948"
+  _md5sum = "b4b68434fdb47e7fd89659c18660dfe7"
   _type = "prometheus_msgs/LogMessageControl"
   _has_header = True  # flag to mark the presence of a Header object
   _full_text = """std_msgs/Header header
@@ -76,6 +76,10 @@ float32[3] attitude                 ## [rad]
 geometry_msgs/Quaternion attitude_q ## 四元数
 float32[3] attitude_rate            ## [rad/s]
 float32 battery_state               ## 电池状态    #float32
+
+## XXX implemented
+float32[3] sitePos
+float32 quality
 ================================================================================
 MSG: geometry_msgs/Quaternion
 # This represents an orientation in free space in quaternion form.
@@ -285,8 +289,11 @@ float64 z
       _x = self
       buff.write(_get_struct_4d().pack(_x.Drone_State.attitude_q.x, _x.Drone_State.attitude_q.y, _x.Drone_State.attitude_q.z, _x.Drone_State.attitude_q.w))
       buff.write(_get_struct_3f().pack(*self.Drone_State.attitude_rate))
+      _x = self.Drone_State.battery_state
+      buff.write(_get_struct_f().pack(_x))
+      buff.write(_get_struct_3f().pack(*self.Drone_State.sitePos))
       _x = self
-      buff.write(_get_struct_f3I().pack(_x.Drone_State.battery_state, _x.Control_Command.header.seq, _x.Control_Command.header.stamp.secs, _x.Control_Command.header.stamp.nsecs))
+      buff.write(_get_struct_f3I().pack(_x.Drone_State.quality, _x.Control_Command.header.seq, _x.Control_Command.header.stamp.secs, _x.Control_Command.header.stamp.nsecs))
       _x = self.Control_Command.header.frame_id
       length = len(_x)
       if python3 or type(_x) == unicode:
@@ -438,10 +445,16 @@ float64 z
       start = end
       end += 12
       self.Drone_State.attitude_rate = _get_struct_3f().unpack(str[start:end])
+      start = end
+      end += 4
+      (self.Drone_State.battery_state,) = _get_struct_f().unpack(str[start:end])
+      start = end
+      end += 12
+      self.Drone_State.sitePos = _get_struct_3f().unpack(str[start:end])
       _x = self
       start = end
       end += 16
-      (_x.Drone_State.battery_state, _x.Control_Command.header.seq, _x.Control_Command.header.stamp.secs, _x.Control_Command.header.stamp.nsecs,) = _get_struct_f3I().unpack(str[start:end])
+      (_x.Drone_State.quality, _x.Control_Command.header.seq, _x.Control_Command.header.stamp.secs, _x.Control_Command.header.stamp.nsecs,) = _get_struct_f3I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -603,8 +616,11 @@ float64 z
       _x = self
       buff.write(_get_struct_4d().pack(_x.Drone_State.attitude_q.x, _x.Drone_State.attitude_q.y, _x.Drone_State.attitude_q.z, _x.Drone_State.attitude_q.w))
       buff.write(self.Drone_State.attitude_rate.tostring())
+      _x = self.Drone_State.battery_state
+      buff.write(_get_struct_f().pack(_x))
+      buff.write(self.Drone_State.sitePos.tostring())
       _x = self
-      buff.write(_get_struct_f3I().pack(_x.Drone_State.battery_state, _x.Control_Command.header.seq, _x.Control_Command.header.stamp.secs, _x.Control_Command.header.stamp.nsecs))
+      buff.write(_get_struct_f3I().pack(_x.Drone_State.quality, _x.Control_Command.header.seq, _x.Control_Command.header.stamp.secs, _x.Control_Command.header.stamp.nsecs))
       _x = self.Control_Command.header.frame_id
       length = len(_x)
       if python3 or type(_x) == unicode:
@@ -757,10 +773,16 @@ float64 z
       start = end
       end += 12
       self.Drone_State.attitude_rate = numpy.frombuffer(str[start:end], dtype=numpy.float32, count=3)
+      start = end
+      end += 4
+      (self.Drone_State.battery_state,) = _get_struct_f().unpack(str[start:end])
+      start = end
+      end += 12
+      self.Drone_State.sitePos = numpy.frombuffer(str[start:end], dtype=numpy.float32, count=3)
       _x = self
       start = end
       end += 16
-      (_x.Drone_State.battery_state, _x.Control_Command.header.seq, _x.Control_Command.header.stamp.secs, _x.Control_Command.header.stamp.nsecs,) = _get_struct_f3I().unpack(str[start:end])
+      (_x.Drone_State.quality, _x.Control_Command.header.seq, _x.Control_Command.header.stamp.secs, _x.Control_Command.header.stamp.nsecs,) = _get_struct_f3I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])

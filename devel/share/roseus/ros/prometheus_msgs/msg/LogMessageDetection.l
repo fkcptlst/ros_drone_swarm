@@ -126,7 +126,7 @@
    self)
   )
 
-(setf (get prometheus_msgs::LogMessageDetection :md5sum-) "d3769b72ec7278159f00ed883861af41")
+(setf (get prometheus_msgs::LogMessageDetection :md5sum-) "48f23090a2939de226bbb2911dd85096")
 (setf (get prometheus_msgs::LogMessageDetection :datatype-) "prometheus_msgs/LogMessageDetection")
 (setf (get prometheus_msgs::LogMessageDetection :definition-)
       "std_msgs/Header header
@@ -188,6 +188,10 @@ float32[3] attitude                 ## [rad]
 geometry_msgs/Quaternion attitude_q ## 四元数
 float32[3] attitude_rate            ## [rad/s]
 float32 battery_state               ## 电池状态    #float32
+
+## XXX implemented
+float32[3] sitePos
+float32 quality
 ================================================================================
 MSG: geometry_msgs/Quaternion
 # This represents an orientation in free space in quaternion form.
@@ -290,6 +294,6 @@ geometry_msgs/Quaternion desired_att_q ## 四元数
 
 
 
-(provide :prometheus_msgs/LogMessageDetection "d3769b72ec7278159f00ed883861af41")
+(provide :prometheus_msgs/LogMessageDetection "48f23090a2939de226bbb2911dd85096")
 
 

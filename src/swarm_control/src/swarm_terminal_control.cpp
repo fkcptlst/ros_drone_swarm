@@ -32,7 +32,7 @@ int main(int argc, char **argv)
 
     uav_name = "/uav" + std::to_string(uav_id);
     //　【发布】　指令(swarm-controller)
-    command_pub = nh.advertise<prometheus_msgs::SwarmCommand>(uav_name + "/prometheus/swarm_command", 10);
+    command_pub = nh.advertise<prometheus_msgs::SwarmCommand>(uav_name + "/prometheus/swarm_command", 10);  
     //　【发布】　参考轨迹(ego-planner)
     ego_wp_pub = nh.advertise<nav_msgs::Path>(uav_name + "/waypoint_generator/waypoints", 10);
     //　【发布】　参考轨迹(ego-planner-swarm)
@@ -46,7 +46,7 @@ int main(int argc, char **argv)
         while(start_flag == 0)
         {
             cout << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>Terminal Control<<<<<<<<<<<<<<<<<<<<<<<<< "<< endl;
-            cout << "Please enter 1 to disarm the UAV and switch to OFFBOARD mode."<<endl;
+            cout << "Please enter 1 to arm the UAV and switch to OFFBOARD mode."<<endl;
             cin >> start_flag;
 
             swarm_command.Mode = prometheus_msgs::SwarmCommand::Idle;

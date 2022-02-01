@@ -28,7 +28,7 @@ using namespace std;
 #define MAX_UAV_NUM 50
 
 // 变量
-int swarm_num_uav;                                  // 集群数量
+int swarm_num_uav;                              // TODO 这个最终需要作为global para，对于个体要透明 集群数量
 string uav_name;                                // 无人机名字
 int uav_id;                                     // 无人机编号
 int num_neighbour = 2;                          // 邻居数量,目前默认为2

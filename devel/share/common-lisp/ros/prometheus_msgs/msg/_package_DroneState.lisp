@@ -27,4 +27,8 @@
           ATTITUDE_RATE
           BATTERY_STATE-VAL
           BATTERY_STATE
+          SITEPOS-VAL
+          SITEPOS
+          QUALITY-VAL
+          QUALITY
 ))

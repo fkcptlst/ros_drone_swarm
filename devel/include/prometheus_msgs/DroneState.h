@@ -39,7 +39,9 @@ struct DroneState_
     , attitude()
     , attitude_q()
     , attitude_rate()
-    , battery_state(0.0)  {
+    , battery_state(0.0)
+    , sitePos()
+    , quality(0.0)  {
       position.assign(0.0);
 
       velocity.assign(0.0);
@@ -47,6 +49,8 @@ struct DroneState_
       attitude.assign(0.0);
 
       attitude_rate.assign(0.0);
+
+      sitePos.assign(0.0);
   }
   DroneState_(const ContainerAllocator& _alloc)
     : header(_alloc)
@@ -62,7 +66,9 @@ struct DroneState_
     , attitude()
     , attitude_q(_alloc)
     , attitude_rate()
-    , battery_state(0.0)  {
+    , battery_state(0.0)
+    , sitePos()
+    , quality(0.0)  {
   (void)_alloc;
       position.assign(0.0);
 
@@ -71,6 +77,8 @@ struct DroneState_
       attitude.assign(0.0);
 
       attitude_rate.assign(0.0);
+
+      sitePos.assign(0.0);
   }
 
 
@@ -117,6 +125,12 @@ struct DroneState_
    typedef float _battery_state_type;
   _battery_state_type battery_state;
 
+   typedef boost::array<float, 3>  _sitePos_type;
+  _sitePos_type sitePos;
+
+   typedef float _quality_type;
+  _quality_type quality;
+
 
 
 
@@ -159,7 +173,9 @@ bool operator==(const ::prometheus_msgs::DroneState_<ContainerAllocator1> & lhs,
     lhs.attitude == rhs.attitude &&
     lhs.attitude_q == rhs.attitude_q &&
     lhs.attitude_rate == rhs.attitude_rate &&
-    lhs.battery_state == rhs.battery_state;
+    lhs.battery_state == rhs.battery_state &&
+    lhs.sitePos == rhs.sitePos &&
+    lhs.quality == rhs.quality;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -216,12 +232,12 @@ struct MD5Sum< ::prometheus_msgs::DroneState_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "617cd53e1bf2033ee7ce8098bf6675b8";
+    return "7b5a401b18836610cb1c416ad4e878af";
   }
 
   static const char* value(const ::prometheus_msgs::DroneState_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x617cd53e1bf2033eULL;
-  static const uint64_t static_value2 = 0xe7ce8098bf6675b8ULL;
+  static const uint64_t static_value1 = 0x7b5a401b18836610ULL;
+  static const uint64_t static_value2 = 0xcb1c416ad4e878afULL;
 };
 
 template<class ContainerAllocator>
@@ -263,6 +279,10 @@ struct Definition< ::prometheus_msgs::DroneState_<ContainerAllocator> >
 "geometry_msgs/Quaternion attitude_q ## 四元数\n"
 "float32[3] attitude_rate            ## [rad/s]\n"
 "float32 battery_state               ## 电池状态    #float32\n"
+"\n"
+"## XXX implemented\n"
+"float32[3] sitePos\n"
+"float32 quality\n"
 "================================================================================\n"
 "MSG: std_msgs/Header\n"
 "# Standard metadata for higher-level stamped data types.\n"
@@ -319,6 +339,8 @@ namespace serialization
       stream.next(m.attitude_q);
       stream.next(m.attitude_rate);
       stream.next(m.battery_state);
+      stream.next(m.sitePos);
+      stream.next(m.quality);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -383,6 +405,14 @@ struct Printer< ::prometheus_msgs::DroneState_<ContainerAllocator> >
     }
     s << indent << "battery_state: ";
     Printer<float>::stream(s, indent + "  ", v.battery_state);
+    s << indent << "sitePos[]" << std::endl;
+    for (size_t i = 0; i < v.sitePos.size(); ++i)
+    {
+      s << indent << "  sitePos[" << i << "]: ";
+      Printer<float>::stream(s, indent + "  ", v.sitePos[i]);
+    }
+    s << indent << "quality: ";
+    Printer<float>::stream(s, indent + "  ", v.quality);
   }
 };
 

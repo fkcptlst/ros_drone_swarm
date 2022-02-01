@@ -84,6 +84,13 @@ void init()
     _DroneState.attitude_rate[1] = 0.0;
     _DroneState.attitude_rate[2] = 0.0;
     _DroneState.rel_alt = 0.0;
+
+    //XXX implemented
+    _DroneState.sitePos[0] = 0.0;
+    _DroneState.sitePos[1] = 0.0;
+    _DroneState.sitePos[2] = 0.0;
+    _DroneState.quality = 0.0;
+
     //
     pos_drone_mocap = Eigen::Vector3d(0.0, 0.0, 0.0);
     q_mocap         = Eigen::Quaterniond(0.0, 0.0, 0.0, 0.0);

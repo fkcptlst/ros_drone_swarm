@@ -376,6 +376,43 @@ clean: CMakeFiles/prometheus_swarm_control_generate_messages.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/vehicle_info_buffer.dir
+
+# All Build rule for target.
+CMakeFiles/vehicle_info_buffer.dir/all: CMakeFiles/prometheus_swarm_control_gencpp.dir/all
+	$(MAKE) -f CMakeFiles/vehicle_info_buffer.dir/build.make CMakeFiles/vehicle_info_buffer.dir/depend
+	$(MAKE) -f CMakeFiles/vehicle_info_buffer.dir/build.make CMakeFiles/vehicle_info_buffer.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=23,24 "Built target vehicle_info_buffer"
+.PHONY : CMakeFiles/vehicle_info_buffer.dir/all
+
+# Include target in all.
+all: CMakeFiles/vehicle_info_buffer.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/vehicle_info_buffer.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/amov/swarm_ws2/build/swarm_control/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/vehicle_info_buffer.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/amov/swarm_ws2/build/swarm_control/CMakeFiles 0
+.PHONY : CMakeFiles/vehicle_info_buffer.dir/rule
+
+# Convenience name for target.
+vehicle_info_buffer: CMakeFiles/vehicle_info_buffer.dir/rule
+
+.PHONY : vehicle_info_buffer
+
+# clean rule for target.
+CMakeFiles/vehicle_info_buffer.dir/clean:
+	$(MAKE) -f CMakeFiles/vehicle_info_buffer.dir/build.make CMakeFiles/vehicle_info_buffer.dir/clean
+.PHONY : CMakeFiles/vehicle_info_buffer.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/vehicle_info_buffer.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/prometheus_msgs_generate_messages_py.dir
 
 # All Build rule for target.
@@ -3305,6 +3342,43 @@ CMakeFiles/tf2_msgs_generate_messages_eus.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/tf2_msgs_generate_messages_eus.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/virtual_observer.dir
+
+# All Build rule for target.
+CMakeFiles/virtual_observer.dir/all: CMakeFiles/prometheus_swarm_control_gencpp.dir/all
+	$(MAKE) -f CMakeFiles/virtual_observer.dir/build.make CMakeFiles/virtual_observer.dir/depend
+	$(MAKE) -f CMakeFiles/virtual_observer.dir/build.make CMakeFiles/virtual_observer.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=25,26 "Built target virtual_observer"
+.PHONY : CMakeFiles/virtual_observer.dir/all
+
+# Include target in all.
+all: CMakeFiles/virtual_observer.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/virtual_observer.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/amov/swarm_ws2/build/swarm_control/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/virtual_observer.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/amov/swarm_ws2/build/swarm_control/CMakeFiles 0
+.PHONY : CMakeFiles/virtual_observer.dir/rule
+
+# Convenience name for target.
+virtual_observer: CMakeFiles/virtual_observer.dir/rule
+
+.PHONY : virtual_observer
+
+# clean rule for target.
+CMakeFiles/virtual_observer.dir/clean:
+	$(MAKE) -f CMakeFiles/virtual_observer.dir/build.make CMakeFiles/virtual_observer.dir/clean
+.PHONY : CMakeFiles/virtual_observer.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/virtual_observer.dir/clean
 
 .PHONY : clean
 

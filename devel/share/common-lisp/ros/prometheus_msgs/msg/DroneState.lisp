@@ -76,6 +76,16 @@
     :reader battery_state
     :initarg :battery_state
     :type cl:float
+    :initform 0.0)
+   (sitePos
+    :reader sitePos
+    :initarg :sitePos
+    :type (cl:vector cl:float)
+   :initform (cl:make-array 3 :element-type 'cl:float :initial-element 0.0))
+   (quality
+    :reader quality
+    :initarg :quality
+    :type cl:float
     :initform 0.0))
 )
 
@@ -156,6 +166,16 @@
 (cl:defmethod battery_state-val ((m <DroneState>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader prometheus_msgs-msg:battery_state-val is deprecated.  Use prometheus_msgs-msg:battery_state instead.")
   (battery_state m))
+
+(cl:ensure-generic-function 'sitePos-val :lambda-list '(m))
+(cl:defmethod sitePos-val ((m <DroneState>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader prometheus_msgs-msg:sitePos-val is deprecated.  Use prometheus_msgs-msg:sitePos instead.")
+  (sitePos m))
+
+(cl:ensure-generic-function 'quality-val :lambda-list '(m))
+(cl:defmethod quality-val ((m <DroneState>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader prometheus_msgs-msg:quality-val is deprecated.  Use prometheus_msgs-msg:quality instead.")
+  (quality m))
 (cl:defmethod roslisp-msg-protocol:serialize ((msg <DroneState>) ostream)
   "Serializes a message object of type '<DroneState>"
   (roslisp-msg-protocol:serialize (cl:slot-value msg 'header) ostream)
@@ -205,6 +225,17 @@
     (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream)))
    (cl:slot-value msg 'attitude_rate))
   (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'battery_state))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
+  (cl:map cl:nil #'(cl:lambda (ele) (cl:let ((bits (roslisp-utils:encode-single-float-bits ele)))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream)))
+   (cl:slot-value msg 'sitePos))
+  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'quality))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
@@ -280,6 +311,21 @@
       (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
     (cl:setf (cl:slot-value msg 'battery_state) (roslisp-utils:decode-single-float-bits bits)))
+  (cl:setf (cl:slot-value msg 'sitePos) (cl:make-array 3))
+  (cl:let ((vals (cl:slot-value msg 'sitePos)))
+    (cl:dotimes (i 3)
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+    (cl:setf (cl:aref vals i) (roslisp-utils:decode-single-float-bits bits)))))
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+    (cl:setf (cl:slot-value msg 'quality) (roslisp-utils:decode-single-float-bits bits)))
   msg
 )
 (cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql '<DroneState>)))
@@ -290,16 +336,16 @@
   "prometheus_msgs/DroneState")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<DroneState>)))
   "Returns md5sum for a message object of type '<DroneState>"
-  "617cd53e1bf2033ee7ce8098bf6675b8")
+  "7b5a401b18836610cb1c416ad4e878af")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'DroneState)))
   "Returns md5sum for a message object of type 'DroneState"
-  "617cd53e1bf2033ee7ce8098bf6675b8")
+  "7b5a401b18836610cb1c416ad4e878af")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<DroneState>)))
   "Returns full string definition for message of type '<DroneState>"
-  (cl:format cl:nil "std_msgs/Header header~%~%## 机载电脑是否连接上飞控，true已连接，false则不是~%bool connected~%## 是否解锁，true为已解锁，false则不是~%bool armed~%## 是否降落，true为已降落，false则代表在空中~%bool landed~%## PX4飞控当前飞行模式~%string mode~%bool odom_valid~%~%## 系统启动时间~%float32 time_from_start             ## [s]~%~%## 无人机状态量：位置、速度、姿态~%float32[3] position                 ## [m]~%float32  rel_alt                               ## [m] only for outdoor~%float32[3] velocity                 ## [m/s]~%float32[3] attitude                 ## [rad]~%geometry_msgs/Quaternion attitude_q ## 四元数~%float32[3] attitude_rate            ## [rad/s]~%float32 battery_state               ## 电池状态    #float32~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%================================================================================~%MSG: geometry_msgs/Quaternion~%# This represents an orientation in free space in quaternion form.~%~%float64 x~%float64 y~%float64 z~%float64 w~%~%~%"))
+  (cl:format cl:nil "std_msgs/Header header~%~%## 机载电脑是否连接上飞控，true已连接，false则不是~%bool connected~%## 是否解锁，true为已解锁，false则不是~%bool armed~%## 是否降落，true为已降落，false则代表在空中~%bool landed~%## PX4飞控当前飞行模式~%string mode~%bool odom_valid~%~%## 系统启动时间~%float32 time_from_start             ## [s]~%~%## 无人机状态量：位置、速度、姿态~%float32[3] position                 ## [m]~%float32  rel_alt                               ## [m] only for outdoor~%float32[3] velocity                 ## [m/s]~%float32[3] attitude                 ## [rad]~%geometry_msgs/Quaternion attitude_q ## 四元数~%float32[3] attitude_rate            ## [rad/s]~%float32 battery_state               ## 电池状态    #float32~%~%## XXX implemented~%float32[3] sitePos~%float32 quality~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%================================================================================~%MSG: geometry_msgs/Quaternion~%# This represents an orientation in free space in quaternion form.~%~%float64 x~%float64 y~%float64 z~%float64 w~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'DroneState)))
   "Returns full string definition for message of type 'DroneState"
-  (cl:format cl:nil "std_msgs/Header header~%~%## 机载电脑是否连接上飞控，true已连接，false则不是~%bool connected~%## 是否解锁，true为已解锁，false则不是~%bool armed~%## 是否降落，true为已降落，false则代表在空中~%bool landed~%## PX4飞控当前飞行模式~%string mode~%bool odom_valid~%~%## 系统启动时间~%float32 time_from_start             ## [s]~%~%## 无人机状态量：位置、速度、姿态~%float32[3] position                 ## [m]~%float32  rel_alt                               ## [m] only for outdoor~%float32[3] velocity                 ## [m/s]~%float32[3] attitude                 ## [rad]~%geometry_msgs/Quaternion attitude_q ## 四元数~%float32[3] attitude_rate            ## [rad/s]~%float32 battery_state               ## 电池状态    #float32~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%================================================================================~%MSG: geometry_msgs/Quaternion~%# This represents an orientation in free space in quaternion form.~%~%float64 x~%float64 y~%float64 z~%float64 w~%~%~%"))
+  (cl:format cl:nil "std_msgs/Header header~%~%## 机载电脑是否连接上飞控，true已连接，false则不是~%bool connected~%## 是否解锁，true为已解锁，false则不是~%bool armed~%## 是否降落，true为已降落，false则代表在空中~%bool landed~%## PX4飞控当前飞行模式~%string mode~%bool odom_valid~%~%## 系统启动时间~%float32 time_from_start             ## [s]~%~%## 无人机状态量：位置、速度、姿态~%float32[3] position                 ## [m]~%float32  rel_alt                               ## [m] only for outdoor~%float32[3] velocity                 ## [m/s]~%float32[3] attitude                 ## [rad]~%geometry_msgs/Quaternion attitude_q ## 四元数~%float32[3] attitude_rate            ## [rad/s]~%float32 battery_state               ## 电池状态    #float32~%~%## XXX implemented~%float32[3] sitePos~%float32 quality~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%================================================================================~%MSG: geometry_msgs/Quaternion~%# This represents an orientation in free space in quaternion form.~%~%float64 x~%float64 y~%float64 z~%float64 w~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <DroneState>))
   (cl:+ 0
      (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'header))
@@ -315,6 +361,8 @@
      0 (cl:reduce #'cl:+ (cl:slot-value msg 'attitude) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ 4)))
      (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'attitude_q))
      0 (cl:reduce #'cl:+ (cl:slot-value msg 'attitude_rate) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ 4)))
+     4
+     0 (cl:reduce #'cl:+ (cl:slot-value msg 'sitePos) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ 4)))
      4
 ))
 (cl:defmethod roslisp-msg-protocol:ros-message-to-list ((msg <DroneState>))
@@ -334,4 +382,6 @@
     (cl:cons ':attitude_q (attitude_q msg))
     (cl:cons ':attitude_rate (attitude_rate msg))
     (cl:cons ':battery_state (battery_state msg))
+    (cl:cons ':sitePos (sitePos msg))
+    (cl:cons ':quality (quality msg))
 ))
