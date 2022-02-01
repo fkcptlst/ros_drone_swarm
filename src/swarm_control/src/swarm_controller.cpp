@@ -21,11 +21,11 @@ int main(int argc, char **argv)
     }
 
     //【订阅】集群控制指令
-    command_sub = nh.subscribe<prometheus_msgs::SwarmCommand>(uav_name + "/prometheus/swarm_command", 10, swarm_command_cb);
+    command_sub = nh.subscribe<prometheus_msgs::SwarmCommand>(uav_name + "/prometheus/swarm_command", 10, swarm_command_cb); //update swarm command
 
     //【订阅】本机状态信息
-    drone_state_sub = nh.subscribe<prometheus_msgs::DroneState>(uav_name + "/prometheus/drone_state", 10, drone_state_cb);
-
+    drone_state_sub = nh.subscribe<prometheus_msgs::DroneState>(uav_name + "/prometheus/drone_state", 10, drone_state_cb); //update self state
+/*
     //【订阅】邻居飞机的状态信息
     for(int i = 1; i <= swarm_num_uav; i++) 
     {
@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 
         nei_state_sub[i] = nh.subscribe<prometheus_msgs::DroneState>("/uav"+std::to_string(i)+ "/prometheus/drone_state", 10, boost::bind(nei_state_cb,_1,i));
     }
-
+*/
     // 【发布】位置/速度/加速度期望值 坐标系 ENU系
     //  本话题要发送至飞控(通过Mavros功能包 /plugins/setpoint_raw.cpp发送), 对应Mavlink消息为SET_POSITION_TARGET_LOCAL_NED (#84), 对应的飞控中的uORB消息为position_setpoint_triplet.msg
     setpoint_raw_local_pub = nh.advertise<mavros_msgs::PositionTarget>(uav_name + "/mavros/setpoint_raw/local", 10);
@@ -181,7 +181,7 @@ void mainloop_cb(const ros::TimerEvent &e)
     case prometheus_msgs::SwarmCommand::Position_Control:
 
         //　此控制方式即为　集中式控制，　直接由地面站指定期望位置点
-        pos_des[0] = Command_Now.position_ref[0] + formation_separation(uav_id-1,0) - gazebo_offset[0];
+        pos_des[0] = Command_Now.position_ref[0] + formation_separation(uav_id-1,0) - gazebo_offset[0]; //gazebo_offset, default is 0
         pos_des[1] = Command_Now.position_ref[1] + formation_separation(uav_id-1,1) - gazebo_offset[1];
         pos_des[2] = Command_Now.position_ref[2] + formation_separation(uav_id-1,2) - gazebo_offset[2];
         yaw_des = Command_Now.yaw_ref;

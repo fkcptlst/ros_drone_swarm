@@ -168,6 +168,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named uav_planner
+
+# Build rule for target.
+uav_planner: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_planner
+.PHONY : uav_planner
+
+# fast build rule for target.
+uav_planner/fast:
+	$(MAKE) -f CMakeFiles/uav_planner.dir/build.make CMakeFiles/uav_planner.dir/build
+.PHONY : uav_planner/fast
+
+#=============================================================================
 # Target rules for targets named swarm_formation_control
 
 # Build rule for target.
@@ -283,19 +296,6 @@ prometheus_swarm_control_generate_messages: cmake_check_build_system
 prometheus_swarm_control_generate_messages/fast:
 	$(MAKE) -f CMakeFiles/prometheus_swarm_control_generate_messages.dir/build.make CMakeFiles/prometheus_swarm_control_generate_messages.dir/build
 .PHONY : prometheus_swarm_control_generate_messages/fast
-
-#=============================================================================
-# Target rules for targets named vehicle_info_buffer
-
-# Build rule for target.
-vehicle_info_buffer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vehicle_info_buffer
-.PHONY : vehicle_info_buffer
-
-# fast build rule for target.
-vehicle_info_buffer/fast:
-	$(MAKE) -f CMakeFiles/vehicle_info_buffer.dir/build.make CMakeFiles/vehicle_info_buffer.dir/build
-.PHONY : vehicle_info_buffer/fast
 
 #=============================================================================
 # Target rules for targets named prometheus_msgs_generate_messages_py
@@ -1771,32 +1771,32 @@ src/swarm_terminal_control.cpp.s:
 	$(MAKE) -f CMakeFiles/swarm_terminal_control.dir/build.make CMakeFiles/swarm_terminal_control.dir/src/swarm_terminal_control.cpp.s
 .PHONY : src/swarm_terminal_control.cpp.s
 
-src/vehicle_info_buffer.o: src/vehicle_info_buffer.cpp.o
+src/uav_planner.o: src/uav_planner.cpp.o
 
-.PHONY : src/vehicle_info_buffer.o
+.PHONY : src/uav_planner.o
 
 # target to build an object file
-src/vehicle_info_buffer.cpp.o:
-	$(MAKE) -f CMakeFiles/vehicle_info_buffer.dir/build.make CMakeFiles/vehicle_info_buffer.dir/src/vehicle_info_buffer.cpp.o
-.PHONY : src/vehicle_info_buffer.cpp.o
+src/uav_planner.cpp.o:
+	$(MAKE) -f CMakeFiles/uav_planner.dir/build.make CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o
+.PHONY : src/uav_planner.cpp.o
 
-src/vehicle_info_buffer.i: src/vehicle_info_buffer.cpp.i
+src/uav_planner.i: src/uav_planner.cpp.i
 
-.PHONY : src/vehicle_info_buffer.i
+.PHONY : src/uav_planner.i
 
 # target to preprocess a source file
-src/vehicle_info_buffer.cpp.i:
-	$(MAKE) -f CMakeFiles/vehicle_info_buffer.dir/build.make CMakeFiles/vehicle_info_buffer.dir/src/vehicle_info_buffer.cpp.i
-.PHONY : src/vehicle_info_buffer.cpp.i
+src/uav_planner.cpp.i:
+	$(MAKE) -f CMakeFiles/uav_planner.dir/build.make CMakeFiles/uav_planner.dir/src/uav_planner.cpp.i
+.PHONY : src/uav_planner.cpp.i
 
-src/vehicle_info_buffer.s: src/vehicle_info_buffer.cpp.s
+src/uav_planner.s: src/uav_planner.cpp.s
 
-.PHONY : src/vehicle_info_buffer.s
+.PHONY : src/uav_planner.s
 
 # target to generate assembly for a file
-src/vehicle_info_buffer.cpp.s:
-	$(MAKE) -f CMakeFiles/vehicle_info_buffer.dir/build.make CMakeFiles/vehicle_info_buffer.dir/src/vehicle_info_buffer.cpp.s
-.PHONY : src/vehicle_info_buffer.cpp.s
+src/uav_planner.cpp.s:
+	$(MAKE) -f CMakeFiles/uav_planner.dir/build.make CMakeFiles/uav_planner.dir/src/uav_planner.cpp.s
+.PHONY : src/uav_planner.cpp.s
 
 src/virtual_observer.o: src/virtual_observer.cpp.o
 
@@ -1834,6 +1834,7 @@ help:
 	@echo "... install/strip"
 	@echo "... install/local"
 	@echo "... list_install_components"
+	@echo "... uav_planner"
 	@echo "... swarm_formation_control"
 	@echo "... swarm_ground_station"
 	@echo "... prometheus_swarm_control_genpy"
@@ -1843,7 +1844,6 @@ help:
 	@echo "... prometheus_swarm_control_gencpp"
 	@echo "... prometheus_swarm_control_generate_messages_cpp"
 	@echo "... prometheus_swarm_control_generate_messages"
-	@echo "... vehicle_info_buffer"
 	@echo "... prometheus_msgs_generate_messages_py"
 	@echo "... prometheus_msgs_generate_messages_nodejs"
 	@echo "... prometheus_msgs_generate_messages_lisp"
@@ -1966,9 +1966,9 @@ help:
 	@echo "... src/swarm_terminal_control.o"
 	@echo "... src/swarm_terminal_control.i"
 	@echo "... src/swarm_terminal_control.s"
-	@echo "... src/vehicle_info_buffer.o"
-	@echo "... src/vehicle_info_buffer.i"
-	@echo "... src/vehicle_info_buffer.s"
+	@echo "... src/uav_planner.o"
+	@echo "... src/uav_planner.i"
+	@echo "... src/uav_planner.s"
 	@echo "... src/virtual_observer.o"
 	@echo "... src/virtual_observer.i"
 	@echo "... src/virtual_observer.s"

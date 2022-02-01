@@ -1,0 +1,26 @@
+[
+    {
+        "type": "File",
+        "name": "/home/amov/swarm_ws2/src/gazebo_simulator/launch_swarm/sitl_swarm_4uav.launch",
+        "parent_id": null,
+        "workspaceRoot": "/home/amov/swarm_ws2",
+        "workspacePath": "src/gazebo_simulator/launch_swarm/sitl_swarm_4uav.launch",
+        "id": "X4DUd9oyvWTRMIui"
+    },
+    {
+        "type": "Directory",
+        "name": "/home/amov/swarm_ws2/src/swarm_control/src",
+        "parent_id": null,
+        "workspaceRoot": "/home/amov/swarm_ws2",
+        "workspacePath": "src/swarm_control/src",
+        "id": "RPDwB4VuNe2MI0kZ"
+    },
+    {
+        "type": "File",
+        "name": "/home/amov/swarm_ws2/src/swarm_control/CMakeLists.txt",
+        "parent_id": null,
+        "workspaceRoot": "/home/amov/swarm_ws2",
+        "workspacePath": "src/swarm_control/CMakeLists.txt",
+        "id": "FsBQqdMboTeYxp6H"
+    }
+]

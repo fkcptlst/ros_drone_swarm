@@ -170,7 +170,10 @@
 		<param name="geo_fence/z_min" value="$(arg z_min)"/>
 		<param name="geo_fence/z_max" value="$(arg z_max)"/>
 	</node>
-
+	<!-- 启动virtual_observer -->
+	<node pkg="prometheus_swarm_control" type="virtual_observer" name="virtual_observer" output="screen" launch-prefix="gnome-terminal --">	
+		<param name="swarm_num_uav" value="$(arg swarm_num_uav)"/>
+	</node>
 	<!-- 启动地面站 -->
 	<node pkg="prometheus_swarm_control" type="swarm_ground_station" name="swarm_ground_station" output="screen" launch-prefix="gnome-terminal --tab --">	
 		<param name="swarm_num_uav" value="$(arg swarm_num_uav)"/>

@@ -4,11 +4,7 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/home/amov/drone_ws/devel/include/**",
                 "/opt/ros/melodic/include/**",
-                "/home/amov/drone_ws/src/common/include/**",
-                "/home/amov/drone_ws/src/swarm_control/include/**",
-                "/home/amov/drone_ws/src/uav_utils/**",
                 "/usr/include/**"
 
             ],

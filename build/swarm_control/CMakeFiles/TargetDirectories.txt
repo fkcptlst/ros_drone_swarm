@@ -1,6 +1,7 @@
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/install/strip.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/install/local.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/list_install_components.dir
+/home/amov/swarm_ws2/build/swarm_control/CMakeFiles/uav_planner.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/swarm_formation_control.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/swarm_ground_station.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/prometheus_swarm_control_genpy.dir
@@ -10,7 +11,6 @@
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/prometheus_swarm_control_gencpp.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/prometheus_swarm_control_generate_messages_cpp.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/prometheus_swarm_control_generate_messages.dir
-/home/amov/swarm_ws2/build/swarm_control/CMakeFiles/vehicle_info_buffer.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/prometheus_msgs_generate_messages_py.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/prometheus_msgs_generate_messages_nodejs.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/prometheus_msgs_generate_messages_lisp.dir

@@ -92,9 +92,9 @@ add_executable(virtual_observer src/virtual_observer.cpp)
 add_dependencies(virtual_observer prometheus_swarm_control_gencpp)
 target_link_libraries(virtual_observer ${catkin_LIBRARIES})
 
-add_executable(vehicle_info_buffer src/vehicle_info_buffer.cpp)
-add_dependencies(vehicle_info_buffer prometheus_swarm_control_gencpp)
-target_link_libraries(vehicle_info_buffer ${catkin_LIBRARIES})
+add_executable(uav_planner src/uav_planner.cpp)
+add_dependencies(uav_planner prometheus_swarm_control_gencpp)
+target_link_libraries(uav_planner ${catkin_LIBRARIES})
 
 #add_executable(ego_traj_to_cmd src/ego_traj_to_cmd.cpp)
 #add_dependencies(ego_traj_to_cmd prometheus_swarm_control_gencpp)

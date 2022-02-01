@@ -298,6 +298,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/uav_planner.dir/DependInfo.cmake"
   "CMakeFiles/swarm_formation_control.dir/DependInfo.cmake"
   "CMakeFiles/swarm_ground_station.dir/DependInfo.cmake"
   "CMakeFiles/prometheus_swarm_control_genpy.dir/DependInfo.cmake"
@@ -307,7 +308,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/prometheus_swarm_control_gencpp.dir/DependInfo.cmake"
   "CMakeFiles/prometheus_swarm_control_generate_messages_cpp.dir/DependInfo.cmake"
   "CMakeFiles/prometheus_swarm_control_generate_messages.dir/DependInfo.cmake"
-  "CMakeFiles/vehicle_info_buffer.dir/DependInfo.cmake"
   "CMakeFiles/prometheus_msgs_generate_messages_py.dir/DependInfo.cmake"
   "CMakeFiles/prometheus_msgs_generate_messages_nodejs.dir/DependInfo.cmake"
   "CMakeFiles/prometheus_msgs_generate_messages_lisp.dir/DependInfo.cmake"

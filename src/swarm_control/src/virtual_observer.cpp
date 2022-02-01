@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-01-31 21:34:24
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-01 12:17:27
+ * @LastEditTime: 2022-02-01 17:55:02
  * @FilePath: /swarm_ws2/src/swarm_control/src/virtual_observer.cpp
  * @Description: This node observes position of all vehicles and unicasts relevant info to each vehicle, modified from swarm_controller
  * 
@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 {
     ros::init(argc, argv, "virtual_observer");
     ros::NodeHandle nh("~");
-
+    cout << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>Virtual Observer<<<<<<<<<<<<<<<<<<<<<<<<< "<< endl;
     // 读取参数，变量初始化
     init(nh);
 
@@ -52,7 +52,7 @@ int main(int argc, char **argv)
     }
 
     ros::Timer debug_timer = nh.createTimer(ros::Duration(10.0), debug_cb);
-    ros::Timer mainloop_timer = nh.createTimer(ros::Duration(0.5), globalUpdate_cb); //update per 0.5 seconds
+    ros::Timer globalUpdate_timer = nh.createTimer(ros::Duration(0.5), globalUpdate_cb); //update per 0.5 seconds
 
     ros::spin();
 
