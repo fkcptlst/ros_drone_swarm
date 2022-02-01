@@ -266,6 +266,10 @@ math_utils.h
 printf_utils.h
 /home/amov/swarm_ws2/src/swarm_control/include/printf_utils.h
 
+/home/amov/swarm_ws2/src/swarm_control/include/uav_planner.h
+swarm_controller.h
+/home/amov/swarm_ws2/src/swarm_control/include/swarm_controller.h
+
 /home/amov/swarm_ws2/src/swarm_control/include/uav_utils/geometry_utils.h
 Eigen/Dense
 -
@@ -273,6 +277,8 @@ Eigen/Dense
 /home/amov/swarm_ws2/src/swarm_control/src/virtual_observer.cpp
 swarm_controller.h
 /home/amov/swarm_ws2/src/swarm_control/src/swarm_controller.h
+uav_planner.h
+/home/amov/swarm_ws2/src/swarm_control/src/uav_planner.h
 
 /opt/ros/melodic/include/geometry_msgs/Point.h
 string

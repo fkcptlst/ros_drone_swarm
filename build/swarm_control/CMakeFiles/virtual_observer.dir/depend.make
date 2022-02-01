@@ -15,6 +15,7 @@ CMakeFiles/virtual_observer.dir/src/virtual_observer.cpp.o: /home/amov/swarm_ws2
 CMakeFiles/virtual_observer.dir/src/virtual_observer.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/formation_utils.h
 CMakeFiles/virtual_observer.dir/src/virtual_observer.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/math_utils.h
 CMakeFiles/virtual_observer.dir/src/virtual_observer.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/swarm_controller.h
+CMakeFiles/virtual_observer.dir/src/virtual_observer.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/uav_planner.h
 CMakeFiles/virtual_observer.dir/src/virtual_observer.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/uav_utils/geometry_utils.h
 CMakeFiles/virtual_observer.dir/src/virtual_observer.cpp.o: /home/amov/swarm_ws2/src/swarm_control/src/virtual_observer.cpp
 CMakeFiles/virtual_observer.dir/src/virtual_observer.cpp.o: /opt/ros/melodic/include/geometry_msgs/Point.h

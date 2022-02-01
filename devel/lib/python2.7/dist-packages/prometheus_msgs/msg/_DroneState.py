@@ -10,7 +10,7 @@ import geometry_msgs.msg
 import std_msgs.msg
 
 class DroneState(genpy.Message):
-  _md5sum = "7b5a401b18836610cb1c416ad4e878af"
+  _md5sum = "96539ce3fa37be02d8be073b529f297f"
   _type = "prometheus_msgs/DroneState"
   _has_header = True  # flag to mark the presence of a Header object
   _full_text = """std_msgs/Header header
@@ -38,8 +38,14 @@ float32[3] attitude_rate            ## [rad/s]
 float32 battery_state               ## 电池状态    #float32
 
 ## XXX implemented
-float32[3] sitePos
-float32 quality
+int32 uav_id ## 无人机id
+
+bool opinionValidFlg ##由于大部分DroneState.msg都是由estimator发布，不包含观点相关的信息，不能确保观点的可靠性，因此加flg以区分
+int32 commitmentState ## 无人机commitment_state
+bool voteValidFlg ## 无人机此时的投票是否有效（不是每次广播都代表投票），如果为true才代表此次广播是一次投票
+float32[3] sitePos ## L_m
+float32 quality ## q_m
+
 ================================================================================
 MSG: std_msgs/Header
 # Standard metadata for higher-level stamped data types.
@@ -65,8 +71,8 @@ float64 y
 float64 z
 float64 w
 """
-  __slots__ = ['header','connected','armed','landed','mode','odom_valid','time_from_start','position','rel_alt','velocity','attitude','attitude_q','attitude_rate','battery_state','sitePos','quality']
-  _slot_types = ['std_msgs/Header','bool','bool','bool','string','bool','float32','float32[3]','float32','float32[3]','float32[3]','geometry_msgs/Quaternion','float32[3]','float32','float32[3]','float32']
+  __slots__ = ['header','connected','armed','landed','mode','odom_valid','time_from_start','position','rel_alt','velocity','attitude','attitude_q','attitude_rate','battery_state','uav_id','opinionValidFlg','commitmentState','voteValidFlg','sitePos','quality']
+  _slot_types = ['std_msgs/Header','bool','bool','bool','string','bool','float32','float32[3]','float32','float32[3]','float32[3]','geometry_msgs/Quaternion','float32[3]','float32','int32','bool','int32','bool','float32[3]','float32']
 
   def __init__(self, *args, **kwds):
     """
@@ -76,7 +82,7 @@ float64 w
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       header,connected,armed,landed,mode,odom_valid,time_from_start,position,rel_alt,velocity,attitude,attitude_q,attitude_rate,battery_state,sitePos,quality
+       header,connected,armed,landed,mode,odom_valid,time_from_start,position,rel_alt,velocity,attitude,attitude_q,attitude_rate,battery_state,uav_id,opinionValidFlg,commitmentState,voteValidFlg,sitePos,quality
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -113,6 +119,14 @@ float64 w
         self.attitude_rate = [0.] * 3
       if self.battery_state is None:
         self.battery_state = 0.
+      if self.uav_id is None:
+        self.uav_id = 0
+      if self.opinionValidFlg is None:
+        self.opinionValidFlg = False
+      if self.commitmentState is None:
+        self.commitmentState = 0
+      if self.voteValidFlg is None:
+        self.voteValidFlg = False
       if self.sitePos is None:
         self.sitePos = [0.] * 3
       if self.quality is None:
@@ -132,6 +146,10 @@ float64 w
       self.attitude_q = geometry_msgs.msg.Quaternion()
       self.attitude_rate = [0.] * 3
       self.battery_state = 0.
+      self.uav_id = 0
+      self.opinionValidFlg = False
+      self.commitmentState = 0
+      self.voteValidFlg = False
       self.sitePos = [0.] * 3
       self.quality = 0.
 
@@ -173,8 +191,8 @@ float64 w
       _x = self
       buff.write(_get_struct_4d().pack(_x.attitude_q.x, _x.attitude_q.y, _x.attitude_q.z, _x.attitude_q.w))
       buff.write(_get_struct_3f().pack(*self.attitude_rate))
-      _x = self.battery_state
-      buff.write(_get_struct_f().pack(_x))
+      _x = self
+      buff.write(_get_struct_fiBiB().pack(_x.battery_state, _x.uav_id, _x.opinionValidFlg, _x.commitmentState, _x.voteValidFlg))
       buff.write(_get_struct_3f().pack(*self.sitePos))
       _x = self.quality
       buff.write(_get_struct_f().pack(_x))
@@ -246,9 +264,12 @@ float64 w
       start = end
       end += 12
       self.attitude_rate = _get_struct_3f().unpack(str[start:end])
+      _x = self
       start = end
-      end += 4
-      (self.battery_state,) = _get_struct_f().unpack(str[start:end])
+      end += 14
+      (_x.battery_state, _x.uav_id, _x.opinionValidFlg, _x.commitmentState, _x.voteValidFlg,) = _get_struct_fiBiB().unpack(str[start:end])
+      self.opinionValidFlg = bool(self.opinionValidFlg)
+      self.voteValidFlg = bool(self.voteValidFlg)
       start = end
       end += 12
       self.sitePos = _get_struct_3f().unpack(str[start:end])
@@ -293,8 +314,8 @@ float64 w
       _x = self
       buff.write(_get_struct_4d().pack(_x.attitude_q.x, _x.attitude_q.y, _x.attitude_q.z, _x.attitude_q.w))
       buff.write(self.attitude_rate.tostring())
-      _x = self.battery_state
-      buff.write(_get_struct_f().pack(_x))
+      _x = self
+      buff.write(_get_struct_fiBiB().pack(_x.battery_state, _x.uav_id, _x.opinionValidFlg, _x.commitmentState, _x.voteValidFlg))
       buff.write(self.sitePos.tostring())
       _x = self.quality
       buff.write(_get_struct_f().pack(_x))
@@ -367,9 +388,12 @@ float64 w
       start = end
       end += 12
       self.attitude_rate = numpy.frombuffer(str[start:end], dtype=numpy.float32, count=3)
+      _x = self
       start = end
-      end += 4
-      (self.battery_state,) = _get_struct_f().unpack(str[start:end])
+      end += 14
+      (_x.battery_state, _x.uav_id, _x.opinionValidFlg, _x.commitmentState, _x.voteValidFlg,) = _get_struct_fiBiB().unpack(str[start:end])
+      self.opinionValidFlg = bool(self.opinionValidFlg)
+      self.voteValidFlg = bool(self.voteValidFlg)
       start = end
       end += 12
       self.sitePos = numpy.frombuffer(str[start:end], dtype=numpy.float32, count=3)
@@ -420,3 +444,9 @@ def _get_struct_f():
     if _struct_f is None:
         _struct_f = struct.Struct("<f")
     return _struct_f
+_struct_fiBiB = None
+def _get_struct_fiBiB():
+    global _struct_fiBiB
+    if _struct_fiBiB is None:
+        _struct_fiBiB = struct.Struct("<fiBiB")
+    return _struct_fiBiB

@@ -13,20 +13,24 @@
 + gazebo_sub = nh.subscribe[nav_msgs::Odometry](nav_msgs::Odometry)(uav_name + "/prometheus/ground_truth", 10, gazebo_cb); // swarm_estimator
 + command_sub = nh.subscribe[prometheus_msgs::SwarmCommand](prometheus_msgs::SwarmCommand)(uav_name +  "/prometheus/swarm_command", 10, swarm_command_cb); //swarm_controller
 
-    # This is generally used to communicate timestamped data
+  # This is generally used to communicate timestamped data
 
-    # in a particular coordinate frame.
-    #
-    # sequence ID: consecutively increasing ID
-    uint32 seq
-    #Two-integer timestamp that is expressed as:
-    # * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')
-    # * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')
-    # time-handling sugar is provided by the client library
-    time stamp
-    #Frame this data is associated with
-    string frame_id
+  # in a particular coordinate frame.
 
+  # sequence ID: consecutively increasing ID
+
+  uint32 seq
+  #Two-integer timestamp that is expressed as:
+
+  # * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')
+
+  # * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')
+
+  # time-handling sugar is provided by the client library
+
+  time stamp
+  #Frame this data is associated with
+  string frame_id
 + 超出geofence则land
 + send_pos_setpoint(pos_des, yaw_des); //position control
 + send_vel_xy_pos_z_setpoint(pos_des, vel_des, yaw_des); //velocity control
@@ -53,3 +57,6 @@
 //问题：formation_separation 是干啥的？
 
 注：可能最后用Move Mode要好些
+
+
++ topic: uav1/prometheus/drone_state_extra 用来对外广播，与之对应的/drone_state则用于飞机自身感知

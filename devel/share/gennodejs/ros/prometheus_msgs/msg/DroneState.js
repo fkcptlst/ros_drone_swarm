@@ -34,6 +34,10 @@ class DroneState {
       this.attitude_q = null;
       this.attitude_rate = null;
       this.battery_state = null;
+      this.uav_id = null;
+      this.opinionValidFlg = null;
+      this.commitmentState = null;
+      this.voteValidFlg = null;
       this.sitePos = null;
       this.quality = null;
     }
@@ -122,6 +126,30 @@ class DroneState {
       else {
         this.battery_state = 0.0;
       }
+      if (initObj.hasOwnProperty('uav_id')) {
+        this.uav_id = initObj.uav_id
+      }
+      else {
+        this.uav_id = 0;
+      }
+      if (initObj.hasOwnProperty('opinionValidFlg')) {
+        this.opinionValidFlg = initObj.opinionValidFlg
+      }
+      else {
+        this.opinionValidFlg = false;
+      }
+      if (initObj.hasOwnProperty('commitmentState')) {
+        this.commitmentState = initObj.commitmentState
+      }
+      else {
+        this.commitmentState = 0;
+      }
+      if (initObj.hasOwnProperty('voteValidFlg')) {
+        this.voteValidFlg = initObj.voteValidFlg
+      }
+      else {
+        this.voteValidFlg = false;
+      }
       if (initObj.hasOwnProperty('sitePos')) {
         this.sitePos = initObj.sitePos
       }
@@ -183,6 +211,14 @@ class DroneState {
     bufferOffset = _arraySerializer.float32(obj.attitude_rate, buffer, bufferOffset, 3);
     // Serialize message field [battery_state]
     bufferOffset = _serializer.float32(obj.battery_state, buffer, bufferOffset);
+    // Serialize message field [uav_id]
+    bufferOffset = _serializer.int32(obj.uav_id, buffer, bufferOffset);
+    // Serialize message field [opinionValidFlg]
+    bufferOffset = _serializer.bool(obj.opinionValidFlg, buffer, bufferOffset);
+    // Serialize message field [commitmentState]
+    bufferOffset = _serializer.int32(obj.commitmentState, buffer, bufferOffset);
+    // Serialize message field [voteValidFlg]
+    bufferOffset = _serializer.bool(obj.voteValidFlg, buffer, bufferOffset);
     // Check that the constant length array field [sitePos] has the right length
     if (obj.sitePos.length !== 3) {
       throw new Error('Unable to serialize array field sitePos - length must be 3')
@@ -226,6 +262,14 @@ class DroneState {
     data.attitude_rate = _arrayDeserializer.float32(buffer, bufferOffset, 3)
     // Deserialize message field [battery_state]
     data.battery_state = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [uav_id]
+    data.uav_id = _deserializer.int32(buffer, bufferOffset);
+    // Deserialize message field [opinionValidFlg]
+    data.opinionValidFlg = _deserializer.bool(buffer, bufferOffset);
+    // Deserialize message field [commitmentState]
+    data.commitmentState = _deserializer.int32(buffer, bufferOffset);
+    // Deserialize message field [voteValidFlg]
+    data.voteValidFlg = _deserializer.bool(buffer, bufferOffset);
     // Deserialize message field [sitePos]
     data.sitePos = _arrayDeserializer.float32(buffer, bufferOffset, 3)
     // Deserialize message field [quality]
@@ -237,7 +281,7 @@ class DroneState {
     let length = 0;
     length += std_msgs.msg.Header.getMessageSize(object.header);
     length += object.mode.length;
-    return length + 116;
+    return length + 126;
   }
 
   static datatype() {
@@ -247,7 +291,7 @@ class DroneState {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '7b5a401b18836610cb1c416ad4e878af';
+    return '96539ce3fa37be02d8be073b529f297f';
   }
 
   static messageDefinition() {
@@ -278,8 +322,14 @@ class DroneState {
     float32 battery_state               ## 电池状态    #float32
     
     ## XXX implemented
-    float32[3] sitePos
-    float32 quality
+    int32 uav_id ## 无人机id
+    
+    bool opinionValidFlg ##由于大部分DroneState.msg都是由estimator发布，不包含观点相关的信息，不能确保观点的可靠性，因此加flg以区分
+    int32 commitmentState ## 无人机commitment_state
+    bool voteValidFlg ## 无人机此时的投票是否有效（不是每次广播都代表投票），如果为true才代表此次广播是一次投票
+    float32[3] sitePos ## L_m
+    float32 quality ## q_m
+    
     ================================================================================
     MSG: std_msgs/Header
     # Standard metadata for higher-level stamped data types.
@@ -410,6 +460,34 @@ class DroneState {
     }
     else {
       resolved.battery_state = 0.0
+    }
+
+    if (msg.uav_id !== undefined) {
+      resolved.uav_id = msg.uav_id;
+    }
+    else {
+      resolved.uav_id = 0
+    }
+
+    if (msg.opinionValidFlg !== undefined) {
+      resolved.opinionValidFlg = msg.opinionValidFlg;
+    }
+    else {
+      resolved.opinionValidFlg = false
+    }
+
+    if (msg.commitmentState !== undefined) {
+      resolved.commitmentState = msg.commitmentState;
+    }
+    else {
+      resolved.commitmentState = 0
+    }
+
+    if (msg.voteValidFlg !== undefined) {
+      resolved.voteValidFlg = msg.voteValidFlg;
+    }
+    else {
+      resolved.voteValidFlg = false
     }
 
     if (msg.sitePos !== undefined) {

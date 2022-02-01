@@ -181,6 +181,19 @@ uav_planner/fast:
 .PHONY : uav_planner/fast
 
 #=============================================================================
+# Target rules for targets named virtual_relay
+
+# Build rule for target.
+virtual_relay: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 virtual_relay
+.PHONY : virtual_relay
+
+# fast build rule for target.
+virtual_relay/fast:
+	$(MAKE) -f CMakeFiles/virtual_relay.dir/build.make CMakeFiles/virtual_relay.dir/build
+.PHONY : virtual_relay/fast
+
+#=============================================================================
 # Target rules for targets named swarm_formation_control
 
 # Build rule for target.
@@ -1481,19 +1494,6 @@ tf2_msgs_generate_messages_eus/fast:
 .PHONY : tf2_msgs_generate_messages_eus/fast
 
 #=============================================================================
-# Target rules for targets named virtual_observer
-
-# Build rule for target.
-virtual_observer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 virtual_observer
-.PHONY : virtual_observer
-
-# fast build rule for target.
-virtual_observer/fast:
-	$(MAKE) -f CMakeFiles/virtual_observer.dir/build.make CMakeFiles/virtual_observer.dir/build
-.PHONY : virtual_observer/fast
-
-#=============================================================================
 # Target rules for targets named nav_msgs_generate_messages_py
 
 # Build rule for target.
@@ -1798,32 +1798,32 @@ src/uav_planner.cpp.s:
 	$(MAKE) -f CMakeFiles/uav_planner.dir/build.make CMakeFiles/uav_planner.dir/src/uav_planner.cpp.s
 .PHONY : src/uav_planner.cpp.s
 
-src/virtual_observer.o: src/virtual_observer.cpp.o
+src/virtual_relay.o: src/virtual_relay.cpp.o
 
-.PHONY : src/virtual_observer.o
+.PHONY : src/virtual_relay.o
 
 # target to build an object file
-src/virtual_observer.cpp.o:
-	$(MAKE) -f CMakeFiles/virtual_observer.dir/build.make CMakeFiles/virtual_observer.dir/src/virtual_observer.cpp.o
-.PHONY : src/virtual_observer.cpp.o
+src/virtual_relay.cpp.o:
+	$(MAKE) -f CMakeFiles/virtual_relay.dir/build.make CMakeFiles/virtual_relay.dir/src/virtual_relay.cpp.o
+.PHONY : src/virtual_relay.cpp.o
 
-src/virtual_observer.i: src/virtual_observer.cpp.i
+src/virtual_relay.i: src/virtual_relay.cpp.i
 
-.PHONY : src/virtual_observer.i
+.PHONY : src/virtual_relay.i
 
 # target to preprocess a source file
-src/virtual_observer.cpp.i:
-	$(MAKE) -f CMakeFiles/virtual_observer.dir/build.make CMakeFiles/virtual_observer.dir/src/virtual_observer.cpp.i
-.PHONY : src/virtual_observer.cpp.i
+src/virtual_relay.cpp.i:
+	$(MAKE) -f CMakeFiles/virtual_relay.dir/build.make CMakeFiles/virtual_relay.dir/src/virtual_relay.cpp.i
+.PHONY : src/virtual_relay.cpp.i
 
-src/virtual_observer.s: src/virtual_observer.cpp.s
+src/virtual_relay.s: src/virtual_relay.cpp.s
 
-.PHONY : src/virtual_observer.s
+.PHONY : src/virtual_relay.s
 
 # target to generate assembly for a file
-src/virtual_observer.cpp.s:
-	$(MAKE) -f CMakeFiles/virtual_observer.dir/build.make CMakeFiles/virtual_observer.dir/src/virtual_observer.cpp.s
-.PHONY : src/virtual_observer.cpp.s
+src/virtual_relay.cpp.s:
+	$(MAKE) -f CMakeFiles/virtual_relay.dir/build.make CMakeFiles/virtual_relay.dir/src/virtual_relay.cpp.s
+.PHONY : src/virtual_relay.cpp.s
 
 # Help Target
 help:
@@ -1835,6 +1835,7 @@ help:
 	@echo "... install/local"
 	@echo "... list_install_components"
 	@echo "... uav_planner"
+	@echo "... virtual_relay"
 	@echo "... swarm_formation_control"
 	@echo "... swarm_ground_station"
 	@echo "... prometheus_swarm_control_genpy"
@@ -1939,7 +1940,6 @@ help:
 	@echo "... tf2_msgs_generate_messages_cpp"
 	@echo "... nav_msgs_generate_messages_eus"
 	@echo "... tf2_msgs_generate_messages_eus"
-	@echo "... virtual_observer"
 	@echo "... nav_msgs_generate_messages_py"
 	@echo "... tf2_msgs_generate_messages_lisp"
 	@echo "... actionlib_generate_messages_py"
@@ -1969,9 +1969,9 @@ help:
 	@echo "... src/uav_planner.o"
 	@echo "... src/uav_planner.i"
 	@echo "... src/uav_planner.s"
-	@echo "... src/virtual_observer.o"
-	@echo "... src/virtual_observer.i"
-	@echo "... src/virtual_observer.s"
+	@echo "... src/virtual_relay.o"
+	@echo "... src/virtual_relay.i"
+	@echo "... src/virtual_relay.s"
 .PHONY : help
 
 

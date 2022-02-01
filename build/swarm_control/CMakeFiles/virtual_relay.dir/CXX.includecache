@@ -274,13 +274,11 @@ swarm_controller.h
 Eigen/Dense
 -
 
-/home/amov/swarm_ws2/src/swarm_control/src/uav_planner.cpp
+/home/amov/swarm_ws2/src/swarm_control/src/virtual_relay.cpp
 swarm_controller.h
 /home/amov/swarm_ws2/src/swarm_control/src/swarm_controller.h
 uav_planner.h
 /home/amov/swarm_ws2/src/swarm_control/src/uav_planner.h
-random
--
 
 /opt/ros/melodic/include/geometry_msgs/Point.h
 string

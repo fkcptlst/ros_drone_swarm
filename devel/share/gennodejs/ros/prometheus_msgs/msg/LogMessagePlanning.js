@@ -123,7 +123,7 @@ class LogMessagePlanning {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '48f23090a2939de226bbb2911dd85096';
+    return 'a60f68786ed0a2dec98c4043030dcf33';
   }
 
   static messageDefinition() {
@@ -190,8 +190,14 @@ class LogMessagePlanning {
     float32 battery_state               ## 电池状态    #float32
     
     ## XXX implemented
-    float32[3] sitePos
-    float32 quality
+    int32 uav_id ## 无人机id
+    
+    bool opinionValidFlg ##由于大部分DroneState.msg都是由estimator发布，不包含观点相关的信息，不能确保观点的可靠性，因此加flg以区分
+    int32 commitmentState ## 无人机commitment_state
+    bool voteValidFlg ## 无人机此时的投票是否有效（不是每次广播都代表投票），如果为true才代表此次广播是一次投票
+    float32[3] sitePos ## L_m
+    float32 quality ## q_m
+    
     ================================================================================
     MSG: geometry_msgs/Quaternion
     # This represents an orientation in free space in quaternion form.

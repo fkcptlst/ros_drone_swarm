@@ -154,7 +154,7 @@
    self)
   )
 
-(setf (get prometheus_msgs::LogMessageControl :md5sum-) "b4b68434fdb47e7fd89659c18660dfe7")
+(setf (get prometheus_msgs::LogMessageControl :md5sum-) "3ff7ca46745991161e9c19c658791887")
 (setf (get prometheus_msgs::LogMessageControl :datatype-) "prometheus_msgs/LogMessageControl")
 (setf (get prometheus_msgs::LogMessageControl :definition-)
       "std_msgs/Header header
@@ -221,8 +221,14 @@ float32[3] attitude_rate            ## [rad/s]
 float32 battery_state               ## 电池状态    #float32
 
 ## XXX implemented
-float32[3] sitePos
-float32 quality
+int32 uav_id ## 无人机id
+
+bool opinionValidFlg ##由于大部分DroneState.msg都是由estimator发布，不包含观点相关的信息，不能确保观点的可靠性，因此加flg以区分
+int32 commitmentState ## 无人机commitment_state
+bool voteValidFlg ## 无人机此时的投票是否有效（不是每次广播都代表投票），如果为true才代表此次广播是一次投票
+float32[3] sitePos ## L_m
+float32 quality ## q_m
+
 ================================================================================
 MSG: geometry_msgs/Quaternion
 # This represents an orientation in free space in quaternion form.
@@ -344,6 +350,6 @@ float64 z
 
 
 
-(provide :prometheus_msgs/LogMessageControl "b4b68434fdb47e7fd89659c18660dfe7")
+(provide :prometheus_msgs/LogMessageControl "3ff7ca46745991161e9c19c658791887")
 
 

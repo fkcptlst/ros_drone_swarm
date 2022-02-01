@@ -88,9 +88,9 @@ add_dependencies(swarm_terminal_control prometheus_swarm_control_gencpp)
 target_link_libraries(swarm_terminal_control ${catkin_LIBRARIES})
 
 ## TODO Newly added
-add_executable(virtual_observer src/virtual_observer.cpp)
-add_dependencies(virtual_observer prometheus_swarm_control_gencpp)
-target_link_libraries(virtual_observer ${catkin_LIBRARIES})
+add_executable(virtual_relay src/virtual_relay.cpp)
+add_dependencies(virtual_relay prometheus_swarm_control_gencpp)
+target_link_libraries(virtual_relay ${catkin_LIBRARIES})
 
 add_executable(uav_planner src/uav_planner.cpp)
 add_dependencies(uav_planner prometheus_swarm_control_gencpp)

@@ -27,6 +27,14 @@
           ATTITUDE_RATE
           BATTERY_STATE-VAL
           BATTERY_STATE
+          UAV_ID-VAL
+          UAV_ID
+          OPINIONVALIDFLG-VAL
+          OPINIONVALIDFLG
+          COMMITMENTSTATE-VAL
+          COMMITMENTSTATE
+          VOTEVALIDFLG-VAL
+          VOTEVALIDFLG
           SITEPOS-VAL
           SITEPOS
           QUALITY-VAL

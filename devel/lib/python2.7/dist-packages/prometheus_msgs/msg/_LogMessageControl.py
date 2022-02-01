@@ -11,7 +11,7 @@ import prometheus_msgs.msg
 import std_msgs.msg
 
 class LogMessageControl(genpy.Message):
-  _md5sum = "b4b68434fdb47e7fd89659c18660dfe7"
+  _md5sum = "3ff7ca46745991161e9c19c658791887"
   _type = "prometheus_msgs/LogMessageControl"
   _has_header = True  # flag to mark the presence of a Header object
   _full_text = """std_msgs/Header header
@@ -78,8 +78,14 @@ float32[3] attitude_rate            ## [rad/s]
 float32 battery_state               ## 电池状态    #float32
 
 ## XXX implemented
-float32[3] sitePos
-float32 quality
+int32 uav_id ## 无人机id
+
+bool opinionValidFlg ##由于大部分DroneState.msg都是由estimator发布，不包含观点相关的信息，不能确保观点的可靠性，因此加flg以区分
+int32 commitmentState ## 无人机commitment_state
+bool voteValidFlg ## 无人机此时的投票是否有效（不是每次广播都代表投票），如果为true才代表此次广播是一次投票
+float32[3] sitePos ## L_m
+float32 quality ## q_m
+
 ================================================================================
 MSG: geometry_msgs/Quaternion
 # This represents an orientation in free space in quaternion form.
@@ -289,8 +295,8 @@ float64 z
       _x = self
       buff.write(_get_struct_4d().pack(_x.Drone_State.attitude_q.x, _x.Drone_State.attitude_q.y, _x.Drone_State.attitude_q.z, _x.Drone_State.attitude_q.w))
       buff.write(_get_struct_3f().pack(*self.Drone_State.attitude_rate))
-      _x = self.Drone_State.battery_state
-      buff.write(_get_struct_f().pack(_x))
+      _x = self
+      buff.write(_get_struct_fiBiB().pack(_x.Drone_State.battery_state, _x.Drone_State.uav_id, _x.Drone_State.opinionValidFlg, _x.Drone_State.commitmentState, _x.Drone_State.voteValidFlg))
       buff.write(_get_struct_3f().pack(*self.Drone_State.sitePos))
       _x = self
       buff.write(_get_struct_f3I().pack(_x.Drone_State.quality, _x.Control_Command.header.seq, _x.Control_Command.header.stamp.secs, _x.Control_Command.header.stamp.nsecs))
@@ -445,9 +451,12 @@ float64 z
       start = end
       end += 12
       self.Drone_State.attitude_rate = _get_struct_3f().unpack(str[start:end])
+      _x = self
       start = end
-      end += 4
-      (self.Drone_State.battery_state,) = _get_struct_f().unpack(str[start:end])
+      end += 14
+      (_x.Drone_State.battery_state, _x.Drone_State.uav_id, _x.Drone_State.opinionValidFlg, _x.Drone_State.commitmentState, _x.Drone_State.voteValidFlg,) = _get_struct_fiBiB().unpack(str[start:end])
+      self.Drone_State.opinionValidFlg = bool(self.Drone_State.opinionValidFlg)
+      self.Drone_State.voteValidFlg = bool(self.Drone_State.voteValidFlg)
       start = end
       end += 12
       self.Drone_State.sitePos = _get_struct_3f().unpack(str[start:end])
@@ -616,8 +625,8 @@ float64 z
       _x = self
       buff.write(_get_struct_4d().pack(_x.Drone_State.attitude_q.x, _x.Drone_State.attitude_q.y, _x.Drone_State.attitude_q.z, _x.Drone_State.attitude_q.w))
       buff.write(self.Drone_State.attitude_rate.tostring())
-      _x = self.Drone_State.battery_state
-      buff.write(_get_struct_f().pack(_x))
+      _x = self
+      buff.write(_get_struct_fiBiB().pack(_x.Drone_State.battery_state, _x.Drone_State.uav_id, _x.Drone_State.opinionValidFlg, _x.Drone_State.commitmentState, _x.Drone_State.voteValidFlg))
       buff.write(self.Drone_State.sitePos.tostring())
       _x = self
       buff.write(_get_struct_f3I().pack(_x.Drone_State.quality, _x.Control_Command.header.seq, _x.Control_Command.header.stamp.secs, _x.Control_Command.header.stamp.nsecs))
@@ -773,9 +782,12 @@ float64 z
       start = end
       end += 12
       self.Drone_State.attitude_rate = numpy.frombuffer(str[start:end], dtype=numpy.float32, count=3)
+      _x = self
       start = end
-      end += 4
-      (self.Drone_State.battery_state,) = _get_struct_f().unpack(str[start:end])
+      end += 14
+      (_x.Drone_State.battery_state, _x.Drone_State.uav_id, _x.Drone_State.opinionValidFlg, _x.Drone_State.commitmentState, _x.Drone_State.voteValidFlg,) = _get_struct_fiBiB().unpack(str[start:end])
+      self.Drone_State.opinionValidFlg = bool(self.Drone_State.opinionValidFlg)
+      self.Drone_State.voteValidFlg = bool(self.Drone_State.voteValidFlg)
       start = end
       end += 12
       self.Drone_State.sitePos = numpy.frombuffer(str[start:end], dtype=numpy.float32, count=3)
@@ -984,3 +996,9 @@ def _get_struct_fi3I():
     if _struct_fi3I is None:
         _struct_fi3I = struct.Struct("<fi3I")
     return _struct_fi3I
+_struct_fiBiB = None
+def _get_struct_fiBiB():
+    global _struct_fiBiB
+    if _struct_fiBiB is None:
+        _struct_fiBiB = struct.Struct("<fiBiB")
+    return _struct_fiBiB

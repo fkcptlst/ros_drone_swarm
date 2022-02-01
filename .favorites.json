@@ -22,5 +22,29 @@
         "workspaceRoot": "/home/amov/swarm_ws2",
         "workspacePath": "src/swarm_control/CMakeLists.txt",
         "id": "FsBQqdMboTeYxp6H"
+    },
+    {
+        "type": "File",
+        "name": "/home/amov/swarm_ws2/src/gazebo_simulator/amov_models/amov_solo/amov_solo.sdf",
+        "parent_id": null,
+        "workspaceRoot": "/home/amov/swarm_ws2",
+        "workspacePath": "src/gazebo_simulator/amov_models/amov_solo/amov_solo.sdf",
+        "id": "UXe2scTJBw0lVq5N"
+    },
+    {
+        "type": "File",
+        "name": "/home/amov/swarm_ws2/src/common/msgs/msg/DroneState.msg",
+        "parent_id": null,
+        "workspaceRoot": "/home/amov/swarm_ws2",
+        "workspacePath": "src/common/msgs/msg/DroneState.msg",
+        "id": "6f0Myuv8sISAKVLo"
+    },
+    {
+        "type": "Directory",
+        "name": "/home/amov/swarm_ws2/src/swarm_control/include",
+        "parent_id": null,
+        "workspaceRoot": "/home/amov/swarm_ws2",
+        "workspacePath": "src/swarm_control/include",
+        "id": "h7JaFv4dUfkKYgnL"
     }
 ]
