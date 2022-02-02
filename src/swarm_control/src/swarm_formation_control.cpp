@@ -53,7 +53,7 @@ int main(int argc, char **argv)
     for(int i = 1; i <= swarm_num_uav; i++) 
     {
         //【发布】阵型
-        command_pub[i] = nh.advertise<prometheus_msgs::SwarmCommand>("/uav" + std::to_string(i) + "/prometheus/swarm_command", 1); 
+        command_pub[i] = nh.advertise<prometheus_msgs::SwarmCommand>("/uav" + std::to_string(i) + "/prometheus/swarm_command_ground", 1); 
     }
 
     //固定的浮点显示
@@ -104,7 +104,7 @@ int main(int argc, char **argv)
     while (ros::ok()) // todo: only check start_flag=0, other function need tested
     {
         cout << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>Formation Flight Mission<<<<<<<<<<<<<<<<<<<<<<<<< 3 for Circle Trajectory Tracking,"<< endl;
-        cout << "Please choose the action: 0 for Formation Shape, 1 for Virtual Leader Pos, 2 for Hold, 3 for Land, 5 for Disarm..."<<endl;
+        cout << "Please choose the action: 0 for Formation Shape, 1 for Virtual Leader Pos, 2 for Hold, 3 for Land, 5 for Disarm, 6 for All_Offboard_Switch ON, 7 for arm, 8 for takeoff..."<<endl;
         cin >> start_flag;
         if (start_flag == 0)
         {
@@ -150,6 +150,14 @@ int main(int argc, char **argv)
             {
                 swarm_command[i].Mode = prometheus_msgs::SwarmCommand::Disarm;
                 command_pub[i].publish(swarm_command[i]); //【发布】阵型
+            }
+        }
+        else if(start_flag == 6) //XXX
+        {
+            for(int i = 1; i <= swarm_num_uav; i++) 
+            {
+                swarm_command[i].All_Offboard_Control_Flg = true;
+                command_pub[i].publish(swarm_command[i]); //【发布】
             }
         }
         else

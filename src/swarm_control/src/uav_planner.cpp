@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-01 17:15:50
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-02 17:10:04
+ * @LastEditTime: 2022-02-02 22:47:40
  * @FilePath: /swarm_ws2/src/swarm_control/src/uav_planner.cpp
  * @Description: this node oversees everything involved in a single uav
  *
@@ -28,6 +28,10 @@ ros::Publisher commitmentSelf_pub;  //用于常规发布commitment state用于�
 ros::Subscriber navDroneStateRX_sub; //订阅邻居无人机drone_state信息
 ros::Subscriber commitmentRX_sub;    //订阅邻居无人机commitment信息
 
+ros::Subscriber groundCommand_sub;    //订阅地面站
+bool All_Offboard_Switch = false;
+
+
 NeighbourDroneState neighbourState[MAX_UAV_NUM + 1];
 
 float sensorReading = 0.0f;
@@ -37,7 +41,7 @@ bool collisionAvoidanceFlg = false;
 //----algorithm -------
 prometheus_msgs::Commitment selfCommitment; // uav_id, commitmentState, sitePos, quality
 Site site_m;                  // OPINION VARIABLE: committed site or polling site
-Eigen::Vector3f navTargetPos; // NAVIGATION VARIABLE: L_t
+Eigen::Vector3d navTargetPos; // NAVIGATION VARIABLE: L_t
 Site site_e;                  // newest sensor site, still questionable
 Site site_v;                  // newest social info site, still questionable
 
@@ -53,7 +57,7 @@ void commitmentTXLoop_cb(const ros::TimerEvent &e); //定时广播commitment
 void commitmentRegularLoop_cb(const ros::TimerEvent &e); //定时广播commitment
 
 void sensorloop_cb(const ros::TimerEvent &e);         //传感器的定时回调函数
-void commandPublishLoop_cb(const ros::TimerEvent &e); //发布航行命令的定时回调函数
+void navigationLoop_cb(const ros::TimerEvent &e); //发布航行命令的定时回调函数
 
 void droneStateRX_cb(const prometheus_msgs::DroneState::ConstPtr &state_msg);      //通信触发的回调函数
 void commitmentRX_cb(const prometheus_msgs::Commitment::ConstPtr &commitment_msg); //通信触发的回调函数
@@ -68,6 +72,11 @@ void sync_selfCommitment_with_site_m(); //a utility func
 
 void socialLoop_cb(const ros::TimerEvent &e);
 
+bool check_if_reached_waypoint(Eigen::Vector3d &waypoint);
+void generateRandomWaypoint(Eigen::Vector3d &waypoint);
+
+void swarm_command_ground_cb(const prometheus_msgs::SwarmCommand::ConstPtr& msg); //接收地面站信息
+
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>主 函 数<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 int main(int argc, char **argv)
 {
@@ -78,6 +87,7 @@ int main(int argc, char **argv)
     init(nh);
     selfCommitment.uav_id = uav_id;
     selfCommitment.commitmentState = UNCOMMITTED;
+    generateRandomWaypoint(navTargetPos);
 
     // 建议控制频率 ： 10 - 50Hz, 控制频率取决于控制形式，若控制方式为速度或加速度应适当提高频率
     ros::Rate rate(controller_hz);
@@ -98,10 +108,12 @@ int main(int argc, char **argv)
     //【订阅】本机状态信息
     drone_state_sub = nh.subscribe<prometheus_msgs::DroneState>(uav_name + "/prometheus/drone_state", 10, drone_state_cb); // update self state
     //【订阅】通信来的邻居无人机位置速度信息
-    navDroneStateRX_sub = nh.subscribe<prometheus_msgs::DroneState>(uav_name + "/prometheus/commBuffer_RX/drone_state", 10, boost::bind(droneStateRX_cb, _1)); // update comm
+    navDroneStateRX_sub = nh.subscribe<prometheus_msgs::DroneState>(uav_name + "/prometheus/commBuffer_RX/drone_state", 10, droneStateRX_cb); // update comm
     //【订阅】通信来的邻居无人机commitment信息
-    commitmentRX_sub = nh.subscribe<prometheus_msgs::Commitment>(uav_name + "/prometheus/commBuffer_RX/commitment", 10, boost::bind(commitmentRX_cb, _1)); // update comm
-
+    commitmentRX_sub = nh.subscribe<prometheus_msgs::Commitment>(uav_name + "/prometheus/commBuffer_RX/commitment", 10, commitmentRX_cb); // update comm
+    //【订阅】地面站命令
+    groundCommand_sub = nh.subscribe<prometheus_msgs::SwarmCommand>(uav_name + "/prometheus/swarm_command_ground", 10, swarm_command_ground_cb);
+    
     ros::Timer debug_timer = nh.createTimer(ros::Duration(10.0), debug_cb);
     ros::Timer droneStateTXLoop_Timer = nh.createTimer(ros::Duration(0.1), droneStateTXLoop_cb);
     ros::Timer commitmentTXLoop_Timer = nh.createTimer(ros::Duration(0.1), commitmentTXLoop_cb);
@@ -109,7 +121,7 @@ int main(int argc, char **argv)
 
 
     ros::Timer sensorLoop_timer = nh.createTimer(ros::Duration(0.5), sensorloop_cb);
-    ros::Timer commandPublishLoop_timer = nh.createTimer(ros::Duration(20), commandPublishLoop_cb); //TODO this need fixing
+    ros::Timer commandPublishLoop_timer = nh.createTimer(ros::Duration(0.1), navigationLoop_cb); //TODO this need fixing
 
     ros::Timer comm_LRU_aging_timer = nh.createTimer(ros::Duration(0.5), comm_LRU_aging_cb);
 
@@ -158,16 +170,6 @@ void commitmentRegularLoop_cb(const ros::TimerEvent &e)
     commitmentSelf_pub.publish(selfCommitment);
 }
 
-/**
- * @description: 发布飞行控制命令的回调函数
- * @param {TimerEvent} &e
- * @return {*}
- */
-void commandPublishLoop_cb(const ros::TimerEvent &e)
-{
-    // TODO implement collision avoidance, sensor integration
-    flightCommand_pub.publish(flightCommand);
-}
 
 /**
  * @description: drone_state通信触发的回调函数
@@ -192,6 +194,7 @@ void commitmentRX_cb(const prometheus_msgs::Commitment::ConstPtr &commitment_msg
 {
     neighbourCommitments.push_back(*commitment_msg); //压入
 }
+
 /**
  * @description: 用于记录的邻居信息的定时”老化”
  * @param {TimerEvent} &e
@@ -204,24 +207,52 @@ void comm_LRU_aging_cb(const ros::TimerEvent &e)
         neighbourState[i].age = neighbourState[i].age >> 1;
     }
 }
-//-----------------TODO collision avoidance related-----------------------------------------------------------------------------------------------------------------------------------------------
-//TODO  
+
+void swarm_command_ground_cb(const prometheus_msgs::SwarmCommand::ConstPtr& msg)
+{
+    All_Offboard_Switch = msg -> All_Offboard_Control_Flg;
+    if(!All_Offboard_Switch) //if not all offboard, then pass message to swarm_controller
+    {
+        flightCommand_pub.publish(*msg);
+    }
+}
+
 //-----------------PROCESS ENVIRONMENTAL INFO--------------------------------------------------------------------------------------------------------------------------------------------------------------
 /**
  * @description: 传感器更新loop
  * @param {TimerEvent} &e
  * @return {*}
  */
+
+bool getSensorData(vector<Site> &site)
+{
+    //TODO implement
+}
+
 void sensorloop_cb(const ros::TimerEvent &e)
 {
     // TODO implement sensor-data acquisition
-
+    vector<Site> results; //use vector in case of multiple sites
+    if(getSensorData(results)) //if there's site with scope
+    {
+        //XXX: select an appropriate site_e, current strategy: select max
+        vector<Site>::iterator iter = results.begin();
+        vector<Site>::iterator maxPtr = results.begin();
+        for(; iter != results.end(); iter++)
+        {
+            if(iter->quality > maxPtr->quality)
+            {
+                maxPtr = iter;
+            }
+        }
+        site_e = *maxPtr;
+    }
     processEnvInfo();
 }
 
 void processEnvInfo()
 {
-    if (site_e.validFlg && site_e != site_m) // if sensor new site is valid and new
+    if (site_e != site_m) // if sensor new site is valid and new
     {
         if (site_e.quality > site_m.quality + sensorMinimumDiff) // compare rule
         {
@@ -229,7 +260,6 @@ void processEnvInfo()
             {
                 site_m = site_e;
                 selfCommitment.commitmentState = COMMITTED;
-                site_e.validFlg = false; // reset valid flg
             }
         }
     }
@@ -242,7 +272,7 @@ void processEnvInfo()
  */
 void socialLoop_cb(const ros::TimerEvent &e)
 {
-    if(neighbourCommitments.empty() != true) // not empty
+    if(neighbourCommitments.empty() != true) // not empty, heard something
     {
         //XXX: select an appropriate site_v, current strategy: select max
         vector<prometheus_msgs::Commitment>::iterator iter = neighbourCommitments.begin();
@@ -254,7 +284,6 @@ void socialLoop_cb(const ros::TimerEvent &e)
                 maxPtr = iter;
             }
         }
-        site_v.validFlg = true;
         site_v.quality = maxPtr->quality;
         site_v.sitePos[0] = maxPtr->sitePos[0];
         site_v.sitePos[1] = maxPtr->sitePos[1];
@@ -263,7 +292,7 @@ void socialLoop_cb(const ros::TimerEvent &e)
         neighbourCommitments.clear(); //clear vector at the end
 
         //
-        if (site_v.validFlg && site_v != site_m)
+        if (site_v != site_m)
         {
             site_m.sitePos = site_v.sitePos;
             site_m.quality = 0;
@@ -271,7 +300,6 @@ void socialLoop_cb(const ros::TimerEvent &e)
 
             selfCommitment.commitmentState = POLLING;
 
-            site_v.validFlg = false;
         }
     }
 }
@@ -291,4 +319,72 @@ void commitmentTXLoop_cb(const ros::TimerEvent &e) //voting loop
     }
 }
 
+void generateRandomWaypoint(Eigen::Vector3d &waypoint)
+{
+    int boundaryOffset = 10; //10 meters of boundary offset
+    random_device rd;  // random device
+    mt19937 gen(rd()); // seed
+    uniform_int_distribution<> Xdistribut((int)(geo_fence_x[0] + boundaryOffset),(int)(geo_fence_x[1] - boundaryOffset)); //randomly select a waypoint in the region
+    uniform_int_distribution<> Ydistribut((int)(geo_fence_y[0] + boundaryOffset),(int)(geo_fence_y[1] - boundaryOffset));
+    waypoint[0] = (float)Xdistribut(gen);
+    waypoint[1] = (float)Ydistribut(gen);
+    waypoint[2] = CruiseHeight;
+}
+
+bool check_if_reached_waypoint(Eigen::Vector3d &waypoint)
+{
+    if((pos_drone - waypoint).squaredNorm() <= WaypointMinSeparationThreshold*WaypointMinSeparationThreshold)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 //-----------------TODO NAVIGATION ----------------------------------------------------------------
+
+void collisionAvoidance() //TODO collision avoidance implement
+{
+    
+}
+/**
+ * @description: 发布飞行控制命令的回调函数
+ * @param {TimerEvent} &e
+ * @return {*}
+ */
+void navigationLoop_cb(const ros::TimerEvent &e)
+{
+    if(!All_Offboard_Switch) //if not all offboard, return
+    {
+        return;
+    }
+
+    collisionAvoidance();
+
+    if(!collision_flag) // if is not on collision course
+    {
+        if(check_if_reached_waypoint(navTargetPos))
+        {
+            generateRandomWaypoint(navTargetPos);
+        }
+        else
+        {
+            //TODO check if too long hasn't reached the waypoint
+        }
+
+        //update flight command
+        flightCommand.Mode = prometheus_msgs::SwarmCommand::Move; //move mode
+        flightCommand.Move_mode = prometheus_msgs::SwarmCommand::XYZ_POS; // XYZ_POS
+
+        flightCommand.position_ref[0] = navTargetPos[0];
+        flightCommand.position_ref[1] = navTargetPos[1];
+        flightCommand.position_ref[2] = navTargetPos[2];
+        
+        //double cosVal = navTargetPos.dot(pos_drone) / (navTargetPos.norm()*pos_drone.norm());
+        //flightCommand.yaw_ref = acos()
+    }
+    //publish flight command at the end
+    flightCommand_pub.publish(flightCommand);
+}

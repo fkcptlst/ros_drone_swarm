@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-01-31 21:34:24
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-02 15:56:39
+ * @LastEditTime: 2022-02-02 22:14:16
  * @FilePath: /swarm_ws2/src/swarm_control/src/virtual_relay.cpp
  * @Description: This node observes position of all vehicles and unicasts relevant info to each vehicle, modified from swarm_controller
  * 
@@ -27,7 +27,7 @@ bool observedDroneStateValidFlgList[MAX_UAV_NUM+1]; //用于标记是否有效�
 bool observedCommitmentValidFlgList[MAX_UAV_NUM+1]; //用于标记是否有效，避免重复发布历史信息
 
 
-Eigen::Vector3f observed_dronePos[MAX_UAV_NUM+1]; //drone position vector
+Eigen::Vector3d observed_dronePos[MAX_UAV_NUM+1]; //drone position vector
 uint32_t observed_drone_msgseq[MAX_UAV_NUM+1]; //msg counter, 防止使用初始的0位置导致无人机死锁
 
 void drone_state_topicUpdate_cb(const prometheus_msgs::DroneState::ConstPtr& state_msg, int drone_id);
@@ -80,14 +80,14 @@ void initialize()
     for(int i = 0; i <= MAX_UAV_NUM; i++) 
     {
         observed_drone_msgseq[i] = 0;
-        observed_dronePos[i] = Eigen::Vector3f::Zero();
+        observed_dronePos[i] = Eigen::Vector3d::Zero();
     }
 }
 void drone_state_topicUpdate_cb(const prometheus_msgs::DroneState::ConstPtr& state_msg, int drone_id) //更新每个无人机信息的callback function
 {
     observedDroneStateList[drone_id] = *state_msg;
     observed_drone_msgseq[drone_id] = state_msg->header.seq;
-    observed_dronePos[drone_id]  = Eigen::Vector3f(state_msg->position[0], state_msg->position[1], state_msg->position[2]); //get position
+    observed_dronePos[drone_id]  = Eigen::Vector3d(state_msg->position[0], state_msg->position[1], state_msg->position[2]); //get position
 
     observedDroneStateValidFlgList[drone_id] = true; //标记获得新消息有效
 }

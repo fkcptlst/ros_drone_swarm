@@ -54,5 +54,13 @@
         "workspaceRoot": "/home/amov/swarm_ws2",
         "workspacePath": "src/common/msgs/msg/Commitment.msg",
         "id": "MhGiEvsL5JdpHRYA"
+    },
+    {
+        "type": "File",
+        "name": "/home/amov/swarm_ws2/src/common/msgs/msg/SwarmCommand.msg",
+        "parent_id": null,
+        "workspaceRoot": "/home/amov/swarm_ws2",
+        "workspacePath": "src/common/msgs/msg/SwarmCommand.msg",
+        "id": "o6H8Je4sOvSVN3X5"
     }
 ]

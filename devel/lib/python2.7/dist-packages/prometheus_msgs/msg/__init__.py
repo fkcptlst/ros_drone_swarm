@@ -30,5 +30,6 @@ from ._MultiDetectionInfo import *
 from ._PositionReference import *
 from ._StationCommand import *
 from ._SwarmCommand import *
+from ._SwarmCommandGround import *
 from ._UgvCommand import *
 from ._UgvState import *

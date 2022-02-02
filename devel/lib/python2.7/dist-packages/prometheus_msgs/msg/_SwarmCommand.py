@@ -9,7 +9,7 @@ import struct
 import std_msgs.msg
 
 class SwarmCommand(genpy.Message):
-  _md5sum = "35627327c8e029440ad7acaae42811fe"
+  _md5sum = "bcde920b51ed64de69265b8e65e78836"
   _type = "prometheus_msgs/SwarmCommand"
   _has_header = True  # flag to mark the presence of a Header object
   _full_text = """std_msgs/Header header
@@ -19,6 +19,9 @@ uint32 Command_ID
 
 ## 消息来源
 string source
+
+##控制所有活动切换为offboard的flg
+bool All_Offboard_Control_Flg
 
 ## 控制命令的模式 
 uint8 Mode
@@ -62,8 +65,6 @@ float32[3] velocity_ref          ## [m]
 float32[3] acceleration_ref
 float32 yaw_ref                  ## [rad]
 float32 yaw_rate_ref
-
-
 ================================================================================
 MSG: std_msgs/Header
 # Standard metadata for higher-level stamped data types.
@@ -105,8 +106,8 @@ string frame_id
   XYZ_VEL_BODY = 7
   XY_VEL_Z_POS_BODY = 8
 
-  __slots__ = ['header','Command_ID','source','Mode','swarm_shape','Move_mode','swarm_size','position_ref','velocity_ref','acceleration_ref','yaw_ref','yaw_rate_ref']
-  _slot_types = ['std_msgs/Header','uint32','string','uint8','uint8','uint8','float32','float32[3]','float32[3]','float32[3]','float32','float32']
+  __slots__ = ['header','Command_ID','source','All_Offboard_Control_Flg','Mode','swarm_shape','Move_mode','swarm_size','position_ref','velocity_ref','acceleration_ref','yaw_ref','yaw_rate_ref']
+  _slot_types = ['std_msgs/Header','uint32','string','bool','uint8','uint8','uint8','float32','float32[3]','float32[3]','float32[3]','float32','float32']
 
   def __init__(self, *args, **kwds):
     """
@@ -116,7 +117,7 @@ string frame_id
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       header,Command_ID,source,Mode,swarm_shape,Move_mode,swarm_size,position_ref,velocity_ref,acceleration_ref,yaw_ref,yaw_rate_ref
+       header,Command_ID,source,All_Offboard_Control_Flg,Mode,swarm_shape,Move_mode,swarm_size,position_ref,velocity_ref,acceleration_ref,yaw_ref,yaw_rate_ref
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -131,6 +132,8 @@ string frame_id
         self.Command_ID = 0
       if self.source is None:
         self.source = ''
+      if self.All_Offboard_Control_Flg is None:
+        self.All_Offboard_Control_Flg = False
       if self.Mode is None:
         self.Mode = 0
       if self.swarm_shape is None:
@@ -153,6 +156,7 @@ string frame_id
       self.header = std_msgs.msg.Header()
       self.Command_ID = 0
       self.source = ''
+      self.All_Offboard_Control_Flg = False
       self.Mode = 0
       self.swarm_shape = 0
       self.Move_mode = 0
@@ -192,7 +196,7 @@ string frame_id
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self
-      buff.write(_get_struct_3Bf().pack(_x.Mode, _x.swarm_shape, _x.Move_mode, _x.swarm_size))
+      buff.write(_get_struct_4Bf().pack(_x.All_Offboard_Control_Flg, _x.Mode, _x.swarm_shape, _x.Move_mode, _x.swarm_size))
       buff.write(_get_struct_3f().pack(*self.position_ref))
       buff.write(_get_struct_3f().pack(*self.velocity_ref))
       buff.write(_get_struct_3f().pack(*self.acceleration_ref))
@@ -238,8 +242,9 @@ string frame_id
         self.source = str[start:end]
       _x = self
       start = end
-      end += 7
-      (_x.Mode, _x.swarm_shape, _x.Move_mode, _x.swarm_size,) = _get_struct_3Bf().unpack(str[start:end])
+      end += 8
+      (_x.All_Offboard_Control_Flg, _x.Mode, _x.swarm_shape, _x.Move_mode, _x.swarm_size,) = _get_struct_4Bf().unpack(str[start:end])
+      self.All_Offboard_Control_Flg = bool(self.All_Offboard_Control_Flg)
       start = end
       end += 12
       self.position_ref = _get_struct_3f().unpack(str[start:end])
@@ -282,7 +287,7 @@ string frame_id
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self
-      buff.write(_get_struct_3Bf().pack(_x.Mode, _x.swarm_shape, _x.Move_mode, _x.swarm_size))
+      buff.write(_get_struct_4Bf().pack(_x.All_Offboard_Control_Flg, _x.Mode, _x.swarm_shape, _x.Move_mode, _x.swarm_size))
       buff.write(self.position_ref.tostring())
       buff.write(self.velocity_ref.tostring())
       buff.write(self.acceleration_ref.tostring())
@@ -329,8 +334,9 @@ string frame_id
         self.source = str[start:end]
       _x = self
       start = end
-      end += 7
-      (_x.Mode, _x.swarm_shape, _x.Move_mode, _x.swarm_size,) = _get_struct_3Bf().unpack(str[start:end])
+      end += 8
+      (_x.All_Offboard_Control_Flg, _x.Mode, _x.swarm_shape, _x.Move_mode, _x.swarm_size,) = _get_struct_4Bf().unpack(str[start:end])
+      self.All_Offboard_Control_Flg = bool(self.All_Offboard_Control_Flg)
       start = end
       end += 12
       self.position_ref = numpy.frombuffer(str[start:end], dtype=numpy.float32, count=3)
@@ -358,12 +364,6 @@ def _get_struct_2f():
     if _struct_2f is None:
         _struct_2f = struct.Struct("<2f")
     return _struct_2f
-_struct_3Bf = None
-def _get_struct_3Bf():
-    global _struct_3Bf
-    if _struct_3Bf is None:
-        _struct_3Bf = struct.Struct("<3Bf")
-    return _struct_3Bf
 _struct_3I = None
 def _get_struct_3I():
     global _struct_3I
@@ -376,3 +376,9 @@ def _get_struct_3f():
     if _struct_3f is None:
         _struct_3f = struct.Struct("<3f")
     return _struct_3f
+_struct_4Bf = None
+def _get_struct_4Bf():
+    global _struct_4Bf
+    if _struct_4Bf is None:
+        _struct_4Bf = struct.Struct("<4Bf")
+    return _struct_4Bf

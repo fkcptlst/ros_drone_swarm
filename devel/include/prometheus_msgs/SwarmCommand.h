@@ -28,6 +28,7 @@ struct SwarmCommand_
     : header()
     , Command_ID(0)
     , source()
+    , All_Offboard_Control_Flg(false)
     , Mode(0)
     , swarm_shape(0)
     , Move_mode(0)
@@ -47,6 +48,7 @@ struct SwarmCommand_
     : header(_alloc)
     , Command_ID(0)
     , source(_alloc)
+    , All_Offboard_Control_Flg(false)
     , Mode(0)
     , swarm_shape(0)
     , Move_mode(0)
@@ -74,6 +76,9 @@ struct SwarmCommand_
 
    typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _source_type;
   _source_type source;
+
+   typedef uint8_t _All_Offboard_Control_Flg_type;
+  _All_Offboard_Control_Flg_type All_Offboard_Control_Flg;
 
    typedef uint8_t _Mode_type;
   _Mode_type Mode;
@@ -276,6 +281,7 @@ bool operator==(const ::prometheus_msgs::SwarmCommand_<ContainerAllocator1> & lh
   return lhs.header == rhs.header &&
     lhs.Command_ID == rhs.Command_ID &&
     lhs.source == rhs.source &&
+    lhs.All_Offboard_Control_Flg == rhs.All_Offboard_Control_Flg &&
     lhs.Mode == rhs.Mode &&
     lhs.swarm_shape == rhs.swarm_shape &&
     lhs.Move_mode == rhs.Move_mode &&
@@ -341,12 +347,12 @@ struct MD5Sum< ::prometheus_msgs::SwarmCommand_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "35627327c8e029440ad7acaae42811fe";
+    return "bcde920b51ed64de69265b8e65e78836";
   }
 
   static const char* value(const ::prometheus_msgs::SwarmCommand_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x35627327c8e02944ULL;
-  static const uint64_t static_value2 = 0x0ad7acaae42811feULL;
+  static const uint64_t static_value1 = 0xbcde920b51ed64deULL;
+  static const uint64_t static_value2 = 0x69265b8e65e78836ULL;
 };
 
 template<class ContainerAllocator>
@@ -372,6 +378,9 @@ struct Definition< ::prometheus_msgs::SwarmCommand_<ContainerAllocator> >
 "\n"
 "## 消息来源\n"
 "string source\n"
+"\n"
+"##控制所有活动切换为offboard的flg\n"
+"bool All_Offboard_Control_Flg\n"
 "\n"
 "## 控制命令的模式 \n"
 "uint8 Mode\n"
@@ -415,8 +424,6 @@ struct Definition< ::prometheus_msgs::SwarmCommand_<ContainerAllocator> >
 "float32[3] acceleration_ref\n"
 "float32 yaw_ref                  ## [rad]\n"
 "float32 yaw_rate_ref\n"
-"\n"
-"\n"
 "================================================================================\n"
 "MSG: std_msgs/Header\n"
 "# Standard metadata for higher-level stamped data types.\n"
@@ -453,6 +460,7 @@ namespace serialization
       stream.next(m.header);
       stream.next(m.Command_ID);
       stream.next(m.source);
+      stream.next(m.All_Offboard_Control_Flg);
       stream.next(m.Mode);
       stream.next(m.swarm_shape);
       stream.next(m.Move_mode);
@@ -487,6 +495,8 @@ struct Printer< ::prometheus_msgs::SwarmCommand_<ContainerAllocator> >
     Printer<uint32_t>::stream(s, indent + "  ", v.Command_ID);
     s << indent << "source: ";
     Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.source);
+    s << indent << "All_Offboard_Control_Flg: ";
+    Printer<uint8_t>::stream(s, indent + "  ", v.All_Offboard_Control_Flg);
     s << indent << "Mode: ";
     Printer<uint8_t>::stream(s, indent + "  ", v.Mode);
     s << indent << "swarm_shape: ";

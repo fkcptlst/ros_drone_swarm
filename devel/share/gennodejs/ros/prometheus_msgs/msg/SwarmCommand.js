@@ -22,6 +22,7 @@ class SwarmCommand {
       this.header = null;
       this.Command_ID = null;
       this.source = null;
+      this.All_Offboard_Control_Flg = null;
       this.Mode = null;
       this.swarm_shape = null;
       this.Move_mode = null;
@@ -50,6 +51,12 @@ class SwarmCommand {
       }
       else {
         this.source = '';
+      }
+      if (initObj.hasOwnProperty('All_Offboard_Control_Flg')) {
+        this.All_Offboard_Control_Flg = initObj.All_Offboard_Control_Flg
+      }
+      else {
+        this.All_Offboard_Control_Flg = false;
       }
       if (initObj.hasOwnProperty('Mode')) {
         this.Mode = initObj.Mode
@@ -116,6 +123,8 @@ class SwarmCommand {
     bufferOffset = _serializer.uint32(obj.Command_ID, buffer, bufferOffset);
     // Serialize message field [source]
     bufferOffset = _serializer.string(obj.source, buffer, bufferOffset);
+    // Serialize message field [All_Offboard_Control_Flg]
+    bufferOffset = _serializer.bool(obj.All_Offboard_Control_Flg, buffer, bufferOffset);
     // Serialize message field [Mode]
     bufferOffset = _serializer.uint8(obj.Mode, buffer, bufferOffset);
     // Serialize message field [swarm_shape]
@@ -159,6 +168,8 @@ class SwarmCommand {
     data.Command_ID = _deserializer.uint32(buffer, bufferOffset);
     // Deserialize message field [source]
     data.source = _deserializer.string(buffer, bufferOffset);
+    // Deserialize message field [All_Offboard_Control_Flg]
+    data.All_Offboard_Control_Flg = _deserializer.bool(buffer, bufferOffset);
     // Deserialize message field [Mode]
     data.Mode = _deserializer.uint8(buffer, bufferOffset);
     // Deserialize message field [swarm_shape]
@@ -184,7 +195,7 @@ class SwarmCommand {
     let length = 0;
     length += std_msgs.msg.Header.getMessageSize(object.header);
     length += object.source.length;
-    return length + 59;
+    return length + 60;
   }
 
   static datatype() {
@@ -194,7 +205,7 @@ class SwarmCommand {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '35627327c8e029440ad7acaae42811fe';
+    return 'bcde920b51ed64de69265b8e65e78836';
   }
 
   static messageDefinition() {
@@ -207,6 +218,9 @@ class SwarmCommand {
     
     ## 消息来源
     string source
+    
+    ##控制所有活动切换为offboard的flg
+    bool All_Offboard_Control_Flg
     
     ## 控制命令的模式 
     uint8 Mode
@@ -250,8 +264,6 @@ class SwarmCommand {
     float32[3] acceleration_ref
     float32 yaw_ref                  ## [rad]
     float32 yaw_rate_ref
-    
-    
     ================================================================================
     MSG: std_msgs/Header
     # Standard metadata for higher-level stamped data types.
@@ -296,6 +308,13 @@ class SwarmCommand {
     }
     else {
       resolved.source = ''
+    }
+
+    if (msg.All_Offboard_Control_Flg !== undefined) {
+      resolved.All_Offboard_Control_Flg = msg.All_Offboard_Control_Flg;
+    }
+    else {
+      resolved.All_Offboard_Control_Flg = false
     }
 
     if (msg.Mode !== undefined) {

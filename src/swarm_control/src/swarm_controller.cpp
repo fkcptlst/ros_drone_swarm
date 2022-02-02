@@ -80,7 +80,7 @@ void mainloop_cb(const ros::TimerEvent &e)
         idle();
 
         // 设定yaw_ref=999时，切换offboard模式，并解锁
-        if(Command_Now.yaw_ref == 999)
+        if(Command_Now.yaw_ref == 999) //TODO why?
         {
             if(_DroneState.mode != "OFFBOARD")
             {

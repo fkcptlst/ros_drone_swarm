@@ -85,7 +85,7 @@
 (defconstant prometheus_msgs::SwarmCommand::*XY_VEL_Z_POS_BODY* 8)
 (defclass prometheus_msgs::SwarmCommand
   :super ros::object
-  :slots (_header _Command_ID _source _Mode _swarm_shape _Move_mode _swarm_size _position_ref _velocity_ref _acceleration_ref _yaw_ref _yaw_rate_ref ))
+  :slots (_header _Command_ID _source _All_Offboard_Control_Flg _Mode _swarm_shape _Move_mode _swarm_size _position_ref _velocity_ref _acceleration_ref _yaw_ref _yaw_rate_ref ))
 
 (defmethod prometheus_msgs::SwarmCommand
   (:init
@@ -93,6 +93,7 @@
     ((:header __header) (instance std_msgs::Header :init))
     ((:Command_ID __Command_ID) 0)
     ((:source __source) "")
+    ((:All_Offboard_Control_Flg __All_Offboard_Control_Flg) nil)
     ((:Mode __Mode) 0)
     ((:swarm_shape __swarm_shape) 0)
     ((:Move_mode __Move_mode) 0)
@@ -107,6 +108,7 @@
    (setq _header __header)
    (setq _Command_ID (round __Command_ID))
    (setq _source (string __source))
+   (setq _All_Offboard_Control_Flg __All_Offboard_Control_Flg)
    (setq _Mode (round __Mode))
    (setq _swarm_shape (round __swarm_shape))
    (setq _Move_mode (round __Move_mode))
@@ -130,6 +132,9 @@
   (:source
    (&optional __source)
    (if __source (setq _source __source)) _source)
+  (:All_Offboard_Control_Flg
+   (&optional __All_Offboard_Control_Flg)
+   (if __All_Offboard_Control_Flg (setq _All_Offboard_Control_Flg __All_Offboard_Control_Flg)) _All_Offboard_Control_Flg)
   (:Mode
    (&optional __Mode)
    (if __Mode (setq _Mode __Mode)) _Mode)
@@ -166,6 +171,8 @@
     4
     ;; string _source
     4 (length _source)
+    ;; bool _All_Offboard_Control_Flg
+    1
     ;; uint8 _Mode
     1
     ;; uint8 _swarm_shape
@@ -195,6 +202,8 @@
        (write-long _Command_ID s)
      ;; string _source
        (write-long (length _source) s) (princ _source s)
+     ;; bool _All_Offboard_Control_Flg
+       (if _All_Offboard_Control_Flg (write-byte -1 s) (write-byte 0 s))
      ;; uint8 _Mode
        (write-byte _Mode s)
      ;; uint8 _swarm_shape
@@ -229,6 +238,8 @@
      (setq _Command_ID (sys::peek buf ptr- :integer)) (incf ptr- 4)
    ;; string _source
      (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _source (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
+   ;; bool _All_Offboard_Control_Flg
+     (setq _All_Offboard_Control_Flg (not (= 0 (sys::peek buf ptr- :char)))) (incf ptr- 1)
    ;; uint8 _Mode
      (setq _Mode (sys::peek buf ptr- :char)) (incf ptr- 1)
    ;; uint8 _swarm_shape
@@ -257,7 +268,7 @@
    self)
   )
 
-(setf (get prometheus_msgs::SwarmCommand :md5sum-) "35627327c8e029440ad7acaae42811fe")
+(setf (get prometheus_msgs::SwarmCommand :md5sum-) "bcde920b51ed64de69265b8e65e78836")
 (setf (get prometheus_msgs::SwarmCommand :datatype-) "prometheus_msgs/SwarmCommand")
 (setf (get prometheus_msgs::SwarmCommand :definition-)
       "std_msgs/Header header
@@ -267,6 +278,9 @@ uint32 Command_ID
 
 ## 消息来源
 string source
+
+##控制所有活动切换为offboard的flg
+bool All_Offboard_Control_Flg
 
 ## 控制命令的模式 
 uint8 Mode
@@ -310,8 +324,6 @@ float32[3] velocity_ref          ## [m]
 float32[3] acceleration_ref
 float32 yaw_ref                  ## [rad]
 float32 yaw_rate_ref
-
-
 ================================================================================
 MSG: std_msgs/Header
 # Standard metadata for higher-level stamped data types.
@@ -332,6 +344,6 @@ string frame_id
 
 
 
-(provide :prometheus_msgs/SwarmCommand "35627327c8e029440ad7acaae42811fe")
+(provide :prometheus_msgs/SwarmCommand "bcde920b51ed64de69265b8e65e78836")
 
 

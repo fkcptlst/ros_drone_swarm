@@ -6,6 +6,9 @@ uint32 Command_ID
 ## 消息来源
 string source
 
+##控制所有活动切换为offboard的flg
+bool All_Offboard_Control_Flg
+
 ## 控制命令的模式 
 uint8 Mode
 # enum Mode 控制模式枚举
@@ -48,4 +51,3 @@ float32[3] velocity_ref          ## [m]
 float32[3] acceleration_ref
 float32 yaw_ref                  ## [rad]
 float32 yaw_rate_ref
-

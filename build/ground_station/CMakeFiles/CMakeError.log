@@ -1,22 +1,22 @@
 Determining if the pthread_create exist failed with the following output:
 Change Dir: /home/amov/swarm_ws2/build/ground_station/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_ddb61/fast"
-/usr/bin/make -f CMakeFiles/cmTC_ddb61.dir/build.make CMakeFiles/cmTC_ddb61.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_c5e9b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c5e9b.dir/build.make CMakeFiles/cmTC_c5e9b.dir/build
 make[1]: Entering directory '/home/amov/swarm_ws2/build/ground_station/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_ddb61.dir/CheckSymbolExists.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_ddb61.dir/CheckSymbolExists.c.o   -c /home/amov/swarm_ws2/build/ground_station/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_ddb61
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ddb61.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_ddb61.dir/CheckSymbolExists.c.o  -o cmTC_ddb61 
-CMakeFiles/cmTC_ddb61.dir/CheckSymbolExists.c.o: In function `main':
+Building C object CMakeFiles/cmTC_c5e9b.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_c5e9b.dir/CheckSymbolExists.c.o   -c /home/amov/swarm_ws2/build/ground_station/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_c5e9b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c5e9b.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_c5e9b.dir/CheckSymbolExists.c.o  -o cmTC_c5e9b 
+CMakeFiles/cmTC_c5e9b.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_ddb61.dir/build.make:97: recipe for target 'cmTC_ddb61' failed
-make[1]: *** [cmTC_ddb61] Error 1
+CMakeFiles/cmTC_c5e9b.dir/build.make:97: recipe for target 'cmTC_c5e9b' failed
+make[1]: *** [cmTC_c5e9b] Error 1
 make[1]: Leaving directory '/home/amov/swarm_ws2/build/ground_station/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_ddb61/fast' failed
-make: *** [cmTC_ddb61/fast] Error 2
+Makefile:126: recipe for target 'cmTC_c5e9b/fast' failed
+make: *** [cmTC_c5e9b/fast] Error 2
 
 File /home/amov/swarm_ws2/build/ground_station/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
@@ -36,20 +36,20 @@ int main(int argc, char** argv)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /home/amov/swarm_ws2/build/ground_station/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_18483/fast"
-/usr/bin/make -f CMakeFiles/cmTC_18483.dir/build.make CMakeFiles/cmTC_18483.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_b853d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b853d.dir/build.make CMakeFiles/cmTC_b853d.dir/build
 make[1]: Entering directory '/home/amov/swarm_ws2/build/ground_station/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_18483.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_18483.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
-Linking C executable cmTC_18483
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_18483.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_18483.dir/CheckFunctionExists.c.o  -o cmTC_18483 -lpthreads 
+Building C object CMakeFiles/cmTC_b853d.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_b853d.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_b853d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b853d.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_b853d.dir/CheckFunctionExists.c.o  -o cmTC_b853d -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_18483.dir/build.make:97: recipe for target 'cmTC_18483' failed
-make[1]: *** [cmTC_18483] Error 1
+CMakeFiles/cmTC_b853d.dir/build.make:97: recipe for target 'cmTC_b853d' failed
+make[1]: *** [cmTC_b853d] Error 1
 make[1]: Leaving directory '/home/amov/swarm_ws2/build/ground_station/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_18483/fast' failed
-make: *** [cmTC_18483/fast] Error 2
+Makefile:126: recipe for target 'cmTC_b853d/fast' failed
+make: *** [cmTC_b853d/fast] Error 2
 
 

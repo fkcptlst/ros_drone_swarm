@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-01 19:03:19
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-02 14:22:10
+ * @LastEditTime: 2022-02-02 23:02:38
  * @FilePath: /swarm_ws2/src/swarm_control/include/uav_planner.h
  * @Description: 
  * 
@@ -20,6 +20,11 @@
 const float COMMRANGE_THRESHOLD = 30.0; //30m comm range
 
 const float SiteMinSeparationThreshold = 20.0; //20m min site separation
+const float WaypointMinSeparationThreshold = 3.0; //3m min waypoint separation
+
+const double CruiseHeight = 10.0; //10m of cruise height
+const int boundaryOffset = 50; //TODO need adjust: 50 meters of boundary offset
+
 
 enum 
 {
@@ -40,14 +45,12 @@ typedef struct NeighbourDroneState
 
 typedef struct Site
 {
-    Eigen::Vector3f sitePos;
+    Eigen::Vector3d sitePos;
     float quality;
-    bool validFlg;
     Site()
     {
         sitePos.Zero();
         quality = 0.0f;
-        validFlg = false;
     }
     bool operator==(Site &b) //if two sites are close enough, then consider them to be the same
     {

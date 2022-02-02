@@ -22,6 +22,11 @@
     :initarg :source
     :type cl:string
     :initform "")
+   (All_Offboard_Control_Flg
+    :reader All_Offboard_Control_Flg
+    :initarg :All_Offboard_Control_Flg
+    :type cl:boolean
+    :initform cl:nil)
    (Mode
     :reader Mode
     :initarg :Mode
@@ -91,6 +96,11 @@
 (cl:defmethod source-val ((m <SwarmCommand>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader prometheus_msgs-msg:source-val is deprecated.  Use prometheus_msgs-msg:source instead.")
   (source m))
+
+(cl:ensure-generic-function 'All_Offboard_Control_Flg-val :lambda-list '(m))
+(cl:defmethod All_Offboard_Control_Flg-val ((m <SwarmCommand>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader prometheus_msgs-msg:All_Offboard_Control_Flg-val is deprecated.  Use prometheus_msgs-msg:All_Offboard_Control_Flg instead.")
+  (All_Offboard_Control_Flg m))
 
 (cl:ensure-generic-function 'Mode-val :lambda-list '(m))
 (cl:defmethod Mode-val ((m <SwarmCommand>))
@@ -201,6 +211,7 @@
     (cl:write-byte (cl:ldb (cl:byte 8 16) __ros_str_len) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 24) __ros_str_len) ostream))
   (cl:map cl:nil #'(cl:lambda (c) (cl:write-byte (cl:char-code c) ostream)) (cl:slot-value msg 'source))
+  (cl:write-byte (cl:ldb (cl:byte 8 0) (cl:if (cl:slot-value msg 'All_Offboard_Control_Flg) 1 0)) ostream)
   (cl:write-byte (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'Mode)) ostream)
   (cl:write-byte (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'swarm_shape)) ostream)
   (cl:write-byte (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'Move_mode)) ostream)
@@ -253,6 +264,7 @@
       (cl:setf (cl:slot-value msg 'source) (cl:make-string __ros_str_len))
       (cl:dotimes (__ros_str_idx __ros_str_len msg)
         (cl:setf (cl:char (cl:slot-value msg 'source) __ros_str_idx) (cl:code-char (cl:read-byte istream)))))
+    (cl:setf (cl:slot-value msg 'All_Offboard_Control_Flg) (cl:not (cl:zerop (cl:read-byte istream))))
     (cl:setf (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'Mode)) (cl:read-byte istream))
     (cl:setf (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'swarm_shape)) (cl:read-byte istream))
     (cl:setf (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'Move_mode)) (cl:read-byte istream))
@@ -311,21 +323,22 @@
   "prometheus_msgs/SwarmCommand")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<SwarmCommand>)))
   "Returns md5sum for a message object of type '<SwarmCommand>"
-  "35627327c8e029440ad7acaae42811fe")
+  "bcde920b51ed64de69265b8e65e78836")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'SwarmCommand)))
   "Returns md5sum for a message object of type 'SwarmCommand"
-  "35627327c8e029440ad7acaae42811fe")
+  "bcde920b51ed64de69265b8e65e78836")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<SwarmCommand>)))
   "Returns full string definition for message of type '<SwarmCommand>"
-  (cl:format cl:nil "std_msgs/Header header~%~%## 控制命令的编号 防止接收到错误命令， 编号应该逐次递加~%uint32 Command_ID~%~%## 消息来源~%string source~%~%## 控制命令的模式 ~%uint8 Mode~%# enum Mode 控制模式枚举~%uint8 Idle=0~%uint8 Takeoff=1~%uint8 Hold=2~%uint8 Land=3~%uint8 Disarm=4~%uint8 Position_Control=5~%uint8 Velocity_Control=6~%uint8 Accel_Control=7~%uint8 Move=8~%uint8 User_Mode1=9~%~%## 控制参考量 ~%uint8 swarm_shape~%~%uint8 One_column=0~%uint8 Triangle=1~%uint8 Square=2~%uint8 Circular=3~%~%## 默认为 XYZ位置追踪模式 （sub_mode = 0）； 速度追踪启用时，控制器不考虑位置参考量及位置状态反馈~%uint8 Move_mode~%~%uint8 XYZ_POS      = 0  ##0b00~%uint8 XY_POS_Z_VEL = 1  ##0b01~%uint8 XY_VEL_Z_POS = 2  ##0b10~%uint8 XYZ_VEL = 3       ##0b11~%uint8 XYZ_ACC = 4~%uint8 TRAJECTORY   = 5 ~%uint8 XYZ_POS_BODY = 6  ~%uint8 XYZ_VEL_BODY = 7~%uint8 XY_VEL_Z_POS_BODY = 8~%~%float32 swarm_size~%~%float32[3] position_ref          ## [m]~%float32[3] velocity_ref          ## [m]~%float32[3] acceleration_ref~%float32 yaw_ref                  ## [rad]~%float32 yaw_rate_ref~%~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%~%"))
+  (cl:format cl:nil "std_msgs/Header header~%~%## 控制命令的编号 防止接收到错误命令， 编号应该逐次递加~%uint32 Command_ID~%~%## 消息来源~%string source~%~%##控制所有活动切换为offboard的flg~%bool All_Offboard_Control_Flg~%~%## 控制命令的模式 ~%uint8 Mode~%# enum Mode 控制模式枚举~%uint8 Idle=0~%uint8 Takeoff=1~%uint8 Hold=2~%uint8 Land=3~%uint8 Disarm=4~%uint8 Position_Control=5~%uint8 Velocity_Control=6~%uint8 Accel_Control=7~%uint8 Move=8~%uint8 User_Mode1=9~%~%## 控制参考量 ~%uint8 swarm_shape~%~%uint8 One_column=0~%uint8 Triangle=1~%uint8 Square=2~%uint8 Circular=3~%~%## 默认为 XYZ位置追踪模式 （sub_mode = 0）； 速度追踪启用时，控制器不考虑位置参考量及位置状态反馈~%uint8 Move_mode~%~%uint8 XYZ_POS      = 0  ##0b00~%uint8 XY_POS_Z_VEL = 1  ##0b01~%uint8 XY_VEL_Z_POS = 2  ##0b10~%uint8 XYZ_VEL = 3       ##0b11~%uint8 XYZ_ACC = 4~%uint8 TRAJECTORY   = 5 ~%uint8 XYZ_POS_BODY = 6  ~%uint8 XYZ_VEL_BODY = 7~%uint8 XY_VEL_Z_POS_BODY = 8~%~%float32 swarm_size~%~%float32[3] position_ref          ## [m]~%float32[3] velocity_ref          ## [m]~%float32[3] acceleration_ref~%float32 yaw_ref                  ## [rad]~%float32 yaw_rate_ref~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'SwarmCommand)))
   "Returns full string definition for message of type 'SwarmCommand"
-  (cl:format cl:nil "std_msgs/Header header~%~%## 控制命令的编号 防止接收到错误命令， 编号应该逐次递加~%uint32 Command_ID~%~%## 消息来源~%string source~%~%## 控制命令的模式 ~%uint8 Mode~%# enum Mode 控制模式枚举~%uint8 Idle=0~%uint8 Takeoff=1~%uint8 Hold=2~%uint8 Land=3~%uint8 Disarm=4~%uint8 Position_Control=5~%uint8 Velocity_Control=6~%uint8 Accel_Control=7~%uint8 Move=8~%uint8 User_Mode1=9~%~%## 控制参考量 ~%uint8 swarm_shape~%~%uint8 One_column=0~%uint8 Triangle=1~%uint8 Square=2~%uint8 Circular=3~%~%## 默认为 XYZ位置追踪模式 （sub_mode = 0）； 速度追踪启用时，控制器不考虑位置参考量及位置状态反馈~%uint8 Move_mode~%~%uint8 XYZ_POS      = 0  ##0b00~%uint8 XY_POS_Z_VEL = 1  ##0b01~%uint8 XY_VEL_Z_POS = 2  ##0b10~%uint8 XYZ_VEL = 3       ##0b11~%uint8 XYZ_ACC = 4~%uint8 TRAJECTORY   = 5 ~%uint8 XYZ_POS_BODY = 6  ~%uint8 XYZ_VEL_BODY = 7~%uint8 XY_VEL_Z_POS_BODY = 8~%~%float32 swarm_size~%~%float32[3] position_ref          ## [m]~%float32[3] velocity_ref          ## [m]~%float32[3] acceleration_ref~%float32 yaw_ref                  ## [rad]~%float32 yaw_rate_ref~%~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%~%"))
+  (cl:format cl:nil "std_msgs/Header header~%~%## 控制命令的编号 防止接收到错误命令， 编号应该逐次递加~%uint32 Command_ID~%~%## 消息来源~%string source~%~%##控制所有活动切换为offboard的flg~%bool All_Offboard_Control_Flg~%~%## 控制命令的模式 ~%uint8 Mode~%# enum Mode 控制模式枚举~%uint8 Idle=0~%uint8 Takeoff=1~%uint8 Hold=2~%uint8 Land=3~%uint8 Disarm=4~%uint8 Position_Control=5~%uint8 Velocity_Control=6~%uint8 Accel_Control=7~%uint8 Move=8~%uint8 User_Mode1=9~%~%## 控制参考量 ~%uint8 swarm_shape~%~%uint8 One_column=0~%uint8 Triangle=1~%uint8 Square=2~%uint8 Circular=3~%~%## 默认为 XYZ位置追踪模式 （sub_mode = 0）； 速度追踪启用时，控制器不考虑位置参考量及位置状态反馈~%uint8 Move_mode~%~%uint8 XYZ_POS      = 0  ##0b00~%uint8 XY_POS_Z_VEL = 1  ##0b01~%uint8 XY_VEL_Z_POS = 2  ##0b10~%uint8 XYZ_VEL = 3       ##0b11~%uint8 XYZ_ACC = 4~%uint8 TRAJECTORY   = 5 ~%uint8 XYZ_POS_BODY = 6  ~%uint8 XYZ_VEL_BODY = 7~%uint8 XY_VEL_Z_POS_BODY = 8~%~%float32 swarm_size~%~%float32[3] position_ref          ## [m]~%float32[3] velocity_ref          ## [m]~%float32[3] acceleration_ref~%float32 yaw_ref                  ## [rad]~%float32 yaw_rate_ref~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <SwarmCommand>))
   (cl:+ 0
      (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'header))
      4
      4 (cl:length (cl:slot-value msg 'source))
+     1
      1
      1
      1
@@ -342,6 +355,7 @@
     (cl:cons ':header (header msg))
     (cl:cons ':Command_ID (Command_ID msg))
     (cl:cons ':source (source msg))
+    (cl:cons ':All_Offboard_Control_Flg (All_Offboard_Control_Flg msg))
     (cl:cons ':Mode (Mode msg))
     (cl:cons ':swarm_shape (swarm_shape msg))
     (cl:cons ':Move_mode (Move_mode msg))

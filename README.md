@@ -57,3 +57,29 @@
 //问题：formation_separation 是干啥的？
 
 注：可能最后用Move Mode要好些
+
+    // 地理围栏
+
+nh.param`<float>`("geo_fence/x_min", geo_fence_x[0], -100.0);
+
+nh.param`<float>`("geo_fence/x_max", geo_fence_x[1], 100.0);
+
+nh.param`<float>`("geo_fence/y_min", geo_fence_y[0], -100.0);
+
+nh.param`<float>`("geo_fence/y_max", geo_fence_y[1], 100.0);
+
+nh.param`<float>`("geo_fence/z_min", geo_fence_z[0], -100.0);
+
+nh.param `<float>`("geo_fence/z_max", geo_fence_z[1], 100.0);
+
+
+
+// 无人机状态量
+
+Eigen::Vector3dpos_drone;                      // 无人机位置
+
+Eigen::Vector3dvel_drone;                      // 无人机速度
+
+Eigen::Quaterniondq_drone;                 // 无人机四元数
+
+doubleyaw_drone;
