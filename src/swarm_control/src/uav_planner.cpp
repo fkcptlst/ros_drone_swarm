@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-01 17:15:50
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-02 15:26:36
+ * @LastEditTime: 2022-02-02 17:10:04
  * @FilePath: /swarm_ws2/src/swarm_control/src/uav_planner.cpp
  * @Description: this node oversees everything involved in a single uav
  *
@@ -10,6 +10,8 @@
 #include "swarm_controller.h"
 #include "uav_planner.h"
 #include <random>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -41,6 +43,8 @@ Site site_v;                  // newest social info site, still questionable
 
 const float sensorMinimumDiff = 0.05f; //传感器更新最小阈值epsilon
 
+vector<prometheus_msgs::Commitment> neighbourCommitments; //记录收到的投票信息,buffer
+
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>函数原型<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 void droneStateTXLoop_cb(const ros::TimerEvent &e); //定时广播位置
@@ -57,6 +61,13 @@ void commitmentRX_cb(const prometheus_msgs::Commitment::ConstPtr &commitment_msg
 void comm_LRU_aging_cb(const ros::TimerEvent &e);
 
 void sync_selfCommitment_with_site_m();
+
+bool with_prob_of(float prob);
+void processEnvInfo();
+void sync_selfCommitment_with_site_m(); //a utility func
+
+void socialLoop_cb(const ros::TimerEvent &e);
+
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>主 函 数<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 int main(int argc, char **argv)
 {
@@ -98,10 +109,13 @@ int main(int argc, char **argv)
 
 
     ros::Timer sensorLoop_timer = nh.createTimer(ros::Duration(0.5), sensorloop_cb);
-    ros::Timer commandPublishLoop_timer = nh.createTimer(ros::Duration(0.1), commandPublishLoop_cb);
+    ros::Timer commandPublishLoop_timer = nh.createTimer(ros::Duration(20), commandPublishLoop_cb); //TODO this need fixing
 
     ros::Timer comm_LRU_aging_timer = nh.createTimer(ros::Duration(0.5), comm_LRU_aging_cb);
 
+    ros::Timer socialLoop_timer = nh.createTimer(ros::Duration(0.5),socialLoop_cb);
+    
+    
     ros::spin();
 
     return 0;
@@ -176,7 +190,7 @@ void droneStateRX_cb(const prometheus_msgs::DroneState::ConstPtr &state_msg)
 
 void commitmentRX_cb(const prometheus_msgs::Commitment::ConstPtr &commitment_msg)
 {
-    
+    neighbourCommitments.push_back(*commitment_msg); //压入
 }
 /**
  * @description: 用于记录的邻居信息的定时”老化”
@@ -191,7 +205,7 @@ void comm_LRU_aging_cb(const ros::TimerEvent &e)
     }
 }
 //-----------------TODO collision avoidance related-----------------------------------------------------------------------------------------------------------------------------------------------
-
+//TODO  
 //-----------------PROCESS ENVIRONMENTAL INFO--------------------------------------------------------------------------------------------------------------------------------------------------------------
 /**
  * @description: 传感器更新loop
@@ -201,6 +215,8 @@ void comm_LRU_aging_cb(const ros::TimerEvent &e)
 void sensorloop_cb(const ros::TimerEvent &e)
 {
     // TODO implement sensor-data acquisition
+
+    processEnvInfo();
 }
 
 void processEnvInfo()
@@ -212,6 +228,7 @@ void processEnvInfo()
             if (with_prob_of(site_e.quality))
             {
                 site_m = site_e;
+                selfCommitment.commitmentState = COMMITTED;
                 site_e.validFlg = false; // reset valid flg
             }
         }
@@ -223,13 +240,39 @@ void processEnvInfo()
  * @param {TimerEvent} &e
  * @return {*}
  */
-void socialLoop_cb(const ros::TimerEvent &e) // TODO
+void socialLoop_cb(const ros::TimerEvent &e)
 {
-    if (site_v.validFlg && site_v != site_m)
+    if(neighbourCommitments.empty() != true) // not empty
     {
-        site_m.sitePos = site_v.sitePos;
-        site_m.quality = 0;
-        navTargetPos = site_v.sitePos;
+        //XXX: select an appropriate site_v, current strategy: select max
+        vector<prometheus_msgs::Commitment>::iterator iter = neighbourCommitments.begin();
+        vector<prometheus_msgs::Commitment>::iterator maxPtr = neighbourCommitments.begin();
+        for(; iter != neighbourCommitments.end(); iter++)
+        {
+            if(iter->quality > maxPtr->quality)
+            {
+                maxPtr = iter;
+            }
+        }
+        site_v.validFlg = true;
+        site_v.quality = maxPtr->quality;
+        site_v.sitePos[0] = maxPtr->sitePos[0];
+        site_v.sitePos[1] = maxPtr->sitePos[1];
+        site_v.sitePos[2] = maxPtr->sitePos[2];
+
+        neighbourCommitments.clear(); //clear vector at the end
+
+        //
+        if (site_v.validFlg && site_v != site_m)
+        {
+            site_m.sitePos = site_v.sitePos;
+            site_m.quality = 0;
+            navTargetPos = site_v.sitePos;
+
+            selfCommitment.commitmentState = POLLING;
+
+            site_v.validFlg = false;
+        }
     }
 }
 

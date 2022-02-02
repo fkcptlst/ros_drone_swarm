@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-01-31 21:34:24
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-02 14:44:17
+ * @LastEditTime: 2022-02-02 15:56:39
  * @FilePath: /swarm_ws2/src/swarm_control/src/virtual_relay.cpp
  * @Description: This node observes position of all vehicles and unicasts relevant info to each vehicle, modified from swarm_controller
  * 
@@ -14,16 +14,25 @@
 using namespace std;
 
 
-ros::Subscriber observed_drone_state_sub[MAX_UAV_NUM+1]; //用于订阅
-ros::Publisher observed_drone_state_pub[MAX_UAV_NUM+1]; //用于发布邻居信息
+ros::Subscriber observed_drone_state_sub[MAX_UAV_NUM+1]; //用于订阅drone_state
+ros::Subscriber observed_commitment_sub[MAX_UAV_NUM+1]; //用于订阅commitment
+
+ros::Publisher observed_drone_state_pub[MAX_UAV_NUM+1]; //用于发布邻居drone_state信息
+ros::Publisher observed_commitment_pub[MAX_UAV_NUM+1]; //用于发布邻居commitment信息
 
 prometheus_msgs::DroneState observedDroneStateList[MAX_UAV_NUM+1];
+prometheus_msgs::Commitment observedCommitmentList[MAX_UAV_NUM+1];
+
 bool observedDroneStateValidFlgList[MAX_UAV_NUM+1]; //用于标记是否有效，避免重复发布历史信息
+bool observedCommitmentValidFlgList[MAX_UAV_NUM+1]; //用于标记是否有效，避免重复发布历史信息
+
 
 Eigen::Vector3f observed_dronePos[MAX_UAV_NUM+1]; //drone position vector
 uint32_t observed_drone_msgseq[MAX_UAV_NUM+1]; //msg counter, 防止使用初始的0位置导致无人机死锁
 
-void topicUpdate_cb(const prometheus_msgs::DroneState::ConstPtr& state_msg, int drone_id);
+void drone_state_topicUpdate_cb(const prometheus_msgs::DroneState::ConstPtr& state_msg, int drone_id);
+void commitment_topicUpdate_cb(const prometheus_msgs::Commitment::ConstPtr& commitment_msg, int drone_id);
+
 void globalUpdate_cb(const ros::TimerEvent &e);
 void initialize();
 
@@ -52,8 +61,10 @@ int main(int argc, char **argv)
 
     for(int i = 1; i <= swarm_num_uav; i++) 
     {
-        observed_drone_state_sub[i] = nh.subscribe<prometheus_msgs::DroneState>("/uav"+std::to_string(i)+ "/prometheus/commBuffer_TX/drone_state", 10, boost::bind(topicUpdate_cb,_1,i));
-        observed_drone_state_pub[i] = nh.advertise<prometheus_msgs::DroneState>("/uav"+std::to_string(i)+ "/prometheus/commBuffer_RX/drone_state", 10);
+        observed_drone_state_sub[i] = nh.subscribe<prometheus_msgs::DroneState>("/uav"+std::to_string(i)+ "/prometheus/commBuffer_TX/drone_state", 10, boost::bind(drone_state_topicUpdate_cb,_1,i));
+        observed_drone_state_pub[i] = nh.advertise<prometheus_msgs::DroneState>("/uav"+std::to_string(i)+ "/prometheus/commBuffer_RX/drone_state", 1);
+        observed_drone_state_sub[i] = nh.subscribe<prometheus_msgs::Commitment>("/uav"+std::to_string(i)+ "/prometheus/commBuffer_TX/commitment", 10, boost::bind(commitment_topicUpdate_cb,_1,i));
+        observed_drone_state_pub[i] = nh.advertise<prometheus_msgs::Commitment>("/uav"+std::to_string(i)+ "/prometheus/commBuffer_RX/commitment", 1);
     }
 
     ros::Timer debug_timer = nh.createTimer(ros::Duration(10.0), debug_cb);
@@ -72,14 +83,18 @@ void initialize()
         observed_dronePos[i] = Eigen::Vector3f::Zero();
     }
 }
-void topicUpdate_cb(const prometheus_msgs::DroneState::ConstPtr& state_msg, int drone_id) //更新每个无人机信息的callback function
+void drone_state_topicUpdate_cb(const prometheus_msgs::DroneState::ConstPtr& state_msg, int drone_id) //更新每个无人机信息的callback function
 {
     observedDroneStateList[drone_id] = *state_msg;
-    //observedDroneStateList[drone_id].uav_id = drone_id;
     observed_drone_msgseq[drone_id] = state_msg->header.seq;
     observed_dronePos[drone_id]  = Eigen::Vector3f(state_msg->position[0], state_msg->position[1], state_msg->position[2]); //get position
 
     observedDroneStateValidFlgList[drone_id] = true; //标记获得新消息有效
+}
+void commitment_topicUpdate_cb(const prometheus_msgs::Commitment::ConstPtr& commitment_msg, int drone_id)
+{
+    observedCommitmentList[drone_id] = *commitment_msg;
+    observedCommitmentValidFlgList[drone_id] = true; //标记获得新消息有效
 }
 void globalUpdate_cb(const ros::TimerEvent &e) //publish更新所有无人机信息的callback function
 {
@@ -99,6 +114,15 @@ void globalUpdate_cb(const ros::TimerEvent &e) //publish更新所有无人机信
                     {
                         observed_drone_state_pub[j].publish(observedDroneStateList[i]);
                     }
+
+                    if(observedCommitmentValidFlgList[i] == true)
+                    {
+                        observed_commitment_pub[i].publish(observedCommitmentList[j]); //【发布】 邻居无人机commitment
+                    }
+                    if(observedCommitmentValidFlgList[j] == true)
+                    {
+                        observed_commitment_pub[j].publish(observedCommitmentList[i]);
+                    }
                 }
             }
         }
@@ -106,5 +130,6 @@ void globalUpdate_cb(const ros::TimerEvent &e) //publish更新所有无人机信
     for(int i = 0; i <= MAX_UAV_NUM; i++)
     {
         observedDroneStateValidFlgList[i] = false;
+        observedCommitmentValidFlgList[i] = false;
     }
 }
