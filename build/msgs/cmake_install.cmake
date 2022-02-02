@@ -138,6 +138,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/amov/swarm_ws2/src/common/msgs/msg/PositionReference.msg"
     "/home/amov/swarm_ws2/src/common/msgs/msg/AttitudeReference.msg"
     "/home/amov/swarm_ws2/src/common/msgs/msg/DroneState.msg"
+    "/home/amov/swarm_ws2/src/common/msgs/msg/Commitment.msg"
     "/home/amov/swarm_ws2/src/common/msgs/msg/ControlOutput.msg"
     "/home/amov/swarm_ws2/src/common/msgs/msg/Message.msg"
     "/home/amov/swarm_ws2/src/common/msgs/msg/LogMessage.msg"

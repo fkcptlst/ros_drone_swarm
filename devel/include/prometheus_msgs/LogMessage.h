@@ -157,12 +157,12 @@ struct MD5Sum< ::prometheus_msgs::LogMessage_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "a60f68786ed0a2dec98c4043030dcf33";
+    return "f26b95330760fb2bea413f38545a9730";
   }
 
   static const char* value(const ::prometheus_msgs::LogMessage_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xa60f68786ed0a2deULL;
-  static const uint64_t static_value2 = 0xc98c4043030dcf33ULL;
+  static const uint64_t static_value1 = 0xf26b95330760fb2bULL;
+  static const uint64_t static_value2 = 0xea413f38545a9730ULL;
 };
 
 template<class ContainerAllocator>
@@ -244,11 +244,6 @@ struct Definition< ::prometheus_msgs::LogMessage_<ContainerAllocator> >
 "## XXX implemented\n"
 "int32 uav_id ## 无人机id\n"
 "\n"
-"bool opinionValidFlg ##由于大部分DroneState.msg都是由estimator发布，不包含观点相关的信息，不能确保观点的可靠性，因此加flg以区分\n"
-"int32 commitmentState ## 无人机commitment_state\n"
-"bool voteValidFlg ## 无人机此时的投票是否有效（不是每次广播都代表投票），如果为true才代表此次广播是一次投票\n"
-"float32[3] sitePos ## L_m\n"
-"float32 quality ## q_m\n"
 "\n"
 "================================================================================\n"
 "MSG: geometry_msgs/Quaternion\n"

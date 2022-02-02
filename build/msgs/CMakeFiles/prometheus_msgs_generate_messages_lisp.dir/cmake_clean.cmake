@@ -22,17 +22,18 @@ file(REMOVE_RECURSE
   "/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/MultiDetectionInfo.lisp"
   "/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/CheckForObjectsFeedback.lisp"
   "/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/CheckForObjectsGoal.lisp"
+  "/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/Commitment.lisp"
   "/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/CheckForObjectsResult.lisp"
   "/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/Msg103.lisp"
   "/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/ControlCommand.lisp"
   "/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/Case3Result.lisp"
-  "/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/StationCommand.lisp"
+  "/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/IndoorSearch.lisp"
   "/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/UgvCommand.lisp"
   "/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/BoundingBox.lisp"
   "/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/SwarmCommand.lisp"
   "/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/ControlOutput.lisp"
   "/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/LogMessageDetection.lisp"
-  "/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/IndoorSearch.lisp"
+  "/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/StationCommand.lisp"
 )
 
 # Per-language clean rules from dependency scanning.

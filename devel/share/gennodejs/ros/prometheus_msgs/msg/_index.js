@@ -26,6 +26,7 @@ let Msg103 = require('./Msg103.js');
 let ControlOutput = require('./ControlOutput.js');
 let AttitudeReference = require('./AttitudeReference.js');
 let Formation = require('./Formation.js');
+let Commitment = require('./Commitment.js');
 let LogMessageControl = require('./LogMessageControl.js');
 let CheckForObjectsAction = require('./CheckForObjectsAction.js');
 let CheckForObjectsFeedback = require('./CheckForObjectsFeedback.js');
@@ -61,6 +62,7 @@ module.exports = {
   ControlOutput: ControlOutput,
   AttitudeReference: AttitudeReference,
   Formation: Formation,
+  Commitment: Commitment,
   LogMessageControl: LogMessageControl,
   CheckForObjectsAction: CheckForObjectsAction,
   CheckForObjectsFeedback: CheckForObjectsFeedback,

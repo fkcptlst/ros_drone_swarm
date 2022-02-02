@@ -2,8 +2,8 @@
  * @Author: lcf
  * @Date: 2022-01-31 21:34:24
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-01 23:34:59
- * @FilePath: /swarm_ws2/src/swarm_control/src/virtual_observer.cpp
+ * @LastEditTime: 2022-02-02 14:44:17
+ * @FilePath: /swarm_ws2/src/swarm_control/src/virtual_relay.cpp
  * @Description: This node observes position of all vehicles and unicasts relevant info to each vehicle, modified from swarm_controller
  * 
  */
@@ -52,8 +52,8 @@ int main(int argc, char **argv)
 
     for(int i = 1; i <= swarm_num_uav; i++) 
     {
-        observed_drone_state_sub[i] = nh.subscribe<prometheus_msgs::DroneState>("/uav"+std::to_string(i)+ "/prometheus/drone_state_extra", 10, boost::bind(topicUpdate_cb,_1,i));
-        observed_drone_state_pub[i] = nh.advertise<prometheus_msgs::DroneState>("/uav"+std::to_string(i)+ "/prometheus/commBuffer", 10);
+        observed_drone_state_sub[i] = nh.subscribe<prometheus_msgs::DroneState>("/uav"+std::to_string(i)+ "/prometheus/commBuffer_TX/drone_state", 10, boost::bind(topicUpdate_cb,_1,i));
+        observed_drone_state_pub[i] = nh.advertise<prometheus_msgs::DroneState>("/uav"+std::to_string(i)+ "/prometheus/commBuffer_RX/drone_state", 10);
     }
 
     ros::Timer debug_timer = nh.createTimer(ros::Duration(10.0), debug_cb);
@@ -75,7 +75,7 @@ void initialize()
 void topicUpdate_cb(const prometheus_msgs::DroneState::ConstPtr& state_msg, int drone_id) //更新每个无人机信息的callback function
 {
     observedDroneStateList[drone_id] = *state_msg;
-    observedDroneStateList[drone_id].uav_id = drone_id;
+    //observedDroneStateList[drone_id].uav_id = drone_id;
     observed_drone_msgseq[drone_id] = state_msg->header.seq;
     observed_dronePos[drone_id]  = Eigen::Vector3f(state_msg->position[0], state_msg->position[1], state_msg->position[2]); //get position
 

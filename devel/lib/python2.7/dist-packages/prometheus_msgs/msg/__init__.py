@@ -11,6 +11,7 @@ from ._CheckForObjectsActionResult import *
 from ._CheckForObjectsFeedback import *
 from ._CheckForObjectsGoal import *
 from ._CheckForObjectsResult import *
+from ._Commitment import *
 from ._ControlCommand import *
 from ._ControlOutput import *
 from ._DetectionInfo import *

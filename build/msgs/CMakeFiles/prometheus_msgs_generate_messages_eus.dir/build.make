@@ -75,17 +75,18 @@ CMakeFiles/prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/sha
 CMakeFiles/prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/MultiDetectionInfo.l
 CMakeFiles/prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/CheckForObjectsFeedback.l
 CMakeFiles/prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/CheckForObjectsGoal.l
+CMakeFiles/prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/Commitment.l
 CMakeFiles/prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/CheckForObjectsResult.l
 CMakeFiles/prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/Msg103.l
 CMakeFiles/prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/ControlCommand.l
 CMakeFiles/prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/Case3Result.l
-CMakeFiles/prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/StationCommand.l
+CMakeFiles/prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/IndoorSearch.l
 CMakeFiles/prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/UgvCommand.l
 CMakeFiles/prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/BoundingBox.l
 CMakeFiles/prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/SwarmCommand.l
 CMakeFiles/prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/ControlOutput.l
 CMakeFiles/prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/LogMessageDetection.l
-CMakeFiles/prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/IndoorSearch.l
+CMakeFiles/prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/StationCommand.l
 CMakeFiles/prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/manifest.l
 
 
@@ -269,64 +270,67 @@ CMakeFiles/prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/sha
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Generating EusLisp code from prometheus_msgs/CheckForObjectsGoal.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsGoal.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg
 
+/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/Commitment.l: /opt/ros/melodic/lib/geneus/gen_eus.py
+/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/Commitment.l: /home/amov/swarm_ws2/src/common/msgs/msg/Commitment.msg
+/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/Commitment.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Generating EusLisp code from prometheus_msgs/Commitment.msg"
+	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/amov/swarm_ws2/src/common/msgs/msg/Commitment.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg
+
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/CheckForObjectsResult.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/CheckForObjectsResult.l: /home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsResult.msg
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/CheckForObjectsResult.l: /home/amov/swarm_ws2/src/common/msgs/msg/BoundingBoxes.msg
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/CheckForObjectsResult.l: /home/amov/swarm_ws2/src/common/msgs/msg/BoundingBox.msg
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/CheckForObjectsResult.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Generating EusLisp code from prometheus_msgs/CheckForObjectsResult.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Generating EusLisp code from prometheus_msgs/CheckForObjectsResult.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsResult.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/Msg103.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/Msg103.l: /home/amov/swarm_ws2/src/common/msgs/msg/Msg103.msg
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/Msg103.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Generating EusLisp code from prometheus_msgs/Msg103.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Generating EusLisp code from prometheus_msgs/Msg103.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/amov/swarm_ws2/src/common/msgs/msg/Msg103.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/ControlCommand.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/ControlCommand.l: /home/amov/swarm_ws2/src/common/msgs/msg/ControlCommand.msg
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/ControlCommand.l: /home/amov/swarm_ws2/src/common/msgs/msg/PositionReference.msg
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/ControlCommand.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Generating EusLisp code from prometheus_msgs/ControlCommand.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Generating EusLisp code from prometheus_msgs/ControlCommand.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/amov/swarm_ws2/src/common/msgs/msg/ControlCommand.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/Case3Result.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/Case3Result.l: /home/amov/swarm_ws2/src/common/msgs/msg/Case3Result.msg
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/Case3Result.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Generating EusLisp code from prometheus_msgs/Case3Result.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Generating EusLisp code from prometheus_msgs/Case3Result.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/amov/swarm_ws2/src/common/msgs/msg/Case3Result.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg
 
-/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/StationCommand.l: /opt/ros/melodic/lib/geneus/gen_eus.py
-/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/StationCommand.l: /home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg
-/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/StationCommand.l: /opt/ros/melodic/share/geometry_msgs/msg/Pose.msg
-/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/StationCommand.l: /opt/ros/melodic/share/geometry_msgs/msg/Quaternion.msg
-/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/StationCommand.l: /opt/ros/melodic/share/geometry_msgs/msg/Point.msg
-/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/StationCommand.l: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
-/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/StationCommand.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Generating EusLisp code from prometheus_msgs/StationCommand.msg"
-	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg
+/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/IndoorSearch.l: /opt/ros/melodic/lib/geneus/gen_eus.py
+/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/IndoorSearch.l: /home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg
+/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/IndoorSearch.l: /home/amov/swarm_ws2/src/common/msgs/msg/ArucoInfo.msg
+/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/IndoorSearch.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Generating EusLisp code from prometheus_msgs/IndoorSearch.msg"
+	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/UgvCommand.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/UgvCommand.l: /home/amov/swarm_ws2/src/common/msgs/msg/UgvCommand.msg
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/UgvCommand.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Generating EusLisp code from prometheus_msgs/UgvCommand.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Generating EusLisp code from prometheus_msgs/UgvCommand.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/amov/swarm_ws2/src/common/msgs/msg/UgvCommand.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/BoundingBox.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/BoundingBox.l: /home/amov/swarm_ws2/src/common/msgs/msg/BoundingBox.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Generating EusLisp code from prometheus_msgs/BoundingBox.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Generating EusLisp code from prometheus_msgs/BoundingBox.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/amov/swarm_ws2/src/common/msgs/msg/BoundingBox.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/SwarmCommand.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/SwarmCommand.l: /home/amov/swarm_ws2/src/common/msgs/msg/SwarmCommand.msg
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/SwarmCommand.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Generating EusLisp code from prometheus_msgs/SwarmCommand.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Generating EusLisp code from prometheus_msgs/SwarmCommand.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/amov/swarm_ws2/src/common/msgs/msg/SwarmCommand.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/ControlOutput.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/ControlOutput.l: /home/amov/swarm_ws2/src/common/msgs/msg/ControlOutput.msg
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/ControlOutput.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Generating EusLisp code from prometheus_msgs/ControlOutput.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Generating EusLisp code from prometheus_msgs/ControlOutput.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/amov/swarm_ws2/src/common/msgs/msg/ControlOutput.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/LogMessageDetection.l: /opt/ros/melodic/lib/geneus/gen_eus.py
@@ -338,18 +342,21 @@ CMakeFiles/prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/sha
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/LogMessageDetection.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/LogMessageDetection.l: /home/amov/swarm_ws2/src/common/msgs/msg/DroneState.msg
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/LogMessageDetection.l: /opt/ros/melodic/share/geometry_msgs/msg/Quaternion.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Generating EusLisp code from prometheus_msgs/LogMessageDetection.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Generating EusLisp code from prometheus_msgs/LogMessageDetection.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/amov/swarm_ws2/src/common/msgs/msg/LogMessageDetection.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg
 
-/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/IndoorSearch.l: /opt/ros/melodic/lib/geneus/gen_eus.py
-/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/IndoorSearch.l: /home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg
-/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/IndoorSearch.l: /home/amov/swarm_ws2/src/common/msgs/msg/ArucoInfo.msg
-/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/IndoorSearch.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Generating EusLisp code from prometheus_msgs/IndoorSearch.msg"
-	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg
+/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/StationCommand.l: /opt/ros/melodic/lib/geneus/gen_eus.py
+/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/StationCommand.l: /home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg
+/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/StationCommand.l: /opt/ros/melodic/share/geometry_msgs/msg/Pose.msg
+/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/StationCommand.l: /opt/ros/melodic/share/geometry_msgs/msg/Quaternion.msg
+/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/StationCommand.l: /opt/ros/melodic/share/geometry_msgs/msg/Point.msg
+/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/StationCommand.l: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
+/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/StationCommand.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Generating EusLisp code from prometheus_msgs/StationCommand.msg"
+	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/manifest.l: /opt/ros/melodic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Generating EusLisp manifest code for prometheus_msgs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Generating EusLisp manifest code for prometheus_msgs"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs prometheus_msgs actionlib_msgs geometry_msgs sensor_msgs std_msgs
 
 prometheus_msgs_generate_messages_eus: CMakeFiles/prometheus_msgs_generate_messages_eus
@@ -375,17 +382,18 @@ prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/r
 prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/MultiDetectionInfo.l
 prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/CheckForObjectsFeedback.l
 prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/CheckForObjectsGoal.l
+prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/Commitment.l
 prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/CheckForObjectsResult.l
 prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/Msg103.l
 prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/ControlCommand.l
 prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/Case3Result.l
-prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/StationCommand.l
+prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/IndoorSearch.l
 prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/UgvCommand.l
 prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/BoundingBox.l
 prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/SwarmCommand.l
 prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/ControlOutput.l
 prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/LogMessageDetection.l
-prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/IndoorSearch.l
+prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/StationCommand.l
 prometheus_msgs_generate_messages_eus: /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/manifest.l
 prometheus_msgs_generate_messages_eus: CMakeFiles/prometheus_msgs_generate_messages_eus.dir/build.make
 

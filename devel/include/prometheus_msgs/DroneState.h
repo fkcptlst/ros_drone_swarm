@@ -40,12 +40,7 @@ struct DroneState_
     , attitude_q()
     , attitude_rate()
     , battery_state(0.0)
-    , uav_id(0)
-    , opinionValidFlg(false)
-    , commitmentState(0)
-    , voteValidFlg(false)
-    , sitePos()
-    , quality(0.0)  {
+    , uav_id(0)  {
       position.assign(0.0);
 
       velocity.assign(0.0);
@@ -53,8 +48,6 @@ struct DroneState_
       attitude.assign(0.0);
 
       attitude_rate.assign(0.0);
-
-      sitePos.assign(0.0);
   }
   DroneState_(const ContainerAllocator& _alloc)
     : header(_alloc)
@@ -71,12 +64,7 @@ struct DroneState_
     , attitude_q(_alloc)
     , attitude_rate()
     , battery_state(0.0)
-    , uav_id(0)
-    , opinionValidFlg(false)
-    , commitmentState(0)
-    , voteValidFlg(false)
-    , sitePos()
-    , quality(0.0)  {
+    , uav_id(0)  {
   (void)_alloc;
       position.assign(0.0);
 
@@ -85,8 +73,6 @@ struct DroneState_
       attitude.assign(0.0);
 
       attitude_rate.assign(0.0);
-
-      sitePos.assign(0.0);
   }
 
 
@@ -136,21 +122,6 @@ struct DroneState_
    typedef int32_t _uav_id_type;
   _uav_id_type uav_id;
 
-   typedef uint8_t _opinionValidFlg_type;
-  _opinionValidFlg_type opinionValidFlg;
-
-   typedef int32_t _commitmentState_type;
-  _commitmentState_type commitmentState;
-
-   typedef uint8_t _voteValidFlg_type;
-  _voteValidFlg_type voteValidFlg;
-
-   typedef boost::array<float, 3>  _sitePos_type;
-  _sitePos_type sitePos;
-
-   typedef float _quality_type;
-  _quality_type quality;
-
 
 
 
@@ -194,12 +165,7 @@ bool operator==(const ::prometheus_msgs::DroneState_<ContainerAllocator1> & lhs,
     lhs.attitude_q == rhs.attitude_q &&
     lhs.attitude_rate == rhs.attitude_rate &&
     lhs.battery_state == rhs.battery_state &&
-    lhs.uav_id == rhs.uav_id &&
-    lhs.opinionValidFlg == rhs.opinionValidFlg &&
-    lhs.commitmentState == rhs.commitmentState &&
-    lhs.voteValidFlg == rhs.voteValidFlg &&
-    lhs.sitePos == rhs.sitePos &&
-    lhs.quality == rhs.quality;
+    lhs.uav_id == rhs.uav_id;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -256,12 +222,12 @@ struct MD5Sum< ::prometheus_msgs::DroneState_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "96539ce3fa37be02d8be073b529f297f";
+    return "72d6b80a24c6e84574785458feec57ce";
   }
 
   static const char* value(const ::prometheus_msgs::DroneState_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x96539ce3fa37be02ULL;
-  static const uint64_t static_value2 = 0xd8be073b529f297fULL;
+  static const uint64_t static_value1 = 0x72d6b80a24c6e845ULL;
+  static const uint64_t static_value2 = 0x74785458feec57ceULL;
 };
 
 template<class ContainerAllocator>
@@ -307,11 +273,6 @@ struct Definition< ::prometheus_msgs::DroneState_<ContainerAllocator> >
 "## XXX implemented\n"
 "int32 uav_id ## 无人机id\n"
 "\n"
-"bool opinionValidFlg ##由于大部分DroneState.msg都是由estimator发布，不包含观点相关的信息，不能确保观点的可靠性，因此加flg以区分\n"
-"int32 commitmentState ## 无人机commitment_state\n"
-"bool voteValidFlg ## 无人机此时的投票是否有效（不是每次广播都代表投票），如果为true才代表此次广播是一次投票\n"
-"float32[3] sitePos ## L_m\n"
-"float32 quality ## q_m\n"
 "\n"
 "================================================================================\n"
 "MSG: std_msgs/Header\n"
@@ -370,11 +331,6 @@ namespace serialization
       stream.next(m.attitude_rate);
       stream.next(m.battery_state);
       stream.next(m.uav_id);
-      stream.next(m.opinionValidFlg);
-      stream.next(m.commitmentState);
-      stream.next(m.voteValidFlg);
-      stream.next(m.sitePos);
-      stream.next(m.quality);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -441,20 +397,6 @@ struct Printer< ::prometheus_msgs::DroneState_<ContainerAllocator> >
     Printer<float>::stream(s, indent + "  ", v.battery_state);
     s << indent << "uav_id: ";
     Printer<int32_t>::stream(s, indent + "  ", v.uav_id);
-    s << indent << "opinionValidFlg: ";
-    Printer<uint8_t>::stream(s, indent + "  ", v.opinionValidFlg);
-    s << indent << "commitmentState: ";
-    Printer<int32_t>::stream(s, indent + "  ", v.commitmentState);
-    s << indent << "voteValidFlg: ";
-    Printer<uint8_t>::stream(s, indent + "  ", v.voteValidFlg);
-    s << indent << "sitePos[]" << std::endl;
-    for (size_t i = 0; i < v.sitePos.size(); ++i)
-    {
-      s << indent << "  sitePos[" << i << "]: ";
-      Printer<float>::stream(s, indent + "  ", v.sitePos[i]);
-    }
-    s << indent << "quality: ";
-    Printer<float>::stream(s, indent + "  ", v.quality);
   }
 };
 

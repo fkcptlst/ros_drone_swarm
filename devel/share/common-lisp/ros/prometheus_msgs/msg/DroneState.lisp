@@ -81,32 +81,7 @@
     :reader uav_id
     :initarg :uav_id
     :type cl:integer
-    :initform 0)
-   (opinionValidFlg
-    :reader opinionValidFlg
-    :initarg :opinionValidFlg
-    :type cl:boolean
-    :initform cl:nil)
-   (commitmentState
-    :reader commitmentState
-    :initarg :commitmentState
-    :type cl:integer
-    :initform 0)
-   (voteValidFlg
-    :reader voteValidFlg
-    :initarg :voteValidFlg
-    :type cl:boolean
-    :initform cl:nil)
-   (sitePos
-    :reader sitePos
-    :initarg :sitePos
-    :type (cl:vector cl:float)
-   :initform (cl:make-array 3 :element-type 'cl:float :initial-element 0.0))
-   (quality
-    :reader quality
-    :initarg :quality
-    :type cl:float
-    :initform 0.0))
+    :initform 0))
 )
 
 (cl:defclass DroneState (<DroneState>)
@@ -191,31 +166,6 @@
 (cl:defmethod uav_id-val ((m <DroneState>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader prometheus_msgs-msg:uav_id-val is deprecated.  Use prometheus_msgs-msg:uav_id instead.")
   (uav_id m))
-
-(cl:ensure-generic-function 'opinionValidFlg-val :lambda-list '(m))
-(cl:defmethod opinionValidFlg-val ((m <DroneState>))
-  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader prometheus_msgs-msg:opinionValidFlg-val is deprecated.  Use prometheus_msgs-msg:opinionValidFlg instead.")
-  (opinionValidFlg m))
-
-(cl:ensure-generic-function 'commitmentState-val :lambda-list '(m))
-(cl:defmethod commitmentState-val ((m <DroneState>))
-  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader prometheus_msgs-msg:commitmentState-val is deprecated.  Use prometheus_msgs-msg:commitmentState instead.")
-  (commitmentState m))
-
-(cl:ensure-generic-function 'voteValidFlg-val :lambda-list '(m))
-(cl:defmethod voteValidFlg-val ((m <DroneState>))
-  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader prometheus_msgs-msg:voteValidFlg-val is deprecated.  Use prometheus_msgs-msg:voteValidFlg instead.")
-  (voteValidFlg m))
-
-(cl:ensure-generic-function 'sitePos-val :lambda-list '(m))
-(cl:defmethod sitePos-val ((m <DroneState>))
-  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader prometheus_msgs-msg:sitePos-val is deprecated.  Use prometheus_msgs-msg:sitePos instead.")
-  (sitePos m))
-
-(cl:ensure-generic-function 'quality-val :lambda-list '(m))
-(cl:defmethod quality-val ((m <DroneState>))
-  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader prometheus_msgs-msg:quality-val is deprecated.  Use prometheus_msgs-msg:quality instead.")
-  (quality m))
 (cl:defmethod roslisp-msg-protocol:serialize ((msg <DroneState>) ostream)
   "Serializes a message object of type '<DroneState>"
   (roslisp-msg-protocol:serialize (cl:slot-value msg 'header) ostream)
@@ -275,25 +225,6 @@
     (cl:write-byte (cl:ldb (cl:byte 8 16) unsigned) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 24) unsigned) ostream)
     )
-  (cl:write-byte (cl:ldb (cl:byte 8 0) (cl:if (cl:slot-value msg 'opinionValidFlg) 1 0)) ostream)
-  (cl:let* ((signed (cl:slot-value msg 'commitmentState)) (unsigned (cl:if (cl:< signed 0) (cl:+ signed 4294967296) signed)))
-    (cl:write-byte (cl:ldb (cl:byte 8 0) unsigned) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 8) unsigned) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 16) unsigned) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 24) unsigned) ostream)
-    )
-  (cl:write-byte (cl:ldb (cl:byte 8 0) (cl:if (cl:slot-value msg 'voteValidFlg) 1 0)) ostream)
-  (cl:map cl:nil #'(cl:lambda (ele) (cl:let ((bits (roslisp-utils:encode-single-float-bits ele)))
-    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream)))
-   (cl:slot-value msg 'sitePos))
-  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'quality))))
-    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
 )
 (cl:defmethod roslisp-msg-protocol:deserialize ((msg <DroneState>) istream)
   "Deserializes a message object of type '<DroneState>"
@@ -371,29 +302,6 @@
       (cl:setf (cl:ldb (cl:byte 8 16) unsigned) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 24) unsigned) (cl:read-byte istream))
       (cl:setf (cl:slot-value msg 'uav_id) (cl:if (cl:< unsigned 2147483648) unsigned (cl:- unsigned 4294967296))))
-    (cl:setf (cl:slot-value msg 'opinionValidFlg) (cl:not (cl:zerop (cl:read-byte istream))))
-    (cl:let ((unsigned 0))
-      (cl:setf (cl:ldb (cl:byte 8 0) unsigned) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 8) unsigned) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 16) unsigned) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 24) unsigned) (cl:read-byte istream))
-      (cl:setf (cl:slot-value msg 'commitmentState) (cl:if (cl:< unsigned 2147483648) unsigned (cl:- unsigned 4294967296))))
-    (cl:setf (cl:slot-value msg 'voteValidFlg) (cl:not (cl:zerop (cl:read-byte istream))))
-  (cl:setf (cl:slot-value msg 'sitePos) (cl:make-array 3))
-  (cl:let ((vals (cl:slot-value msg 'sitePos)))
-    (cl:dotimes (i 3)
-    (cl:let ((bits 0))
-      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
-    (cl:setf (cl:aref vals i) (roslisp-utils:decode-single-float-bits bits)))))
-    (cl:let ((bits 0))
-      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
-    (cl:setf (cl:slot-value msg 'quality) (roslisp-utils:decode-single-float-bits bits)))
   msg
 )
 (cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql '<DroneState>)))
@@ -404,16 +312,16 @@
   "prometheus_msgs/DroneState")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<DroneState>)))
   "Returns md5sum for a message object of type '<DroneState>"
-  "96539ce3fa37be02d8be073b529f297f")
+  "72d6b80a24c6e84574785458feec57ce")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'DroneState)))
   "Returns md5sum for a message object of type 'DroneState"
-  "96539ce3fa37be02d8be073b529f297f")
+  "72d6b80a24c6e84574785458feec57ce")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<DroneState>)))
   "Returns full string definition for message of type '<DroneState>"
-  (cl:format cl:nil "std_msgs/Header header~%~%## 机载电脑是否连接上飞控，true已连接，false则不是~%bool connected~%## 是否解锁，true为已解锁，false则不是~%bool armed~%## 是否降落，true为已降落，false则代表在空中~%bool landed~%## PX4飞控当前飞行模式~%string mode~%bool odom_valid~%~%## 系统启动时间~%float32 time_from_start             ## [s]~%~%## 无人机状态量：位置、速度、姿态~%float32[3] position                 ## [m]~%float32  rel_alt                               ## [m] only for outdoor~%float32[3] velocity                 ## [m/s]~%float32[3] attitude                 ## [rad]~%geometry_msgs/Quaternion attitude_q ## 四元数~%float32[3] attitude_rate            ## [rad/s]~%float32 battery_state               ## 电池状态    #float32~%~%## XXX implemented~%int32 uav_id ## 无人机id~%~%bool opinionValidFlg ##由于大部分DroneState.msg都是由estimator发布，不包含观点相关的信息，不能确保观点的可靠性，因此加flg以区分~%int32 commitmentState ## 无人机commitment_state~%bool voteValidFlg ## 无人机此时的投票是否有效（不是每次广播都代表投票），如果为true才代表此次广播是一次投票~%float32[3] sitePos ## L_m~%float32 quality ## q_m~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%================================================================================~%MSG: geometry_msgs/Quaternion~%# This represents an orientation in free space in quaternion form.~%~%float64 x~%float64 y~%float64 z~%float64 w~%~%~%"))
+  (cl:format cl:nil "std_msgs/Header header~%~%## 机载电脑是否连接上飞控，true已连接，false则不是~%bool connected~%## 是否解锁，true为已解锁，false则不是~%bool armed~%## 是否降落，true为已降落，false则代表在空中~%bool landed~%## PX4飞控当前飞行模式~%string mode~%bool odom_valid~%~%## 系统启动时间~%float32 time_from_start             ## [s]~%~%## 无人机状态量：位置、速度、姿态~%float32[3] position                 ## [m]~%float32  rel_alt                               ## [m] only for outdoor~%float32[3] velocity                 ## [m/s]~%float32[3] attitude                 ## [rad]~%geometry_msgs/Quaternion attitude_q ## 四元数~%float32[3] attitude_rate            ## [rad/s]~%float32 battery_state               ## 电池状态    #float32~%~%## XXX implemented~%int32 uav_id ## 无人机id~%~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%================================================================================~%MSG: geometry_msgs/Quaternion~%# This represents an orientation in free space in quaternion form.~%~%float64 x~%float64 y~%float64 z~%float64 w~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'DroneState)))
   "Returns full string definition for message of type 'DroneState"
-  (cl:format cl:nil "std_msgs/Header header~%~%## 机载电脑是否连接上飞控，true已连接，false则不是~%bool connected~%## 是否解锁，true为已解锁，false则不是~%bool armed~%## 是否降落，true为已降落，false则代表在空中~%bool landed~%## PX4飞控当前飞行模式~%string mode~%bool odom_valid~%~%## 系统启动时间~%float32 time_from_start             ## [s]~%~%## 无人机状态量：位置、速度、姿态~%float32[3] position                 ## [m]~%float32  rel_alt                               ## [m] only for outdoor~%float32[3] velocity                 ## [m/s]~%float32[3] attitude                 ## [rad]~%geometry_msgs/Quaternion attitude_q ## 四元数~%float32[3] attitude_rate            ## [rad/s]~%float32 battery_state               ## 电池状态    #float32~%~%## XXX implemented~%int32 uav_id ## 无人机id~%~%bool opinionValidFlg ##由于大部分DroneState.msg都是由estimator发布，不包含观点相关的信息，不能确保观点的可靠性，因此加flg以区分~%int32 commitmentState ## 无人机commitment_state~%bool voteValidFlg ## 无人机此时的投票是否有效（不是每次广播都代表投票），如果为true才代表此次广播是一次投票~%float32[3] sitePos ## L_m~%float32 quality ## q_m~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%================================================================================~%MSG: geometry_msgs/Quaternion~%# This represents an orientation in free space in quaternion form.~%~%float64 x~%float64 y~%float64 z~%float64 w~%~%~%"))
+  (cl:format cl:nil "std_msgs/Header header~%~%## 机载电脑是否连接上飞控，true已连接，false则不是~%bool connected~%## 是否解锁，true为已解锁，false则不是~%bool armed~%## 是否降落，true为已降落，false则代表在空中~%bool landed~%## PX4飞控当前飞行模式~%string mode~%bool odom_valid~%~%## 系统启动时间~%float32 time_from_start             ## [s]~%~%## 无人机状态量：位置、速度、姿态~%float32[3] position                 ## [m]~%float32  rel_alt                               ## [m] only for outdoor~%float32[3] velocity                 ## [m/s]~%float32[3] attitude                 ## [rad]~%geometry_msgs/Quaternion attitude_q ## 四元数~%float32[3] attitude_rate            ## [rad/s]~%float32 battery_state               ## 电池状态    #float32~%~%## XXX implemented~%int32 uav_id ## 无人机id~%~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%================================================================================~%MSG: geometry_msgs/Quaternion~%# This represents an orientation in free space in quaternion form.~%~%float64 x~%float64 y~%float64 z~%float64 w~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <DroneState>))
   (cl:+ 0
      (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'header))
@@ -430,11 +338,6 @@
      (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'attitude_q))
      0 (cl:reduce #'cl:+ (cl:slot-value msg 'attitude_rate) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ 4)))
      4
-     4
-     1
-     4
-     1
-     0 (cl:reduce #'cl:+ (cl:slot-value msg 'sitePos) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ 4)))
      4
 ))
 (cl:defmethod roslisp-msg-protocol:ros-message-to-list ((msg <DroneState>))
@@ -455,9 +358,4 @@
     (cl:cons ':attitude_rate (attitude_rate msg))
     (cl:cons ':battery_state (battery_state msg))
     (cl:cons ':uav_id (uav_id msg))
-    (cl:cons ':opinionValidFlg (opinionValidFlg msg))
-    (cl:cons ':commitmentState (commitmentState msg))
-    (cl:cons ':voteValidFlg (voteValidFlg msg))
-    (cl:cons ':sitePos (sitePos msg))
-    (cl:cons ':quality (quality msg))
 ))

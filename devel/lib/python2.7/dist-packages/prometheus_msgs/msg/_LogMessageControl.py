@@ -11,7 +11,7 @@ import prometheus_msgs.msg
 import std_msgs.msg
 
 class LogMessageControl(genpy.Message):
-  _md5sum = "3ff7ca46745991161e9c19c658791887"
+  _md5sum = "4c5258968aa20f4f8730fd4c1d3ce2d2"
   _type = "prometheus_msgs/LogMessageControl"
   _has_header = True  # flag to mark the presence of a Header object
   _full_text = """std_msgs/Header header
@@ -80,11 +80,6 @@ float32 battery_state               ## 电池状态    #float32
 ## XXX implemented
 int32 uav_id ## 无人机id
 
-bool opinionValidFlg ##由于大部分DroneState.msg都是由estimator发布，不包含观点相关的信息，不能确保观点的可靠性，因此加flg以区分
-int32 commitmentState ## 无人机commitment_state
-bool voteValidFlg ## 无人机此时的投票是否有效（不是每次广播都代表投票），如果为true才代表此次广播是一次投票
-float32[3] sitePos ## L_m
-float32 quality ## q_m
 
 ================================================================================
 MSG: geometry_msgs/Quaternion
@@ -296,10 +291,7 @@ float64 z
       buff.write(_get_struct_4d().pack(_x.Drone_State.attitude_q.x, _x.Drone_State.attitude_q.y, _x.Drone_State.attitude_q.z, _x.Drone_State.attitude_q.w))
       buff.write(_get_struct_3f().pack(*self.Drone_State.attitude_rate))
       _x = self
-      buff.write(_get_struct_fiBiB().pack(_x.Drone_State.battery_state, _x.Drone_State.uav_id, _x.Drone_State.opinionValidFlg, _x.Drone_State.commitmentState, _x.Drone_State.voteValidFlg))
-      buff.write(_get_struct_3f().pack(*self.Drone_State.sitePos))
-      _x = self
-      buff.write(_get_struct_f3I().pack(_x.Drone_State.quality, _x.Control_Command.header.seq, _x.Control_Command.header.stamp.secs, _x.Control_Command.header.stamp.nsecs))
+      buff.write(_get_struct_fi3I().pack(_x.Drone_State.battery_state, _x.Drone_State.uav_id, _x.Control_Command.header.seq, _x.Control_Command.header.stamp.secs, _x.Control_Command.header.stamp.nsecs))
       _x = self.Control_Command.header.frame_id
       length = len(_x)
       if python3 or type(_x) == unicode:
@@ -453,17 +445,8 @@ float64 z
       self.Drone_State.attitude_rate = _get_struct_3f().unpack(str[start:end])
       _x = self
       start = end
-      end += 14
-      (_x.Drone_State.battery_state, _x.Drone_State.uav_id, _x.Drone_State.opinionValidFlg, _x.Drone_State.commitmentState, _x.Drone_State.voteValidFlg,) = _get_struct_fiBiB().unpack(str[start:end])
-      self.Drone_State.opinionValidFlg = bool(self.Drone_State.opinionValidFlg)
-      self.Drone_State.voteValidFlg = bool(self.Drone_State.voteValidFlg)
-      start = end
-      end += 12
-      self.Drone_State.sitePos = _get_struct_3f().unpack(str[start:end])
-      _x = self
-      start = end
-      end += 16
-      (_x.Drone_State.quality, _x.Control_Command.header.seq, _x.Control_Command.header.stamp.secs, _x.Control_Command.header.stamp.nsecs,) = _get_struct_f3I().unpack(str[start:end])
+      end += 20
+      (_x.Drone_State.battery_state, _x.Drone_State.uav_id, _x.Control_Command.header.seq, _x.Control_Command.header.stamp.secs, _x.Control_Command.header.stamp.nsecs,) = _get_struct_fi3I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -626,10 +609,7 @@ float64 z
       buff.write(_get_struct_4d().pack(_x.Drone_State.attitude_q.x, _x.Drone_State.attitude_q.y, _x.Drone_State.attitude_q.z, _x.Drone_State.attitude_q.w))
       buff.write(self.Drone_State.attitude_rate.tostring())
       _x = self
-      buff.write(_get_struct_fiBiB().pack(_x.Drone_State.battery_state, _x.Drone_State.uav_id, _x.Drone_State.opinionValidFlg, _x.Drone_State.commitmentState, _x.Drone_State.voteValidFlg))
-      buff.write(self.Drone_State.sitePos.tostring())
-      _x = self
-      buff.write(_get_struct_f3I().pack(_x.Drone_State.quality, _x.Control_Command.header.seq, _x.Control_Command.header.stamp.secs, _x.Control_Command.header.stamp.nsecs))
+      buff.write(_get_struct_fi3I().pack(_x.Drone_State.battery_state, _x.Drone_State.uav_id, _x.Control_Command.header.seq, _x.Control_Command.header.stamp.secs, _x.Control_Command.header.stamp.nsecs))
       _x = self.Control_Command.header.frame_id
       length = len(_x)
       if python3 or type(_x) == unicode:
@@ -784,17 +764,8 @@ float64 z
       self.Drone_State.attitude_rate = numpy.frombuffer(str[start:end], dtype=numpy.float32, count=3)
       _x = self
       start = end
-      end += 14
-      (_x.Drone_State.battery_state, _x.Drone_State.uav_id, _x.Drone_State.opinionValidFlg, _x.Drone_State.commitmentState, _x.Drone_State.voteValidFlg,) = _get_struct_fiBiB().unpack(str[start:end])
-      self.Drone_State.opinionValidFlg = bool(self.Drone_State.opinionValidFlg)
-      self.Drone_State.voteValidFlg = bool(self.Drone_State.voteValidFlg)
-      start = end
-      end += 12
-      self.Drone_State.sitePos = numpy.frombuffer(str[start:end], dtype=numpy.float32, count=3)
-      _x = self
-      start = end
-      end += 16
-      (_x.Drone_State.quality, _x.Control_Command.header.seq, _x.Control_Command.header.stamp.secs, _x.Control_Command.header.stamp.nsecs,) = _get_struct_f3I().unpack(str[start:end])
+      end += 20
+      (_x.Drone_State.battery_state, _x.Drone_State.uav_id, _x.Control_Command.header.seq, _x.Control_Command.header.stamp.secs, _x.Control_Command.header.stamp.nsecs,) = _get_struct_fi3I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -984,21 +955,9 @@ def _get_struct_f():
     if _struct_f is None:
         _struct_f = struct.Struct("<f")
     return _struct_f
-_struct_f3I = None
-def _get_struct_f3I():
-    global _struct_f3I
-    if _struct_f3I is None:
-        _struct_f3I = struct.Struct("<f3I")
-    return _struct_f3I
 _struct_fi3I = None
 def _get_struct_fi3I():
     global _struct_fi3I
     if _struct_fi3I is None:
         _struct_fi3I = struct.Struct("<fi3I")
     return _struct_fi3I
-_struct_fiBiB = None
-def _get_struct_fiBiB():
-    global _struct_fiBiB
-    if _struct_fiBiB is None:
-        _struct_fiBiB = struct.Struct("<fiBiB")
-    return _struct_fiBiB

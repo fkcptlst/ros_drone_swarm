@@ -34,6 +34,8 @@
     (:file "_package_CheckForObjectsGoal" :depends-on ("_package"))
     (:file "CheckForObjectsResult" :depends-on ("_package_CheckForObjectsResult"))
     (:file "_package_CheckForObjectsResult" :depends-on ("_package"))
+    (:file "Commitment" :depends-on ("_package_Commitment"))
+    (:file "_package_Commitment" :depends-on ("_package"))
     (:file "ControlCommand" :depends-on ("_package_ControlCommand"))
     (:file "_package_ControlCommand" :depends-on ("_package"))
     (:file "ControlOutput" :depends-on ("_package_ControlOutput"))

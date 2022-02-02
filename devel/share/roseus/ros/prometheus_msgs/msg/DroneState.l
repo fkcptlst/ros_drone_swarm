@@ -18,7 +18,7 @@
 
 (defclass prometheus_msgs::DroneState
   :super ros::object
-  :slots (_header _connected _armed _landed _mode _odom_valid _time_from_start _position _rel_alt _velocity _attitude _attitude_q _attitude_rate _battery_state _uav_id _opinionValidFlg _commitmentState _voteValidFlg _sitePos _quality ))
+  :slots (_header _connected _armed _landed _mode _odom_valid _time_from_start _position _rel_alt _velocity _attitude _attitude_q _attitude_rate _battery_state _uav_id ))
 
 (defmethod prometheus_msgs::DroneState
   (:init
@@ -38,11 +38,6 @@
     ((:attitude_rate __attitude_rate) (make-array 3 :initial-element 0.0 :element-type :float))
     ((:battery_state __battery_state) 0.0)
     ((:uav_id __uav_id) 0)
-    ((:opinionValidFlg __opinionValidFlg) nil)
-    ((:commitmentState __commitmentState) 0)
-    ((:voteValidFlg __voteValidFlg) nil)
-    ((:sitePos __sitePos) (make-array 3 :initial-element 0.0 :element-type :float))
-    ((:quality __quality) 0.0)
     )
    (send-super :init)
    (setq _header __header)
@@ -60,11 +55,6 @@
    (setq _attitude_rate __attitude_rate)
    (setq _battery_state (float __battery_state))
    (setq _uav_id (round __uav_id))
-   (setq _opinionValidFlg __opinionValidFlg)
-   (setq _commitmentState (round __commitmentState))
-   (setq _voteValidFlg __voteValidFlg)
-   (setq _sitePos __sitePos)
-   (setq _quality (float __quality))
    self)
   (:header
    (&rest __header)
@@ -119,21 +109,6 @@
   (:uav_id
    (&optional __uav_id)
    (if __uav_id (setq _uav_id __uav_id)) _uav_id)
-  (:opinionValidFlg
-   (&optional __opinionValidFlg)
-   (if __opinionValidFlg (setq _opinionValidFlg __opinionValidFlg)) _opinionValidFlg)
-  (:commitmentState
-   (&optional __commitmentState)
-   (if __commitmentState (setq _commitmentState __commitmentState)) _commitmentState)
-  (:voteValidFlg
-   (&optional __voteValidFlg)
-   (if __voteValidFlg (setq _voteValidFlg __voteValidFlg)) _voteValidFlg)
-  (:sitePos
-   (&optional __sitePos)
-   (if __sitePos (setq _sitePos __sitePos)) _sitePos)
-  (:quality
-   (&optional __quality)
-   (if __quality (setq _quality __quality)) _quality)
   (:serialization-length
    ()
    (+
@@ -166,16 +141,6 @@
     ;; float32 _battery_state
     4
     ;; int32 _uav_id
-    4
-    ;; bool _opinionValidFlg
-    1
-    ;; int32 _commitmentState
-    4
-    ;; bool _voteValidFlg
-    1
-    ;; float32[3] _sitePos
-    (* 4    3)
-    ;; float32 _quality
     4
     ))
   (:serialize
@@ -220,18 +185,6 @@
        (sys::poke _battery_state (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
      ;; int32 _uav_id
        (write-long _uav_id s)
-     ;; bool _opinionValidFlg
-       (if _opinionValidFlg (write-byte -1 s) (write-byte 0 s))
-     ;; int32 _commitmentState
-       (write-long _commitmentState s)
-     ;; bool _voteValidFlg
-       (if _voteValidFlg (write-byte -1 s) (write-byte 0 s))
-     ;; float32[3] _sitePos
-     (dotimes (i 3)
-       (sys::poke (elt _sitePos i) (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
-       )
-     ;; float32 _quality
-       (sys::poke _quality (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
@@ -274,23 +227,11 @@
      (setq _battery_state (sys::peek buf ptr- :float)) (incf ptr- 4)
    ;; int32 _uav_id
      (setq _uav_id (sys::peek buf ptr- :integer)) (incf ptr- 4)
-   ;; bool _opinionValidFlg
-     (setq _opinionValidFlg (not (= 0 (sys::peek buf ptr- :char)))) (incf ptr- 1)
-   ;; int32 _commitmentState
-     (setq _commitmentState (sys::peek buf ptr- :integer)) (incf ptr- 4)
-   ;; bool _voteValidFlg
-     (setq _voteValidFlg (not (= 0 (sys::peek buf ptr- :char)))) (incf ptr- 1)
-   ;; float32[3] _sitePos
-   (dotimes (i (length _sitePos))
-     (setf (elt _sitePos i) (sys::peek buf ptr- :float)) (incf ptr- 4)
-     )
-   ;; float32 _quality
-     (setq _quality (sys::peek buf ptr- :float)) (incf ptr- 4)
    ;;
    self)
   )
 
-(setf (get prometheus_msgs::DroneState :md5sum-) "96539ce3fa37be02d8be073b529f297f")
+(setf (get prometheus_msgs::DroneState :md5sum-) "72d6b80a24c6e84574785458feec57ce")
 (setf (get prometheus_msgs::DroneState :datatype-) "prometheus_msgs/DroneState")
 (setf (get prometheus_msgs::DroneState :definition-)
       "std_msgs/Header header
@@ -320,11 +261,6 @@ float32 battery_state               ## 电池状态    #float32
 ## XXX implemented
 int32 uav_id ## 无人机id
 
-bool opinionValidFlg ##由于大部分DroneState.msg都是由estimator发布，不包含观点相关的信息，不能确保观点的可靠性，因此加flg以区分
-int32 commitmentState ## 无人机commitment_state
-bool voteValidFlg ## 无人机此时的投票是否有效（不是每次广播都代表投票），如果为true才代表此次广播是一次投票
-float32[3] sitePos ## L_m
-float32 quality ## q_m
 
 ================================================================================
 MSG: std_msgs/Header
@@ -355,6 +291,6 @@ float64 w
 
 
 
-(provide :prometheus_msgs/DroneState "96539ce3fa37be02d8be073b529f297f")
+(provide :prometheus_msgs/DroneState "72d6b80a24c6e84574785458feec57ce")
 
 

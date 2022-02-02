@@ -86,10 +86,7 @@ void init()
     _DroneState.rel_alt = 0.0;
 
     //XXX implemented
-    _DroneState.sitePos[0] = 0.0;
-    _DroneState.sitePos[1] = 0.0;
-    _DroneState.sitePos[2] = 0.0;
-    _DroneState.quality = 0.0;
+    _DroneState.uav_id = uav_id;
 
     //
     pos_drone_mocap = Eigen::Vector3d(0.0, 0.0, 0.0);

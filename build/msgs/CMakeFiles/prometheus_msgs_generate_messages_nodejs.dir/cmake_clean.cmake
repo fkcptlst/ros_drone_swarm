@@ -22,17 +22,18 @@ file(REMOVE_RECURSE
   "/home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/MultiDetectionInfo.js"
   "/home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/CheckForObjectsFeedback.js"
   "/home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/CheckForObjectsGoal.js"
+  "/home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/Commitment.js"
   "/home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/CheckForObjectsResult.js"
   "/home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/Msg103.js"
   "/home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/ControlCommand.js"
   "/home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/Case3Result.js"
-  "/home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/StationCommand.js"
+  "/home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/IndoorSearch.js"
   "/home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/UgvCommand.js"
   "/home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/BoundingBox.js"
   "/home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/SwarmCommand.js"
   "/home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/ControlOutput.js"
   "/home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/LogMessageDetection.js"
-  "/home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/IndoorSearch.js"
+  "/home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/StationCommand.js"
 )
 
 # Per-language clean rules from dependency scanning.

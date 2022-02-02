@@ -57,6 +57,3 @@
 //问题：formation_separation 是干啥的？
 
 注：可能最后用Move Mode要好些
-
-
-+ topic: uav1/prometheus/drone_state_extra 用来对外广播，与之对应的/drone_state则用于飞机自身感知

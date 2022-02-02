@@ -22,17 +22,18 @@ file(REMOVE_RECURSE
   "/home/amov/swarm_ws2/devel/include/prometheus_msgs/MultiDetectionInfo.h"
   "/home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsFeedback.h"
   "/home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsGoal.h"
+  "/home/amov/swarm_ws2/devel/include/prometheus_msgs/Commitment.h"
   "/home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsResult.h"
   "/home/amov/swarm_ws2/devel/include/prometheus_msgs/Msg103.h"
   "/home/amov/swarm_ws2/devel/include/prometheus_msgs/ControlCommand.h"
   "/home/amov/swarm_ws2/devel/include/prometheus_msgs/Case3Result.h"
-  "/home/amov/swarm_ws2/devel/include/prometheus_msgs/StationCommand.h"
+  "/home/amov/swarm_ws2/devel/include/prometheus_msgs/IndoorSearch.h"
   "/home/amov/swarm_ws2/devel/include/prometheus_msgs/UgvCommand.h"
   "/home/amov/swarm_ws2/devel/include/prometheus_msgs/BoundingBox.h"
   "/home/amov/swarm_ws2/devel/include/prometheus_msgs/SwarmCommand.h"
   "/home/amov/swarm_ws2/devel/include/prometheus_msgs/ControlOutput.h"
   "/home/amov/swarm_ws2/devel/include/prometheus_msgs/LogMessageDetection.h"
-  "/home/amov/swarm_ws2/devel/include/prometheus_msgs/IndoorSearch.h"
+  "/home/amov/swarm_ws2/devel/include/prometheus_msgs/StationCommand.h"
 )
 
 # Per-language clean rules from dependency scanning.

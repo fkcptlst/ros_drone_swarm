@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "prometheus_msgs: 33 messages, 0 services")
+message(STATUS "prometheus_msgs: 34 messages, 0 services")
 
 set(MSG_I_FLAGS "-Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg;-Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg;-Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg;-Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg;-Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg")
 
@@ -127,6 +127,11 @@ add_custom_target(_prometheus_msgs_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "prometheus_msgs" "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsGoal.msg" "sensor_msgs/Image:std_msgs/Header"
 )
 
+get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Commitment.msg" NAME_WE)
+add_custom_target(_prometheus_msgs_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "prometheus_msgs" "/home/amov/swarm_ws2/src/common/msgs/msg/Commitment.msg" "std_msgs/Header"
+)
+
 get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsResult.msg" NAME_WE)
 add_custom_target(_prometheus_msgs_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "prometheus_msgs" "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsResult.msg" "prometheus_msgs/BoundingBoxes:prometheus_msgs/BoundingBox:std_msgs/Header"
@@ -147,9 +152,9 @@ add_custom_target(_prometheus_msgs_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "prometheus_msgs" "/home/amov/swarm_ws2/src/common/msgs/msg/Case3Result.msg" "std_msgs/Header"
 )
 
-get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg" NAME_WE)
+get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg" NAME_WE)
 add_custom_target(_prometheus_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "prometheus_msgs" "/home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg" "geometry_msgs/Pose:geometry_msgs/Quaternion:geometry_msgs/Point:geometry_msgs/PoseStamped:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "prometheus_msgs" "/home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg" "prometheus_msgs/ArucoInfo:std_msgs/Header"
 )
 
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/UgvCommand.msg" NAME_WE)
@@ -177,9 +182,9 @@ add_custom_target(_prometheus_msgs_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "prometheus_msgs" "/home/amov/swarm_ws2/src/common/msgs/msg/LogMessageDetection.msg" "prometheus_msgs/ControlOutput:prometheus_msgs/AttitudeReference:prometheus_msgs/PositionReference:prometheus_msgs/ControlCommand:std_msgs/Header:prometheus_msgs/DroneState:geometry_msgs/Quaternion"
 )
 
-get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg" NAME_WE)
+get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg" NAME_WE)
 add_custom_target(_prometheus_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "prometheus_msgs" "/home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg" "prometheus_msgs/ArucoInfo:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "prometheus_msgs" "/home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg" "geometry_msgs/Pose:geometry_msgs/Quaternion:geometry_msgs/Point:geometry_msgs/PoseStamped:std_msgs/Header"
 )
 
 #
@@ -321,6 +326,12 @@ _generate_msg_cpp(prometheus_msgs
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_cpp(prometheus_msgs
+  "/home/amov/swarm_ws2/src/common/msgs/msg/Commitment.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/prometheus_msgs
+)
+_generate_msg_cpp(prometheus_msgs
   "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsResult.msg"
   "${MSG_I_FLAGS}"
   "/home/amov/swarm_ws2/src/common/msgs/msg/BoundingBoxes.msg;/home/amov/swarm_ws2/src/common/msgs/msg/BoundingBox.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
@@ -345,9 +356,9 @@ _generate_msg_cpp(prometheus_msgs
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_cpp(prometheus_msgs
-  "/home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg"
+  "/home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/amov/swarm_ws2/src/common/msgs/msg/ArucoInfo.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_cpp(prometheus_msgs
@@ -381,9 +392,9 @@ _generate_msg_cpp(prometheus_msgs
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_cpp(prometheus_msgs
-  "/home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg"
+  "/home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg"
   "${MSG_I_FLAGS}"
-  "/home/amov/swarm_ws2/src/common/msgs/msg/ArucoInfo.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/prometheus_msgs
 )
 
@@ -445,6 +456,8 @@ get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_ms
 add_dependencies(prometheus_msgs_generate_messages_cpp _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsGoal.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_cpp _prometheus_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Commitment.msg" NAME_WE)
+add_dependencies(prometheus_msgs_generate_messages_cpp _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsResult.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_cpp _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Msg103.msg" NAME_WE)
@@ -453,7 +466,7 @@ get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Contr
 add_dependencies(prometheus_msgs_generate_messages_cpp _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Case3Result.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_cpp _prometheus_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg" NAME_WE)
+get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_cpp _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/UgvCommand.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_cpp _prometheus_msgs_generate_messages_check_deps_${_filename})
@@ -465,7 +478,7 @@ get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Contr
 add_dependencies(prometheus_msgs_generate_messages_cpp _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/LogMessageDetection.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_cpp _prometheus_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg" NAME_WE)
+get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_cpp _prometheus_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -610,6 +623,12 @@ _generate_msg_eus(prometheus_msgs
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_eus(prometheus_msgs
+  "/home/amov/swarm_ws2/src/common/msgs/msg/Commitment.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/prometheus_msgs
+)
+_generate_msg_eus(prometheus_msgs
   "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsResult.msg"
   "${MSG_I_FLAGS}"
   "/home/amov/swarm_ws2/src/common/msgs/msg/BoundingBoxes.msg;/home/amov/swarm_ws2/src/common/msgs/msg/BoundingBox.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
@@ -634,9 +653,9 @@ _generate_msg_eus(prometheus_msgs
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_eus(prometheus_msgs
-  "/home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg"
+  "/home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/amov/swarm_ws2/src/common/msgs/msg/ArucoInfo.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_eus(prometheus_msgs
@@ -670,9 +689,9 @@ _generate_msg_eus(prometheus_msgs
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_eus(prometheus_msgs
-  "/home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg"
+  "/home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg"
   "${MSG_I_FLAGS}"
-  "/home/amov/swarm_ws2/src/common/msgs/msg/ArucoInfo.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/prometheus_msgs
 )
 
@@ -734,6 +753,8 @@ get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_ms
 add_dependencies(prometheus_msgs_generate_messages_eus _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsGoal.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_eus _prometheus_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Commitment.msg" NAME_WE)
+add_dependencies(prometheus_msgs_generate_messages_eus _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsResult.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_eus _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Msg103.msg" NAME_WE)
@@ -742,7 +763,7 @@ get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Contr
 add_dependencies(prometheus_msgs_generate_messages_eus _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Case3Result.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_eus _prometheus_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg" NAME_WE)
+get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_eus _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/UgvCommand.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_eus _prometheus_msgs_generate_messages_check_deps_${_filename})
@@ -754,7 +775,7 @@ get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Contr
 add_dependencies(prometheus_msgs_generate_messages_eus _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/LogMessageDetection.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_eus _prometheus_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg" NAME_WE)
+get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_eus _prometheus_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -899,6 +920,12 @@ _generate_msg_lisp(prometheus_msgs
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_lisp(prometheus_msgs
+  "/home/amov/swarm_ws2/src/common/msgs/msg/Commitment.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/prometheus_msgs
+)
+_generate_msg_lisp(prometheus_msgs
   "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsResult.msg"
   "${MSG_I_FLAGS}"
   "/home/amov/swarm_ws2/src/common/msgs/msg/BoundingBoxes.msg;/home/amov/swarm_ws2/src/common/msgs/msg/BoundingBox.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
@@ -923,9 +950,9 @@ _generate_msg_lisp(prometheus_msgs
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_lisp(prometheus_msgs
-  "/home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg"
+  "/home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/amov/swarm_ws2/src/common/msgs/msg/ArucoInfo.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_lisp(prometheus_msgs
@@ -959,9 +986,9 @@ _generate_msg_lisp(prometheus_msgs
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_lisp(prometheus_msgs
-  "/home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg"
+  "/home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg"
   "${MSG_I_FLAGS}"
-  "/home/amov/swarm_ws2/src/common/msgs/msg/ArucoInfo.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/prometheus_msgs
 )
 
@@ -1023,6 +1050,8 @@ get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_ms
 add_dependencies(prometheus_msgs_generate_messages_lisp _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsGoal.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_lisp _prometheus_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Commitment.msg" NAME_WE)
+add_dependencies(prometheus_msgs_generate_messages_lisp _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsResult.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_lisp _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Msg103.msg" NAME_WE)
@@ -1031,7 +1060,7 @@ get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Contr
 add_dependencies(prometheus_msgs_generate_messages_lisp _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Case3Result.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_lisp _prometheus_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg" NAME_WE)
+get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_lisp _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/UgvCommand.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_lisp _prometheus_msgs_generate_messages_check_deps_${_filename})
@@ -1043,7 +1072,7 @@ get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Contr
 add_dependencies(prometheus_msgs_generate_messages_lisp _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/LogMessageDetection.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_lisp _prometheus_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg" NAME_WE)
+get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_lisp _prometheus_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -1188,6 +1217,12 @@ _generate_msg_nodejs(prometheus_msgs
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_nodejs(prometheus_msgs
+  "/home/amov/swarm_ws2/src/common/msgs/msg/Commitment.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/prometheus_msgs
+)
+_generate_msg_nodejs(prometheus_msgs
   "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsResult.msg"
   "${MSG_I_FLAGS}"
   "/home/amov/swarm_ws2/src/common/msgs/msg/BoundingBoxes.msg;/home/amov/swarm_ws2/src/common/msgs/msg/BoundingBox.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
@@ -1212,9 +1247,9 @@ _generate_msg_nodejs(prometheus_msgs
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_nodejs(prometheus_msgs
-  "/home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg"
+  "/home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/amov/swarm_ws2/src/common/msgs/msg/ArucoInfo.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_nodejs(prometheus_msgs
@@ -1248,9 +1283,9 @@ _generate_msg_nodejs(prometheus_msgs
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_nodejs(prometheus_msgs
-  "/home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg"
+  "/home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg"
   "${MSG_I_FLAGS}"
-  "/home/amov/swarm_ws2/src/common/msgs/msg/ArucoInfo.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/prometheus_msgs
 )
 
@@ -1312,6 +1347,8 @@ get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_ms
 add_dependencies(prometheus_msgs_generate_messages_nodejs _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsGoal.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_nodejs _prometheus_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Commitment.msg" NAME_WE)
+add_dependencies(prometheus_msgs_generate_messages_nodejs _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsResult.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_nodejs _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Msg103.msg" NAME_WE)
@@ -1320,7 +1357,7 @@ get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Contr
 add_dependencies(prometheus_msgs_generate_messages_nodejs _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Case3Result.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_nodejs _prometheus_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg" NAME_WE)
+get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_nodejs _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/UgvCommand.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_nodejs _prometheus_msgs_generate_messages_check_deps_${_filename})
@@ -1332,7 +1369,7 @@ get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Contr
 add_dependencies(prometheus_msgs_generate_messages_nodejs _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/LogMessageDetection.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_nodejs _prometheus_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg" NAME_WE)
+get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_nodejs _prometheus_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -1477,6 +1514,12 @@ _generate_msg_py(prometheus_msgs
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_py(prometheus_msgs
+  "/home/amov/swarm_ws2/src/common/msgs/msg/Commitment.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/prometheus_msgs
+)
+_generate_msg_py(prometheus_msgs
   "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsResult.msg"
   "${MSG_I_FLAGS}"
   "/home/amov/swarm_ws2/src/common/msgs/msg/BoundingBoxes.msg;/home/amov/swarm_ws2/src/common/msgs/msg/BoundingBox.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
@@ -1501,9 +1544,9 @@ _generate_msg_py(prometheus_msgs
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_py(prometheus_msgs
-  "/home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg"
+  "/home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/amov/swarm_ws2/src/common/msgs/msg/ArucoInfo.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_py(prometheus_msgs
@@ -1537,9 +1580,9 @@ _generate_msg_py(prometheus_msgs
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_py(prometheus_msgs
-  "/home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg"
+  "/home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg"
   "${MSG_I_FLAGS}"
-  "/home/amov/swarm_ws2/src/common/msgs/msg/ArucoInfo.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/prometheus_msgs
 )
 
@@ -1601,6 +1644,8 @@ get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_ms
 add_dependencies(prometheus_msgs_generate_messages_py _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsGoal.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_py _prometheus_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Commitment.msg" NAME_WE)
+add_dependencies(prometheus_msgs_generate_messages_py _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsResult.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_py _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Msg103.msg" NAME_WE)
@@ -1609,7 +1654,7 @@ get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Contr
 add_dependencies(prometheus_msgs_generate_messages_py _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Case3Result.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_py _prometheus_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg" NAME_WE)
+get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_py _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/UgvCommand.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_py _prometheus_msgs_generate_messages_check_deps_${_filename})
@@ -1621,7 +1666,7 @@ get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/Contr
 add_dependencies(prometheus_msgs_generate_messages_py _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/LogMessageDetection.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_py _prometheus_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg" NAME_WE)
+get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_py _prometheus_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

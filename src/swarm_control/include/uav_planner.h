@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-01 19:03:19
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-01 22:38:28
+ * @LastEditTime: 2022-02-02 14:22:10
  * @FilePath: /swarm_ws2/src/swarm_control/include/uav_planner.h
  * @Description: 
  * 
@@ -11,6 +11,7 @@
 #define UAV_PLANNER_H
 
 #include "swarm_controller.h"
+#include <prometheus_msgs/Commitment.h>
 
 #define getNthBit(num,n) (((num)>>(n-1))&1)
 #define setNthBitTo1(num,n) (((num)|(1<<(n-1))))
@@ -73,7 +74,7 @@ typedef struct Site
     }
 
     //void operator=
-    
+
 }Site;
 
 #endif /* UAV_PLANNER_H */

@@ -75,17 +75,18 @@ CMakeFiles/prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/
 CMakeFiles/prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_MultiDetectionInfo.py
 CMakeFiles/prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_CheckForObjectsFeedback.py
 CMakeFiles/prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_CheckForObjectsGoal.py
+CMakeFiles/prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_Commitment.py
 CMakeFiles/prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_CheckForObjectsResult.py
 CMakeFiles/prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_Msg103.py
 CMakeFiles/prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_ControlCommand.py
 CMakeFiles/prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_Case3Result.py
-CMakeFiles/prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_StationCommand.py
+CMakeFiles/prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_IndoorSearch.py
 CMakeFiles/prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_UgvCommand.py
 CMakeFiles/prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_BoundingBox.py
 CMakeFiles/prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_SwarmCommand.py
 CMakeFiles/prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_ControlOutput.py
 CMakeFiles/prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_LogMessageDetection.py
-CMakeFiles/prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_IndoorSearch.py
+CMakeFiles/prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_StationCommand.py
 CMakeFiles/prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/__init__.py
 
 
@@ -269,64 +270,67 @@ CMakeFiles/prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Generating Python from MSG prometheus_msgs/CheckForObjectsGoal"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsGoal.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg
 
+/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_Commitment.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
+/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_Commitment.py: /home/amov/swarm_ws2/src/common/msgs/msg/Commitment.msg
+/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_Commitment.py: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Generating Python from MSG prometheus_msgs/Commitment"
+	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/amov/swarm_ws2/src/common/msgs/msg/Commitment.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg
+
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_CheckForObjectsResult.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_CheckForObjectsResult.py: /home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsResult.msg
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_CheckForObjectsResult.py: /home/amov/swarm_ws2/src/common/msgs/msg/BoundingBoxes.msg
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_CheckForObjectsResult.py: /home/amov/swarm_ws2/src/common/msgs/msg/BoundingBox.msg
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_CheckForObjectsResult.py: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Generating Python from MSG prometheus_msgs/CheckForObjectsResult"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Generating Python from MSG prometheus_msgs/CheckForObjectsResult"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsResult.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_Msg103.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_Msg103.py: /home/amov/swarm_ws2/src/common/msgs/msg/Msg103.msg
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_Msg103.py: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Generating Python from MSG prometheus_msgs/Msg103"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Generating Python from MSG prometheus_msgs/Msg103"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/amov/swarm_ws2/src/common/msgs/msg/Msg103.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_ControlCommand.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_ControlCommand.py: /home/amov/swarm_ws2/src/common/msgs/msg/ControlCommand.msg
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_ControlCommand.py: /home/amov/swarm_ws2/src/common/msgs/msg/PositionReference.msg
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_ControlCommand.py: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Generating Python from MSG prometheus_msgs/ControlCommand"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Generating Python from MSG prometheus_msgs/ControlCommand"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/amov/swarm_ws2/src/common/msgs/msg/ControlCommand.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_Case3Result.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_Case3Result.py: /home/amov/swarm_ws2/src/common/msgs/msg/Case3Result.msg
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_Case3Result.py: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Generating Python from MSG prometheus_msgs/Case3Result"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Generating Python from MSG prometheus_msgs/Case3Result"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/amov/swarm_ws2/src/common/msgs/msg/Case3Result.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg
 
-/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_StationCommand.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
-/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_StationCommand.py: /home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg
-/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_StationCommand.py: /opt/ros/melodic/share/geometry_msgs/msg/Pose.msg
-/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_StationCommand.py: /opt/ros/melodic/share/geometry_msgs/msg/Quaternion.msg
-/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_StationCommand.py: /opt/ros/melodic/share/geometry_msgs/msg/Point.msg
-/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_StationCommand.py: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
-/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_StationCommand.py: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Generating Python from MSG prometheus_msgs/StationCommand"
-	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg
+/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_IndoorSearch.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
+/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_IndoorSearch.py: /home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg
+/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_IndoorSearch.py: /home/amov/swarm_ws2/src/common/msgs/msg/ArucoInfo.msg
+/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_IndoorSearch.py: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Generating Python from MSG prometheus_msgs/IndoorSearch"
+	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_UgvCommand.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_UgvCommand.py: /home/amov/swarm_ws2/src/common/msgs/msg/UgvCommand.msg
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_UgvCommand.py: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Generating Python from MSG prometheus_msgs/UgvCommand"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Generating Python from MSG prometheus_msgs/UgvCommand"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/amov/swarm_ws2/src/common/msgs/msg/UgvCommand.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_BoundingBox.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_BoundingBox.py: /home/amov/swarm_ws2/src/common/msgs/msg/BoundingBox.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Generating Python from MSG prometheus_msgs/BoundingBox"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Generating Python from MSG prometheus_msgs/BoundingBox"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/amov/swarm_ws2/src/common/msgs/msg/BoundingBox.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_SwarmCommand.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_SwarmCommand.py: /home/amov/swarm_ws2/src/common/msgs/msg/SwarmCommand.msg
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_SwarmCommand.py: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Generating Python from MSG prometheus_msgs/SwarmCommand"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Generating Python from MSG prometheus_msgs/SwarmCommand"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/amov/swarm_ws2/src/common/msgs/msg/SwarmCommand.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_ControlOutput.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_ControlOutput.py: /home/amov/swarm_ws2/src/common/msgs/msg/ControlOutput.msg
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_ControlOutput.py: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Generating Python from MSG prometheus_msgs/ControlOutput"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Generating Python from MSG prometheus_msgs/ControlOutput"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/amov/swarm_ws2/src/common/msgs/msg/ControlOutput.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_LogMessageDetection.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
@@ -338,15 +342,18 @@ CMakeFiles/prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_LogMessageDetection.py: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_LogMessageDetection.py: /home/amov/swarm_ws2/src/common/msgs/msg/DroneState.msg
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_LogMessageDetection.py: /opt/ros/melodic/share/geometry_msgs/msg/Quaternion.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Generating Python from MSG prometheus_msgs/LogMessageDetection"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Generating Python from MSG prometheus_msgs/LogMessageDetection"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/amov/swarm_ws2/src/common/msgs/msg/LogMessageDetection.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg
 
-/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_IndoorSearch.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
-/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_IndoorSearch.py: /home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg
-/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_IndoorSearch.py: /home/amov/swarm_ws2/src/common/msgs/msg/ArucoInfo.msg
-/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_IndoorSearch.py: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Generating Python from MSG prometheus_msgs/IndoorSearch"
-	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg
+/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_StationCommand.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
+/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_StationCommand.py: /home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg
+/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_StationCommand.py: /opt/ros/melodic/share/geometry_msgs/msg/Pose.msg
+/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_StationCommand.py: /opt/ros/melodic/share/geometry_msgs/msg/Quaternion.msg
+/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_StationCommand.py: /opt/ros/melodic/share/geometry_msgs/msg/Point.msg
+/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_StationCommand.py: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
+/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_StationCommand.py: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Generating Python from MSG prometheus_msgs/StationCommand"
+	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/__init__.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/__init__.py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_CheckForObjectsActionResult.py
@@ -371,18 +378,19 @@ CMakeFiles/prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/__init__.py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_MultiDetectionInfo.py
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/__init__.py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_CheckForObjectsFeedback.py
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/__init__.py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_CheckForObjectsGoal.py
+/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/__init__.py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_Commitment.py
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/__init__.py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_CheckForObjectsResult.py
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/__init__.py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_Msg103.py
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/__init__.py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_ControlCommand.py
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/__init__.py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_Case3Result.py
-/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/__init__.py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_StationCommand.py
+/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/__init__.py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_IndoorSearch.py
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/__init__.py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_UgvCommand.py
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/__init__.py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_BoundingBox.py
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/__init__.py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_SwarmCommand.py
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/__init__.py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_ControlOutput.py
 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/__init__.py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_LogMessageDetection.py
-/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/__init__.py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_IndoorSearch.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Generating Python msg __init__.py for prometheus_msgs"
+/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/__init__.py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_StationCommand.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Generating Python msg __init__.py for prometheus_msgs"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg --initpy
 
 prometheus_msgs_generate_messages_py: CMakeFiles/prometheus_msgs_generate_messages_py
@@ -408,17 +416,18 @@ prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/d
 prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_MultiDetectionInfo.py
 prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_CheckForObjectsFeedback.py
 prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_CheckForObjectsGoal.py
+prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_Commitment.py
 prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_CheckForObjectsResult.py
 prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_Msg103.py
 prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_ControlCommand.py
 prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_Case3Result.py
-prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_StationCommand.py
+prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_IndoorSearch.py
 prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_UgvCommand.py
 prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_BoundingBox.py
 prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_SwarmCommand.py
 prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_ControlOutput.py
 prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_LogMessageDetection.py
-prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_IndoorSearch.py
+prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_StationCommand.py
 prometheus_msgs_generate_messages_py: /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/__init__.py
 prometheus_msgs_generate_messages_py: CMakeFiles/prometheus_msgs_generate_messages_py.dir/build.make
 

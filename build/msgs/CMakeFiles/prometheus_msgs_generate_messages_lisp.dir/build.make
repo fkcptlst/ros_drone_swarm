@@ -75,17 +75,18 @@ CMakeFiles/prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/sh
 CMakeFiles/prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/MultiDetectionInfo.lisp
 CMakeFiles/prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/CheckForObjectsFeedback.lisp
 CMakeFiles/prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/CheckForObjectsGoal.lisp
+CMakeFiles/prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/Commitment.lisp
 CMakeFiles/prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/CheckForObjectsResult.lisp
 CMakeFiles/prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/Msg103.lisp
 CMakeFiles/prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/ControlCommand.lisp
 CMakeFiles/prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/Case3Result.lisp
-CMakeFiles/prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/StationCommand.lisp
+CMakeFiles/prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/IndoorSearch.lisp
 CMakeFiles/prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/UgvCommand.lisp
 CMakeFiles/prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/BoundingBox.lisp
 CMakeFiles/prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/SwarmCommand.lisp
 CMakeFiles/prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/ControlOutput.lisp
 CMakeFiles/prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/LogMessageDetection.lisp
-CMakeFiles/prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/IndoorSearch.lisp
+CMakeFiles/prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/StationCommand.lisp
 
 
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/CheckForObjectsActionResult.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
@@ -268,64 +269,67 @@ CMakeFiles/prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/sh
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Generating Lisp code from prometheus_msgs/CheckForObjectsGoal.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsGoal.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg
 
+/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/Commitment.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
+/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/Commitment.lisp: /home/amov/swarm_ws2/src/common/msgs/msg/Commitment.msg
+/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/Commitment.lisp: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Generating Lisp code from prometheus_msgs/Commitment.msg"
+	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/amov/swarm_ws2/src/common/msgs/msg/Commitment.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg
+
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/CheckForObjectsResult.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/CheckForObjectsResult.lisp: /home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsResult.msg
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/CheckForObjectsResult.lisp: /home/amov/swarm_ws2/src/common/msgs/msg/BoundingBoxes.msg
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/CheckForObjectsResult.lisp: /home/amov/swarm_ws2/src/common/msgs/msg/BoundingBox.msg
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/CheckForObjectsResult.lisp: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Generating Lisp code from prometheus_msgs/CheckForObjectsResult.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Generating Lisp code from prometheus_msgs/CheckForObjectsResult.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsResult.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/Msg103.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/Msg103.lisp: /home/amov/swarm_ws2/src/common/msgs/msg/Msg103.msg
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/Msg103.lisp: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Generating Lisp code from prometheus_msgs/Msg103.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Generating Lisp code from prometheus_msgs/Msg103.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/amov/swarm_ws2/src/common/msgs/msg/Msg103.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/ControlCommand.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/ControlCommand.lisp: /home/amov/swarm_ws2/src/common/msgs/msg/ControlCommand.msg
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/ControlCommand.lisp: /home/amov/swarm_ws2/src/common/msgs/msg/PositionReference.msg
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/ControlCommand.lisp: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Generating Lisp code from prometheus_msgs/ControlCommand.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Generating Lisp code from prometheus_msgs/ControlCommand.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/amov/swarm_ws2/src/common/msgs/msg/ControlCommand.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/Case3Result.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/Case3Result.lisp: /home/amov/swarm_ws2/src/common/msgs/msg/Case3Result.msg
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/Case3Result.lisp: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Generating Lisp code from prometheus_msgs/Case3Result.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Generating Lisp code from prometheus_msgs/Case3Result.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/amov/swarm_ws2/src/common/msgs/msg/Case3Result.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg
 
-/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/StationCommand.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
-/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/StationCommand.lisp: /home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg
-/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/StationCommand.lisp: /opt/ros/melodic/share/geometry_msgs/msg/Pose.msg
-/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/StationCommand.lisp: /opt/ros/melodic/share/geometry_msgs/msg/Quaternion.msg
-/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/StationCommand.lisp: /opt/ros/melodic/share/geometry_msgs/msg/Point.msg
-/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/StationCommand.lisp: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
-/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/StationCommand.lisp: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Generating Lisp code from prometheus_msgs/StationCommand.msg"
-	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg
+/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/IndoorSearch.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
+/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/IndoorSearch.lisp: /home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg
+/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/IndoorSearch.lisp: /home/amov/swarm_ws2/src/common/msgs/msg/ArucoInfo.msg
+/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/IndoorSearch.lisp: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Generating Lisp code from prometheus_msgs/IndoorSearch.msg"
+	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/UgvCommand.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/UgvCommand.lisp: /home/amov/swarm_ws2/src/common/msgs/msg/UgvCommand.msg
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/UgvCommand.lisp: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Generating Lisp code from prometheus_msgs/UgvCommand.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Generating Lisp code from prometheus_msgs/UgvCommand.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/amov/swarm_ws2/src/common/msgs/msg/UgvCommand.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/BoundingBox.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/BoundingBox.lisp: /home/amov/swarm_ws2/src/common/msgs/msg/BoundingBox.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Generating Lisp code from prometheus_msgs/BoundingBox.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Generating Lisp code from prometheus_msgs/BoundingBox.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/amov/swarm_ws2/src/common/msgs/msg/BoundingBox.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/SwarmCommand.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/SwarmCommand.lisp: /home/amov/swarm_ws2/src/common/msgs/msg/SwarmCommand.msg
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/SwarmCommand.lisp: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Generating Lisp code from prometheus_msgs/SwarmCommand.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Generating Lisp code from prometheus_msgs/SwarmCommand.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/amov/swarm_ws2/src/common/msgs/msg/SwarmCommand.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/ControlOutput.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/ControlOutput.lisp: /home/amov/swarm_ws2/src/common/msgs/msg/ControlOutput.msg
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/ControlOutput.lisp: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Generating Lisp code from prometheus_msgs/ControlOutput.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Generating Lisp code from prometheus_msgs/ControlOutput.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/amov/swarm_ws2/src/common/msgs/msg/ControlOutput.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg
 
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/LogMessageDetection.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
@@ -337,15 +341,18 @@ CMakeFiles/prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/sh
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/LogMessageDetection.lisp: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/LogMessageDetection.lisp: /home/amov/swarm_ws2/src/common/msgs/msg/DroneState.msg
 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/LogMessageDetection.lisp: /opt/ros/melodic/share/geometry_msgs/msg/Quaternion.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Generating Lisp code from prometheus_msgs/LogMessageDetection.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Generating Lisp code from prometheus_msgs/LogMessageDetection.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/amov/swarm_ws2/src/common/msgs/msg/LogMessageDetection.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg
 
-/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/IndoorSearch.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
-/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/IndoorSearch.lisp: /home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg
-/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/IndoorSearch.lisp: /home/amov/swarm_ws2/src/common/msgs/msg/ArucoInfo.msg
-/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/IndoorSearch.lisp: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Generating Lisp code from prometheus_msgs/IndoorSearch.msg"
-	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg
+/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/StationCommand.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
+/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/StationCommand.lisp: /home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg
+/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/StationCommand.lisp: /opt/ros/melodic/share/geometry_msgs/msg/Pose.msg
+/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/StationCommand.lisp: /opt/ros/melodic/share/geometry_msgs/msg/Quaternion.msg
+/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/StationCommand.lisp: /opt/ros/melodic/share/geometry_msgs/msg/Point.msg
+/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/StationCommand.lisp: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
+/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/StationCommand.lisp: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Generating Lisp code from prometheus_msgs/StationCommand.msg"
+	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg
 
 prometheus_msgs_generate_messages_lisp: CMakeFiles/prometheus_msgs_generate_messages_lisp
 prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/CheckForObjectsActionResult.lisp
@@ -370,17 +377,18 @@ prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-
 prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/MultiDetectionInfo.lisp
 prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/CheckForObjectsFeedback.lisp
 prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/CheckForObjectsGoal.lisp
+prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/Commitment.lisp
 prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/CheckForObjectsResult.lisp
 prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/Msg103.lisp
 prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/ControlCommand.lisp
 prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/Case3Result.lisp
-prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/StationCommand.lisp
+prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/IndoorSearch.lisp
 prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/UgvCommand.lisp
 prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/BoundingBox.lisp
 prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/SwarmCommand.lisp
 prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/ControlOutput.lisp
 prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/LogMessageDetection.lisp
-prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/IndoorSearch.lisp
+prometheus_msgs_generate_messages_lisp: /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/StationCommand.lisp
 prometheus_msgs_generate_messages_lisp: CMakeFiles/prometheus_msgs_generate_messages_lisp.dir/build.make
 
 .PHONY : prometheus_msgs_generate_messages_lisp

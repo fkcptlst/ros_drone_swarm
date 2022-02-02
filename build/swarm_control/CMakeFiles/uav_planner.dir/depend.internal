@@ -3,6 +3,7 @@
 
 CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o
  /home/amov/swarm_ws2/devel/include/prometheus_msgs/AttitudeReference.h
+ /home/amov/swarm_ws2/devel/include/prometheus_msgs/Commitment.h
  /home/amov/swarm_ws2/devel/include/prometheus_msgs/ControlCommand.h
  /home/amov/swarm_ws2/devel/include/prometheus_msgs/ControlOutput.h
  /home/amov/swarm_ws2/devel/include/prometheus_msgs/DroneState.h

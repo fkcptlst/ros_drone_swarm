@@ -147,7 +147,7 @@ class LogMessageControl {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '3ff7ca46745991161e9c19c658791887';
+    return '4c5258968aa20f4f8730fd4c1d3ce2d2';
   }
 
   static messageDefinition() {
@@ -219,11 +219,6 @@ class LogMessageControl {
     ## XXX implemented
     int32 uav_id ## 无人机id
     
-    bool opinionValidFlg ##由于大部分DroneState.msg都是由estimator发布，不包含观点相关的信息，不能确保观点的可靠性，因此加flg以区分
-    int32 commitmentState ## 无人机commitment_state
-    bool voteValidFlg ## 无人机此时的投票是否有效（不是每次广播都代表投票），如果为true才代表此次广播是一次投票
-    float32[3] sitePos ## L_m
-    float32 quality ## q_m
     
     ================================================================================
     MSG: geometry_msgs/Quaternion
