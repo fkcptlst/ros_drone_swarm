@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-01 19:03:19
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-02 23:02:38
+ * @LastEditTime: 2022-02-03 01:26:14
  * @FilePath: /swarm_ws2/src/swarm_control/include/uav_planner.h
  * @Description: 
  * 
@@ -22,8 +22,8 @@ const float COMMRANGE_THRESHOLD = 30.0; //30m comm range
 const float SiteMinSeparationThreshold = 20.0; //20m min site separation
 const float WaypointMinSeparationThreshold = 3.0; //3m min waypoint separation
 
-const double CruiseHeight = 10.0; //10m of cruise height
-const int boundaryOffset = 50; //TODO need adjust: 50 meters of boundary offset
+const double CruiseHeight = 5.0; //10m of cruise height
+const int boundaryOffset = 70; //TODO need adjust: 50 meters of boundary offset
 
 
 enum 

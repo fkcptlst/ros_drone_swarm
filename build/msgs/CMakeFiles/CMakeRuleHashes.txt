@@ -31,7 +31,6 @@ f802b7c79e0a5a05166c4592dd3a77c6 /home/amov/swarm_ws2/devel/include/prometheus_m
 ee1bfb2c85c2ced2365d059586e1be0f /home/amov/swarm_ws2/devel/include/prometheus_msgs/PositionReference.h
 4e851462fb141fbfc5a70e6834c82c96 /home/amov/swarm_ws2/devel/include/prometheus_msgs/StationCommand.h
 6c7e61ce9791f0289eeeb5e74e051327 /home/amov/swarm_ws2/devel/include/prometheus_msgs/SwarmCommand.h
-b426aef0fc46035696e954ecfa7df71f /home/amov/swarm_ws2/devel/include/prometheus_msgs/SwarmCommandGround.h
 fa945f9677a9cdfea65714e4abea326e /home/amov/swarm_ws2/devel/include/prometheus_msgs/UgvCommand.h
 91c431d4ea0ecfd1e4f84c274bf3a6d6 /home/amov/swarm_ws2/devel/include/prometheus_msgs/UgvState.h
 fdf8fade7a770a5d70d10d19cdfbca5d /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_ArucoInfo.py
@@ -66,7 +65,6 @@ aa85c615f829e090080008ecbf3139c1 /home/amov/swarm_ws2/devel/lib/python2.7/dist-p
 69ab2637b909cc4b7613f51097004d40 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_PositionReference.py
 a906bb8ccee3f0b899be8ef6cdbda133 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_StationCommand.py
 c6b761dec29b5074f6e057770a45233c /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_SwarmCommand.py
-b7a7efac20b28e90c8c0438803471775 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_SwarmCommandGround.py
 e83501e3d2d73f90dabe977a969d1382 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_UgvCommand.py
 be6800af6539cc54776f47eff583bc7e /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_UgvState.py
 62de216ce360aba1593845f48399e820 /home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/__init__.py
@@ -102,7 +100,6 @@ faff2fc195d68d8b11f3ee390fb844de /home/amov/swarm_ws2/devel/share/common-lisp/ro
 88c8a81e3861235911ee6e3a70370b5f /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/PositionReference.lisp
 52481870d48e6f77697813876a07a9df /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/StationCommand.lisp
 c322905e40c4f991d7f4e9580af14527 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/SwarmCommand.lisp
-c06b69d2b3eda8f9fd0c505041ee444f /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/SwarmCommandGround.lisp
 1f2a61366b543241484fde1f45be19a1 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/UgvCommand.lisp
 7316d833a11fd4aa3ed5f22d46c18ee9 /home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/UgvState.lisp
 8b023b374b71741346c8d5e9036f76a1 /home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/ArucoInfo.js
@@ -137,7 +134,6 @@ c631f6c62c0488df66ad77f24d986c45 /home/amov/swarm_ws2/devel/share/gennodejs/ros/
 8327930fe98491409344dc331dccf46c /home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/PositionReference.js
 6592e4a945796687fe81251b4bf61b02 /home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/StationCommand.js
 704d58d4b0694302db1fda7037b7d631 /home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/SwarmCommand.js
-5d8078d63e09442896161df29bfcfcb2 /home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/SwarmCommandGround.js
 03035d8cc98ac2d0cff73422ffda2482 /home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/UgvCommand.js
 4f3d58442c6081d02d038921ad34c9cc /home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/UgvState.js
 e5067555f8ed40a08b475638a5e8dccd /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/manifest.l
@@ -173,7 +169,6 @@ b1982e9b0cfb845bd286179b99a9c36f /home/amov/swarm_ws2/devel/share/roseus/ros/pro
 1ba5a020f0f83ff4b29ecad58ca2961f /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/PositionReference.l
 ef4a69c7f7b6271eba3bff831ad44524 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/StationCommand.l
 7d2d4c7630094d2cd4cd0f81ed6d4650 /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/SwarmCommand.l
-97526a64c04657c8b2dffdc7cc732a5c /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/SwarmCommandGround.l
 54bb18ac3c8879e4c99db5502d1c813d /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/UgvCommand.l
 17d30b316ab440cbe957d829f7606cea /home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/UgvState.l
 1046d76de738b3ea43bba0030321a52c CMakeFiles/_prometheus_msgs_generate_messages_check_deps_ArucoInfo

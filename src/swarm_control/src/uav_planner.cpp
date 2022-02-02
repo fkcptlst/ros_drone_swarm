@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-01 17:15:50
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-02 22:47:40
+ * @LastEditTime: 2022-02-03 01:25:50
  * @FilePath: /swarm_ws2/src/swarm_control/src/uav_planner.cpp
  * @Description: this node oversees everything involved in a single uav
  *
@@ -87,6 +87,9 @@ int main(int argc, char **argv)
     init(nh);
     selfCommitment.uav_id = uav_id;
     selfCommitment.commitmentState = UNCOMMITTED;
+    All_Offboard_Switch = false;
+    neighbourCommitments.clear();
+
     generateRandomWaypoint(navTargetPos);
 
     // 建议控制频率 ： 10 - 50Hz, 控制频率取决于控制形式，若控制方式为速度或加速度应适当提高频率
@@ -121,12 +124,14 @@ int main(int argc, char **argv)
 
 
     ros::Timer sensorLoop_timer = nh.createTimer(ros::Duration(0.5), sensorloop_cb);
-    ros::Timer commandPublishLoop_timer = nh.createTimer(ros::Duration(0.1), navigationLoop_cb); //TODO this need fixing
+    ros::Timer commandPublishLoop_timer = nh.createTimer(ros::Duration(0.5), navigationLoop_cb); //TODO this need fixing
 
     ros::Timer comm_LRU_aging_timer = nh.createTimer(ros::Duration(0.5), comm_LRU_aging_cb);
 
-    ros::Timer socialLoop_timer = nh.createTimer(ros::Duration(0.5),socialLoop_cb);
+    ros::Timer socialLoop_timer = nh.createTimer(ros::Duration(0.5),socialLoop_cb); 
     
+    cout<<"uav_"<<uav_id<<"finished starting"<<endl;
+    cout<<(neighbourCommitments.empty() != true)<<endl;
     
     ros::spin();
 
@@ -227,6 +232,7 @@ void swarm_command_ground_cb(const prometheus_msgs::SwarmCommand::ConstPtr& msg)
 bool getSensorData(vector<Site> &site)
 {
     //TODO implement
+    return false;
 }
 
 void sensorloop_cb(const ros::TimerEvent &e)
@@ -290,7 +296,6 @@ void socialLoop_cb(const ros::TimerEvent &e)
         site_v.sitePos[2] = maxPtr->sitePos[2];
 
         neighbourCommitments.clear(); //clear vector at the end
-
         //
         if (site_v != site_m)
         {
