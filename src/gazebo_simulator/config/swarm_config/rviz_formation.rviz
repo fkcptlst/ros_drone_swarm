@@ -7,7 +7,11 @@ Panels:
         - /Global Options1
         - /Status1
         - /Grid1
-        - /MarkerArray1
+        - /render_arena1
+        - /uav2_status_visualisation1
+        - /uav3_status_visualisation1
+        - /uav4_status_visualisation1
+        - /uav1_status_visualisation1
       Splitter Ratio: 0.5
     Tree Height: 549
   - Class: rviz/Selection
@@ -513,12 +517,44 @@ Visualization Manager:
     - Class: rviz/MarkerArray
       Enabled: true
       Marker Topic: /render_arena_topic
-      Name: MarkerArray
+      Name: render_arena
       Namespaces:
         groundPlaneMarker: true
         siteMarker_1: true
         siteMarker_2: true
         siteMarker_3: true
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /uav2/prometheus/status_visualisation
+      Name: uav2_status_visualisation
+      Namespaces:
+        commitmentMarker_2: true
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /uav3/prometheus/status_visualisation
+      Name: uav3_status_visualisation
+      Namespaces:
+        commitmentMarker_3: true
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /uav4/prometheus/status_visualisation
+      Name: uav4_status_visualisation
+      Namespaces:
+        commitmentMarker_4: true
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /uav1/prometheus/status_visualisation
+      Name: uav1_status_visualisation
+      Namespaces:
+        commitmentMarker_1: true
       Queue Size: 100
       Value: true
   Enabled: true
@@ -549,7 +585,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 175.12881469726562
+      Distance: 13.083003997802734
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -564,10 +600,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.6753982305526733
+      Pitch: 0.7653983235359192
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 1.4622135162353516
+      Yaw: 1.9722130298614502
     Saved: ~
 Window Geometry:
   Displays:
@@ -586,4 +622,4 @@ Window Geometry:
     collapsed: false
   Width: 1200
   X: 247
-  Y: 122
+  Y: 92

@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-01 17:15:50
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-03 21:03:07
+ * @LastEditTime: 2022-02-03 23:08:08
  * @FilePath: /swarm_ws2/src/swarm_control/src/uav_planner.cpp
  * @Description: this node oversees everything involved in a single uav
  * 
@@ -31,6 +31,8 @@ ros::Publisher commitmentSelf_pub;  //用于常规发布commitment state用于�
 ros::Subscriber navDroneStateRX_sub; //订阅邻居无人机drone_state信息
 ros::Subscriber commitmentRX_sub;    //订阅邻居无人机commitment信息
 
+ros::Subscriber sensorBuffer_sub; //订阅无人机传感器信息
+
 ros::Subscriber groundCommand_sub;    //订阅地面站
 bool All_Offboard_Switch = false;
 
@@ -48,6 +50,8 @@ Eigen::Vector3d navTargetPos; // NAVIGATION VARIABLE: L_t
 Site site_e;                  // newest sensor site, still questionable
 Site site_v;                  // newest social info site, still questionable
 
+vector<Site> results; //use vector in case of multiple sites
+
 const float sensorMinimumDiff = 0.05f; //传感器更新最小阈值epsilon
 
 vector<prometheus_msgs::Commitment> neighbourCommitments; //记录收到的投票信息,buffer
@@ -64,6 +68,8 @@ void navigationLoop_cb(const ros::TimerEvent &e); //发布航行命令的定时�
 
 void droneStateRX_cb(const prometheus_msgs::DroneState::ConstPtr &state_msg);      //通信触发的回调函数
 void commitmentRX_cb(const prometheus_msgs::Commitment::ConstPtr &commitment_msg); //通信触发的回调函数
+
+void sensorBuffer_cb(const prometheus_msgs::SensorMsg::ConstPtr &sensor_msg); //通信触发的回调函数
 
 void comm_LRU_aging_cb(const ros::TimerEvent &e);
 
@@ -119,7 +125,9 @@ int main(int argc, char **argv)
     commitmentRX_sub = nh.subscribe<prometheus_msgs::Commitment>(uav_name + "/prometheus/commBuffer_RX/commitment", 10, commitmentRX_cb); // update comm
     //【订阅】地面站命令
     groundCommand_sub = nh.subscribe<prometheus_msgs::SwarmCommand>(uav_name + "/prometheus/swarm_command_ground", 10, swarm_command_ground_cb);
-    
+    //【订阅】传感器信息
+    sensorBuffer_sub = nh.subscribe<prometheus_msgs::SensorMsg>(uav_name + "/prometheus/sensorBuffer", 10, sensorBuffer_cb);
+
     ros::Timer debug_timer = nh.createTimer(ros::Duration(10.0), debug_cb);
     ros::Timer droneStateTXLoop_Timer = nh.createTimer(ros::Duration(0.1), droneStateTXLoop_cb);
     ros::Timer commitmentTXLoop_Timer = nh.createTimer(ros::Duration(0.1), commitmentTXLoop_cb);
@@ -232,17 +240,20 @@ void swarm_command_ground_cb(const prometheus_msgs::SwarmCommand::ConstPtr& msg)
  * @return {*}
  */
 
-bool getSensorData(vector<Site> &site)
+void sensorBuffer_cb(const prometheus_msgs::SensorMsg::ConstPtr &sensor_msg) //通信触发的回调函数
 {
-    //TODO implement
-    return false;
+    Site temp;
+    temp.sitePos[0] = sensor_msg->sitePos[0];
+    temp.sitePos[1] = sensor_msg->sitePos[1];
+    temp.sitePos[2] = sensor_msg->sitePos[2];
+    temp.quality = sensor_msg->quality;
+    results.push_back(temp);
 }
 
 void sensorloop_cb(const ros::TimerEvent &e)
 {
     // TODO implement sensor-data acquisition
-    vector<Site> results; //use vector in case of multiple sites
-    if(getSensorData(results)) //if there's site with scope
+    if(!results.empty()) //if there's site with scope
     {
         //XXX: select an appropriate site_e, current strategy: select max
         vector<Site>::iterator iter = results.begin();
@@ -255,6 +266,7 @@ void sensorloop_cb(const ros::TimerEvent &e)
             }
         }
         site_e = *maxPtr;
+        results.clear();
     }
     processEnvInfo();
 }

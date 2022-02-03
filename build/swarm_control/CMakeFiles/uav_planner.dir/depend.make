@@ -9,6 +9,7 @@ CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o: /home/amov/swarm_ws2/devel/inc
 CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o: /home/amov/swarm_ws2/devel/include/prometheus_msgs/LogMessage.h
 CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o: /home/amov/swarm_ws2/devel/include/prometheus_msgs/Message.h
 CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o: /home/amov/swarm_ws2/devel/include/prometheus_msgs/PositionReference.h
+CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o: /home/amov/swarm_ws2/devel/include/prometheus_msgs/SensorMsg.h
 CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o: /home/amov/swarm_ws2/devel/include/prometheus_msgs/SwarmCommand.h
 CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o: /home/amov/swarm_ws2/devel/include/quadrotor_msgs/PositionCommand.h
 CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o: /home/amov/swarm_ws2/src/swarm_control/../common/include/message_utils.h

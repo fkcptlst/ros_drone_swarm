@@ -9,12 +9,14 @@ CMakeFiles/virtual_sensor.dir/src/virtual_sensor.cpp.o: /home/amov/swarm_ws2/dev
 CMakeFiles/virtual_sensor.dir/src/virtual_sensor.cpp.o: /home/amov/swarm_ws2/devel/include/prometheus_msgs/LogMessage.h
 CMakeFiles/virtual_sensor.dir/src/virtual_sensor.cpp.o: /home/amov/swarm_ws2/devel/include/prometheus_msgs/Message.h
 CMakeFiles/virtual_sensor.dir/src/virtual_sensor.cpp.o: /home/amov/swarm_ws2/devel/include/prometheus_msgs/PositionReference.h
+CMakeFiles/virtual_sensor.dir/src/virtual_sensor.cpp.o: /home/amov/swarm_ws2/devel/include/prometheus_msgs/SensorMsg.h
 CMakeFiles/virtual_sensor.dir/src/virtual_sensor.cpp.o: /home/amov/swarm_ws2/devel/include/prometheus_msgs/SwarmCommand.h
 CMakeFiles/virtual_sensor.dir/src/virtual_sensor.cpp.o: /home/amov/swarm_ws2/devel/include/quadrotor_msgs/PositionCommand.h
 CMakeFiles/virtual_sensor.dir/src/virtual_sensor.cpp.o: /home/amov/swarm_ws2/src/swarm_control/../common/include/message_utils.h
 CMakeFiles/virtual_sensor.dir/src/virtual_sensor.cpp.o: /home/amov/swarm_ws2/src/swarm_control/../common/include/printf_utils.h
 CMakeFiles/virtual_sensor.dir/src/virtual_sensor.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/formation_utils.h
 CMakeFiles/virtual_sensor.dir/src/virtual_sensor.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/math_utils.h
+CMakeFiles/virtual_sensor.dir/src/virtual_sensor.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/sensor_utils.h
 CMakeFiles/virtual_sensor.dir/src/virtual_sensor.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/swarm_controller.h
 CMakeFiles/virtual_sensor.dir/src/virtual_sensor.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/uav_planner.h
 CMakeFiles/virtual_sensor.dir/src/virtual_sensor.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/uav_utils/geometry_utils.h

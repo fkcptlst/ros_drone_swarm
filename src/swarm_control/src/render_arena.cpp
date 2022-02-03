@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-03 20:25:28
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-03 22:32:35
+ * @LastEditTime: 2022-02-03 23:32:04
  * @FilePath: /swarm_ws2/src/swarm_control/src/render_arena.cpp
  * @Description:
  *
@@ -11,6 +11,8 @@
 #include <ros/ros.h>
 #include <visualization_msgs/Marker.h>
 #include <visualization_msgs/MarkerArray.h>
+
+#include "visualisation_utils.h"
 
 using namespace std;
 
@@ -24,35 +26,7 @@ ros::Publisher marker_array_pub;
     <param name="site_posz_1" value="0"/>
     <param name="site_quality_1" value="0.4"/>
  */
-struct
-{
-    float r;
-    float g;
-    float b;
-    float a;
-}colorlist[] = {
-    {255,0,0,0.8},
-    {0,255,0,0.8},
-    {0,0,255,0.8},
-    {255,255,0,0.8},
-    {255,0,0,255.8},
-    {0,255,255,0.8},
-    {255,0,0,0.8},
-    {0,255,0,0.8},
-    {0,0,255,0.8},
-    {255,255,0,0.8},
-    {255,0,0,255.8},
-    {0,255,255,0.8},
-    {255,0,0,0.8},
-    {0,255,0,0.8},
-    {0,0,255,0.8},
-    {255,255,0,0.8},
-    {255,0,0,255.8},
-    {0,255,255,0.8}
-}; //stores some pretty color
-
-
-int site_number = 0;
+int site_number = 0;//总共的地点数量
 
 void marker_array_cb(const ros::TimerEvent &e)
 {
@@ -85,7 +59,7 @@ void marker_array_cb(const ros::TimerEvent &e)
     markerArray.markers.push_back(groundPlaneMarker);
 
     // generate site
-
+    ros::param::get("site_number", site_number);
     for (int i = 1; i <= site_number; i++)
     {
         double site_posx, site_posy, site_posz, site_quality;
@@ -107,7 +81,7 @@ void marker_array_cb(const ros::TimerEvent &e)
             siteMarker.color.r = colorlist[i-1].r;                          // RGBA color,
             siteMarker.color.g = colorlist[i-1].g;
             siteMarker.color.b = colorlist[i-1].b;
-            siteMarker.color.a = colorlist[i-1].a; // transparency, betw 0 and 1
+            siteMarker.color.a = colorlist[i-1].a;
 
             // Set the pose of the marker.  This is a full 6DOF pose relative to the frame/time specified in the header
             siteMarker.pose.position.x = site_posx;
@@ -131,14 +105,11 @@ int main(int argc, char **argv)
     ros::init(argc, argv, "render_arena");
     ros::NodeHandle nh("~");
 
-    ros::param::get("site_number", site_number);
-
     marker_array_pub = nh.advertise<visualization_msgs::MarkerArray>("/render_arena_topic", 10);
 
     ros::Timer marker_array_timer = nh.createTimer(ros::Duration(1.0), marker_array_cb);
 
     cout << "finished starting render_arena" << endl;
-    cout << "site_number: " << site_number << endl;
 
     ros::spin();
 }

@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+/home/amov/swarm_ws2/src/swarm_control/include/visualisation_utils.h
+
 /home/amov/swarm_ws2/src/swarm_control/src/render_arena.cpp
 iostream
 -
@@ -15,6 +17,8 @@ visualization_msgs/Marker.h
 -
 visualization_msgs/MarkerArray.h
 -
+visualisation_utils.h
+/home/amov/swarm_ws2/src/swarm_control/src/visualisation_utils.h
 
 /opt/ros/melodic/include/geometry_msgs/Point.h
 string

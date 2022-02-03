@@ -9,6 +9,7 @@ CMakeFiles/virtual_relay.dir/src/virtual_relay.cpp.o: /home/amov/swarm_ws2/devel
 CMakeFiles/virtual_relay.dir/src/virtual_relay.cpp.o: /home/amov/swarm_ws2/devel/include/prometheus_msgs/LogMessage.h
 CMakeFiles/virtual_relay.dir/src/virtual_relay.cpp.o: /home/amov/swarm_ws2/devel/include/prometheus_msgs/Message.h
 CMakeFiles/virtual_relay.dir/src/virtual_relay.cpp.o: /home/amov/swarm_ws2/devel/include/prometheus_msgs/PositionReference.h
+CMakeFiles/virtual_relay.dir/src/virtual_relay.cpp.o: /home/amov/swarm_ws2/devel/include/prometheus_msgs/SensorMsg.h
 CMakeFiles/virtual_relay.dir/src/virtual_relay.cpp.o: /home/amov/swarm_ws2/devel/include/prometheus_msgs/SwarmCommand.h
 CMakeFiles/virtual_relay.dir/src/virtual_relay.cpp.o: /home/amov/swarm_ws2/devel/include/quadrotor_msgs/PositionCommand.h
 CMakeFiles/virtual_relay.dir/src/virtual_relay.cpp.o: /home/amov/swarm_ws2/src/swarm_control/../common/include/message_utils.h

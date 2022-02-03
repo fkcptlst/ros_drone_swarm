@@ -298,6 +298,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/status_visualisation.dir/DependInfo.cmake"
   "CMakeFiles/uav_planner.dir/DependInfo.cmake"
   "CMakeFiles/virtual_sensor.dir/DependInfo.cmake"
   "CMakeFiles/virtual_relay.dir/DependInfo.cmake"
