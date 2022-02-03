@@ -272,8 +272,6 @@ struct Definition< ::prometheus_msgs::DroneState_<ContainerAllocator> >
 "\n"
 "## XXX implemented\n"
 "int32 uav_id ## 无人机id\n"
-"\n"
-"\n"
 "================================================================================\n"
 "MSG: std_msgs/Header\n"
 "# Standard metadata for higher-level stamped data types.\n"

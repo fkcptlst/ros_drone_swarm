@@ -2455,8 +2455,8 @@ clean: CMakeFiles/geographic_msgs_generate_messages_eus.dir/clean
 # Target rules for target CMakeFiles/prometheus_station_generate_messages.dir
 
 # All Build rule for target.
-CMakeFiles/prometheus_station_generate_messages.dir/all: CMakeFiles/prometheus_station_generate_messages_eus.dir/all
 CMakeFiles/prometheus_station_generate_messages.dir/all: CMakeFiles/prometheus_station_generate_messages_lisp.dir/all
+CMakeFiles/prometheus_station_generate_messages.dir/all: CMakeFiles/prometheus_station_generate_messages_eus.dir/all
 CMakeFiles/prometheus_station_generate_messages.dir/all: CMakeFiles/prometheus_station_generate_messages_py.dir/all
 CMakeFiles/prometheus_station_generate_messages.dir/all: CMakeFiles/prometheus_station_generate_messages_nodejs.dir/all
 CMakeFiles/prometheus_station_generate_messages.dir/all: CMakeFiles/prometheus_station_generate_messages_cpp.dir/all

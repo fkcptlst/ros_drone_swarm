@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-01 17:15:50
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-03 13:27:54
+ * @LastEditTime: 2022-02-03 21:03:07
  * @FilePath: /swarm_ws2/src/swarm_control/src/uav_planner.cpp
  * @Description: this node oversees everything involved in a single uav
  * 
@@ -83,7 +83,7 @@ void swarm_command_ground_cb(const prometheus_msgs::SwarmCommand::ConstPtr& msg)
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>主 函 数<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 int main(int argc, char **argv)
 {
-    ros::init(argc, argv, NODE_NAME);
+    ros::init(argc, argv, "uav_planner");
     ros::NodeHandle nh("~");
 
     // 读取自己的飞行参数，变量初始化

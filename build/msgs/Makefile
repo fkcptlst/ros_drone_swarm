@@ -1546,6 +1546,19 @@ geographic_msgs_generate_messages_py/fast:
 .PHONY : geographic_msgs_generate_messages_py/fast
 
 #=============================================================================
+# Target rules for targets named _prometheus_msgs_generate_messages_check_deps_SensorMsg
+
+# Build rule for target.
+_prometheus_msgs_generate_messages_check_deps_SensorMsg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _prometheus_msgs_generate_messages_check_deps_SensorMsg
+.PHONY : _prometheus_msgs_generate_messages_check_deps_SensorMsg
+
+# fast build rule for target.
+_prometheus_msgs_generate_messages_check_deps_SensorMsg/fast:
+	$(MAKE) -f CMakeFiles/_prometheus_msgs_generate_messages_check_deps_SensorMsg.dir/build.make CMakeFiles/_prometheus_msgs_generate_messages_check_deps_SensorMsg.dir/build
+.PHONY : _prometheus_msgs_generate_messages_check_deps_SensorMsg/fast
+
+#=============================================================================
 # Target rules for targets named uuid_msgs_generate_messages_eus
 
 # Build rule for target.
@@ -1846,6 +1859,7 @@ help:
 	@echo "... _prometheus_msgs_generate_messages_check_deps_LogMessageControl"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... geographic_msgs_generate_messages_py"
+	@echo "... _prometheus_msgs_generate_messages_check_deps_SensorMsg"
 	@echo "... uuid_msgs_generate_messages_eus"
 	@echo "... _prometheus_msgs_generate_messages_check_deps_CheckForObjectsFeedback"
 	@echo "... uuid_msgs_generate_messages_cpp"

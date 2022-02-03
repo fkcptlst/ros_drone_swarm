@@ -181,6 +181,19 @@ uav_planner/fast:
 .PHONY : uav_planner/fast
 
 #=============================================================================
+# Target rules for targets named virtual_sensor
+
+# Build rule for target.
+virtual_sensor: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 virtual_sensor
+.PHONY : virtual_sensor
+
+# fast build rule for target.
+virtual_sensor/fast:
+	$(MAKE) -f CMakeFiles/virtual_sensor.dir/build.make CMakeFiles/virtual_sensor.dir/build
+.PHONY : virtual_sensor/fast
+
+#=============================================================================
 # Target rules for targets named virtual_relay
 
 # Build rule for target.
@@ -439,6 +452,19 @@ mavros_msgs_generate_messages_eus: cmake_check_build_system
 mavros_msgs_generate_messages_eus/fast:
 	$(MAKE) -f CMakeFiles/mavros_msgs_generate_messages_eus.dir/build.make CMakeFiles/mavros_msgs_generate_messages_eus.dir/build
 .PHONY : mavros_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named render_arena
+
+# Build rule for target.
+render_arena: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 render_arena
+.PHONY : render_arena
+
+# fast build rule for target.
+render_arena/fast:
+	$(MAKE) -f CMakeFiles/render_arena.dir/build.make CMakeFiles/render_arena.dir/build
+.PHONY : render_arena/fast
 
 #=============================================================================
 # Target rules for targets named geometry_msgs_generate_messages_py
@@ -1636,6 +1662,33 @@ gtest/fast:
 	$(MAKE) -f gtest/googlemock/gtest/CMakeFiles/gtest.dir/build.make gtest/googlemock/gtest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
+src/render_arena.o: src/render_arena.cpp.o
+
+.PHONY : src/render_arena.o
+
+# target to build an object file
+src/render_arena.cpp.o:
+	$(MAKE) -f CMakeFiles/render_arena.dir/build.make CMakeFiles/render_arena.dir/src/render_arena.cpp.o
+.PHONY : src/render_arena.cpp.o
+
+src/render_arena.i: src/render_arena.cpp.i
+
+.PHONY : src/render_arena.i
+
+# target to preprocess a source file
+src/render_arena.cpp.i:
+	$(MAKE) -f CMakeFiles/render_arena.dir/build.make CMakeFiles/render_arena.dir/src/render_arena.cpp.i
+.PHONY : src/render_arena.cpp.i
+
+src/render_arena.s: src/render_arena.cpp.s
+
+.PHONY : src/render_arena.s
+
+# target to generate assembly for a file
+src/render_arena.cpp.s:
+	$(MAKE) -f CMakeFiles/render_arena.dir/build.make CMakeFiles/render_arena.dir/src/render_arena.cpp.s
+.PHONY : src/render_arena.cpp.s
+
 src/swarm_controller.o: src/swarm_controller.cpp.o
 
 .PHONY : src/swarm_controller.o
@@ -1825,6 +1878,33 @@ src/virtual_relay.cpp.s:
 	$(MAKE) -f CMakeFiles/virtual_relay.dir/build.make CMakeFiles/virtual_relay.dir/src/virtual_relay.cpp.s
 .PHONY : src/virtual_relay.cpp.s
 
+src/virtual_sensor.o: src/virtual_sensor.cpp.o
+
+.PHONY : src/virtual_sensor.o
+
+# target to build an object file
+src/virtual_sensor.cpp.o:
+	$(MAKE) -f CMakeFiles/virtual_sensor.dir/build.make CMakeFiles/virtual_sensor.dir/src/virtual_sensor.cpp.o
+.PHONY : src/virtual_sensor.cpp.o
+
+src/virtual_sensor.i: src/virtual_sensor.cpp.i
+
+.PHONY : src/virtual_sensor.i
+
+# target to preprocess a source file
+src/virtual_sensor.cpp.i:
+	$(MAKE) -f CMakeFiles/virtual_sensor.dir/build.make CMakeFiles/virtual_sensor.dir/src/virtual_sensor.cpp.i
+.PHONY : src/virtual_sensor.cpp.i
+
+src/virtual_sensor.s: src/virtual_sensor.cpp.s
+
+.PHONY : src/virtual_sensor.s
+
+# target to generate assembly for a file
+src/virtual_sensor.cpp.s:
+	$(MAKE) -f CMakeFiles/virtual_sensor.dir/build.make CMakeFiles/virtual_sensor.dir/src/virtual_sensor.cpp.s
+.PHONY : src/virtual_sensor.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1835,6 +1915,7 @@ help:
 	@echo "... install/local"
 	@echo "... list_install_components"
 	@echo "... uav_planner"
+	@echo "... virtual_sensor"
 	@echo "... virtual_relay"
 	@echo "... swarm_formation_control"
 	@echo "... swarm_ground_station"
@@ -1855,6 +1936,7 @@ help:
 	@echo "... actionlib_msgs_generate_messages_py"
 	@echo "... actionlib_msgs_generate_messages_lisp"
 	@echo "... mavros_msgs_generate_messages_eus"
+	@echo "... render_arena"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_nodejs"
@@ -1951,6 +2033,9 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
+	@echo "... src/render_arena.o"
+	@echo "... src/render_arena.i"
+	@echo "... src/render_arena.s"
 	@echo "... src/swarm_controller.o"
 	@echo "... src/swarm_controller.i"
 	@echo "... src/swarm_controller.s"
@@ -1972,6 +2057,9 @@ help:
 	@echo "... src/virtual_relay.o"
 	@echo "... src/virtual_relay.i"
 	@echo "... src/virtual_relay.s"
+	@echo "... src/virtual_sensor.o"
+	@echo "... src/virtual_sensor.i"
+	@echo "... src/virtual_sensor.s"
 .PHONY : help
 
 

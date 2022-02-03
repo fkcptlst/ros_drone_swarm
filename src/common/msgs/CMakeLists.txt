@@ -36,6 +36,7 @@ add_message_files(
   LogMessagePlanning.msg
   LogMessageDetection.msg
   SwarmCommand.msg
+  SensorMsg.msg
   Formation.msg
   ArucoInfo.msg
   MultiArucoInfo.msg

@@ -24,4 +24,3 @@ float32 battery_state               ## 电池状态    #float32
 
 ## XXX implemented
 int32 uav_id ## 无人机id
-

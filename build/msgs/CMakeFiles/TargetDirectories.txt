@@ -111,6 +111,7 @@
 /home/amov/swarm_ws2/build/msgs/CMakeFiles/_prometheus_msgs_generate_messages_check_deps_LogMessageControl.dir
 /home/amov/swarm_ws2/build/msgs/CMakeFiles/roscpp_generate_messages_cpp.dir
 /home/amov/swarm_ws2/build/msgs/CMakeFiles/geographic_msgs_generate_messages_py.dir
+/home/amov/swarm_ws2/build/msgs/CMakeFiles/_prometheus_msgs_generate_messages_check_deps_SensorMsg.dir
 /home/amov/swarm_ws2/build/msgs/CMakeFiles/uuid_msgs_generate_messages_eus.dir
 /home/amov/swarm_ws2/build/msgs/CMakeFiles/_prometheus_msgs_generate_messages_check_deps_CheckForObjectsFeedback.dir
 /home/amov/swarm_ws2/build/msgs/CMakeFiles/uuid_msgs_generate_messages_cpp.dir

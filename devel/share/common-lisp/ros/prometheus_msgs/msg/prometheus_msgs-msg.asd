@@ -68,6 +68,8 @@
     (:file "_package_MultiDetectionInfo" :depends-on ("_package"))
     (:file "PositionReference" :depends-on ("_package_PositionReference"))
     (:file "_package_PositionReference" :depends-on ("_package"))
+    (:file "SensorMsg" :depends-on ("_package_SensorMsg"))
+    (:file "_package_SensorMsg" :depends-on ("_package"))
     (:file "StationCommand" :depends-on ("_package_StationCommand"))
     (:file "_package_StationCommand" :depends-on ("_package"))
     (:file "SwarmCommand" :depends-on ("_package_SwarmCommand"))

@@ -28,6 +28,7 @@ from ._Msg104 import *
 from ._MultiArucoInfo import *
 from ._MultiDetectionInfo import *
 from ._PositionReference import *
+from ._SensorMsg import *
 from ._StationCommand import *
 from ._SwarmCommand import *
 from ._UgvCommand import *

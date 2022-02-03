@@ -62,5 +62,13 @@
         "workspaceRoot": "/home/amov/swarm_ws2",
         "workspacePath": "src/common/msgs/msg/SwarmCommand.msg",
         "id": "o6H8Je4sOvSVN3X5"
+    },
+    {
+        "type": "File",
+        "name": "/home/amov/swarm_ws2/src/swarm_control/src/virtual_sensor.cpp",
+        "parent_id": null,
+        "workspaceRoot": "/home/amov/swarm_ws2",
+        "workspacePath": "src/swarm_control/src/virtual_sensor.cpp",
+        "id": "bQ9WjCceo0maUwgY"
     }
 ]

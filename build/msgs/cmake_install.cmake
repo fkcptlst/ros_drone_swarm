@@ -146,6 +146,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/amov/swarm_ws2/src/common/msgs/msg/LogMessagePlanning.msg"
     "/home/amov/swarm_ws2/src/common/msgs/msg/LogMessageDetection.msg"
     "/home/amov/swarm_ws2/src/common/msgs/msg/SwarmCommand.msg"
+    "/home/amov/swarm_ws2/src/common/msgs/msg/SensorMsg.msg"
     "/home/amov/swarm_ws2/src/common/msgs/msg/Formation.msg"
     "/home/amov/swarm_ws2/src/common/msgs/msg/ArucoInfo.msg"
     "/home/amov/swarm_ws2/src/common/msgs/msg/MultiArucoInfo.msg"

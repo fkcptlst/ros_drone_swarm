@@ -264,8 +264,6 @@ class DroneState {
     
     ## XXX implemented
     int32 uav_id ## 无人机id
-    
-    
     ================================================================================
     MSG: std_msgs/Header
     # Standard metadata for higher-level stamped data types.

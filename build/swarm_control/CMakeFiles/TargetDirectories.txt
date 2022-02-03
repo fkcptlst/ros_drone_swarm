@@ -2,6 +2,7 @@
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/install/local.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/list_install_components.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/uav_planner.dir
+/home/amov/swarm_ws2/build/swarm_control/CMakeFiles/virtual_sensor.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/virtual_relay.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/swarm_formation_control.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/swarm_ground_station.dir
@@ -22,6 +23,7 @@
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/actionlib_msgs_generate_messages_py.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/mavros_msgs_generate_messages_eus.dir
+/home/amov/swarm_ws2/build/swarm_control/CMakeFiles/render_arena.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/geometry_msgs_generate_messages_py.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/geometry_msgs_generate_messages_lisp.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/std_msgs_generate_messages_nodejs.dir

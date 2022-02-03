@@ -218,8 +218,6 @@ class LogMessageControl {
     
     ## XXX implemented
     int32 uav_id ## 无人机id
-    
-    
     ================================================================================
     MSG: geometry_msgs/Quaternion
     # This represents an orientation in free space in quaternion form.

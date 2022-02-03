@@ -243,8 +243,6 @@ struct Definition< ::prometheus_msgs::LogMessagePlanning_<ContainerAllocator> >
 "\n"
 "## XXX implemented\n"
 "int32 uav_id ## 无人机id\n"
-"\n"
-"\n"
 "================================================================================\n"
 "MSG: geometry_msgs/Quaternion\n"
 "# This represents an orientation in free space in quaternion form.\n"

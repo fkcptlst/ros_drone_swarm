@@ -16,6 +16,7 @@ let Case3Result = require('./Case3Result.js');
 let ControlCommand = require('./ControlCommand.js');
 let DetectionInfo = require('./DetectionInfo.js');
 let LogMessageDetection = require('./LogMessageDetection.js');
+let SensorMsg = require('./SensorMsg.js');
 let LogMessagePlanning = require('./LogMessagePlanning.js');
 let StationCommand = require('./StationCommand.js');
 let DroneState = require('./DroneState.js');
@@ -52,6 +53,7 @@ module.exports = {
   ControlCommand: ControlCommand,
   DetectionInfo: DetectionInfo,
   LogMessageDetection: LogMessageDetection,
+  SensorMsg: SensorMsg,
   LogMessagePlanning: LogMessagePlanning,
   StationCommand: StationCommand,
   DroneState: DroneState,

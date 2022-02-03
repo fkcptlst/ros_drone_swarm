@@ -79,8 +79,6 @@ float32 battery_state               ## 电池状态    #float32
 
 ## XXX implemented
 int32 uav_id ## 无人机id
-
-
 ================================================================================
 MSG: geometry_msgs/Quaternion
 # This represents an orientation in free space in quaternion form.

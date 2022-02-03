@@ -92,9 +92,17 @@ add_executable(virtual_relay src/virtual_relay.cpp)
 add_dependencies(virtual_relay prometheus_swarm_control_gencpp)
 target_link_libraries(virtual_relay ${catkin_LIBRARIES})
 
+add_executable(virtual_sensor src/virtual_sensor.cpp)
+add_dependencies(virtual_sensor prometheus_swarm_control_gencpp)
+target_link_libraries(virtual_sensor ${catkin_LIBRARIES})
+
 add_executable(uav_planner src/uav_planner.cpp)
 add_dependencies(uav_planner prometheus_swarm_control_gencpp)
 target_link_libraries(uav_planner ${catkin_LIBRARIES})
+
+add_executable(render_arena src/render_arena.cpp)
+add_dependencies(render_arena prometheus_swarm_control_gencpp)
+target_link_libraries(render_arena ${catkin_LIBRARIES})
 
 #add_executable(ego_traj_to_cmd src/ego_traj_to_cmd.cpp)
 #add_dependencies(ego_traj_to_cmd prometheus_swarm_control_gencpp)
