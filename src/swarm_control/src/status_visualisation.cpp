@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-03 23:11:34
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-03 23:50:57
+ * @LastEditTime: 2022-02-04 00:28:58
  * @FilePath: /swarm_ws2/src/swarm_control/src/status_visualisation.cpp
  * @Description:
  *
@@ -75,11 +75,17 @@ void marker_array_cb(const ros::TimerEvent &e)
         commitmentMarker.color.r = 255; // RGBA color,
         commitmentMarker.color.g = 255;
         commitmentMarker.color.b = 255;
-        commitmentMarker.color.a = 0.7;
+        commitmentMarker.color.a = 0.9;
 
     }
     else
     {
+    
+        commitmentMarker.color.r = 255; // RGBA color,
+        commitmentMarker.color.g = 255;
+        commitmentMarker.color.b = 255;
+        commitmentMarker.color.a = 0.9;
+
         ros::param::get("site_number", site_number);
         for (int i = 0; i < site_number; i++)
         {
@@ -108,9 +114,9 @@ void marker_array_cb(const ros::TimerEvent &e)
     commitmentMarker.pose.position.y = pos_drone[1];
     commitmentMarker.pose.position.z = pos_drone[2];
     // Set the scale of the marker -- 1x1x1 here means 1m on a side
-    commitmentMarker.scale.x = 5.0;
-    commitmentMarker.scale.y = 5.0;
-    commitmentMarker.scale.z = 0.1;
+    commitmentMarker.scale.x = 2.0;
+    commitmentMarker.scale.y = 2.0;
+    commitmentMarker.scale.z = 2.0;
 
     markerArray.markers.push_back(commitmentMarker);
 
@@ -143,7 +149,7 @@ int main(int argc, char **argv)
     //【订阅】commitment相关信息，用于self
     commitmentSelf_sub = nh.subscribe<prometheus_msgs::Commitment>(uav_name + "/prometheus/commitment", 10, commitmentSelf_cb); // default buffer is 1
 
-    ros::Timer marker_array_timer = nh.createTimer(ros::Duration(1.0), marker_array_cb);
+    ros::Timer marker_array_timer = nh.createTimer(ros::Duration(), marker_array_cb);
 
     cout << "finished starting status_visualisation "<< uav_id << endl;
 

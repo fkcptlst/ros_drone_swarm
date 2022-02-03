@@ -7,11 +7,6 @@ Panels:
         - /Global Options1
         - /Status1
         - /Grid1
-        - /render_arena1
-        - /uav2_status_visualisation1
-        - /uav3_status_visualisation1
-        - /uav4_status_visualisation1
-        - /uav1_status_visualisation1
       Splitter Ratio: 0.5
     Tree Height: 549
   - Class: rviz/Selection
@@ -527,6 +522,14 @@ Visualization Manager:
       Value: true
     - Class: rviz/MarkerArray
       Enabled: true
+      Marker Topic: /uav1/prometheus/status_visualisation
+      Name: uav1_status_visualisation
+      Namespaces:
+        commitmentMarker_1: true
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
       Marker Topic: /uav2/prometheus/status_visualisation
       Name: uav2_status_visualisation
       Namespaces:
@@ -547,14 +550,6 @@ Visualization Manager:
       Name: uav4_status_visualisation
       Namespaces:
         commitmentMarker_4: true
-      Queue Size: 100
-      Value: true
-    - Class: rviz/MarkerArray
-      Enabled: true
-      Marker Topic: /uav1/prometheus/status_visualisation
-      Name: uav1_status_visualisation
-      Namespaces:
-        commitmentMarker_1: true
       Queue Size: 100
       Value: true
   Enabled: true
@@ -584,26 +579,26 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Class: rviz/Orbit
-      Distance: 13.083003997802734
+      Class: rtabmap_ros/OrbitOriented
+      Distance: 215.57192993164062
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0
-        Y: 0
-        Z: 0
+        X: 1.2901948690414429
+        Y: 0.0728631466627121
+        Z: 1.191016435623169
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.7653983235359192
+      Pitch: 0.5947973132133484
       Target Frame: <Fixed Frame>
-      Value: Orbit (rviz)
-      Yaw: 1.9722130298614502
+      Value: OrbitOriented (rtabmap_ros)
+      Yaw: 3.220001220703125
     Saved: ~
 Window Geometry:
   Displays:
@@ -622,4 +617,4 @@ Window Geometry:
     collapsed: false
   Width: 1200
   X: 247
-  Y: 92
+  Y: 62

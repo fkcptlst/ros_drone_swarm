@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-01 17:15:50
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-03 23:08:08
+ * @LastEditTime: 2022-02-04 00:36:51
  * @FilePath: /swarm_ws2/src/swarm_control/src/uav_planner.cpp
  * @Description: this node oversees everything involved in a single uav
  * 
@@ -169,8 +169,8 @@ bool with_prob_of(float prob)
 void sync_selfCommitment_with_site_m() //a utility func
 {
     selfCommitment.sitePos[0] = site_m.sitePos[0];
-    selfCommitment.sitePos[1] = site_m.sitePos[0];
-    selfCommitment.sitePos[2] = site_m.sitePos[0];
+    selfCommitment.sitePos[1] = site_m.sitePos[1];
+    selfCommitment.sitePos[2] = site_m.sitePos[2];
     selfCommitment.quality = site_m.quality;
 }
 
@@ -281,6 +281,7 @@ void processEnvInfo()
             {
                 site_m = site_e;
                 selfCommitment.commitmentState = COMMITTED;
+                sync_selfCommitment_with_site_m();
             }
         }
     }
@@ -319,7 +320,7 @@ void socialLoop_cb(const ros::TimerEvent &e)
             navTargetPos = site_v.sitePos;
 
             selfCommitment.commitmentState = POLLING;
-
+            sync_selfCommitment_with_site_m();
         }
     }
 }

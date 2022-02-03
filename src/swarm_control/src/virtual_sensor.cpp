@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-03 16:54:57
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-03 23:41:59
+ * @LastEditTime: 2022-02-04 00:14:00
  * @FilePath: /swarm_ws2/src/swarm_control/src/virtual_sensor.cpp
  * @Description: 虚拟传感器节点
  * 
@@ -46,14 +46,13 @@ int main(int argc, char **argv)
         printf_param();
     }
     //【发布】commitment相关信息，用于self
-    sensorData_pub = nh.advertise<prometheus_msgs::Commitment>(uav_name + "/prometheus/sensorBuffer", 1); // default buffer is 1
+    sensorData_pub = nh.advertise<prometheus_msgs::SensorMsg>(uav_name + "/prometheus/sensorBuffer", 1); // default buffer is 1
 
     //【订阅】本机状态信息
     drone_state_sub = nh.subscribe<prometheus_msgs::DroneState>(uav_name + "/prometheus/drone_state", 5, drone_state_cb); // update self state
     
     ros::Timer debug_timer = nh.createTimer(ros::Duration(10.0), debug_cb);
-
-    ros::Timer sensorData_pub_Timer = nh.createTimer(ros::Duration(0.5),sensorData_pub_cb); 
+    ros::Timer sensorData_pub_Timer = nh.createTimer(ros::Duration(),sensorData_pub_cb); 
     
     cout<<"uav_"<<uav_id<<"sensor finished starting"<<endl;    
     ros::spin();
