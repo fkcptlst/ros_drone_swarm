@@ -2,9 +2,12 @@
  * @Author: lcf
  * @Date: 2022-02-01 17:15:50
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-03 01:25:50
+ * @LastEditTime: 2022-02-03 13:27:54
  * @FilePath: /swarm_ws2/src/swarm_control/src/uav_planner.cpp
  * @Description: this node oversees everything involved in a single uav
+ * 
+ * @Notes: 现在采取的回调函数策略是非抢占式FIFO队列，如果效果不好可以考虑增加一个回调队列，做成非抢占式的多级队列调度（没有反馈，因为太复杂）；如果效果还不行
+ * 就尝试多线程（注意加PV用于互斥）
  *
  */
 #include "swarm_controller.h"
@@ -100,16 +103,16 @@ int main(int argc, char **argv)
         printf_param();
     }
     //【发布】决策的控制信息
-    flightCommand_pub = nh.advertise<prometheus_msgs::SwarmCommand>(uav_name + "/prometheus/swarm_command", 1); // command publisher, default buffer is 1
+    flightCommand_pub = nh.advertise<prometheus_msgs::SwarmCommand>(uav_name + "/prometheus/swarm_command", 2); // command publisher, default buffer is 2
     //【发布】飞行相关信息，用于避障
-    navDroneStateTX_pub = nh.advertise<prometheus_msgs::DroneState>(uav_name + "/prometheus/commBuffer_TX/drone_state", 1); // broadcast publisher, default buffer is 1
+    navDroneStateTX_pub = nh.advertise<prometheus_msgs::DroneState>(uav_name + "/prometheus/commBuffer_TX/drone_state", 2); // broadcast publisher, default buffer is 2
     //【发布】commitment相关信息，用于social
     commitmentTX_pub = nh.advertise<prometheus_msgs::Commitment>(uav_name + "/prometheus/commBuffer_TX/commitment", 1); // broadcast publisher, default buffer is 1
     //【发布】commitment相关信息，用于self
     commitmentSelf_pub = nh.advertise<prometheus_msgs::Commitment>(uav_name + "/prometheus/commitment", 1); // default buffer is 1
 
     //【订阅】本机状态信息
-    drone_state_sub = nh.subscribe<prometheus_msgs::DroneState>(uav_name + "/prometheus/drone_state", 10, drone_state_cb); // update self state
+    drone_state_sub = nh.subscribe<prometheus_msgs::DroneState>(uav_name + "/prometheus/drone_state", 5, drone_state_cb); // update self state
     //【订阅】通信来的邻居无人机位置速度信息
     navDroneStateRX_sub = nh.subscribe<prometheus_msgs::DroneState>(uav_name + "/prometheus/commBuffer_RX/drone_state", 10, droneStateRX_cb); // update comm
     //【订阅】通信来的邻居无人机commitment信息

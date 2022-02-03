@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-01-31 21:34:24
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-02 22:14:16
+ * @LastEditTime: 2022-02-03 15:05:54
  * @FilePath: /swarm_ws2/src/swarm_control/src/virtual_relay.cpp
  * @Description: This node observes position of all vehicles and unicasts relevant info to each vehicle, modified from swarm_controller
  * 
@@ -104,24 +104,27 @@ void globalUpdate_cb(const ros::TimerEvent &e) //publish更新所有无人机信
         {
             if(observed_drone_msgseq[i] != 0 && observed_drone_msgseq[j] != 0)//check validity
             {
-                if((observed_dronePos[j] - observed_dronePos[i]).squaredNorm() <= COMMRANGE_THRESHOLD*COMMRANGE_THRESHOLD) //j relative to i, vec_j - vec_i, within range
+                double squaredDist = (observed_dronePos[j] - observed_dronePos[i]).squaredNorm(); //j relative to i, vec_j - vec_i, within range
+                if(squaredDist <= COLLISION_AVOIDANCE_COMMRANGE_THRESHOLD*COLLISION_AVOIDANCE_COMMRANGE_THRESHOLD) 
                 {
                     if(observedDroneStateValidFlgList[i] == true)
                     {
-                        observed_drone_state_pub[i].publish(observedDroneStateList[j]); //【发布】 邻居无人机drone_state
+                        observed_drone_state_pub[j].publish(observedDroneStateList[i]); //【发布】 邻居无人机drone_state
                     }
                     if(observedDroneStateValidFlgList[j] == true)
                     {
-                        observed_drone_state_pub[j].publish(observedDroneStateList[i]);
+                        observed_drone_state_pub[i].publish(observedDroneStateList[j]);
                     }
-
+                }
+                if(squaredDist <= VOTING_COMMRANGE_THRESHOLD*VOTING_COMMRANGE_THRESHOLD)
+                {
                     if(observedCommitmentValidFlgList[i] == true)
                     {
-                        observed_commitment_pub[i].publish(observedCommitmentList[j]); //【发布】 邻居无人机commitment
+                        observed_commitment_pub[j].publish(observedCommitmentList[i]); //【发布】 邻居无人机commitment
                     }
                     if(observedCommitmentValidFlgList[j] == true)
                     {
-                        observed_commitment_pub[j].publish(observedCommitmentList[i]);
+                        observed_commitment_pub[i].publish(observedCommitmentList[j]);
                     }
                 }
             }
