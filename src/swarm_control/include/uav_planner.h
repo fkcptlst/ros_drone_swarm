@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-01 19:03:19
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-03 23:09:04
+ * @LastEditTime: 2022-02-04 00:49:36
  * @FilePath: /swarm_ws2/src/swarm_control/include/uav_planner.h
  * @Description: 
  * 
@@ -19,7 +19,7 @@
 #define setNthBitTo0(num,n) (((num)&(0xff - (1<<(n-1)))))
 
 const float COLLISION_AVOIDANCE_COMMRANGE_THRESHOLD = 30.0; //30m collision avoidance comm range
-const float VOTING_COMMRANGE_THRESHOLD = 20.0; //20m voting comm range
+const float VOTING_COMMRANGE_THRESHOLD = 60.0; //XXX 60m voting comm range
 
 
 const float SiteMinSeparationThreshold = 20.0; //20m min site separation

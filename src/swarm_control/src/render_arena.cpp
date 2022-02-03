@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-03 20:25:28
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-03 23:32:04
+ * @LastEditTime: 2022-02-04 00:54:41
  * @FilePath: /swarm_ws2/src/swarm_control/src/render_arena.cpp
  * @Description:
  *
@@ -15,6 +15,8 @@
 #include "visualisation_utils.h"
 
 using namespace std;
+
+const double SiteScale = 10;
 
 ros::Publisher marker_array_pub;
 
@@ -88,8 +90,8 @@ void marker_array_cb(const ros::TimerEvent &e)
             siteMarker.pose.position.y = site_posy;
             siteMarker.pose.position.z = site_posz;
             // Set the scale of the marker -- 1x1x1 here means 1m on a side
-            siteMarker.scale.x = 5.0;
-            siteMarker.scale.y = 5.0;
+            siteMarker.scale.x = SiteScale; //XXX
+            siteMarker.scale.y = SiteScale;
             siteMarker.scale.z = 0.1;
 
             markerArray.markers.push_back(siteMarker);

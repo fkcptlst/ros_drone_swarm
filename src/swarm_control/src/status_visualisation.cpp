@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-03 23:11:34
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-04 00:28:58
+ * @LastEditTime: 2022-02-04 01:08:59
  * @FilePath: /swarm_ws2/src/swarm_control/src/status_visualisation.cpp
  * @Description:
  *
@@ -87,7 +87,7 @@ void marker_array_cb(const ros::TimerEvent &e)
         commitmentMarker.color.a = 0.9;
 
         ros::param::get("site_number", site_number);
-        for (int i = 0; i < site_number; i++)
+        for (int i = 1; i <= site_number; i++)
         {
             double site_posx, site_posy, site_posz, site_quality;
             ros::param::get("site_posx_" + std::to_string(i), site_posx);

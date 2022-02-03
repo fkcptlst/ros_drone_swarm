@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-01-31 21:34:24
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-03 15:05:54
+ * @LastEditTime: 2022-02-04 01:20:25
  * @FilePath: /swarm_ws2/src/swarm_control/src/virtual_relay.cpp
  * @Description: This node observes position of all vehicles and unicasts relevant info to each vehicle, modified from swarm_controller
  * 
@@ -63,8 +63,8 @@ int main(int argc, char **argv)
     {
         observed_drone_state_sub[i] = nh.subscribe<prometheus_msgs::DroneState>("/uav"+std::to_string(i)+ "/prometheus/commBuffer_TX/drone_state", 10, boost::bind(drone_state_topicUpdate_cb,_1,i));
         observed_drone_state_pub[i] = nh.advertise<prometheus_msgs::DroneState>("/uav"+std::to_string(i)+ "/prometheus/commBuffer_RX/drone_state", 1);
-        observed_drone_state_sub[i] = nh.subscribe<prometheus_msgs::Commitment>("/uav"+std::to_string(i)+ "/prometheus/commBuffer_TX/commitment", 10, boost::bind(commitment_topicUpdate_cb,_1,i));
-        observed_drone_state_pub[i] = nh.advertise<prometheus_msgs::Commitment>("/uav"+std::to_string(i)+ "/prometheus/commBuffer_RX/commitment", 1);
+        observed_commitment_sub[i] = nh.subscribe<prometheus_msgs::Commitment>("/uav"+std::to_string(i)+ "/prometheus/commBuffer_TX/commitment", 10, boost::bind(commitment_topicUpdate_cb,_1,i));
+        observed_commitment_pub[i] = nh.advertise<prometheus_msgs::Commitment>("/uav"+std::to_string(i)+ "/prometheus/commBuffer_RX/commitment", 1);
     }
 
     ros::Timer debug_timer = nh.createTimer(ros::Duration(10.0), debug_cb);
