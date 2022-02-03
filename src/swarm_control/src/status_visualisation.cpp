@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-03 23:11:34
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-04 01:08:59
+ * @LastEditTime: 2022-02-04 01:24:16
  * @FilePath: /swarm_ws2/src/swarm_control/src/status_visualisation.cpp
  * @Description:
  *
@@ -70,7 +70,7 @@ void marker_array_cb(const ros::TimerEvent &e)
     commitmentMarker.type = visualization_msgs::Marker::SPHERE;
     commitmentMarker.action = visualization_msgs::Marker::ADD; //// Set the marker action.  Options are ADD, DELETE, and new in ROS Indigo: 3 (DELETEALL)
 
-    if (selfCommitment.commitmentState == UNCOMMITTED)
+    if (selfCommitment.commitmentState != COMMITTED)
     {
         commitmentMarker.color.r = 255; // RGBA color,
         commitmentMarker.color.g = 255;
