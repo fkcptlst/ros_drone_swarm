@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-01 17:15:50
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-04 17:18:03
+ * @LastEditTime: 2022-02-04 17:24:51
  * @FilePath: /swarm_ws2/src/swarm_control/src/uav_planner.cpp
  * @Description: this node oversees everything involved in a single uav
  *
@@ -289,6 +289,7 @@ void processEnvInfo()
     else // 1:resamping or 2: polling and reached destination
     {
         site_m.quality = site_e.quality;
+        selfCommitment.commitmentState = COMMITTED;
     }
 }
 //-----------------PROCESS SOCIAL INFO------------------------------------------------------------------------------------------------------------------------------------------------
