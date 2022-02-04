@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-03 16:54:57
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-04 15:09:04
+ * @LastEditTime: 2022-02-04 19:30:47
  * @FilePath: /swarm_ws2/src/swarm_control/src/virtual_sensor.cpp
  * @Description: 虚拟传感器节点
  * 
@@ -101,6 +101,8 @@ void sensorData_pub_cb(const ros::TimerEvent &e) //定时更新传感器
             siteFound.sitePos[1] = site_posy;
             siteFound.sitePos[2] = site_posz;
             siteFound.quality = site_quality;
+
+            siteFound.header.stamp = ros::Time::now();
 
             sensorData_pub.publish(siteFound);
         }

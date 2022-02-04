@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-01-31 21:34:24
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-04 15:18:46
+ * @LastEditTime: 2022-02-04 17:40:58
  * @FilePath: /swarm_ws2/src/swarm_control/src/virtual_relay.cpp
  * @Description: This node observes position of all vehicles and unicasts relevant info to each vehicle, modified from swarm_controller
  * 
@@ -107,7 +107,7 @@ void globalUpdate_cb(const ros::TimerEvent &e) //publish更新所有无人机信
     {
         for(int j = i; j <= swarm_num_uav; j++)
         {
-            if(observed_drone_msgseq[i] != 0 && observed_drone_msgseq[j] != 0)//check validity
+            if(observed_drone_msgseq[i] != 0 && observed_drone_msgseq[j] != 0 && i!=j)//check validity, and don't send msg to my self
             {
                 double squaredDist = (observed_dronePos[j] - observed_dronePos[i]).squaredNorm(); //j relative to i, vec_j - vec_i, within range
                 if(squaredDist <= COLLISION_AVOIDANCE_COMMRANGE_THRESHOLD*COLLISION_AVOIDANCE_COMMRANGE_THRESHOLD) 

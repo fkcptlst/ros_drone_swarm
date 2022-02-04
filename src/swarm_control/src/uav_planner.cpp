@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-01 17:15:50
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-04 17:24:51
+ * @LastEditTime: 2022-02-04 19:41:45
  * @FilePath: /swarm_ws2/src/swarm_control/src/uav_planner.cpp
  * @Description: this node oversees everything involved in a single uav
  *
@@ -43,13 +43,13 @@ float sensorReading = 0.0f;
 bool collisionAvoidanceFlg = false;
 
 //----algorithm -------
-prometheus_msgs::Commitment selfCommitment; // uav_id, commitmentState, sitePos, quality
+prometheus_msgs::Commitment selfCommitment; // header, uav_id, commitmentState, sitePos, quality
 Site site_m;                                // OPINION VARIABLE: committed site or polling site
 Eigen::Vector3d navTargetPos;               // NAVIGATION VARIABLE: L_t
 Site site_e;                                // newest sensor site, still questionable
 Site site_v;                                // newest social info site, still questionable
 
-vector<Site> results; // use vector in case of multiple sites
+vector<prometheus_msgs::SensorMsg> results; // use vector in case of multiple sites
 
 const float sensorMinimumDiff = 0.05f; //传感器更新最小阈值epsilon
 
@@ -72,11 +72,9 @@ void sensorBuffer_cb(const prometheus_msgs::SensorMsg::ConstPtr &sensor_msg); //
 
 void comm_LRU_aging_cb(const ros::TimerEvent &e);
 
-void sync_selfCommitment_with_site_m();
-
 bool with_prob_of(float prob);
-void processEnvInfo();
-void sync_selfCommitment_with_site_m(); // a utility func
+void processEnvInfo(ros::Time _timeStamp);
+void sync_selfCommitment_with_site_m(ros::Time _timeStamp); // a utility func,注意:当site_m修改时配套使用。
 
 void socialLoop_cb(const ros::TimerEvent &e);
 
@@ -95,6 +93,7 @@ int main(int argc, char **argv)
     init(nh);
     selfCommitment.uav_id = uav_id;
     selfCommitment.commitmentState = UNCOMMITTED;
+    selfCommitment.header.stamp = ros::Time::now();
     All_Offboard_Switch = false;
     neighbourCommitments.clear();
 
@@ -164,12 +163,13 @@ bool with_prob_of(float prob)
     }
 }
 
-void sync_selfCommitment_with_site_m() // a utility func
+void sync_selfCommitment_with_site_m(ros::Time _timeStamp) // a utility func
 {
     selfCommitment.sitePos[0] = site_m.sitePos[0];
     selfCommitment.sitePos[1] = site_m.sitePos[1];
     selfCommitment.sitePos[2] = site_m.sitePos[2];
     selfCommitment.quality = site_m.quality;
+    selfCommitment.header.stamp = _timeStamp;
 }
 
 void droneStateTXLoop_cb(const ros::TimerEvent &e)
@@ -180,7 +180,6 @@ void droneStateTXLoop_cb(const ros::TimerEvent &e)
 
 void commitmentRegularLoop_cb(const ros::TimerEvent &e)
 {
-    sync_selfCommitment_with_site_m();
     commitmentSelf_pub.publish(selfCommitment);
 }
 
@@ -239,12 +238,7 @@ void swarm_command_ground_cb(const prometheus_msgs::SwarmCommand::ConstPtr &msg)
 
 void sensorBuffer_cb(const prometheus_msgs::SensorMsg::ConstPtr &sensor_msg) //通信触发的回调函数
 {
-    Site temp;
-    temp.sitePos[0] = sensor_msg->sitePos[0];
-    temp.sitePos[1] = sensor_msg->sitePos[1];
-    temp.sitePos[2] = sensor_msg->sitePos[2];
-    temp.quality = sensor_msg->quality;
-    results.push_back(temp);
+    results.push_back(*sensor_msg);
 }
 
 void sensorloop_cb(const ros::TimerEvent &e)
@@ -253,8 +247,8 @@ void sensorloop_cb(const ros::TimerEvent &e)
     if (!results.empty()) // if there's site with scope
     {
         // XXX: select an appropriate site_e, current strategy: select max
-        vector<Site>::iterator iter = results.begin();
-        vector<Site>::iterator maxPtr = results.begin();
+        vector<prometheus_msgs::SensorMsg>::iterator iter = results.begin();
+        vector<prometheus_msgs::SensorMsg>::iterator maxPtr = results.begin();
         for (; iter != results.end(); iter++)
         {
             if (iter->quality > maxPtr->quality)
@@ -262,34 +256,45 @@ void sensorloop_cb(const ros::TimerEvent &e)
                 maxPtr = iter;
             }
         }
-        site_e = *maxPtr;
+
+        Site temp;
+        temp.sitePos[0] = maxPtr->sitePos[0];
+        temp.sitePos[1] = maxPtr->sitePos[1];
+        temp.sitePos[2] = maxPtr->sitePos[2];
+        temp.quality = maxPtr->quality;
+        site_e = temp;
+
+        processEnvInfo(maxPtr->header.stamp);
         results.clear();
     }
-    processEnvInfo();
 }
 
-void processEnvInfo()
+void processEnvInfo(ros::Time _timeStamp)
 {
-    if (site_e != site_m) // XXX: some differences from the original text,need furthur check. if sensor new site is valid and new 
+    if (_timeStamp > selfCommitment.header.stamp) // newer info
     {
-        if (selfCommitment.commitmentState != POLLING) //and self is not polling(if polling, then it's not supposed to make discovery)
+        if (site_e != site_m) // XXX: some differences from the original text,need furthur check. if sensor new site is valid and new
         {
-            // discovery
-            if (site_e.quality > site_m.quality + sensorMinimumDiff) // compare rule
+            if (selfCommitment.commitmentState != POLLING) // and self is not polling(if polling, then it's not supposed to make discovery)
             {
-                if (with_prob_of(site_e.quality))
+                // discovery
+                if (site_e.quality > site_m.quality + sensorMinimumDiff) // compare rule
                 {
-                    site_m = site_e;
-                    selfCommitment.commitmentState = COMMITTED;
-                    sync_selfCommitment_with_site_m();
+                    if (with_prob_of(site_e.quality))
+                    {
+                        site_m = site_e;
+                        selfCommitment.commitmentState = COMMITTED;
+                        sync_selfCommitment_with_site_m(ros::Time::now());
+                    }
                 }
             }
         }
-    }
-    else // 1:resamping or 2: polling and reached destination
-    {
-        site_m.quality = site_e.quality;
-        selfCommitment.commitmentState = COMMITTED;
+        else // 1:resamping or 2: polling and reached destination
+        {
+            site_m.quality = site_e.quality;
+            sync_selfCommitment_with_site_m(ros::Time::now());
+            selfCommitment.commitmentState = COMMITTED;
+        }
     }
 }
 //-----------------PROCESS SOCIAL INFO------------------------------------------------------------------------------------------------------------------------------------------------
@@ -312,22 +317,25 @@ void socialLoop_cb(const ros::TimerEvent &e)
                 maxPtr = iter;
             }
         }
-        site_v.quality = maxPtr->quality;
+        site_v.quality = maxPtr->quality; // selected a site_v from multiple choices
         site_v.sitePos[0] = maxPtr->sitePos[0];
         site_v.sitePos[1] = maxPtr->sitePos[1];
         site_v.sitePos[2] = maxPtr->sitePos[2];
 
-        neighbourCommitments.clear(); // clear vector at the end
         //
         if (site_v != site_m)
         {
-            site_m.sitePos = site_v.sitePos;
-            site_m.quality = 0;
-            navTargetPos = site_v.sitePos;
+            if (maxPtr->header.stamp >= selfCommitment.header.stamp) // info newer than current
+            {
+                site_m.sitePos = site_v.sitePos;
+                site_m.quality = 0;
+                navTargetPos = site_v.sitePos;
 
-            selfCommitment.commitmentState = POLLING;
-            sync_selfCommitment_with_site_m();
+                selfCommitment.commitmentState = POLLING;
+                sync_selfCommitment_with_site_m(maxPtr->header.stamp);
+            }
         }
+        neighbourCommitments.clear(); // clear vector at the end
     }
 }
 
@@ -339,10 +347,14 @@ void socialLoop_cb(const ros::TimerEvent &e)
  */
 void commitmentTXLoop_cb(const ros::TimerEvent &e) // voting loop
 {
-    if (with_prob_of(site_m.quality))
+    if (selfCommitment.commitmentState == COMMITTED) //只有committed才能投票
     {
-        sync_selfCommitment_with_site_m();
-        commitmentTX_pub.publish(selfCommitment);
+        if (with_prob_of(site_m.quality))
+        {
+            prometheus_msgs::Commitment temp = selfCommitment;
+            temp.header.stamp = ros::Time::now(); // add timestamp
+            commitmentTX_pub.publish(temp);
+        }
     }
 }
 
