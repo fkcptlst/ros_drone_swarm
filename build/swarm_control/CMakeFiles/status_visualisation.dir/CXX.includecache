@@ -317,8 +317,6 @@ Eigen/Dense
 -
 
 /home/amov/swarm_ws2/src/swarm_control/include/visualisation_utils.h
-
-/home/amov/swarm_ws2/src/swarm_control/src/status_visualisation.cpp
 iostream
 -
 ros/ros.h
@@ -327,14 +325,14 @@ visualization_msgs/Marker.h
 -
 visualization_msgs/MarkerArray.h
 -
-swarm_controller.h
-/home/amov/swarm_ws2/src/swarm_control/src/swarm_controller.h
 uav_planner.h
-/home/amov/swarm_ws2/src/swarm_control/src/uav_planner.h
+/home/amov/swarm_ws2/src/swarm_control/include/uav_planner.h
+sensor_utils.h
+/home/amov/swarm_ws2/src/swarm_control/include/sensor_utils.h
+
+/home/amov/swarm_ws2/src/swarm_control/src/status_visualisation.cpp
 visualisation_utils.h
 /home/amov/swarm_ws2/src/swarm_control/src/visualisation_utils.h
-sensor_utils.h
-/home/amov/swarm_ws2/src/swarm_control/src/sensor_utils.h
 
 /opt/ros/melodic/include/geometry_msgs/Point.h
 string

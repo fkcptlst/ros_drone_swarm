@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-03 16:54:57
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-04 00:14:00
+ * @LastEditTime: 2022-02-04 15:09:04
  * @FilePath: /swarm_ws2/src/swarm_control/src/virtual_sensor.cpp
  * @Description: 虚拟传感器节点
  * 
@@ -81,6 +81,9 @@ void sensorData_pub_cb(const ros::TimerEvent &e) //定时更新传感器
 {
     //get site information
     ros::param::get("site_number",site_number);
+
+    updateSensorRangeThreshold(); //check if param changed
+    
     for (int i = 1; i <= site_number; i++)
     {
         double site_posx, site_posy, site_posz, site_quality;

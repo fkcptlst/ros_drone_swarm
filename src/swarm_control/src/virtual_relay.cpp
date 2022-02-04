@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-01-31 21:34:24
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-04 01:20:25
+ * @LastEditTime: 2022-02-04 15:18:46
  * @FilePath: /swarm_ws2/src/swarm_control/src/virtual_relay.cpp
  * @Description: This node observes position of all vehicles and unicasts relevant info to each vehicle, modified from swarm_controller
  * 
@@ -10,6 +10,7 @@
 
 #include "swarm_controller.h"
 #include "uav_planner.h"
+#include "visualisation_utils.h"
 
 using namespace std;
 
@@ -36,6 +37,8 @@ void commitment_topicUpdate_cb(const prometheus_msgs::Commitment::ConstPtr& comm
 void globalUpdate_cb(const ros::TimerEvent &e);
 void initialize();
 
+void updateCommVisualisationMarker();
+
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>主 函 数<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 int main(int argc, char **argv)
 {
@@ -57,8 +60,7 @@ int main(int argc, char **argv)
         printf_param();
     }
 
-    //【订阅】订阅所有飞机的状态信息
-
+    //【订阅】【发布】订阅所有飞机的信息
     for(int i = 1; i <= swarm_num_uav; i++) 
     {
         observed_drone_state_sub[i] = nh.subscribe<prometheus_msgs::DroneState>("/uav"+std::to_string(i)+ "/prometheus/commBuffer_TX/drone_state", 10, boost::bind(drone_state_topicUpdate_cb,_1,i));
@@ -67,8 +69,11 @@ int main(int argc, char **argv)
         observed_commitment_pub[i] = nh.advertise<prometheus_msgs::Commitment>("/uav"+std::to_string(i)+ "/prometheus/commBuffer_RX/commitment", 1);
     }
 
+    //【发布】可视化markerArray
+    marker_array_pub = nh.advertise<visualization_msgs::MarkerArray>("/status_visualisation", 10); //TODO
+
     ros::Timer debug_timer = nh.createTimer(ros::Duration(10.0), debug_cb);
-    ros::Timer globalUpdate_timer = nh.createTimer(ros::Duration(0.5), globalUpdate_cb); //update per 0.5 seconds
+    ros::Timer globalUpdate_timer = nh.createTimer(ros::Duration(), globalUpdate_cb); //update per 0.5 seconds
 
     ros::spin();
 
@@ -135,4 +140,14 @@ void globalUpdate_cb(const ros::TimerEvent &e) //publish更新所有无人机信
         observedDroneStateValidFlgList[i] = false;
         observedCommitmentValidFlgList[i] = false;
     }
+}
+
+/**
+ * @description: 通信可视化
+ * @param {*}
+ * @return {*}
+ */
+void updateCommVisualisationMarker()//TODO
+{
+
 }

@@ -84,5 +84,73 @@ doubleyaw_drone;
 
 注意：留意一下单一线程对flightCommand的发布有没有影响。
 
-
 **/uav2/prometheus/sensor/monocular_down/image_raw**
+
+
+```
+	<!-- 启动status_visualisation 
+	<node pkg="prometheus_swarm_control" type="status_visualisation" name="status_visualisation_uav1" output="screen" >
+		<!--param name="swarm_num_uav" value="$(arg swarm_num_uav)"/-->
+		<param name="uav_id" value="$(arg uav1_id)"/>
+		<param name="collision_flag" value="$(arg collision_flag)"/>
+		<param name="Takeoff_height" value="$(arg Takeoff_height)"/>
+		<param name="Disarm_height" value="$(arg Disarm_height)"/>
+		<param name="Land_speed" value="$(arg Land_speed)"/>
+		<param name="Land_mode" value="$(arg Land_mode)"/>
+		<param name="geo_fence/x_min" value="$(arg x_min)"/>
+		<param name="geo_fence/x_max" value="$(arg x_max)"/>
+		<param name="geo_fence/y_min" value="$(arg y_min)"/>
+		<param name="geo_fence/y_max" value="$(arg y_max)"/>
+		<param name="geo_fence/z_min" value="$(arg z_min)"/>
+		<param name="geo_fence/z_max" value="$(arg z_max)"/>
+	</node>
+
+	<node pkg="prometheus_swarm_control" type="status_visualisation" name="status_visualisation_uav2" output="screen" >
+		<!--param name="swarm_num_uav" value="$(arg swarm_num_uav)"/-->
+		<param name="uav_id" value="$(arg uav2_id)"/>
+		<param name="collision_flag" value="$(arg collision_flag)"/>
+		<param name="Takeoff_height" value="$(arg Takeoff_height)"/>
+		<param name="Disarm_height" value="$(arg Disarm_height)"/>
+		<param name="Land_speed" value="$(arg Land_speed)"/>
+		<param name="Land_mode" value="$(arg Land_mode)"/>
+		<param name="geo_fence/x_min" value="$(arg x_min)"/>
+		<param name="geo_fence/x_max" value="$(arg x_max)"/>
+		<param name="geo_fence/y_min" value="$(arg y_min)"/>
+		<param name="geo_fence/y_max" value="$(arg y_max)"/>
+		<param name="geo_fence/z_min" value="$(arg z_min)"/>
+		<param name="geo_fence/z_max" value="$(arg z_max)"/>
+	</node>
+
+	<node pkg="prometheus_swarm_control" type="status_visualisation" name="status_visualisation_uav3" output="screen" >
+		<!--param name="swarm_num_uav" value="$(arg swarm_num_uav)"/-->
+		<param name="uav_id" value="$(arg uav3_id)"/>
+		<param name="collision_flag" value="$(arg collision_flag)"/>
+		<param name="Takeoff_height" value="$(arg Takeoff_height)"/>
+		<param name="Disarm_height" value="$(arg Disarm_height)"/>
+		<param name="Land_speed" value="$(arg Land_speed)"/>
+		<param name="Land_mode" value="$(arg Land_mode)"/>
+		<param name="geo_fence/x_min" value="$(arg x_min)"/>
+		<param name="geo_fence/x_max" value="$(arg x_max)"/>
+		<param name="geo_fence/y_min" value="$(arg y_min)"/>
+		<param name="geo_fence/y_max" value="$(arg y_max)"/>
+		<param name="geo_fence/z_min" value="$(arg z_min)"/>
+		<param name="geo_fence/z_max" value="$(arg z_max)"/>
+	</node>
+
+	<node pkg="prometheus_swarm_control" type="status_visualisation" name="status_visualisation_uav4" output="screen">
+		<!--param name="swarm_num_uav" value="$(arg swarm_num_uav)"/-->
+		<param name="uav_id" value="$(arg uav4_id)"/>
+		<param name="collision_flag" value="$(arg collision_flag)"/>
+		<param name="Takeoff_height" value="$(arg Takeoff_height)"/>
+		<param name="Disarm_height" value="$(arg Disarm_height)"/>
+		<param name="Land_speed" value="$(arg Land_speed)"/>
+		<param name="Land_mode" value="$(arg Land_mode)"/>
+		<param name="geo_fence/x_min" value="$(arg x_min)"/>
+		<param name="geo_fence/x_max" value="$(arg x_max)"/>
+		<param name="geo_fence/y_min" value="$(arg y_min)"/>
+		<param name="geo_fence/y_max" value="$(arg y_max)"/>
+		<param name="geo_fence/z_min" value="$(arg z_min)"/>
+		<param name="geo_fence/z_max" value="$(arg z_max)"/>
+	</node>
+	-->
+```

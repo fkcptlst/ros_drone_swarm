@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /home/amov/swarm_ws2/build/swarm_control
 CMakeFiles/status_visualisation.dir/all: CMakeFiles/prometheus_swarm_control_gencpp.dir/all
 	$(MAKE) -f CMakeFiles/status_visualisation.dir/build.make CMakeFiles/status_visualisation.dir/depend
 	$(MAKE) -f CMakeFiles/status_visualisation.dir/build.make CMakeFiles/status_visualisation.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=15,16 "Built target status_visualisation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=17,18 "Built target status_visualisation"
 .PHONY : CMakeFiles/status_visualisation.dir/all
 
 # Include target in all.
@@ -103,7 +103,7 @@ clean: CMakeFiles/status_visualisation.dir/clean
 CMakeFiles/uav_planner.dir/all: CMakeFiles/prometheus_swarm_control_gencpp.dir/all
 	$(MAKE) -f CMakeFiles/uav_planner.dir/build.make CMakeFiles/uav_planner.dir/depend
 	$(MAKE) -f CMakeFiles/uav_planner.dir/build.make CMakeFiles/uav_planner.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=27,28 "Built target uav_planner"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=29,30 "Built target uav_planner"
 .PHONY : CMakeFiles/uav_planner.dir/all
 
 # Include target in all.
@@ -140,7 +140,7 @@ clean: CMakeFiles/uav_planner.dir/clean
 CMakeFiles/virtual_sensor.dir/all: CMakeFiles/prometheus_swarm_control_gencpp.dir/all
 	$(MAKE) -f CMakeFiles/virtual_sensor.dir/build.make CMakeFiles/virtual_sensor.dir/depend
 	$(MAKE) -f CMakeFiles/virtual_sensor.dir/build.make CMakeFiles/virtual_sensor.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=31,32 "Built target virtual_sensor"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=33,34 "Built target virtual_sensor"
 .PHONY : CMakeFiles/virtual_sensor.dir/all
 
 # Include target in all.
@@ -177,7 +177,7 @@ clean: CMakeFiles/virtual_sensor.dir/clean
 CMakeFiles/virtual_relay.dir/all: CMakeFiles/prometheus_swarm_control_gencpp.dir/all
 	$(MAKE) -f CMakeFiles/virtual_relay.dir/build.make CMakeFiles/virtual_relay.dir/depend
 	$(MAKE) -f CMakeFiles/virtual_relay.dir/build.make CMakeFiles/virtual_relay.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=29,30 "Built target virtual_relay"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=31,32 "Built target virtual_relay"
 .PHONY : CMakeFiles/virtual_relay.dir/all
 
 # Include target in all.
@@ -214,7 +214,7 @@ clean: CMakeFiles/virtual_relay.dir/clean
 CMakeFiles/swarm_formation_control.dir/all: CMakeFiles/prometheus_swarm_control_gencpp.dir/all
 	$(MAKE) -f CMakeFiles/swarm_formation_control.dir/build.make CMakeFiles/swarm_formation_control.dir/depend
 	$(MAKE) -f CMakeFiles/swarm_formation_control.dir/build.make CMakeFiles/swarm_formation_control.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=21,22 "Built target swarm_formation_control"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=23,24 "Built target swarm_formation_control"
 .PHONY : CMakeFiles/swarm_formation_control.dir/all
 
 # Include target in all.
@@ -251,7 +251,7 @@ clean: CMakeFiles/swarm_formation_control.dir/clean
 CMakeFiles/swarm_ground_station.dir/all: CMakeFiles/prometheus_swarm_control_gencpp.dir/all
 	$(MAKE) -f CMakeFiles/swarm_ground_station.dir/build.make CMakeFiles/swarm_ground_station.dir/depend
 	$(MAKE) -f CMakeFiles/swarm_ground_station.dir/build.make CMakeFiles/swarm_ground_station.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=23,24 "Built target swarm_ground_station"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=25,26 "Built target swarm_ground_station"
 .PHONY : CMakeFiles/swarm_ground_station.dir/all
 
 # Include target in all.
@@ -850,7 +850,7 @@ clean: CMakeFiles/mavros_msgs_generate_messages_eus.dir/clean
 CMakeFiles/render_arena.dir/all: CMakeFiles/prometheus_swarm_control_gencpp.dir/all
 	$(MAKE) -f CMakeFiles/render_arena.dir/build.make CMakeFiles/render_arena.dir/depend
 	$(MAKE) -f CMakeFiles/render_arena.dir/build.make CMakeFiles/render_arena.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=13,14 "Built target render_arena"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=15,16 "Built target render_arena"
 .PHONY : CMakeFiles/render_arena.dir/all
 
 # Include target in all.
@@ -1143,7 +1143,7 @@ clean: CMakeFiles/nav_msgs_generate_messages_nodejs.dir/clean
 CMakeFiles/swarm_terminal_control.dir/all: CMakeFiles/prometheus_swarm_control_gencpp.dir/all
 	$(MAKE) -f CMakeFiles/swarm_terminal_control.dir/build.make CMakeFiles/swarm_terminal_control.dir/depend
 	$(MAKE) -f CMakeFiles/swarm_terminal_control.dir/build.make CMakeFiles/swarm_terminal_control.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=25,26 "Built target swarm_terminal_control"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=27,28 "Built target swarm_terminal_control"
 .PHONY : CMakeFiles/swarm_terminal_control.dir/all
 
 # Include target in all.
@@ -2230,6 +2230,43 @@ clean: CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/global_status_visualisation.dir
+
+# All Build rule for target.
+CMakeFiles/global_status_visualisation.dir/all: CMakeFiles/prometheus_swarm_control_gencpp.dir/all
+	$(MAKE) -f CMakeFiles/global_status_visualisation.dir/build.make CMakeFiles/global_status_visualisation.dir/depend
+	$(MAKE) -f CMakeFiles/global_status_visualisation.dir/build.make CMakeFiles/global_status_visualisation.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=1,2 "Built target global_status_visualisation"
+.PHONY : CMakeFiles/global_status_visualisation.dir/all
+
+# Include target in all.
+all: CMakeFiles/global_status_visualisation.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/global_status_visualisation.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/amov/swarm_ws2/build/swarm_control/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/global_status_visualisation.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/amov/swarm_ws2/build/swarm_control/CMakeFiles 0
+.PHONY : CMakeFiles/global_status_visualisation.dir/rule
+
+# Convenience name for target.
+global_status_visualisation: CMakeFiles/global_status_visualisation.dir/rule
+
+.PHONY : global_status_visualisation
+
+# clean rule for target.
+CMakeFiles/global_status_visualisation.dir/clean:
+	$(MAKE) -f CMakeFiles/global_status_visualisation.dir/build.make CMakeFiles/global_status_visualisation.dir/clean
+.PHONY : CMakeFiles/global_status_visualisation.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/global_status_visualisation.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/geographic_msgs_generate_messages_lisp.dir
 
 # All Build rule for target.
@@ -2492,7 +2529,7 @@ clean: CMakeFiles/diagnostic_msgs_generate_messages_py.dir/clean
 CMakeFiles/swarm_estimator.dir/all: CMakeFiles/prometheus_swarm_control_gencpp.dir/all
 	$(MAKE) -f CMakeFiles/swarm_estimator.dir/build.make CMakeFiles/swarm_estimator.dir/depend
 	$(MAKE) -f CMakeFiles/swarm_estimator.dir/build.make CMakeFiles/swarm_estimator.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=19,20 "Built target swarm_estimator"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=21,22 "Built target swarm_estimator"
 .PHONY : CMakeFiles/swarm_estimator.dir/all
 
 # Include target in all.
@@ -2980,7 +3017,7 @@ clean: CMakeFiles/uuid_msgs_generate_messages_nodejs.dir/clean
 CMakeFiles/swarm_controller.dir/all: CMakeFiles/prometheus_swarm_control_gencpp.dir/all
 	$(MAKE) -f CMakeFiles/swarm_controller.dir/build.make CMakeFiles/swarm_controller.dir/depend
 	$(MAKE) -f CMakeFiles/swarm_controller.dir/build.make CMakeFiles/swarm_controller.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=17,18 "Built target swarm_controller"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=19,20 "Built target swarm_controller"
 .PHONY : CMakeFiles/swarm_controller.dir/all
 
 # Include target in all.
@@ -3084,7 +3121,7 @@ CMakeFiles/prometheus_swarm_control_generate_messages_eus.dir/all: CMakeFiles/st
 CMakeFiles/prometheus_swarm_control_generate_messages_eus.dir/all: CMakeFiles/nav_msgs_generate_messages_eus.dir/all
 	$(MAKE) -f CMakeFiles/prometheus_swarm_control_generate_messages_eus.dir/build.make CMakeFiles/prometheus_swarm_control_generate_messages_eus.dir/depend
 	$(MAKE) -f CMakeFiles/prometheus_swarm_control_generate_messages_eus.dir/build.make CMakeFiles/prometheus_swarm_control_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=12 "Built target prometheus_swarm_control_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=14 "Built target prometheus_swarm_control_generate_messages_eus"
 .PHONY : CMakeFiles/prometheus_swarm_control_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3762,7 +3799,7 @@ gtest/googlemock/preinstall: gtest/googlemock/gtest/preinstall
 gtest/googlemock/CMakeFiles/gmock_main.dir/all:
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=4,5,6,7 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=6,7,8,9 "Built target gmock_main"
 .PHONY : gtest/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3794,7 +3831,7 @@ clean: gtest/googlemock/CMakeFiles/gmock_main.dir/clean
 gtest/googlemock/CMakeFiles/gmock.dir/all:
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock.dir/build.make gtest/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock.dir/build.make gtest/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=1,2,3 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=3,4,5 "Built target gmock"
 .PHONY : gtest/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3845,7 +3882,7 @@ gtest/googlemock/gtest/preinstall:
 gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/all: gtest/googlemock/gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/build.make gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/build.make gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=10,11 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=12,13 "Built target gtest_main"
 .PHONY : gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3877,7 +3914,7 @@ clean: gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/clean
 gtest/googlemock/gtest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/googlemock/gtest/CMakeFiles/gtest.dir/build.make gtest/googlemock/gtest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/googlemock/gtest/CMakeFiles/gtest.dir/build.make gtest/googlemock/gtest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=8,9 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/swarm_control/CMakeFiles --progress-num=10,11 "Built target gtest"
 .PHONY : gtest/googlemock/gtest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.

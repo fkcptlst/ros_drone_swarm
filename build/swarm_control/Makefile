@@ -1026,6 +1026,19 @@ rosgraph_msgs_generate_messages_nodejs/fast:
 .PHONY : rosgraph_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
+# Target rules for targets named global_status_visualisation
+
+# Build rule for target.
+global_status_visualisation: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 global_status_visualisation
+.PHONY : global_status_visualisation
+
+# fast build rule for target.
+global_status_visualisation/fast:
+	$(MAKE) -f CMakeFiles/global_status_visualisation.dir/build.make CMakeFiles/global_status_visualisation.dir/build
+.PHONY : global_status_visualisation/fast
+
+#=============================================================================
 # Target rules for targets named geographic_msgs_generate_messages_lisp
 
 # Build rule for target.
@@ -1675,6 +1688,33 @@ gtest/fast:
 	$(MAKE) -f gtest/googlemock/gtest/CMakeFiles/gtest.dir/build.make gtest/googlemock/gtest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
+src/global_status_visualisation.o: src/global_status_visualisation.cpp.o
+
+.PHONY : src/global_status_visualisation.o
+
+# target to build an object file
+src/global_status_visualisation.cpp.o:
+	$(MAKE) -f CMakeFiles/global_status_visualisation.dir/build.make CMakeFiles/global_status_visualisation.dir/src/global_status_visualisation.cpp.o
+.PHONY : src/global_status_visualisation.cpp.o
+
+src/global_status_visualisation.i: src/global_status_visualisation.cpp.i
+
+.PHONY : src/global_status_visualisation.i
+
+# target to preprocess a source file
+src/global_status_visualisation.cpp.i:
+	$(MAKE) -f CMakeFiles/global_status_visualisation.dir/build.make CMakeFiles/global_status_visualisation.dir/src/global_status_visualisation.cpp.i
+.PHONY : src/global_status_visualisation.cpp.i
+
+src/global_status_visualisation.s: src/global_status_visualisation.cpp.s
+
+.PHONY : src/global_status_visualisation.s
+
+# target to generate assembly for a file
+src/global_status_visualisation.cpp.s:
+	$(MAKE) -f CMakeFiles/global_status_visualisation.dir/build.make CMakeFiles/global_status_visualisation.dir/src/global_status_visualisation.cpp.s
+.PHONY : src/global_status_visualisation.cpp.s
+
 src/render_arena.o: src/render_arena.cpp.o
 
 .PHONY : src/render_arena.o
@@ -2023,6 +2063,7 @@ help:
 	@echo "... roscpp_generate_messages_eus"
 	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
+	@echo "... global_status_visualisation"
 	@echo "... geographic_msgs_generate_messages_lisp"
 	@echo "... sensor_msgs_generate_messages_py"
 	@echo "... diagnostic_msgs_generate_messages_eus"
@@ -2074,6 +2115,9 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
+	@echo "... src/global_status_visualisation.o"
+	@echo "... src/global_status_visualisation.i"
+	@echo "... src/global_status_visualisation.s"
 	@echo "... src/render_arena.o"
 	@echo "... src/render_arena.i"
 	@echo "... src/render_arena.s"

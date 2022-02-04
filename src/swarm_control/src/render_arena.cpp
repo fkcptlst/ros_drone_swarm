@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-03 20:25:28
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-04 00:54:41
+ * @LastEditTime: 2022-02-04 15:03:56
  * @FilePath: /swarm_ws2/src/swarm_control/src/render_arena.cpp
  * @Description:
  *
@@ -16,9 +16,7 @@
 
 using namespace std;
 
-const double SiteScale = 10;
-
-ros::Publisher marker_array_pub;
+double SiteScale = 10;
 
 /**
     <param name="site_number" value="3"/>
@@ -28,7 +26,6 @@ ros::Publisher marker_array_pub;
     <param name="site_posz_1" value="0"/>
     <param name="site_quality_1" value="0.4"/>
  */
-int site_number = 0;//总共的地点数量
 
 void marker_array_cb(const ros::TimerEvent &e)
 {
@@ -61,6 +58,7 @@ void marker_array_cb(const ros::TimerEvent &e)
     markerArray.markers.push_back(groundPlaneMarker);
 
     // generate site
+    ros::param::get("sensorRange",SiteScale);
     ros::param::get("site_number", site_number);
     for (int i = 1; i <= site_number; i++)
     {
@@ -78,7 +76,7 @@ void marker_array_cb(const ros::TimerEvent &e)
             siteMarker.ns = "siteMarker_" + std::to_string(i);        // Set the namespace and id for this marker.  This serves to create a unique ID  51, Any marker sent with the same namespace and id will overwrite the old one
             siteMarker.lifetime = ros::Duration();
             // siteMarker.frame_locked = true;
-            siteMarker.type = visualization_msgs::Marker::CUBE;
+            siteMarker.type = visualization_msgs::Marker::CYLINDER;
             siteMarker.action = visualization_msgs::Marker::ADD; //// Set the marker action.  Options are ADD, DELETE, and new in ROS Indigo: 3 (DELETEALL)
             siteMarker.color.r = colorlist[i-1].r;                          // RGBA color,
             siteMarker.color.g = colorlist[i-1].g;
@@ -90,8 +88,8 @@ void marker_array_cb(const ros::TimerEvent &e)
             siteMarker.pose.position.y = site_posy;
             siteMarker.pose.position.z = site_posz;
             // Set the scale of the marker -- 1x1x1 here means 1m on a side
-            siteMarker.scale.x = SiteScale; //XXX
-            siteMarker.scale.y = SiteScale;
+            siteMarker.scale.x = SiteScale*2; //XXX
+            siteMarker.scale.y = SiteScale*2;
             siteMarker.scale.z = 0.1;
 
             markerArray.markers.push_back(siteMarker);

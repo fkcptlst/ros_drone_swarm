@@ -7,6 +7,7 @@ Panels:
         - /Global Options1
         - /Status1
         - /Grid1
+        - /global_status_visualisation1
       Splitter Ratio: 0.5
     Tree Height: 549
   - Class: rviz/Selection
@@ -525,7 +526,7 @@ Visualization Manager:
       Marker Topic: /uav1/prometheus/status_visualisation
       Name: uav1_status_visualisation
       Namespaces:
-        commitmentMarker_1: true
+        {}
       Queue Size: 100
       Value: true
     - Class: rviz/MarkerArray
@@ -533,7 +534,7 @@ Visualization Manager:
       Marker Topic: /uav2/prometheus/status_visualisation
       Name: uav2_status_visualisation
       Namespaces:
-        commitmentMarker_2: true
+        {}
       Queue Size: 100
       Value: true
     - Class: rviz/MarkerArray
@@ -541,7 +542,7 @@ Visualization Manager:
       Marker Topic: /uav3/prometheus/status_visualisation
       Name: uav3_status_visualisation
       Namespaces:
-        commitmentMarker_3: true
+        {}
       Queue Size: 100
       Value: true
     - Class: rviz/MarkerArray
@@ -549,7 +550,15 @@ Visualization Manager:
       Marker Topic: /uav4/prometheus/status_visualisation
       Name: uav4_status_visualisation
       Namespaces:
-        commitmentMarker_4: true
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /status_visualisation
+      Name: global_status_visualisation
+      Namespaces:
+        commitmentMarker_0: true
       Queue Size: 100
       Value: true
   Enabled: true
@@ -617,4 +626,4 @@ Window Geometry:
     collapsed: false
   Width: 1200
   X: 247
-  Y: 62
+  Y: 32
