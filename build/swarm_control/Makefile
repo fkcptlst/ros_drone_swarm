@@ -168,19 +168,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named status_visualisation
-
-# Build rule for target.
-status_visualisation: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 status_visualisation
-.PHONY : status_visualisation
-
-# fast build rule for target.
-status_visualisation/fast:
-	$(MAKE) -f CMakeFiles/status_visualisation.dir/build.make CMakeFiles/status_visualisation.dir/build
-.PHONY : status_visualisation/fast
-
-#=============================================================================
 # Target rules for targets named uav_planner
 
 # Build rule for target.
@@ -1742,33 +1729,6 @@ src/render_arena.cpp.s:
 	$(MAKE) -f CMakeFiles/render_arena.dir/build.make CMakeFiles/render_arena.dir/src/render_arena.cpp.s
 .PHONY : src/render_arena.cpp.s
 
-src/status_visualisation.o: src/status_visualisation.cpp.o
-
-.PHONY : src/status_visualisation.o
-
-# target to build an object file
-src/status_visualisation.cpp.o:
-	$(MAKE) -f CMakeFiles/status_visualisation.dir/build.make CMakeFiles/status_visualisation.dir/src/status_visualisation.cpp.o
-.PHONY : src/status_visualisation.cpp.o
-
-src/status_visualisation.i: src/status_visualisation.cpp.i
-
-.PHONY : src/status_visualisation.i
-
-# target to preprocess a source file
-src/status_visualisation.cpp.i:
-	$(MAKE) -f CMakeFiles/status_visualisation.dir/build.make CMakeFiles/status_visualisation.dir/src/status_visualisation.cpp.i
-.PHONY : src/status_visualisation.cpp.i
-
-src/status_visualisation.s: src/status_visualisation.cpp.s
-
-.PHONY : src/status_visualisation.s
-
-# target to generate assembly for a file
-src/status_visualisation.cpp.s:
-	$(MAKE) -f CMakeFiles/status_visualisation.dir/build.make CMakeFiles/status_visualisation.dir/src/status_visualisation.cpp.s
-.PHONY : src/status_visualisation.cpp.s
-
 src/swarm_controller.o: src/swarm_controller.cpp.o
 
 .PHONY : src/swarm_controller.o
@@ -1994,7 +1954,6 @@ help:
 	@echo "... install/strip"
 	@echo "... install/local"
 	@echo "... list_install_components"
-	@echo "... status_visualisation"
 	@echo "... uav_planner"
 	@echo "... virtual_sensor"
 	@echo "... virtual_relay"
@@ -2121,9 +2080,6 @@ help:
 	@echo "... src/render_arena.o"
 	@echo "... src/render_arena.i"
 	@echo "... src/render_arena.s"
-	@echo "... src/status_visualisation.o"
-	@echo "... src/status_visualisation.i"
-	@echo "... src/status_visualisation.s"
 	@echo "... src/swarm_controller.o"
 	@echo "... src/swarm_controller.i"
 	@echo "... src/swarm_controller.s"

@@ -104,10 +104,6 @@ add_executable(render_arena src/render_arena.cpp)
 add_dependencies(render_arena prometheus_swarm_control_gencpp)
 target_link_libraries(render_arena ${catkin_LIBRARIES})
 
-add_executable(status_visualisation src/status_visualisation.cpp)
-add_dependencies(status_visualisation prometheus_swarm_control_gencpp)
-target_link_libraries(status_visualisation ${catkin_LIBRARIES})
-
 add_executable(global_status_visualisation src/global_status_visualisation.cpp)
 add_dependencies(global_status_visualisation prometheus_swarm_control_gencpp)
 target_link_libraries(global_status_visualisation ${catkin_LIBRARIES})

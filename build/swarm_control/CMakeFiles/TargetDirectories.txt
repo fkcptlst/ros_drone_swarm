@@ -1,7 +1,6 @@
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/install/strip.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/install/local.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/list_install_components.dir
-/home/amov/swarm_ws2/build/swarm_control/CMakeFiles/status_visualisation.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/uav_planner.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/virtual_sensor.dir
 /home/amov/swarm_ws2/build/swarm_control/CMakeFiles/virtual_relay.dir

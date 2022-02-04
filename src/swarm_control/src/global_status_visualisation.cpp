@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-01-31 21:34:24
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-04 16:43:23
+ * @LastEditTime: 2022-02-04 22:49:48
  * @FilePath: /swarm_ws2/src/swarm_control/src/global_status_visualisation.cpp
  * @Description: This node observes position of all vehicles and unicasts relevant info to each vehicle, modified from swarm_controller
  * 
@@ -33,8 +33,6 @@ void commitment_topicUpdate_cb(const prometheus_msgs::Commitment::ConstPtr& comm
 void globalUpdate_cb(const ros::TimerEvent &e);
 void initialize();
 
-void updateCommVisualisationMarker();
-
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>主 函 数<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 int main(int argc, char **argv)
 {
@@ -59,7 +57,7 @@ int main(int argc, char **argv)
     //【订阅】订阅所有飞机的信息
     for(int i = 1; i <= swarm_num_uav; i++) 
     {
-        Drone_state_sub[i] = nh.subscribe<prometheus_msgs::DroneState>("/uav"+std::to_string(i)+ "/prometheus/drone_state", 10, boost::bind(drone_state_topicUpdate_cb,_1,i));
+        Drone_state_sub[i] = nh.subscribe<prometheus_msgs::DroneState>("/uav"+std::to_string(i)+ "/prometheus/drone_state", 3, boost::bind(drone_state_topicUpdate_cb,_1,i));//TODO
         Commitment_sub[i] = nh.subscribe<prometheus_msgs::Commitment>("/uav"+std::to_string(i)+ "/prometheus/commitment", 10, boost::bind(commitment_topicUpdate_cb,_1,i));
     }
 
@@ -124,14 +122,4 @@ void globalUpdate_cb(const ros::TimerEvent &e) //publish更新所有无人机信
     }
     *///It sucks
     marker_array_pub.publish(markerArray);
-}
-
-/**
- * @description: 通信可视化
- * @param {*}
- * @return {*}
- */
-void updateCommVisualisationMarker()//TODO
-{
-
 }

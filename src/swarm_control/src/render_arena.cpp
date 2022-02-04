@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-03 20:25:28
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-04 15:03:56
+ * @LastEditTime: 2022-02-04 22:29:40
  * @FilePath: /swarm_ws2/src/swarm_control/src/render_arena.cpp
  * @Description:
  *
@@ -73,8 +73,9 @@ void marker_array_cb(const ros::TimerEvent &e)
             visualization_msgs::Marker siteMarker;
             siteMarker.header.frame_id = "/world";      // inertial frame
             siteMarker.header.stamp = ros::Time::now(); //如果使用ros::Time::now()或者其他非零值，rviz将仅仅显示距离当前时间很近的marker，其中足够近依据的是TF。然而对于0时间，不管是不是当前时间，都会显示marker。
-            siteMarker.ns = "siteMarker_" + std::to_string(i);        // Set the namespace and id for this marker.  This serves to create a unique ID  51, Any marker sent with the same namespace and id will overwrite the old one
-            siteMarker.lifetime = ros::Duration();
+            siteMarker.ns = "siteMarker";        // Set the namespace and id for this marker.  This serves to create a unique ID  51, Any marker sent with the same namespace and id will overwrite the old one
+            siteMarker.lifetime = ros::Duration(1.0);
+            siteMarker.id = i;
             // siteMarker.frame_locked = true;
             siteMarker.type = visualization_msgs::Marker::CYLINDER;
             siteMarker.action = visualization_msgs::Marker::ADD; //// Set the marker action.  Options are ADD, DELETE, and new in ROS Indigo: 3 (DELETEALL)
