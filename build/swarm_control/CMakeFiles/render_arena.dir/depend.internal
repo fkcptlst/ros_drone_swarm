@@ -20,7 +20,6 @@ CMakeFiles/render_arena.dir/src/render_arena.cpp.o
  /home/amov/swarm_ws2/src/swarm_control/include/sensor_utils.h
  /home/amov/swarm_ws2/src/swarm_control/include/swarm_controller.h
  /home/amov/swarm_ws2/src/swarm_control/include/uav_planner.h
- /home/amov/swarm_ws2/src/swarm_control/include/uav_utils/geometry_utils.h
  /home/amov/swarm_ws2/src/swarm_control/include/visualisation_utils.h
  /home/amov/swarm_ws2/src/swarm_control/src/render_arena.cpp
  /opt/ros/melodic/include/geometry_msgs/Point.h

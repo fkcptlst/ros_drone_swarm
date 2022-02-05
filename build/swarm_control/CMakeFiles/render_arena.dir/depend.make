@@ -19,7 +19,6 @@ CMakeFiles/render_arena.dir/src/render_arena.cpp.o: /home/amov/swarm_ws2/src/swa
 CMakeFiles/render_arena.dir/src/render_arena.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/sensor_utils.h
 CMakeFiles/render_arena.dir/src/render_arena.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/swarm_controller.h
 CMakeFiles/render_arena.dir/src/render_arena.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/uav_planner.h
-CMakeFiles/render_arena.dir/src/render_arena.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/uav_utils/geometry_utils.h
 CMakeFiles/render_arena.dir/src/render_arena.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/visualisation_utils.h
 CMakeFiles/render_arena.dir/src/render_arena.cpp.o: /home/amov/swarm_ws2/src/swarm_control/src/render_arena.cpp
 CMakeFiles/render_arena.dir/src/render_arena.cpp.o: /opt/ros/melodic/include/geometry_msgs/Point.h

@@ -15,7 +15,6 @@ CMakeFiles/swarm_controller.dir/src/swarm_controller.cpp.o: /home/amov/swarm_ws2
 CMakeFiles/swarm_controller.dir/src/swarm_controller.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/formation_utils.h
 CMakeFiles/swarm_controller.dir/src/swarm_controller.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/math_utils.h
 CMakeFiles/swarm_controller.dir/src/swarm_controller.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/swarm_controller.h
-CMakeFiles/swarm_controller.dir/src/swarm_controller.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/uav_utils/geometry_utils.h
 CMakeFiles/swarm_controller.dir/src/swarm_controller.cpp.o: /home/amov/swarm_ws2/src/swarm_control/src/swarm_controller.cpp
 CMakeFiles/swarm_controller.dir/src/swarm_controller.cpp.o: /opt/ros/melodic/include/geometry_msgs/Point.h
 CMakeFiles/swarm_controller.dir/src/swarm_controller.cpp.o: /opt/ros/melodic/include/geometry_msgs/Pose.h

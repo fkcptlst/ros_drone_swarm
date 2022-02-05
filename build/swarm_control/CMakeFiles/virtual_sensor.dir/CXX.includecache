@@ -312,10 +312,6 @@ prometheus_msgs/Commitment.h
 prometheus_msgs/SensorMsg.h
 -
 
-/home/amov/swarm_ws2/src/swarm_control/include/uav_utils/geometry_utils.h
-Eigen/Dense
--
-
 /home/amov/swarm_ws2/src/swarm_control/src/virtual_sensor.cpp
 swarm_controller.h
 /home/amov/swarm_ws2/src/swarm_control/src/swarm_controller.h

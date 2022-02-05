@@ -3,12 +3,7 @@ Panels:
     Help Height: 78
     Name: Displays
     Property Tree Widget:
-      Expanded:
-        - /Global Options1
-        - /Status1
-        - /Grid1
-        - /global_status_visualisation1
-        - /comm_visualisation1
+      Expanded: ~
       Splitter Ratio: 0.5
     Tree Height: 728
   - Class: rviz/Selection
@@ -517,9 +512,7 @@ Visualization Manager:
       Name: render_arena
       Namespaces:
         groundPlaneMarker: true
-        siteMarker_1: true
-        siteMarker_2: true
-        siteMarker_3: true
+        siteMarker: true
       Queue Size: 100
       Value: true
     - Class: rviz/MarkerArray
@@ -599,25 +592,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rtabmap_ros/OrbitOriented
-      Distance: 187.87530517578125
+      Distance: 155.16802978515625
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -12.5042724609375
-        Y: 1.7217645645141602
-        Z: -1.3949921131134033
+        X: 1.2129669189453125
+        Y: 0.5221590399742126
+        Z: -0.9619273543357849
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.3447972536087036
+      Pitch: 1.4197975397109985
       Target Frame: <Fixed Frame>
       Value: OrbitOriented (rtabmap_ros)
-      Yaw: 3.650001049041748
+      Yaw: 4.715004920959473
     Saved: ~
 Window Geometry:
   Displays:
