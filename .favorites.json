@@ -86,5 +86,13 @@
         "workspaceRoot": "/home/amov/swarm_ws2",
         "workspacePath": "src/swarm_control/scripts",
         "id": "PwydLDalEgGArkiC"
+    },
+    {
+        "type": "File",
+        "name": "/home/amov/swarm_ws2/src/gazebo_simulator/launch_swarm/sitl_experiment.launch",
+        "parent_id": null,
+        "workspaceRoot": "/home/amov/swarm_ws2",
+        "workspacePath": "src/gazebo_simulator/launch_swarm/sitl_experiment.launch",
+        "id": "daQhzeC7TAJjm05p"
     }
 ]
