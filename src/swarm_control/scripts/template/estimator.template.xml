@@ -1,0 +1,4 @@
+	<node pkg="prometheus_swarm_control" type="swarm_estimator" name="swarm_estimator_uav1" output="screen">
+		<param name="uav_id" value="$(arg uav1_id)"/>
+		<param name="input_source" value="$(arg input_source)" />
+	</node>

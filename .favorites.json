@@ -78,5 +78,13 @@
         "workspaceRoot": "/home/amov/swarm_ws2",
         "workspacePath": "src/common/msgs/msg/SensorMsg.msg",
         "id": "jOZ9MyKQ3bw1dx8n"
+    },
+    {
+        "type": "Directory",
+        "name": "/home/amov/swarm_ws2/src/swarm_control/scripts",
+        "parent_id": null,
+        "workspaceRoot": "/home/amov/swarm_ws2",
+        "workspacePath": "src/swarm_control/scripts",
+        "id": "PwydLDalEgGArkiC"
     }
 ]

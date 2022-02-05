@@ -1,0 +1,26 @@
+	<!-- 地理围栏 -->
+	<arg name="x_min" default="-100.0"/>
+	<arg name="x_max" default="100.0"/>
+	<arg name="y_min" default="-50.0"/>
+	<arg name="y_max" default="50.0"/>
+	<arg name="z_min" default="-1.0"/>
+	<arg name="z_max" default="50.0"/>
+
+	<param name="sensorRange" value="10"/>
+	<!-- site相关信息,global param -->
+	<param name="site_number" value="3"/>
+
+	<param name="site_posx_1" value="-30"/>
+	<param name="site_posy_1" value="10"/>
+	<param name="site_posz_1" value="0"/>
+	<param name="site_quality_1" value="0.4"/>
+
+	<param name="site_posx_2" value="30"/>
+	<param name="site_posy_2" value="30"/>
+	<param name="site_posz_2" value="0"/>
+	<param name="site_quality_2" value="0.6"/>
+
+	<param name="site_posx_3" value="10"/>
+	<param name="site_posy_3" value="-20"/>
+	<param name="site_posz_3" value="0"/>
+	<param name="site_quality_3" value="0.8"/>
