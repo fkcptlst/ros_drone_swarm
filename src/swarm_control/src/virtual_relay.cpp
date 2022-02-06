@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-01-31 21:34:24
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-04 22:58:01
+ * @LastEditTime: 2022-02-06 15:33:29
  * @FilePath: /swarm_ws2/src/swarm_control/src/virtual_relay.cpp
  * @Description: This node observes position of all vehicles and unicasts relevant info to each vehicle, modified from swarm_controller
  *
@@ -23,6 +23,9 @@ ros::Subscriber actual_drone_state_sub[MAX_UAV_NUM + 1]; //用于订阅drone_sta
 prometheus_msgs::DroneState actualDroneStateList[MAX_UAV_NUM + 1];
 bool actualDroneStateValidFlgList[MAX_UAV_NUM + 1]; //用于标记是否有效，避免重复发布历史信息
 
+ros::Subscriber Gazebo_odom_sub[MAX_UAV_NUM+1]; //用于订Odometry
+nav_msgs::Odometry GazeboOdomList[MAX_UAV_NUM+1];
+
 ros::Subscriber observed_drone_state_sub[MAX_UAV_NUM + 1]; //用于订阅TX/drone_state
 ros::Subscriber observed_commitment_sub[MAX_UAV_NUM + 1];  //用于订阅TX/commitment
 
@@ -42,6 +45,9 @@ void drone_state_topicUpdate_cb(const prometheus_msgs::DroneState::ConstPtr &sta
 void commitment_topicUpdate_cb(const prometheus_msgs::Commitment::ConstPtr &commitment_msg, int drone_id);
 
 void actual_drone_state_topicUpdate_cb(const prometheus_msgs::DroneState::ConstPtr &state_msg, int drone_id);
+
+void odomUpdate_cb(const nav_msgs::Odometry::ConstPtr& odom_msg, int drone_id); //更新每个无人机pos信息的callback function
+
 
 void globalUpdate_cb(const ros::TimerEvent &e);
 void initialize();
@@ -73,6 +79,7 @@ int main(int argc, char **argv)
     for (int i = 1; i <= swarm_num_uav; i++)
     {
         actual_drone_state_sub[i] = nh.subscribe<prometheus_msgs::DroneState>("/uav" + std::to_string(i) + "/prometheus/drone_state", 3, boost::bind(actual_drone_state_topicUpdate_cb, _1, i)); //TODO
+        Gazebo_odom_sub[i] = nh.subscribe<nav_msgs::Odometry>("/uav"+std::to_string(i)+ "/prometheus/ground_truth", 3, boost::bind(odomUpdate_cb,_1,i));//TODO
 
         observed_drone_state_sub[i] = nh.subscribe<prometheus_msgs::DroneState>("/uav" + std::to_string(i) + "/prometheus/commBuffer_TX/drone_state", 10, boost::bind(drone_state_topicUpdate_cb, _1, i));
         observed_drone_state_pub[i] = nh.advertise<prometheus_msgs::DroneState>("/uav" + std::to_string(i) + "/prometheus/commBuffer_RX/drone_state", 1);
@@ -86,7 +93,7 @@ int main(int argc, char **argv)
 #endif
 
     ros::Timer debug_timer = nh.createTimer(ros::Duration(10.0), debug_cb);
-    ros::Timer globalUpdate_timer = nh.createTimer(ros::Duration(), globalUpdate_cb); // update per 0.5 seconds
+    ros::Timer globalUpdate_timer = nh.createTimer(ros::Duration(0.5), globalUpdate_cb); //TODO update per 0.5 seconds
 
     ros::spin();
 
@@ -101,10 +108,17 @@ void initialize()
         actual_dronePos[i] = Eigen::Vector3d::Zero();
     }
 }
+
+void odomUpdate_cb(const nav_msgs::Odometry::ConstPtr& odom_msg, int drone_id) //更新每个无人机pos信息的callback function
+{
+    GazeboOdomList[drone_id] = *odom_msg;
+    actual_dronePos[drone_id] = Eigen::Vector3d(odom_msg->pose.pose.position.x,odom_msg->pose.pose.position.y,odom_msg->pose.pose.position.z);
+}
+
+
 void actual_drone_state_topicUpdate_cb(const prometheus_msgs::DroneState::ConstPtr &state_msg, int drone_id) //更新每个无人机实际位置的callback function
 {
     actualDroneStateList[drone_id] = *state_msg;
-    actual_dronePos[drone_id] = Eigen::Vector3d(state_msg->position[0], state_msg->position[1], state_msg->position[2]); // get position
     if(state_msg->armed)
         actualDroneStateValidFlgList[drone_id] = true; //标记获得新消息有效
     else

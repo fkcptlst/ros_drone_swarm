@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-01-31 21:34:24
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-06 15:14:20
+ * @LastEditTime: 2022-02-06 15:28:54
  * @FilePath: /swarm_ws2/src/swarm_control/src/global_status_visualisation.cpp
  * @Description: This node observes position of all vehicles and unicasts relevant info to each vehicle, modified from swarm_controller
  * 
@@ -69,10 +69,10 @@ int main(int argc, char **argv)
     }
 
     //【发布】可视化markerArray
-    marker_array_pub = nh.advertise<visualization_msgs::MarkerArray>("/status_visualisation", 10); //TODO
+    marker_array_pub = nh.advertise<visualization_msgs::MarkerArray>("/status_visualisation", 10);
 
     ros::Timer debug_timer = nh.createTimer(ros::Duration(10.0), debug_cb);
-    ros::Timer globalUpdate_timer = nh.createTimer(ros::Duration(), globalUpdate_cb); //update per 0.5 seconds
+    ros::Timer globalUpdate_timer = nh.createTimer(ros::Duration(0.05), globalUpdate_cb); //TODO status update per 0.05 seconds
 
     ros::spin();
 

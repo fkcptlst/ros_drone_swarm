@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-03 23:23:24
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-04 22:50:37
+ * @LastEditTime: 2022-02-06 15:33:05
  * @FilePath: /swarm_ws2/src/swarm_control/include/visualisation_utils.h
  * @Description:
  *
@@ -190,7 +190,7 @@ visualization_msgs::Marker generateCommVisualisationMarker(Eigen::Vector3d srcPo
     result.header.stamp = ros::Time::now(); //如果使用ros::Time::now()或者其他非零值，rviz将仅仅显示距离当前时间很近的marker，其中足够近依据的是TF。然而对于0时间，不管是不是当前时间，都会显示marker。
     result.ns = "comm_vis";                 // Set the namespace and id for this marker.  This serves to create a unique ID  51, Any marker sent with the same namespace and id will overwrite the old one
     result.id = ctr;
-    result.lifetime = ros::Duration(0.5);
+    result.lifetime = ros::Duration(0.1);
     // result.frame_locked = true;
     result.type = visualization_msgs::Marker::LINE_STRIP;
     result.action = visualization_msgs::Marker::ADD; //// Set the marker action.  Options are ADD, DELETE, and new in ROS Indigo: 3 (DELETEALL)
