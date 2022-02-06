@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-01-31 21:34:24
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-04 22:49:48
+ * @LastEditTime: 2022-02-06 14:55:27
  * @FilePath: /swarm_ws2/src/swarm_control/src/global_status_visualisation.cpp
  * @Description: This node observes position of all vehicles and unicasts relevant info to each vehicle, modified from swarm_controller
  * 

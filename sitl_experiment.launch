@@ -1,0 +1,10 @@
+<launch>
+<!-- 无人机uav_id -->
+<!-- 无人机初始位置 -->
+<!-- 全局变量 -->
+<!-- 启动SITL -->
+<!-- 启动estimator -->
+<!-- 启动controller -->
+<!-- 启动planner -->
+<!-- 启动virtual_sensor -->
+</launch>

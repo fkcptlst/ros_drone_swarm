@@ -19,6 +19,7 @@ CMakeFiles/global_status_visualisation.dir/src/global_status_visualisation.cpp.o
 CMakeFiles/global_status_visualisation.dir/src/global_status_visualisation.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/sensor_utils.h
 CMakeFiles/global_status_visualisation.dir/src/global_status_visualisation.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/swarm_controller.h
 CMakeFiles/global_status_visualisation.dir/src/global_status_visualisation.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/uav_planner.h
+CMakeFiles/global_status_visualisation.dir/src/global_status_visualisation.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/uav_utils/geometry_utils.h
 CMakeFiles/global_status_visualisation.dir/src/global_status_visualisation.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/visualisation_utils.h
 CMakeFiles/global_status_visualisation.dir/src/global_status_visualisation.cpp.o: /home/amov/swarm_ws2/src/swarm_control/src/global_status_visualisation.cpp
 CMakeFiles/global_status_visualisation.dir/src/global_status_visualisation.cpp.o: /opt/ros/melodic/include/geometry_msgs/Point.h
