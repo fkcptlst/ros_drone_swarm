@@ -337,6 +337,8 @@ uav_planner.h
 /home/amov/swarm_ws2/src/swarm_control/src/uav_planner.h
 visualisation_utils.h
 /home/amov/swarm_ws2/src/swarm_control/src/visualisation_utils.h
+nav_msgs/Odometry.h
+-
 
 /opt/ros/melodic/include/geometry_msgs/Point.h
 string
