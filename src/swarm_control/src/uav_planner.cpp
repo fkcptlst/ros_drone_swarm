@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-01 17:15:50
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-10 21:51:53
+ * @LastEditTime: 2022-03-25 22:53:15
  * @FilePath: /swarm_ws2/src/swarm_control/src/uav_planner.cpp
  * @Description: this node oversees everything involved in a single uav
  *
@@ -15,6 +15,9 @@
 #include <random>
 #include <vector>
 #include <algorithm>
+
+#define DEBUG_ON
+#include "debug.h"
 
 using namespace std;
 
@@ -53,9 +56,14 @@ vector<prometheus_msgs::SensorMsg> results; // use vector in case of multiple si
 
 const float sensorMinimumDiff = 0.05f; //传感器更新最小阈值epsilon
 
+bool start_arm_and_takeoff_flg = false;
+
 vector<prometheus_msgs::Commitment> neighbourCommitments; //记录收到的投票信息,buffer
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>函数原型<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+void armAndTakeoff();
+void landDrone();
 
 void droneStateTXLoop_cb(const ros::TimerEvent &e); //定时广播位置
 void commitmentTXLoop_cb(const ros::TimerEvent &e); //定时广播commitment
@@ -106,8 +114,20 @@ int main(int argc, char **argv)
     {
         printf_param();
     }
+
+
+    //【订阅】本机状态信息
+    drone_state_sub = nh.subscribe<prometheus_msgs::DroneState>(uav_name + "/prometheus/drone_state", 5, drone_state_cb); // update self state
+    //【订阅】地面站命令
+    groundCommand_sub = nh.subscribe<prometheus_msgs::SwarmCommand>(uav_name + "/prometheus/swarm_command_ground", 10, swarm_command_ground_cb);
+
     //【发布】决策的控制信息
     flightCommand_pub = nh.advertise<prometheus_msgs::SwarmCommand>(uav_name + "/prometheus/swarm_command", 2); // command publisher, default buffer is 2
+
+    while(start_arm_and_takeoff_flg == false) //while hasn't taken off yet
+    {
+        ros::spinOnce(); //check if should take off
+    }
     //【发布】飞行相关信息，用于避障
     navDroneStateTX_pub = nh.advertise<prometheus_msgs::DroneState>(uav_name + "/prometheus/commBuffer_TX/drone_state", 2); // broadcast publisher, default buffer is 2
     //【发布】commitment相关信息，用于social
@@ -115,14 +135,10 @@ int main(int argc, char **argv)
     //【发布】commitment相关信息，用于self
     commitmentSelf_pub = nh.advertise<prometheus_msgs::Commitment>(uav_name + "/prometheus/commitment", 1); // default buffer is 1
 
-    //【订阅】本机状态信息
-    drone_state_sub = nh.subscribe<prometheus_msgs::DroneState>(uav_name + "/prometheus/drone_state", 5, drone_state_cb); // update self state
     //【订阅】通信来的邻居无人机位置速度信息
     navDroneStateRX_sub = nh.subscribe<prometheus_msgs::DroneState>(uav_name + "/prometheus/commBuffer_RX/drone_state", 10, droneStateRX_cb); // update comm
     //【订阅】通信来的邻居无人机commitment信息
     commitmentRX_sub = nh.subscribe<prometheus_msgs::Commitment>(uav_name + "/prometheus/commBuffer_RX/commitment", 10, commitmentRX_cb); // update comm
-    //【订阅】地面站命令
-    groundCommand_sub = nh.subscribe<prometheus_msgs::SwarmCommand>(uav_name + "/prometheus/swarm_command_ground", 10, swarm_command_ground_cb);
     //【订阅】传感器信息
     sensorBuffer_sub = nh.subscribe<prometheus_msgs::SensorMsg>(uav_name + "/prometheus/sensorBuffer", 10, sensorBuffer_cb);
 
@@ -138,14 +154,43 @@ int main(int argc, char **argv)
 
     ros::Timer socialLoop_timer = nh.createTimer(ros::Duration(0.5), socialLoop_cb);
 
-    cout << "uav_" << uav_id << "finished starting" << endl;
-    cout << (neighbourCommitments.empty() != true) << endl;
+    cout << "uav_" << uav_id << " finished starting" << endl;
+    // cout << (neighbourCommitments.empty() != true) << endl;
 
     ros::spin();
 
     return 0;
 }
+//--------------------------------------------------------------------------------------------------------------
+void armAndTakeoff()
+{
+    DEBUG(TraceableInfo(L_YELLOW("armAndTakeoff()\n"));)
+    prometheus_msgs::SwarmCommand takeoff_flightCommand;
 
+    takeoff_flightCommand.Mode = prometheus_msgs::SwarmCommand::Idle;
+    takeoff_flightCommand.yaw_ref = 999;
+    flightCommand_pub.publish(takeoff_flightCommand); //【发布】arm
+    ros::Duration(2).sleep(); //TODO 2 seconds
+    DEBUG(TraceableInfo(L_YELLOW("attempted takeoff\n"));)
+    takeoff_flightCommand.Mode = prometheus_msgs::SwarmCommand::Takeoff;
+    takeoff_flightCommand.yaw_ref = 0.0;
+    flightCommand_pub.publish(takeoff_flightCommand); //【发布】takeoff
+    ros::Duration(3).sleep(); //TODO 3 seconds
+
+    DEBUG(TraceableInfo(L_YELLOW("armAndTakeoff() end\n"));)
+    All_Offboard_Switch = true; // allow self navigation
+    start_arm_and_takeoff_flg = true;
+}
+
+void landDrone()
+{
+    DEBUG(TraceableInfo(L_YELLOW("landDrone()\n"));)
+    prometheus_msgs::SwarmCommand land_flightCommand;
+
+    land_flightCommand.Mode = prometheus_msgs::SwarmCommand::Land;
+    land_flightCommand.yaw_ref = 0.0;
+    flightCommand_pub.publish(land_flightCommand); //【发布】takeoff
+}
 //-----------------TODO essentials-----------------------------------------------------------------------------------------------------------------------------------------------
 bool with_prob_of(float prob)
 {
@@ -222,10 +267,20 @@ void comm_LRU_aging_cb(const ros::TimerEvent &e)
 
 void swarm_command_ground_cb(const prometheus_msgs::SwarmCommand::ConstPtr &msg)
 {
-    All_Offboard_Switch = msg->All_Offboard_Control_Flg;
-    if (!All_Offboard_Switch) // if not all offboard, then pass message to swarm_controller
+    if (msg->All_Offboard_Control_Flg == false) // TODO:implement landing if not all offboard, then pass message to swarm_controller
     {
-        flightCommand_pub.publish(*msg);
+        DEBUG(TraceableInfo("received landing msg");)
+        All_Offboard_Switch = false; // disable all offboard
+        // flightCommand_pub.publish(*msg);
+        landDrone();
+    }
+    else
+    {
+        if (start_arm_and_takeoff_flg == false) // hasn't taken off yet
+        {
+            DEBUG(TraceableInfo("received takeoff msg");)
+            armAndTakeoff();
+        }
     }
 }
 
@@ -394,7 +449,7 @@ void collisionAvoidance() // TODO collision avoidance implement
  */
 void navigationLoop_cb(const ros::TimerEvent &e)
 {
-    if (!All_Offboard_Switch) // if not all offboard, return
+    if (All_Offboard_Switch == false) // if not all offboard, return
     {
         return;
     }

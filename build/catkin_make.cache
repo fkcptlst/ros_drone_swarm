@@ -1,0 +1,2 @@
+Utils/cmake_utils:Utils/multi_map_server:Utils/odom_visualization:Utils/pose_utils:Utils/quadrotor_msgs:Utils/rviz_plugins:Utils/uav_utils:Utils/waypoint_generator:common/msgs:gazebo_simulator:ground_station:swarm_control
+-DCATKIN_DEVEL_PREFIX=/home/amov/swarm_ws2/devel -DCMAKE_INSTALL_PREFIX=/home/amov/swarm_ws2/install -G Unix Makefiles

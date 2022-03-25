@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-03 20:25:28
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-04 22:29:40
+ * @LastEditTime: 2022-03-25 16:13:03
  * @FilePath: /swarm_ws2/src/swarm_control/src/render_arena.cpp
  * @Description:
  *
@@ -58,7 +58,7 @@ void marker_array_cb(const ros::TimerEvent &e)
     markerArray.markers.push_back(groundPlaneMarker);
 
     // generate site
-    ros::param::get("sensorRange",SiteScale);
+    ros::param::get("site_radius",SiteScale);
     ros::param::get("site_number", site_number);
     for (int i = 1; i <= site_number; i++)
     {

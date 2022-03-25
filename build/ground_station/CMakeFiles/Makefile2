@@ -2455,11 +2455,11 @@ clean: CMakeFiles/geographic_msgs_generate_messages_eus.dir/clean
 # Target rules for target CMakeFiles/prometheus_station_generate_messages.dir
 
 # All Build rule for target.
-CMakeFiles/prometheus_station_generate_messages.dir/all: CMakeFiles/prometheus_station_generate_messages_lisp.dir/all
 CMakeFiles/prometheus_station_generate_messages.dir/all: CMakeFiles/prometheus_station_generate_messages_eus.dir/all
 CMakeFiles/prometheus_station_generate_messages.dir/all: CMakeFiles/prometheus_station_generate_messages_py.dir/all
 CMakeFiles/prometheus_station_generate_messages.dir/all: CMakeFiles/prometheus_station_generate_messages_nodejs.dir/all
 CMakeFiles/prometheus_station_generate_messages.dir/all: CMakeFiles/prometheus_station_generate_messages_cpp.dir/all
+CMakeFiles/prometheus_station_generate_messages.dir/all: CMakeFiles/prometheus_station_generate_messages_lisp.dir/all
 	$(MAKE) -f CMakeFiles/prometheus_station_generate_messages.dir/build.make CMakeFiles/prometheus_station_generate_messages.dir/depend
 	$(MAKE) -f CMakeFiles/prometheus_station_generate_messages.dir/build.make CMakeFiles/prometheus_station_generate_messages.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amov/swarm_ws2/build/ground_station/CMakeFiles --progress-num= "Built target prometheus_station_generate_messages"

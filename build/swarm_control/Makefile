@@ -480,6 +480,19 @@ geometry_msgs_generate_messages_py/fast:
 .PHONY : geometry_msgs_generate_messages_py/fast
 
 #=============================================================================
+# Target rules for targets named lab_assistant
+
+# Build rule for target.
+lab_assistant: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 lab_assistant
+.PHONY : lab_assistant
+
+# fast build rule for target.
+lab_assistant/fast:
+	$(MAKE) -f CMakeFiles/lab_assistant.dir/build.make CMakeFiles/lab_assistant.dir/build
+.PHONY : lab_assistant/fast
+
+#=============================================================================
 # Target rules for targets named geometry_msgs_generate_messages_lisp
 
 # Build rule for target.
@@ -1702,6 +1715,33 @@ src/global_status_visualisation.cpp.s:
 	$(MAKE) -f CMakeFiles/global_status_visualisation.dir/build.make CMakeFiles/global_status_visualisation.dir/src/global_status_visualisation.cpp.s
 .PHONY : src/global_status_visualisation.cpp.s
 
+src/lab_assistant.o: src/lab_assistant.cpp.o
+
+.PHONY : src/lab_assistant.o
+
+# target to build an object file
+src/lab_assistant.cpp.o:
+	$(MAKE) -f CMakeFiles/lab_assistant.dir/build.make CMakeFiles/lab_assistant.dir/src/lab_assistant.cpp.o
+.PHONY : src/lab_assistant.cpp.o
+
+src/lab_assistant.i: src/lab_assistant.cpp.i
+
+.PHONY : src/lab_assistant.i
+
+# target to preprocess a source file
+src/lab_assistant.cpp.i:
+	$(MAKE) -f CMakeFiles/lab_assistant.dir/build.make CMakeFiles/lab_assistant.dir/src/lab_assistant.cpp.i
+.PHONY : src/lab_assistant.cpp.i
+
+src/lab_assistant.s: src/lab_assistant.cpp.s
+
+.PHONY : src/lab_assistant.s
+
+# target to generate assembly for a file
+src/lab_assistant.cpp.s:
+	$(MAKE) -f CMakeFiles/lab_assistant.dir/build.make CMakeFiles/lab_assistant.dir/src/lab_assistant.cpp.s
+.PHONY : src/lab_assistant.cpp.s
+
 src/render_arena.o: src/render_arena.cpp.o
 
 .PHONY : src/render_arena.o
@@ -1978,6 +2018,7 @@ help:
 	@echo "... mavros_msgs_generate_messages_eus"
 	@echo "... render_arena"
 	@echo "... geometry_msgs_generate_messages_py"
+	@echo "... lab_assistant"
 	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... nav_msgs_generate_messages_cpp"
@@ -2077,6 +2118,9 @@ help:
 	@echo "... src/global_status_visualisation.o"
 	@echo "... src/global_status_visualisation.i"
 	@echo "... src/global_status_visualisation.s"
+	@echo "... src/lab_assistant.o"
+	@echo "... src/lab_assistant.i"
+	@echo "... src/lab_assistant.s"
 	@echo "... src/render_arena.o"
 	@echo "... src/render_arena.i"
 	@echo "... src/render_arena.s"

@@ -1,3 +1,8 @@
+	<!-- 启动lab_assistant -->
+	<node pkg="prometheus_swarm_control" type="lab_assistant" name="lab_assistant" output="screen" launch-prefix="gnome-terminal --tab --">	
+		<param name="swarm_num_uav" value="$(arg swarm_num_uav)"/>
+	</node>
+
 	<!-- 启动render_arena -->
 	<node pkg="prometheus_swarm_control" type="render_arena" name="render_arena" output="screen" launch-prefix="gnome-terminal --tab --"/>
 

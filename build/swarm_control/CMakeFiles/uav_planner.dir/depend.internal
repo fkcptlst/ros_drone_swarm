@@ -15,10 +15,13 @@ CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o
  /home/amov/swarm_ws2/devel/include/quadrotor_msgs/PositionCommand.h
  /home/amov/swarm_ws2/src/swarm_control/../common/include/message_utils.h
  /home/amov/swarm_ws2/src/swarm_control/../common/include/printf_utils.h
+ /home/amov/swarm_ws2/src/swarm_control/include/debug.h
+ /home/amov/swarm_ws2/src/swarm_control/include/experiment_basics.h
  /home/amov/swarm_ws2/src/swarm_control/include/formation_utils.h
  /home/amov/swarm_ws2/src/swarm_control/include/math_utils.h
  /home/amov/swarm_ws2/src/swarm_control/include/swarm_controller.h
  /home/amov/swarm_ws2/src/swarm_control/include/uav_planner.h
+ /home/amov/swarm_ws2/src/swarm_control/include/uav_utils/geometry_utils.h
  /home/amov/swarm_ws2/src/swarm_control/src/uav_planner.cpp
  /opt/ros/melodic/include/geometry_msgs/Point.h
  /opt/ros/melodic/include/geometry_msgs/Pose.h

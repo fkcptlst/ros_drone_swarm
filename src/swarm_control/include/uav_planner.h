@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-01 19:03:19
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-04 00:49:36
+ * @LastEditTime: 2022-03-25 15:40:44
  * @FilePath: /swarm_ws2/src/swarm_control/include/uav_planner.h
  * @Description: 
  * 
@@ -14,27 +14,11 @@
 #include <prometheus_msgs/Commitment.h>
 #include <prometheus_msgs/SensorMsg.h>
 
+#include "experiment_basics.h"
+
 #define getNthBit(num,n) (((num)>>(n-1))&1)
 #define setNthBitTo1(num,n) (((num)|(1<<(n-1))))
 #define setNthBitTo0(num,n) (((num)&(0xff - (1<<(n-1)))))
-
-const float COLLISION_AVOIDANCE_COMMRANGE_THRESHOLD = 30.0; //30m collision avoidance comm range
-const float VOTING_COMMRANGE_THRESHOLD = 60.0; //XXX 60m voting comm range
-
-
-const float SiteMinSeparationThreshold = 20.0; //20m min site separation
-const float WaypointMinSeparationThreshold = 3.0; //3m min waypoint separation
-
-const double CruiseHeight = 5.0; //10m of cruise height
-const int boundaryOffset = 70; //TODO need adjust: 50 meters of boundary offset
-
-
-enum 
-{
-    UNCOMMITTED, //only likely to occur in the very beginning of the experiment
-    POLLING,
-    COMMITTED
-};
 
 typedef struct NeighbourDroneState 
 {
@@ -46,41 +30,5 @@ typedef struct NeighbourDroneState
     }
 }NeighbourDroneState;
 
-typedef struct Site
-{
-    Eigen::Vector3d sitePos;
-    float quality;
-    Site()
-    {
-        sitePos.Zero();
-        quality = 0.0f;
-    }
-    bool operator==(Site &b) //if two sites are close enough, then consider them to be the same
-    {
-        if((sitePos - b.sitePos).squaredNorm() <= SiteMinSeparationThreshold*SiteMinSeparationThreshold)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    bool operator!=(Site &b) //if two sites are close enough, then consider them to be the same
-    {
-        if((sitePos - b.sitePos).squaredNorm() > SiteMinSeparationThreshold*SiteMinSeparationThreshold)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    //void operator=
-
-}Site;
 
 #endif /* UAV_PLANNER_H */

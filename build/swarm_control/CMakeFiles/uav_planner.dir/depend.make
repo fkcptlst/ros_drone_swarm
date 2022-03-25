@@ -14,10 +14,13 @@ CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o: /home/amov/swarm_ws2/devel/inc
 CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o: /home/amov/swarm_ws2/devel/include/quadrotor_msgs/PositionCommand.h
 CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o: /home/amov/swarm_ws2/src/swarm_control/../common/include/message_utils.h
 CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o: /home/amov/swarm_ws2/src/swarm_control/../common/include/printf_utils.h
+CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/debug.h
+CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/experiment_basics.h
 CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/formation_utils.h
 CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/math_utils.h
 CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/swarm_controller.h
 CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/uav_planner.h
+CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o: /home/amov/swarm_ws2/src/swarm_control/include/uav_utils/geometry_utils.h
 CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o: /home/amov/swarm_ws2/src/swarm_control/src/uav_planner.cpp
 CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o: /opt/ros/melodic/include/geometry_msgs/Point.h
 CMakeFiles/uav_planner.dir/src/uav_planner.cpp.o: /opt/ros/melodic/include/geometry_msgs/Pose.h

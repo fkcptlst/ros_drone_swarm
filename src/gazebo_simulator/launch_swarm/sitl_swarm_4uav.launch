@@ -32,6 +32,7 @@
 	<arg name="z_max" default="50.0"/>
 
 	<param name="sensorRange" value="10"/>
+	<param name="site_radius" value="10"/>
 	<!-- site相关信息,global param -->
 	<param name="site_number" value="3"/>
 
