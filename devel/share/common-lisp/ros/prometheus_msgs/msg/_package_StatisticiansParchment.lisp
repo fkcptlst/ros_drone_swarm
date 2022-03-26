@@ -11,4 +11,6 @@
           SZ
           SW-VAL
           SW
+          S_SITE-VAL
+          S_SITE
 ))

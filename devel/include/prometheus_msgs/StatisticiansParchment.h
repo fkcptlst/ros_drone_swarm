@@ -30,17 +30,21 @@ struct StatisticiansParchment_
     , Sx(0)
     , Sy(0)
     , Sz(0)
-    , Sw(0)  {
-    }
+    , Sw(0)
+    , S_site()  {
+      S_site.assign(0);
+  }
   StatisticiansParchment_(const ContainerAllocator& _alloc)
     : header(_alloc)
     , total_functional_uav(0)
     , Sx(0)
     , Sy(0)
     , Sz(0)
-    , Sw(0)  {
+    , Sw(0)
+    , S_site()  {
   (void)_alloc;
-    }
+      S_site.assign(0);
+  }
 
 
 
@@ -61,6 +65,9 @@ struct StatisticiansParchment_
 
    typedef int32_t _Sw_type;
   _Sw_type Sw;
+
+   typedef boost::array<int32_t, 20>  _S_site_type;
+  _S_site_type S_site;
 
 
 
@@ -96,7 +103,8 @@ bool operator==(const ::prometheus_msgs::StatisticiansParchment_<ContainerAlloca
     lhs.Sx == rhs.Sx &&
     lhs.Sy == rhs.Sy &&
     lhs.Sz == rhs.Sz &&
-    lhs.Sw == rhs.Sw;
+    lhs.Sw == rhs.Sw &&
+    lhs.S_site == rhs.S_site;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -153,12 +161,12 @@ struct MD5Sum< ::prometheus_msgs::StatisticiansParchment_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "50df0b7bd2a7cbd006c92bd5f716afd5";
+    return "a15783e2b76cfab9bf92de135ddea185";
   }
 
   static const char* value(const ::prometheus_msgs::StatisticiansParchment_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x50df0b7bd2a7cbd0ULL;
-  static const uint64_t static_value2 = 0x06c92bd5f716afd5ULL;
+  static const uint64_t static_value1 = 0xa15783e2b76cfab9ULL;
+  static const uint64_t static_value2 = 0xbf92de135ddea185ULL;
 };
 
 template<class ContainerAllocator>
@@ -185,6 +193,9 @@ struct Definition< ::prometheus_msgs::StatisticiansParchment_<ContainerAllocator
 "int32 Sy #committed to prev best\n"
 "int32 Sz #polling\n"
 "int32 Sw #others\n"
+"\n"
+"int32[20] S_site #record number of uavs committed to each site,max num = 20\n"
+"\n"
 "================================================================================\n"
 "MSG: std_msgs/Header\n"
 "# Standard metadata for higher-level stamped data types.\n"
@@ -224,6 +235,7 @@ namespace serialization
       stream.next(m.Sy);
       stream.next(m.Sz);
       stream.next(m.Sw);
+      stream.next(m.S_site);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -255,6 +267,12 @@ struct Printer< ::prometheus_msgs::StatisticiansParchment_<ContainerAllocator> >
     Printer<int32_t>::stream(s, indent + "  ", v.Sz);
     s << indent << "Sw: ";
     Printer<int32_t>::stream(s, indent + "  ", v.Sw);
+    s << indent << "S_site[]" << std::endl;
+    for (size_t i = 0; i < v.S_site.size(); ++i)
+    {
+      s << indent << "  S_site[" << i << "]: ";
+      Printer<int32_t>::stream(s, indent + "  ", v.S_site[i]);
+    }
   }
 };
 

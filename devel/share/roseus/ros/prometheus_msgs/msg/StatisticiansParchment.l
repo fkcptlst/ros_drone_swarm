@@ -16,7 +16,7 @@
 
 (defclass prometheus_msgs::StatisticiansParchment
   :super ros::object
-  :slots (_header _total_functional_uav _Sx _Sy _Sz _Sw ))
+  :slots (_header _total_functional_uav _Sx _Sy _Sz _Sw _S_site ))
 
 (defmethod prometheus_msgs::StatisticiansParchment
   (:init
@@ -27,6 +27,7 @@
     ((:Sy __Sy) 0)
     ((:Sz __Sz) 0)
     ((:Sw __Sw) 0)
+    ((:S_site __S_site) (make-array 20 :initial-element 0 :element-type :integer))
     )
    (send-super :init)
    (setq _header __header)
@@ -35,6 +36,7 @@
    (setq _Sy (round __Sy))
    (setq _Sz (round __Sz))
    (setq _Sw (round __Sw))
+   (setq _S_site __S_site)
    self)
   (:header
    (&rest __header)
@@ -58,6 +60,9 @@
   (:Sw
    (&optional __Sw)
    (if __Sw (setq _Sw __Sw)) _Sw)
+  (:S_site
+   (&optional __S_site)
+   (if __S_site (setq _S_site __S_site)) _S_site)
   (:serialization-length
    ()
    (+
@@ -73,6 +78,8 @@
     4
     ;; int32 _Sw
     4
+    ;; int32[20] _S_site
+    (* 4    20)
     ))
   (:serialize
    (&optional strm)
@@ -90,6 +97,10 @@
        (write-long _Sz s)
      ;; int32 _Sw
        (write-long _Sw s)
+     ;; int32[20] _S_site
+     (dotimes (i 20)
+       (write-long (elt _S_site i) s)
+       )
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
@@ -106,11 +117,15 @@
      (setq _Sz (sys::peek buf ptr- :integer)) (incf ptr- 4)
    ;; int32 _Sw
      (setq _Sw (sys::peek buf ptr- :integer)) (incf ptr- 4)
+   ;; int32[20] _S_site
+   (dotimes (i (length _S_site))
+     (setf (elt _S_site i) (sys::peek buf ptr- :integer)) (incf ptr- 4)
+     )
    ;;
    self)
   )
 
-(setf (get prometheus_msgs::StatisticiansParchment :md5sum-) "50df0b7bd2a7cbd006c92bd5f716afd5")
+(setf (get prometheus_msgs::StatisticiansParchment :md5sum-) "a15783e2b76cfab9bf92de135ddea185")
 (setf (get prometheus_msgs::StatisticiansParchment :datatype-) "prometheus_msgs/StatisticiansParchment")
 (setf (get prometheus_msgs::StatisticiansParchment :definition-)
       "#this message is for the statistician node to transmit processed data to the statisticians_scribble node
@@ -121,6 +136,9 @@ int32 Sx #num of committed to current best
 int32 Sy #committed to prev best
 int32 Sz #polling
 int32 Sw #others
+
+int32[20] S_site #record number of uavs committed to each site,max num = 20
+
 ================================================================================
 MSG: std_msgs/Header
 # Standard metadata for higher-level stamped data types.
@@ -141,6 +159,6 @@ string frame_id
 
 
 
-(provide :prometheus_msgs/StatisticiansParchment "50df0b7bd2a7cbd006c92bd5f716afd5")
+(provide :prometheus_msgs/StatisticiansParchment "a15783e2b76cfab9bf92de135ddea185")
 
 

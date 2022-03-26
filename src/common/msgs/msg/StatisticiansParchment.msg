@@ -6,3 +6,5 @@ int32 Sx #num of committed to current best
 int32 Sy #committed to prev best
 int32 Sz #polling
 int32 Sw #others
+
+int32[20] S_site #record number of uavs committed to each site,max num = 20

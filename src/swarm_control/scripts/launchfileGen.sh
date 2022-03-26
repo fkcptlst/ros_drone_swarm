@@ -3,13 +3,13 @@
  # @Author: lcf
  # @Date: 2022-02-04 23:18:26
  # @LastEditors: lcf
- # @LastEditTime: 2022-03-25 22:49:48
+ # @LastEditTime: 2022-03-26 18:34:20
  # @FilePath: /swarm_ws2/src/swarm_control/scripts/launchfileGen.sh
  # @Description: generate launch file sitl_experiment.launch
  # 
 ### 
 
-swarm_number=2
+swarm_number=5
 outfile="sitl_experiment"
 initHalfSeparation=3
 

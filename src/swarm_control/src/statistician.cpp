@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-03-25 23:41:46
  * @LastEditors: lcf
- * @LastEditTime: 2022-03-26 13:52:50
+ * @LastEditTime: 2022-03-26 18:31:13
  * @FilePath: /swarm_ws2/src/swarm_control/src/statistician.cpp
  * @Description: node to process global experiment data
  *
@@ -75,7 +75,7 @@ int main(int argc, char **argv)
     parchment_pub = nh.advertise<prometheus_msgs::StatisticiansParchment>("/statisticians_parchment", 1); //queue size = 1
 
     ros::Timer debug_timer = nh.createTimer(ros::Duration(10.0), debug_cb);
-    ros::Timer globalUpdate_timer = nh.createTimer(ros::Duration(0.05), globalUpdate_cb); // TODO status update per 0.05 seconds
+    ros::Timer globalUpdate_timer = nh.createTimer(ros::Duration(1), globalUpdate_cb); // TODO status update per 1 seconds, no less than 1 second
 
     ros::spin();
 
@@ -115,7 +115,8 @@ bool compareSiteQuality(const Site a, const Site b) //used for vector sorting, d
 
 void globalUpdate_cb(const ros::TimerEvent &e) // publish更新所有无人机信息的callback function
 {
-    vector<Site> sites;
+    vector<Site> sites; //original
+    vector<Site> sorted_sites; //sorted_sites
     // get site information
     int site_number = 0;
     ros::param::get("/site_number", site_number); // update max site number
@@ -132,7 +133,8 @@ void globalUpdate_cb(const ros::TimerEvent &e) // publish更新所有无人机�
         Site site(site_posx, site_posy, site_posz, site_quality);
         sites.push_back(site);
     }
-    sort(sites.begin(), sites.end(), compareSiteQuality); // sort by quality, desc
+    sorted_sites = sites;
+    sort(sorted_sites.begin(), sorted_sites.end(), compareSiteQuality); // sort by quality, desc
 
     prometheus_msgs::StatisticiansParchment parchment;
     int total_functional_uav = 0; // reset before update
@@ -143,7 +145,6 @@ void globalUpdate_cb(const ros::TimerEvent &e) // publish更新所有无人机�
 
     for (int i = 1; i <= swarm_num_uav; i++)
     {
-
         if (DroneStateValidFlgList[i] == true)
         {
             total_functional_uav++;
@@ -154,17 +155,26 @@ void globalUpdate_cb(const ros::TimerEvent &e) // publish更新所有无人机�
             else // committed
             {
                 Site current(CommitmentList[i].sitePos[0], CommitmentList[i].sitePos[1], CommitmentList[i].sitePos[2], CommitmentList[i].quality);
-                if(current == sites[0]) //current best
+                if(current == sorted_sites[0]) //current best
                 {
                     Sx++;
                 }
-                else if(current == sites[1])
+                else if(current == sorted_sites[1])
                 {
                     Sy++;
                 }
                 else
                 {
                     Sw++;
+                }
+
+                for (int i = 1; i <= site_number; i++)
+                {
+                    if(current == sites[i])
+                    {
+                        parchment.S_site[i]++;
+                        break;
+                    }
                 }
             }
             // generateCommitmentMarker(markerArray, CommitmentList[i], dronePos[i], i);
@@ -187,5 +197,6 @@ void globalUpdate_cb(const ros::TimerEvent &e) // publish更新所有无人机�
     parchment.Sy = Sy;
     parchment.Sz = Sz;
     parchment.Sw = Sw;
+    parchment.header.stamp = ros::Time::now(); // add timestamp
     parchment_pub.publish(parchment);
 }

@@ -25,6 +25,7 @@ class StatisticiansParchment {
       this.Sy = null;
       this.Sz = null;
       this.Sw = null;
+      this.S_site = null;
     }
     else {
       if (initObj.hasOwnProperty('header')) {
@@ -63,6 +64,12 @@ class StatisticiansParchment {
       else {
         this.Sw = 0;
       }
+      if (initObj.hasOwnProperty('S_site')) {
+        this.S_site = initObj.S_site
+      }
+      else {
+        this.S_site = new Array(20).fill(0);
+      }
     }
   }
 
@@ -80,6 +87,12 @@ class StatisticiansParchment {
     bufferOffset = _serializer.int32(obj.Sz, buffer, bufferOffset);
     // Serialize message field [Sw]
     bufferOffset = _serializer.int32(obj.Sw, buffer, bufferOffset);
+    // Check that the constant length array field [S_site] has the right length
+    if (obj.S_site.length !== 20) {
+      throw new Error('Unable to serialize array field S_site - length must be 20')
+    }
+    // Serialize message field [S_site]
+    bufferOffset = _arraySerializer.int32(obj.S_site, buffer, bufferOffset, 20);
     return bufferOffset;
   }
 
@@ -99,13 +112,15 @@ class StatisticiansParchment {
     data.Sz = _deserializer.int32(buffer, bufferOffset);
     // Deserialize message field [Sw]
     data.Sw = _deserializer.int32(buffer, bufferOffset);
+    // Deserialize message field [S_site]
+    data.S_site = _arrayDeserializer.int32(buffer, bufferOffset, 20)
     return data;
   }
 
   static getMessageSize(object) {
     let length = 0;
     length += std_msgs.msg.Header.getMessageSize(object.header);
-    return length + 20;
+    return length + 100;
   }
 
   static datatype() {
@@ -115,7 +130,7 @@ class StatisticiansParchment {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '50df0b7bd2a7cbd006c92bd5f716afd5';
+    return 'a15783e2b76cfab9bf92de135ddea185';
   }
 
   static messageDefinition() {
@@ -129,6 +144,9 @@ class StatisticiansParchment {
     int32 Sy #committed to prev best
     int32 Sz #polling
     int32 Sw #others
+    
+    int32[20] S_site #record number of uavs committed to each site,max num = 20
+    
     ================================================================================
     MSG: std_msgs/Header
     # Standard metadata for higher-level stamped data types.
@@ -194,6 +212,13 @@ class StatisticiansParchment {
     }
     else {
       resolved.Sw = 0
+    }
+
+    if (msg.S_site !== undefined) {
+      resolved.S_site = msg.S_site;
+    }
+    else {
+      resolved.S_site = new Array(20).fill(0)
     }
 
     return resolved;

@@ -9,7 +9,7 @@ import struct
 import std_msgs.msg
 
 class StatisticiansParchment(genpy.Message):
-  _md5sum = "50df0b7bd2a7cbd006c92bd5f716afd5"
+  _md5sum = "a15783e2b76cfab9bf92de135ddea185"
   _type = "prometheus_msgs/StatisticiansParchment"
   _has_header = True  # flag to mark the presence of a Header object
   _full_text = """#this message is for the statistician node to transmit processed data to the statisticians_scribble node
@@ -20,6 +20,9 @@ int32 Sx #num of committed to current best
 int32 Sy #committed to prev best
 int32 Sz #polling
 int32 Sw #others
+
+int32[20] S_site #record number of uavs committed to each site,max num = 20
+
 ================================================================================
 MSG: std_msgs/Header
 # Standard metadata for higher-level stamped data types.
@@ -36,8 +39,8 @@ time stamp
 #Frame this data is associated with
 string frame_id
 """
-  __slots__ = ['header','total_functional_uav','Sx','Sy','Sz','Sw']
-  _slot_types = ['std_msgs/Header','int32','int32','int32','int32','int32']
+  __slots__ = ['header','total_functional_uav','Sx','Sy','Sz','Sw','S_site']
+  _slot_types = ['std_msgs/Header','int32','int32','int32','int32','int32','int32[20]']
 
   def __init__(self, *args, **kwds):
     """
@@ -47,7 +50,7 @@ string frame_id
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       header,total_functional_uav,Sx,Sy,Sz,Sw
+       header,total_functional_uav,Sx,Sy,Sz,Sw,S_site
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -68,6 +71,8 @@ string frame_id
         self.Sz = 0
       if self.Sw is None:
         self.Sw = 0
+      if self.S_site is None:
+        self.S_site = [0] * 20
     else:
       self.header = std_msgs.msg.Header()
       self.total_functional_uav = 0
@@ -75,6 +80,7 @@ string frame_id
       self.Sy = 0
       self.Sz = 0
       self.Sw = 0
+      self.S_site = [0] * 20
 
   def _get_types(self):
     """
@@ -98,6 +104,7 @@ string frame_id
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self
       buff.write(_get_struct_5i().pack(_x.total_functional_uav, _x.Sx, _x.Sy, _x.Sz, _x.Sw))
+      buff.write(_get_struct_20i().pack(*self.S_site))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -128,6 +135,9 @@ string frame_id
       start = end
       end += 20
       (_x.total_functional_uav, _x.Sx, _x.Sy, _x.Sz, _x.Sw,) = _get_struct_5i().unpack(str[start:end])
+      start = end
+      end += 80
+      self.S_site = _get_struct_20i().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -150,6 +160,7 @@ string frame_id
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self
       buff.write(_get_struct_5i().pack(_x.total_functional_uav, _x.Sx, _x.Sy, _x.Sz, _x.Sw))
+      buff.write(self.S_site.tostring())
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -181,6 +192,9 @@ string frame_id
       start = end
       end += 20
       (_x.total_functional_uav, _x.Sx, _x.Sy, _x.Sz, _x.Sw,) = _get_struct_5i().unpack(str[start:end])
+      start = end
+      end += 80
+      self.S_site = numpy.frombuffer(str[start:end], dtype=numpy.int32, count=20)
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -189,6 +203,12 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
+_struct_20i = None
+def _get_struct_20i():
+    global _struct_20i
+    if _struct_20i is None:
+        _struct_20i = struct.Struct("<20i")
+    return _struct_20i
 _struct_3I = None
 def _get_struct_3I():
     global _struct_3I

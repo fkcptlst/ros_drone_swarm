@@ -10,7 +10,7 @@
 
 ## 关于全局变量，参数服务器内容
 
-site_number(记录总共存在过的site number，只增不减)
+site_number(记录总共存在过的site number，只增不减)(max = 10, 注意parchment.msg里面数组的大小)
 
 site_posx_1
 
