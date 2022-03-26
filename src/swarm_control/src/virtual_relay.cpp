@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-01-31 21:34:24
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-06 15:33:29
+ * @LastEditTime: 2022-03-26 12:04:43
  * @FilePath: /swarm_ws2/src/swarm_control/src/virtual_relay.cpp
  * @Description: This node observes position of all vehicles and unicasts relevant info to each vehicle, modified from swarm_controller
  *
@@ -57,9 +57,9 @@ void updateCommVisualisationMarker();
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>主 函 数<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 int main(int argc, char **argv)
 {
-    ros::init(argc, argv, "virtual_observer");
+    ros::init(argc, argv, "virtual_relay");
     ros::NodeHandle nh("~");
-    cout << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>Virtual Observer<<<<<<<<<<<<<<<<<<<<<<<<< " << endl;
+    cout << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>Virtual Relay<<<<<<<<<<<<<<<<<<<<<<<<< " << endl;
     // 读取参数，变量初始化
     init(nh);
     for (int i = 0; i <= MAX_UAV_NUM; i++)

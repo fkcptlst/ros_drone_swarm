@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "/home/amov/swarm_ws2/devel/include/prometheus_msgs/Message.h"
   "/home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsActionFeedback.h"
   "/home/amov/swarm_ws2/devel/include/prometheus_msgs/DroneState.h"
+  "/home/amov/swarm_ws2/devel/include/prometheus_msgs/StatisticiansParchment.h"
   "/home/amov/swarm_ws2/devel/include/prometheus_msgs/SensorMsg.h"
   "/home/amov/swarm_ws2/devel/include/prometheus_msgs/MultiArucoInfo.h"
   "/home/amov/swarm_ws2/devel/include/prometheus_msgs/PositionReference.h"

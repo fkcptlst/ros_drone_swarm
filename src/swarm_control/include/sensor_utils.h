@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-03 23:41:09
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-04 15:07:32
+ * @LastEditTime: 2022-03-26 13:51:12
  * @FilePath: /swarm_ws2/src/swarm_control/include/sensor_utils.h
  * @Description: 
  * 
@@ -15,7 +15,7 @@ double SensorRangeThreshold = 10; //10m sensor range, horizontal
 
 void updateSensorRangeThreshold()
 {
-    ros::param::get("sensorRange",SensorRangeThreshold);
+    ros::param::get("/sensor_range",SensorRangeThreshold);
 }
 
 #endif

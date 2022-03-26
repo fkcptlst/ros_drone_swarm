@@ -10,19 +10,24 @@
 	<node pkg="prometheus_swarm_control" type="virtual_relay" name="virtual_relay" output="screen" launch-prefix="gnome-terminal --tab --">	
 		<param name="swarm_num_uav" value="$(arg swarm_num_uav)"/>
 	</node>
-
+	<!-- 启动statistician -->
+	<node pkg="prometheus_swarm_control" type="statistician" name="statistician" output="screen" launch-prefix="gnome-terminal --tab --">	
+		<param name="swarm_num_uav" value="$(arg swarm_num_uav)"/>
+	</node>
 	<!-- 启动global_status_visualisation -->
 	<node pkg="prometheus_swarm_control" type="global_status_visualisation" name="global_status_visualisation" output="screen" launch-prefix="gnome-terminal --tab --">	
 		<param name="swarm_num_uav" value="$(arg swarm_num_uav)"/>
 	</node>
-
+	<!-- 启动statisticians_scribble -->
+	<node pkg="prometheus_swarm_control" type="statisticians_scribble.py" name="statisticians_scribble" output="screen" launch-prefix="gnome-terminal --tab --">	
+	</node>
 	<!-- 启动地面站 -->
 	<node pkg="prometheus_swarm_control" type="swarm_ground_station" name="swarm_ground_station" output="screen" launch-prefix="gnome-terminal --tab --">	
 		<param name="swarm_num_uav" value="$(arg swarm_num_uav)"/>
 	</node>
 
 	<!-- 阵型控制程序 -->
-	<node pkg="prometheus_swarm_control" type="swarm_formation_control" name="swarm_formation_control" output="screen" launch-prefix="gnome-terminal --tab --  bash -c 'sleep 3.0; $0 $@' ">
+	<node pkg="prometheus_swarm_control" type="swarm_formation_control" name="swarm_formation_control" output="screen" launch-prefix="gnome-terminal --tab --">
 		<param name="swarm_num_uav" value="$(arg swarm_num_uav)"/>
 		<param name="formation_size" value="1.0"/>
 		<param name="sim_mode" value="true"/>

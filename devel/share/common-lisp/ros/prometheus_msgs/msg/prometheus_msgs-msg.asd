@@ -72,6 +72,8 @@
     (:file "_package_SensorMsg" :depends-on ("_package"))
     (:file "StationCommand" :depends-on ("_package_StationCommand"))
     (:file "_package_StationCommand" :depends-on ("_package"))
+    (:file "StatisticiansParchment" :depends-on ("_package_StatisticiansParchment"))
+    (:file "_package_StatisticiansParchment" :depends-on ("_package"))
     (:file "SwarmCommand" :depends-on ("_package_SwarmCommand"))
     (:file "_package_SwarmCommand" :depends-on ("_package"))
     (:file "UgvCommand" :depends-on ("_package_UgvCommand"))

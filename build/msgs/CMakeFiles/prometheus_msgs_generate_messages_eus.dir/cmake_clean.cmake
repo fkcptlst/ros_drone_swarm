@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/Message.l"
   "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/CheckForObjectsActionFeedback.l"
   "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/DroneState.l"
+  "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/StatisticiansParchment.l"
   "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/SensorMsg.l"
   "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/MultiArucoInfo.l"
   "/home/amov/swarm_ws2/devel/share/roseus/ros/prometheus_msgs/msg/PositionReference.l"

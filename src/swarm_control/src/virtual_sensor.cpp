@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-03 16:54:57
  * @LastEditors: lcf
- * @LastEditTime: 2022-03-25 15:34:12
+ * @LastEditTime: 2022-03-26 13:53:11
  * @FilePath: /swarm_ws2/src/swarm_control/src/virtual_sensor.cpp
  * @Description: 虚拟传感器节点
  * 
@@ -80,17 +80,17 @@ bool with_prob_of(float prob)
 void sensorData_pub_cb(const ros::TimerEvent &e) //定时更新传感器
 {
     //get site information
-    ros::param::get("site_number",site_number); //update max site number
+    ros::param::get("/site_number",site_number); //update max site number
 
     updateSensorRangeThreshold(); //check if param changed
     
     for (int i = 1; i <= site_number; i++)
     {
         double site_posx, site_posy, site_posz, site_quality;
-        ros::param::get("site_posx_" + std::to_string(i), site_posx);
-        ros::param::get("site_posy_" + std::to_string(i), site_posy);
-        ros::param::get("site_posz_" + std::to_string(i), site_posz);
-        ros::param::get("site_quality_" + std::to_string(i), site_quality);
+        ros::param::get("/site_posx_" + std::to_string(i), site_posx);
+        ros::param::get("/site_posy_" + std::to_string(i), site_posy);
+        ros::param::get("/site_posz_" + std::to_string(i), site_posz);
+        ros::param::get("/site_quality_" + std::to_string(i), site_quality);
 
         Eigen::Vector3d site_pos(site_posx, site_posy, site_posz);
 

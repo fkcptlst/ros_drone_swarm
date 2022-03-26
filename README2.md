@@ -12,11 +12,14 @@
 
 site_number(记录总共存在过的site number，只增不减)
 
-
-
 site_posx_1
 
 site_quality_1
 
-
 SiteRadius
+
+to build, use compile.sh
+
+to generate .launch file, use launchfileGen.sh
+
+注意Python脚本前面一定要加shebang，要不然运行不起

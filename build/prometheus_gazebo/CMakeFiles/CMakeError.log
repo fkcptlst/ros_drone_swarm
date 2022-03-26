@@ -1,22 +1,22 @@
 Determining if the pthread_create exist failed with the following output:
 Change Dir: /home/amov/swarm_ws2/build/prometheus_gazebo/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_a86b5/fast"
-/usr/bin/make -f CMakeFiles/cmTC_a86b5.dir/build.make CMakeFiles/cmTC_a86b5.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_570fc/fast"
+/usr/bin/make -f CMakeFiles/cmTC_570fc.dir/build.make CMakeFiles/cmTC_570fc.dir/build
 make[1]: Entering directory '/home/amov/swarm_ws2/build/prometheus_gazebo/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_a86b5.dir/CheckSymbolExists.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_a86b5.dir/CheckSymbolExists.c.o   -c /home/amov/swarm_ws2/build/prometheus_gazebo/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_a86b5
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a86b5.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_a86b5.dir/CheckSymbolExists.c.o  -o cmTC_a86b5 
-CMakeFiles/cmTC_a86b5.dir/CheckSymbolExists.c.o: In function `main':
+Building C object CMakeFiles/cmTC_570fc.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_570fc.dir/CheckSymbolExists.c.o   -c /home/amov/swarm_ws2/build/prometheus_gazebo/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_570fc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_570fc.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_570fc.dir/CheckSymbolExists.c.o  -o cmTC_570fc 
+CMakeFiles/cmTC_570fc.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_a86b5.dir/build.make:97: recipe for target 'cmTC_a86b5' failed
-make[1]: *** [cmTC_a86b5] Error 1
+CMakeFiles/cmTC_570fc.dir/build.make:97: recipe for target 'cmTC_570fc' failed
+make[1]: *** [cmTC_570fc] Error 1
 make[1]: Leaving directory '/home/amov/swarm_ws2/build/prometheus_gazebo/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_a86b5/fast' failed
-make: *** [cmTC_a86b5/fast] Error 2
+Makefile:126: recipe for target 'cmTC_570fc/fast' failed
+make: *** [cmTC_570fc/fast] Error 2
 
 File /home/amov/swarm_ws2/build/prometheus_gazebo/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
@@ -36,20 +36,20 @@ int main(int argc, char** argv)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /home/amov/swarm_ws2/build/prometheus_gazebo/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_472bc/fast"
-/usr/bin/make -f CMakeFiles/cmTC_472bc.dir/build.make CMakeFiles/cmTC_472bc.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_7fa03/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7fa03.dir/build.make CMakeFiles/cmTC_7fa03.dir/build
 make[1]: Entering directory '/home/amov/swarm_ws2/build/prometheus_gazebo/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_472bc.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_472bc.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
-Linking C executable cmTC_472bc
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_472bc.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_472bc.dir/CheckFunctionExists.c.o  -o cmTC_472bc -lpthreads 
+Building C object CMakeFiles/cmTC_7fa03.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_7fa03.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_7fa03
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7fa03.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_7fa03.dir/CheckFunctionExists.c.o  -o cmTC_7fa03 -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_472bc.dir/build.make:97: recipe for target 'cmTC_472bc' failed
-make[1]: *** [cmTC_472bc] Error 1
+CMakeFiles/cmTC_7fa03.dir/build.make:97: recipe for target 'cmTC_7fa03' failed
+make[1]: *** [cmTC_7fa03] Error 1
 make[1]: Leaving directory '/home/amov/swarm_ws2/build/prometheus_gazebo/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_472bc/fast' failed
-make: *** [cmTC_472bc/fast] Error 2
+Makefile:126: recipe for target 'cmTC_7fa03/fast' failed
+make: *** [cmTC_7fa03/fast] Error 2
 
 

@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-03 20:25:28
  * @LastEditors: lcf
- * @LastEditTime: 2022-03-25 16:13:03
+ * @LastEditTime: 2022-03-26 13:52:29
  * @FilePath: /swarm_ws2/src/swarm_control/src/render_arena.cpp
  * @Description:
  *
@@ -58,15 +58,15 @@ void marker_array_cb(const ros::TimerEvent &e)
     markerArray.markers.push_back(groundPlaneMarker);
 
     // generate site
-    ros::param::get("site_radius",SiteScale);
-    ros::param::get("site_number", site_number);
+    ros::param::get("/site_radius",SiteScale);
+    ros::param::get("/site_number", site_number);
     for (int i = 1; i <= site_number; i++)
     {
         double site_posx, site_posy, site_posz, site_quality;
-        ros::param::get("site_posx_" + std::to_string(i), site_posx);
-        ros::param::get("site_posy_" + std::to_string(i), site_posy);
-        ros::param::get("site_posz_" + std::to_string(i), site_posz);
-        ros::param::get("site_quality_" + std::to_string(i), site_quality);
+        ros::param::get("/site_posx_" + std::to_string(i), site_posx);
+        ros::param::get("/site_posy_" + std::to_string(i), site_posy);
+        ros::param::get("/site_posz_" + std::to_string(i), site_posz);
+        ros::param::get("/site_quality_" + std::to_string(i), site_quality);
 
         if(site_quality > 0.000001) //site isn't zero，这么写防止double没对齐，如果site清除，则将quality置为0
         {

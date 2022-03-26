@@ -58,6 +58,7 @@ CMakeFiles/prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/inc
 CMakeFiles/prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/include/prometheus_msgs/Message.h
 CMakeFiles/prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsActionFeedback.h
 CMakeFiles/prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/include/prometheus_msgs/DroneState.h
+CMakeFiles/prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/include/prometheus_msgs/StatisticiansParchment.h
 CMakeFiles/prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/include/prometheus_msgs/SensorMsg.h
 CMakeFiles/prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/include/prometheus_msgs/MultiArucoInfo.h
 CMakeFiles/prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/include/prometheus_msgs/PositionReference.h
@@ -140,11 +141,18 @@ CMakeFiles/prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/inc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating C++ code from prometheus_msgs/DroneState.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/DroneState.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
+/home/amov/swarm_ws2/devel/include/prometheus_msgs/StatisticiansParchment.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
+/home/amov/swarm_ws2/devel/include/prometheus_msgs/StatisticiansParchment.h: /home/amov/swarm_ws2/src/common/msgs/msg/StatisticiansParchment.msg
+/home/amov/swarm_ws2/devel/include/prometheus_msgs/StatisticiansParchment.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+/home/amov/swarm_ws2/devel/include/prometheus_msgs/StatisticiansParchment.h: /opt/ros/melodic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating C++ code from prometheus_msgs/StatisticiansParchment.msg"
+	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/StatisticiansParchment.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
+
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/SensorMsg.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/SensorMsg.h: /home/amov/swarm_ws2/src/common/msgs/msg/SensorMsg.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/SensorMsg.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/SensorMsg.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating C++ code from prometheus_msgs/SensorMsg.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating C++ code from prometheus_msgs/SensorMsg.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/SensorMsg.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/MultiArucoInfo.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -152,21 +160,21 @@ CMakeFiles/prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/inc
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/MultiArucoInfo.h: /home/amov/swarm_ws2/src/common/msgs/msg/ArucoInfo.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/MultiArucoInfo.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/MultiArucoInfo.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating C++ code from prometheus_msgs/MultiArucoInfo.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating C++ code from prometheus_msgs/MultiArucoInfo.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/MultiArucoInfo.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/PositionReference.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/PositionReference.h: /home/amov/swarm_ws2/src/common/msgs/msg/PositionReference.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/PositionReference.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/PositionReference.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating C++ code from prometheus_msgs/PositionReference.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating C++ code from prometheus_msgs/PositionReference.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/PositionReference.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/Case2Result.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/Case2Result.h: /home/amov/swarm_ws2/src/common/msgs/msg/Case2Result.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/Case2Result.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/Case2Result.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating C++ code from prometheus_msgs/Case2Result.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating C++ code from prometheus_msgs/Case2Result.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/Case2Result.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/LogMessageControl.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -182,7 +190,7 @@ CMakeFiles/prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/inc
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/LogMessageControl.h: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/LogMessageControl.h: /opt/ros/melodic/share/geometry_msgs/msg/Quaternion.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/LogMessageControl.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating C++ code from prometheus_msgs/LogMessageControl.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating C++ code from prometheus_msgs/LogMessageControl.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/LogMessageControl.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/BoundingBoxes.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -190,14 +198,14 @@ CMakeFiles/prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/inc
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/BoundingBoxes.h: /home/amov/swarm_ws2/src/common/msgs/msg/BoundingBox.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/BoundingBoxes.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/BoundingBoxes.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating C++ code from prometheus_msgs/BoundingBoxes.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating C++ code from prometheus_msgs/BoundingBoxes.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/BoundingBoxes.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/DetectionInfo.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/DetectionInfo.h: /home/amov/swarm_ws2/src/common/msgs/msg/DetectionInfo.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/DetectionInfo.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/DetectionInfo.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating C++ code from prometheus_msgs/DetectionInfo.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Generating C++ code from prometheus_msgs/DetectionInfo.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/DetectionInfo.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/UgvState.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -205,21 +213,21 @@ CMakeFiles/prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/inc
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/UgvState.h: /opt/ros/melodic/share/geometry_msgs/msg/Quaternion.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/UgvState.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/UgvState.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Generating C++ code from prometheus_msgs/UgvState.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Generating C++ code from prometheus_msgs/UgvState.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/UgvState.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/Msg104.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/Msg104.h: /home/amov/swarm_ws2/src/common/msgs/msg/Msg104.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/Msg104.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/Msg104.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Generating C++ code from prometheus_msgs/Msg104.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Generating C++ code from prometheus_msgs/Msg104.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/Msg104.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/ArucoInfo.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/ArucoInfo.h: /home/amov/swarm_ws2/src/common/msgs/msg/ArucoInfo.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/ArucoInfo.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/ArucoInfo.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Generating C++ code from prometheus_msgs/ArucoInfo.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Generating C++ code from prometheus_msgs/ArucoInfo.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/ArucoInfo.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsAction.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -237,7 +245,7 @@ CMakeFiles/prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/inc
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsAction.h: /home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsActionFeedback.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsAction.h: /home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsGoal.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsAction.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Generating C++ code from prometheus_msgs/CheckForObjectsAction.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Generating C++ code from prometheus_msgs/CheckForObjectsAction.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsAction.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/AttitudeReference.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -245,7 +253,7 @@ CMakeFiles/prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/inc
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/AttitudeReference.h: /opt/ros/melodic/share/geometry_msgs/msg/Quaternion.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/AttitudeReference.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/AttitudeReference.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Generating C++ code from prometheus_msgs/AttitudeReference.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Generating C++ code from prometheus_msgs/AttitudeReference.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/AttitudeReference.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/LogMessage.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -258,7 +266,7 @@ CMakeFiles/prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/inc
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/LogMessage.h: /home/amov/swarm_ws2/src/common/msgs/msg/DroneState.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/LogMessage.h: /opt/ros/melodic/share/geometry_msgs/msg/Quaternion.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/LogMessage.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Generating C++ code from prometheus_msgs/LogMessage.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Generating C++ code from prometheus_msgs/LogMessage.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/LogMessage.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsActionGoal.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -268,13 +276,13 @@ CMakeFiles/prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/inc
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsActionGoal.h: /opt/ros/melodic/share/sensor_msgs/msg/Image.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsActionGoal.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsActionGoal.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Generating C++ code from prometheus_msgs/CheckForObjectsActionGoal.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Generating C++ code from prometheus_msgs/CheckForObjectsActionGoal.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsActionGoal.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/Formation.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/Formation.h: /home/amov/swarm_ws2/src/common/msgs/msg/Formation.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/Formation.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Generating C++ code from prometheus_msgs/Formation.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Generating C++ code from prometheus_msgs/Formation.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/Formation.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/MultiDetectionInfo.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -282,13 +290,13 @@ CMakeFiles/prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/inc
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/MultiDetectionInfo.h: /home/amov/swarm_ws2/src/common/msgs/msg/DetectionInfo.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/MultiDetectionInfo.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/MultiDetectionInfo.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Generating C++ code from prometheus_msgs/MultiDetectionInfo.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Generating C++ code from prometheus_msgs/MultiDetectionInfo.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/MultiDetectionInfo.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsFeedback.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsFeedback.h: /home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsFeedback.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsFeedback.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Generating C++ code from prometheus_msgs/CheckForObjectsFeedback.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Generating C++ code from prometheus_msgs/CheckForObjectsFeedback.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsFeedback.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsGoal.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -296,14 +304,14 @@ CMakeFiles/prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/inc
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsGoal.h: /opt/ros/melodic/share/sensor_msgs/msg/Image.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsGoal.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsGoal.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Generating C++ code from prometheus_msgs/CheckForObjectsGoal.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Generating C++ code from prometheus_msgs/CheckForObjectsGoal.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsGoal.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/Commitment.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/Commitment.h: /home/amov/swarm_ws2/src/common/msgs/msg/Commitment.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/Commitment.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/Commitment.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Generating C++ code from prometheus_msgs/Commitment.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Generating C++ code from prometheus_msgs/Commitment.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/Commitment.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsResult.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -312,14 +320,14 @@ CMakeFiles/prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/inc
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsResult.h: /home/amov/swarm_ws2/src/common/msgs/msg/BoundingBox.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsResult.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsResult.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Generating C++ code from prometheus_msgs/CheckForObjectsResult.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Generating C++ code from prometheus_msgs/CheckForObjectsResult.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsResult.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/Msg103.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/Msg103.h: /home/amov/swarm_ws2/src/common/msgs/msg/Msg103.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/Msg103.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/Msg103.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Generating C++ code from prometheus_msgs/Msg103.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Generating C++ code from prometheus_msgs/Msg103.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/Msg103.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/ControlCommand.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -327,14 +335,14 @@ CMakeFiles/prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/inc
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/ControlCommand.h: /home/amov/swarm_ws2/src/common/msgs/msg/PositionReference.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/ControlCommand.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/ControlCommand.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Generating C++ code from prometheus_msgs/ControlCommand.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Generating C++ code from prometheus_msgs/ControlCommand.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/ControlCommand.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/Case3Result.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/Case3Result.h: /home/amov/swarm_ws2/src/common/msgs/msg/Case3Result.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/Case3Result.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/Case3Result.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Generating C++ code from prometheus_msgs/Case3Result.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Generating C++ code from prometheus_msgs/Case3Result.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/Case3Result.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/IndoorSearch.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -342,34 +350,34 @@ CMakeFiles/prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/inc
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/IndoorSearch.h: /home/amov/swarm_ws2/src/common/msgs/msg/ArucoInfo.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/IndoorSearch.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/IndoorSearch.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Generating C++ code from prometheus_msgs/IndoorSearch.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Generating C++ code from prometheus_msgs/IndoorSearch.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/IndoorSearch.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/UgvCommand.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/UgvCommand.h: /home/amov/swarm_ws2/src/common/msgs/msg/UgvCommand.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/UgvCommand.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/UgvCommand.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Generating C++ code from prometheus_msgs/UgvCommand.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Generating C++ code from prometheus_msgs/UgvCommand.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/UgvCommand.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/BoundingBox.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/BoundingBox.h: /home/amov/swarm_ws2/src/common/msgs/msg/BoundingBox.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/BoundingBox.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Generating C++ code from prometheus_msgs/BoundingBox.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Generating C++ code from prometheus_msgs/BoundingBox.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/BoundingBox.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/SwarmCommand.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/SwarmCommand.h: /home/amov/swarm_ws2/src/common/msgs/msg/SwarmCommand.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/SwarmCommand.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/SwarmCommand.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Generating C++ code from prometheus_msgs/SwarmCommand.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Generating C++ code from prometheus_msgs/SwarmCommand.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/SwarmCommand.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/ControlOutput.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/ControlOutput.h: /home/amov/swarm_ws2/src/common/msgs/msg/ControlOutput.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/ControlOutput.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/ControlOutput.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Generating C++ code from prometheus_msgs/ControlOutput.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Generating C++ code from prometheus_msgs/ControlOutput.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/ControlOutput.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/LogMessageDetection.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -382,7 +390,7 @@ CMakeFiles/prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/inc
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/LogMessageDetection.h: /home/amov/swarm_ws2/src/common/msgs/msg/DroneState.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/LogMessageDetection.h: /opt/ros/melodic/share/geometry_msgs/msg/Quaternion.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/LogMessageDetection.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Generating C++ code from prometheus_msgs/LogMessageDetection.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Generating C++ code from prometheus_msgs/LogMessageDetection.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/LogMessageDetection.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/StationCommand.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -393,7 +401,7 @@ CMakeFiles/prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/inc
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/StationCommand.h: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/StationCommand.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/amov/swarm_ws2/devel/include/prometheus_msgs/StationCommand.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Generating C++ code from prometheus_msgs/StationCommand.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/amov/swarm_ws2/build/msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Generating C++ code from prometheus_msgs/StationCommand.msg"
 	cd /home/amov/swarm_ws2/src/common/msgs && /home/amov/swarm_ws2/build/msgs/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/amov/swarm_ws2/src/common/msgs/msg/StationCommand.msg -Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg -Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prometheus_msgs -o /home/amov/swarm_ws2/devel/include/prometheus_msgs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 prometheus_msgs_generate_messages_cpp: CMakeFiles/prometheus_msgs_generate_messages_cpp
@@ -402,6 +410,7 @@ prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/include/promet
 prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/include/prometheus_msgs/Message.h
 prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/include/prometheus_msgs/CheckForObjectsActionFeedback.h
 prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/include/prometheus_msgs/DroneState.h
+prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/include/prometheus_msgs/StatisticiansParchment.h
 prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/include/prometheus_msgs/SensorMsg.h
 prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/include/prometheus_msgs/MultiArucoInfo.h
 prometheus_msgs_generate_messages_cpp: /home/amov/swarm_ws2/devel/include/prometheus_msgs/PositionReference.h

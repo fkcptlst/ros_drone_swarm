@@ -48,6 +48,7 @@ add_message_files(
   Case3Result.msg
   Msg103.msg
   Msg104.msg
+  StatisticiansParchment.msg
 )
 
 add_action_files(

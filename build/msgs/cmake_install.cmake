@@ -158,6 +158,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/amov/swarm_ws2/src/common/msgs/msg/Case3Result.msg"
     "/home/amov/swarm_ws2/src/common/msgs/msg/Msg103.msg"
     "/home/amov/swarm_ws2/src/common/msgs/msg/Msg104.msg"
+    "/home/amov/swarm_ws2/src/common/msgs/msg/StatisticiansParchment.msg"
     )
 endif()
 

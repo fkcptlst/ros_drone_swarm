@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "prometheus_msgs: 35 messages, 0 services")
+message(STATUS "prometheus_msgs: 36 messages, 0 services")
 
 set(MSG_I_FLAGS "-Iprometheus_msgs:/home/amov/swarm_ws2/src/common/msgs/msg;-Iprometheus_msgs:/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg;-Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg;-Isensor_msgs:/opt/ros/melodic/share/sensor_msgs/cmake/../msg;-Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg")
 
@@ -40,6 +40,11 @@ add_custom_target(_prometheus_msgs_generate_messages_check_deps_${_filename}
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/DroneState.msg" NAME_WE)
 add_custom_target(_prometheus_msgs_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "prometheus_msgs" "/home/amov/swarm_ws2/src/common/msgs/msg/DroneState.msg" "geometry_msgs/Quaternion:std_msgs/Header"
+)
+
+get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/StatisticiansParchment.msg" NAME_WE)
+add_custom_target(_prometheus_msgs_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "prometheus_msgs" "/home/amov/swarm_ws2/src/common/msgs/msg/StatisticiansParchment.msg" "std_msgs/Header"
 )
 
 get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsActionGoal.msg" NAME_WE)
@@ -226,6 +231,12 @@ _generate_msg_cpp(prometheus_msgs
   "/home/amov/swarm_ws2/src/common/msgs/msg/DroneState.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/prometheus_msgs
+)
+_generate_msg_cpp(prometheus_msgs
+  "/home/amov/swarm_ws2/src/common/msgs/msg/StatisticiansParchment.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_cpp(prometheus_msgs
@@ -433,6 +444,8 @@ get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_ms
 add_dependencies(prometheus_msgs_generate_messages_cpp _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/DroneState.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_cpp _prometheus_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/StatisticiansParchment.msg" NAME_WE)
+add_dependencies(prometheus_msgs_generate_messages_cpp _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsActionGoal.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_cpp _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/MultiArucoInfo.msg" NAME_WE)
@@ -531,6 +544,12 @@ _generate_msg_eus(prometheus_msgs
   "/home/amov/swarm_ws2/src/common/msgs/msg/DroneState.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/prometheus_msgs
+)
+_generate_msg_eus(prometheus_msgs
+  "/home/amov/swarm_ws2/src/common/msgs/msg/StatisticiansParchment.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_eus(prometheus_msgs
@@ -738,6 +757,8 @@ get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_ms
 add_dependencies(prometheus_msgs_generate_messages_eus _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/DroneState.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_eus _prometheus_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/StatisticiansParchment.msg" NAME_WE)
+add_dependencies(prometheus_msgs_generate_messages_eus _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsActionGoal.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_eus _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/MultiArucoInfo.msg" NAME_WE)
@@ -836,6 +857,12 @@ _generate_msg_lisp(prometheus_msgs
   "/home/amov/swarm_ws2/src/common/msgs/msg/DroneState.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/prometheus_msgs
+)
+_generate_msg_lisp(prometheus_msgs
+  "/home/amov/swarm_ws2/src/common/msgs/msg/StatisticiansParchment.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_lisp(prometheus_msgs
@@ -1043,6 +1070,8 @@ get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_ms
 add_dependencies(prometheus_msgs_generate_messages_lisp _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/DroneState.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_lisp _prometheus_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/StatisticiansParchment.msg" NAME_WE)
+add_dependencies(prometheus_msgs_generate_messages_lisp _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsActionGoal.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_lisp _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/MultiArucoInfo.msg" NAME_WE)
@@ -1141,6 +1170,12 @@ _generate_msg_nodejs(prometheus_msgs
   "/home/amov/swarm_ws2/src/common/msgs/msg/DroneState.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/prometheus_msgs
+)
+_generate_msg_nodejs(prometheus_msgs
+  "/home/amov/swarm_ws2/src/common/msgs/msg/StatisticiansParchment.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_nodejs(prometheus_msgs
@@ -1348,6 +1383,8 @@ get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_ms
 add_dependencies(prometheus_msgs_generate_messages_nodejs _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/DroneState.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_nodejs _prometheus_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/StatisticiansParchment.msg" NAME_WE)
+add_dependencies(prometheus_msgs_generate_messages_nodejs _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsActionGoal.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_nodejs _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/MultiArucoInfo.msg" NAME_WE)
@@ -1446,6 +1483,12 @@ _generate_msg_py(prometheus_msgs
   "/home/amov/swarm_ws2/src/common/msgs/msg/DroneState.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/prometheus_msgs
+)
+_generate_msg_py(prometheus_msgs
+  "/home/amov/swarm_ws2/src/common/msgs/msg/StatisticiansParchment.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/prometheus_msgs
 )
 _generate_msg_py(prometheus_msgs
@@ -1652,6 +1695,8 @@ add_dependencies(prometheus_msgs_generate_messages_py _prometheus_msgs_generate_
 get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsActionFeedback.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_py _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/DroneState.msg" NAME_WE)
+add_dependencies(prometheus_msgs_generate_messages_py _prometheus_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/amov/swarm_ws2/src/common/msgs/msg/StatisticiansParchment.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_py _prometheus_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/amov/swarm_ws2/devel/share/prometheus_msgs/msg/CheckForObjectsActionGoal.msg" NAME_WE)
 add_dependencies(prometheus_msgs_generate_messages_py _prometheus_msgs_generate_messages_check_deps_${_filename})

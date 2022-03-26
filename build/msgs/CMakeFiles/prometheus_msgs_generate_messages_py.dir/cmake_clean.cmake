@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_Message.py"
   "/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_CheckForObjectsActionFeedback.py"
   "/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_DroneState.py"
+  "/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_StatisticiansParchment.py"
   "/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_SensorMsg.py"
   "/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_MultiArucoInfo.py"
   "/home/amov/swarm_ws2/devel/lib/python2.7/dist-packages/prometheus_msgs/msg/_PositionReference.py"

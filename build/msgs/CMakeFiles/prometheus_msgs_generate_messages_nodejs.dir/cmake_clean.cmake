@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "/home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/Message.js"
   "/home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/CheckForObjectsActionFeedback.js"
   "/home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/DroneState.js"
+  "/home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/StatisticiansParchment.js"
   "/home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/SensorMsg.js"
   "/home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/MultiArucoInfo.js"
   "/home/amov/swarm_ws2/devel/share/gennodejs/ros/prometheus_msgs/msg/PositionReference.js"

@@ -112,6 +112,10 @@ add_executable(lab_assistant src/lab_assistant.cpp)
 add_dependencies(lab_assistant prometheus_swarm_control_gencpp)
 target_link_libraries(lab_assistant ${catkin_LIBRARIES})
 
+add_executable(statistician src/statistician.cpp)
+add_dependencies(statistician prometheus_swarm_control_gencpp)
+target_link_libraries(statistician ${catkin_LIBRARIES})
+
 
 #add_executable(ego_traj_to_cmd src/ego_traj_to_cmd.cpp)
 #add_dependencies(ego_traj_to_cmd prometheus_swarm_control_gencpp)

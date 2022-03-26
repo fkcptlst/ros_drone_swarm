@@ -1,6 +1,7 @@
 
 "use strict";
 
+let StatisticiansParchment = require('./StatisticiansParchment.js');
 let MultiArucoInfo = require('./MultiArucoInfo.js');
 let MultiDetectionInfo = require('./MultiDetectionInfo.js');
 let UgvState = require('./UgvState.js');
@@ -38,6 +39,7 @@ let CheckForObjectsResult = require('./CheckForObjectsResult.js');
 let CheckForObjectsActionGoal = require('./CheckForObjectsActionGoal.js');
 
 module.exports = {
+  StatisticiansParchment: StatisticiansParchment,
   MultiArucoInfo: MultiArucoInfo,
   MultiDetectionInfo: MultiDetectionInfo,
   UgvState: UgvState,

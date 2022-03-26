@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-03 23:23:24
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-06 15:33:05
+ * @LastEditTime: 2022-03-26 13:52:00
  * @FilePath: /swarm_ws2/src/swarm_control/include/visualisation_utils.h
  * @Description:
  *
@@ -98,14 +98,14 @@ void generateCommitmentMarker(visualization_msgs::MarkerArray &markerArray, prom
         commitmentMarker.color.b = 255;
         commitmentMarker.color.a = colorTransparency;
 
-        ros::param::get("site_number", site_number);
+        ros::param::get("/site_number", site_number);
         for (int i = 1; i <= site_number; i++)
         {
             double site_posx, site_posy, site_posz, site_quality;
-            ros::param::get("site_posx_" + std::to_string(i), site_posx);
-            ros::param::get("site_posy_" + std::to_string(i), site_posy);
-            ros::param::get("site_posz_" + std::to_string(i), site_posz);
-            ros::param::get("site_quality_" + std::to_string(i), site_quality);
+            ros::param::get("/site_posx_" + std::to_string(i), site_posx);
+            ros::param::get("/site_posy_" + std::to_string(i), site_posy);
+            ros::param::get("/site_posz_" + std::to_string(i), site_posz);
+            ros::param::get("/site_quality_" + std::to_string(i), site_quality);
 
             prometheus_msgs::Commitment temp;
             temp.sitePos[0] = site_posx;

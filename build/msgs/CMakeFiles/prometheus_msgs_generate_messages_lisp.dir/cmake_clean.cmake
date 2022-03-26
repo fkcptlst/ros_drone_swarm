@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/Message.lisp"
   "/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/CheckForObjectsActionFeedback.lisp"
   "/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/DroneState.lisp"
+  "/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/StatisticiansParchment.lisp"
   "/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/SensorMsg.lisp"
   "/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/MultiArucoInfo.lisp"
   "/home/amov/swarm_ws2/devel/share/common-lisp/ros/prometheus_msgs/msg/PositionReference.lisp"

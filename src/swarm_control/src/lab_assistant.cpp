@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-03-25 12:42:22
  * @LastEditors: lcf
- * @LastEditTime: 2022-03-25 23:03:18
+ * @LastEditTime: 2022-03-26 14:01:56
  * @FilePath: /swarm_ws2/src/swarm_control/src/lab_assistant.cpp
  * @Description: a node to control experiment setup
  *
@@ -119,6 +119,8 @@ int main(int argc, char **argv)
 
     cout << "selected experiment agenda: " << experimentAgendas[agendaIdx].description << endl;
     experimentBeginTime = ros::Time::now(); // set begin time of experiment
+    double beginTimeTmp = experimentBeginTime.sec + 0.00; //type conversion
+    ros::param::set("/experiment_begin_time",beginTimeTmp);
 
     experimentAgendas[agendaIdx].handler(); // arrange experiment according to agenda
 
@@ -159,8 +161,8 @@ void set_experiment_parameters(Experiment_params parameters) // set global param
 {
     currentParams = parameters; // update current parameters
 
-    ros::param::set("site_number", parameters.site_number);
-    ros::param::set("site_radius", parameters.site_radius);
+    ros::param::set("/site_number", parameters.site_number);
+    ros::param::set("/site_radius", parameters.site_radius);
 
     for (int i = 0; i < parameters.site_number; i++)
     {
@@ -171,7 +173,7 @@ void set_experiment_parameters(Experiment_params parameters) // set global param
         ros::param::set("/site_quality_" + std::to_string(i + 1), parameters.sites[i].quality);
     }
 
-    ros::param::set("sensorRange", parameters.sensorRange);
+    ros::param::set("/sensor_range", parameters.sensor_range);
 }
 
 TimeTriggeredEvent makeArrangement(int second, void (*_handler)()) // create a time trigger event, push into event queue
@@ -238,7 +240,7 @@ void agenda1() // experiment schedule
 
 void set_params_1()
 {
-    currentParams.sensorRange = 10;
+    currentParams.sensor_range = 10;
     currentParams.site_number = 3;
     currentParams.site_radius = 10;
     currentParams.sensor_noise_stdev = 0.1;

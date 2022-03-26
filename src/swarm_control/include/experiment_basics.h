@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-03-25 15:27:25
  * @LastEditors: lcf
- * @LastEditTime: 2022-03-25 22:36:45
+ * @LastEditTime: 2022-03-26 11:12:23
  * @FilePath: /swarm_ws2/src/swarm_control/include/experiment_basics.h
  * @Description: useful datastructures, constants, and functions
  *
@@ -17,7 +17,7 @@ using namespace std;
 const float COLLISION_AVOIDANCE_COMMRANGE_THRESHOLD = 30.0; // 30m collision avoidance comm range
 const float VOTING_COMMRANGE_THRESHOLD = 60.0;              // XXX 60m voting comm range
 
-const float SiteMinSeparationThreshold = 20.0;    // 20m min site separation
+const float SiteMinSeparationThreshold = 10.0;    // 10m min site separation
 const float WaypointMinSeparationThreshold = 3.0; // 3m min waypoint separation
 
 const double CruiseHeight = 5.0; // 10m of cruise height
@@ -81,14 +81,14 @@ typedef struct Experiment_params
     double site_radius;
 
     double sensor_noise_stdev;
-    double sensorRange;
+    double sensor_range;
 
     Experiment_params() // constructor
     {
         site_number = 0;
         site_radius = 10;
         sensor_noise_stdev = 0.1;
-        sensorRange = 10;
+        sensor_range = 10;
     }
 } Experiment_params;
 

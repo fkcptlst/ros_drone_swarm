@@ -168,6 +168,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named statistician
+
+# Build rule for target.
+statistician: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 statistician
+.PHONY : statistician
+
+# fast build rule for target.
+statistician/fast:
+	$(MAKE) -f CMakeFiles/statistician.dir/build.make CMakeFiles/statistician.dir/build
+.PHONY : statistician/fast
+
+#=============================================================================
 # Target rules for targets named uav_planner
 
 # Build rule for target.
@@ -1769,6 +1782,33 @@ src/render_arena.cpp.s:
 	$(MAKE) -f CMakeFiles/render_arena.dir/build.make CMakeFiles/render_arena.dir/src/render_arena.cpp.s
 .PHONY : src/render_arena.cpp.s
 
+src/statistician.o: src/statistician.cpp.o
+
+.PHONY : src/statistician.o
+
+# target to build an object file
+src/statistician.cpp.o:
+	$(MAKE) -f CMakeFiles/statistician.dir/build.make CMakeFiles/statistician.dir/src/statistician.cpp.o
+.PHONY : src/statistician.cpp.o
+
+src/statistician.i: src/statistician.cpp.i
+
+.PHONY : src/statistician.i
+
+# target to preprocess a source file
+src/statistician.cpp.i:
+	$(MAKE) -f CMakeFiles/statistician.dir/build.make CMakeFiles/statistician.dir/src/statistician.cpp.i
+.PHONY : src/statistician.cpp.i
+
+src/statistician.s: src/statistician.cpp.s
+
+.PHONY : src/statistician.s
+
+# target to generate assembly for a file
+src/statistician.cpp.s:
+	$(MAKE) -f CMakeFiles/statistician.dir/build.make CMakeFiles/statistician.dir/src/statistician.cpp.s
+.PHONY : src/statistician.cpp.s
+
 src/swarm_controller.o: src/swarm_controller.cpp.o
 
 .PHONY : src/swarm_controller.o
@@ -1994,6 +2034,7 @@ help:
 	@echo "... install/strip"
 	@echo "... install/local"
 	@echo "... list_install_components"
+	@echo "... statistician"
 	@echo "... uav_planner"
 	@echo "... virtual_sensor"
 	@echo "... virtual_relay"
@@ -2124,6 +2165,9 @@ help:
 	@echo "... src/render_arena.o"
 	@echo "... src/render_arena.i"
 	@echo "... src/render_arena.s"
+	@echo "... src/statistician.o"
+	@echo "... src/statistician.i"
+	@echo "... src/statistician.s"
 	@echo "... src/swarm_controller.o"
 	@echo "... src/swarm_controller.i"
 	@echo "... src/swarm_controller.s"

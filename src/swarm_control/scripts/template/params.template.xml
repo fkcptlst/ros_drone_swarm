@@ -6,9 +6,11 @@
 	<arg name="z_min" default="-1.0"/>
 	<arg name="z_max" default="50.0"/>
 
+	<param name="experiment_begin_time" value="0"/>
+
 	<param name="sensor_noise_stdev" value="0.01"/>
 
-	<param name="sensorRange" value="10"/>
+	<param name="sensor_range" value="10"/>
 	<!-- site相关信息,global param -->
 	<param name="site_number" value="3"/>
 	<param name="site_radius" value="10"/>

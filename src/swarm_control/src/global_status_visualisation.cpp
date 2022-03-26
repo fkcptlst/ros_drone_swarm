@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-01-31 21:34:24
  * @LastEditors: lcf
- * @LastEditTime: 2022-02-06 15:28:54
+ * @LastEditTime: 2022-03-25 23:55:32
  * @FilePath: /swarm_ws2/src/swarm_control/src/global_status_visualisation.cpp
  * @Description: This node observes position of all vehicles and unicasts relevant info to each vehicle, modified from swarm_controller
  * 
@@ -42,7 +42,7 @@ void initialize();
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>主 函 数<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 int main(int argc, char **argv)
 {
-    ros::init(argc, argv, "virtual_observer");
+    ros::init(argc, argv, "global_status_visualisation");
     ros::NodeHandle nh("~");
     cout << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>global_status_visualisation<<<<<<<<<<<<<<<<<<<<<<<<< "<< endl;
     // 读取参数，变量初始化

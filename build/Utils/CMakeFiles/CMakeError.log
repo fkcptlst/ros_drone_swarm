@@ -1,22 +1,22 @@
 Determining if the pthread_create exist failed with the following output:
 Change Dir: /home/amov/swarm_ws2/build/Utils/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_368e0/fast"
-/usr/bin/make -f CMakeFiles/cmTC_368e0.dir/build.make CMakeFiles/cmTC_368e0.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_3ddd9/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3ddd9.dir/build.make CMakeFiles/cmTC_3ddd9.dir/build
 make[1]: Entering directory '/home/amov/swarm_ws2/build/Utils/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_368e0.dir/CheckSymbolExists.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_368e0.dir/CheckSymbolExists.c.o   -c /home/amov/swarm_ws2/build/Utils/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_368e0
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_368e0.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_368e0.dir/CheckSymbolExists.c.o  -o cmTC_368e0 
-CMakeFiles/cmTC_368e0.dir/CheckSymbolExists.c.o: In function `main':
+Building C object CMakeFiles/cmTC_3ddd9.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_3ddd9.dir/CheckSymbolExists.c.o   -c /home/amov/swarm_ws2/build/Utils/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_3ddd9
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3ddd9.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_3ddd9.dir/CheckSymbolExists.c.o  -o cmTC_3ddd9 
+CMakeFiles/cmTC_3ddd9.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_368e0.dir/build.make:97: recipe for target 'cmTC_368e0' failed
-make[1]: *** [cmTC_368e0] Error 1
+CMakeFiles/cmTC_3ddd9.dir/build.make:97: recipe for target 'cmTC_3ddd9' failed
+make[1]: *** [cmTC_3ddd9] Error 1
 make[1]: Leaving directory '/home/amov/swarm_ws2/build/Utils/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_368e0/fast' failed
-make: *** [cmTC_368e0/fast] Error 2
+Makefile:126: recipe for target 'cmTC_3ddd9/fast' failed
+make: *** [cmTC_3ddd9/fast] Error 2
 
 File /home/amov/swarm_ws2/build/Utils/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
@@ -36,20 +36,20 @@ int main(int argc, char** argv)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /home/amov/swarm_ws2/build/Utils/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_d9e88/fast"
-/usr/bin/make -f CMakeFiles/cmTC_d9e88.dir/build.make CMakeFiles/cmTC_d9e88.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_fbd9e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fbd9e.dir/build.make CMakeFiles/cmTC_fbd9e.dir/build
 make[1]: Entering directory '/home/amov/swarm_ws2/build/Utils/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_d9e88.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_d9e88.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
-Linking C executable cmTC_d9e88
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d9e88.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_d9e88.dir/CheckFunctionExists.c.o  -o cmTC_d9e88 -lpthreads 
+Building C object CMakeFiles/cmTC_fbd9e.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_fbd9e.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_fbd9e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fbd9e.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_fbd9e.dir/CheckFunctionExists.c.o  -o cmTC_fbd9e -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_d9e88.dir/build.make:97: recipe for target 'cmTC_d9e88' failed
-make[1]: *** [cmTC_d9e88] Error 1
+CMakeFiles/cmTC_fbd9e.dir/build.make:97: recipe for target 'cmTC_fbd9e' failed
+make[1]: *** [cmTC_fbd9e] Error 1
 make[1]: Leaving directory '/home/amov/swarm_ws2/build/Utils/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_d9e88/fast' failed
-make: *** [cmTC_d9e88/fast] Error 2
+Makefile:126: recipe for target 'cmTC_fbd9e/fast' failed
+make: *** [cmTC_fbd9e/fast] Error 2
 
 
