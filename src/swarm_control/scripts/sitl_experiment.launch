@@ -1,6 +1,6 @@
 <launch>
 	<!-- 无人机集群数量 -->
-	<arg name="swarm_num_uav" default="5"/>
+	<arg name="swarm_num_uav" default="9"/>
 
 	<!-- swarm_estimator 参数 -->
 	<arg name="input_source" default="2"/>
@@ -16,6 +16,10 @@
 	<arg name="uav3_id" default="3"/>
 	<arg name="uav4_id" default="4"/>
 	<arg name="uav5_id" default="5"/>
+	<arg name="uav6_id" default="6"/>
+	<arg name="uav7_id" default="7"/>
+	<arg name="uav8_id" default="8"/>
+	<arg name="uav9_id" default="9"/>
 <!-- 无人机初始位置 -->
 	<arg name="uav1_init_x" default="0"/>
     <arg name="uav1_init_y" default="-3"/>
@@ -31,6 +35,18 @@
 
 	<arg name="uav5_init_x" default="6"/>
     <arg name="uav5_init_y" default="3"/>
+
+	<arg name="uav6_init_x" default="-6"/>
+    <arg name="uav6_init_y" default="3"/>
+
+	<arg name="uav7_init_x" default="0"/>
+    <arg name="uav7_init_y" default="9"/>
+
+	<arg name="uav8_init_x" default="6"/>
+    <arg name="uav8_init_y" default="9"/>
+
+	<arg name="uav9_init_x" default="-6"/>
+    <arg name="uav9_init_y" default="9"/>
 
 <!-- 全局变量 -->
 	<!-- 地理围栏 -->
@@ -121,6 +137,50 @@
 		<arg name="uav_init_z" value="0.15"/>
 		<arg name="uav_init_yaw" value="0.0"/>
 	</include>
+    <!-- 6号飞机 -->
+	<include file="$(find prometheus_gazebo)/launch_swarm/sitl_swarm_basic.launch">
+		<arg name="swarm_num_uav" value="$(arg swarm_num_uav)"/>
+		<arg name="uav_id" value="$(arg uav6_id)"/>
+		<arg name="sdf" value="$(find prometheus_gazebo)/amov_models/Multisolo/uav6/uav6.sdf"/>
+		<arg name="model" value="uav6"/>
+		<arg name="uav_init_x" value="$(arg uav6_init_x)"/>
+		<arg name="uav_init_y" value="$(arg uav6_init_y)"/>
+		<arg name="uav_init_z" value="0.15"/>
+		<arg name="uav_init_yaw" value="0.0"/>
+	</include>
+    <!-- 7号飞机 -->
+	<include file="$(find prometheus_gazebo)/launch_swarm/sitl_swarm_basic.launch">
+		<arg name="swarm_num_uav" value="$(arg swarm_num_uav)"/>
+		<arg name="uav_id" value="$(arg uav7_id)"/>
+		<arg name="sdf" value="$(find prometheus_gazebo)/amov_models/Multisolo/uav7/uav7.sdf"/>
+		<arg name="model" value="uav7"/>
+		<arg name="uav_init_x" value="$(arg uav7_init_x)"/>
+		<arg name="uav_init_y" value="$(arg uav7_init_y)"/>
+		<arg name="uav_init_z" value="0.15"/>
+		<arg name="uav_init_yaw" value="0.0"/>
+	</include>
+    <!-- 8号飞机 -->
+	<include file="$(find prometheus_gazebo)/launch_swarm/sitl_swarm_basic.launch">
+		<arg name="swarm_num_uav" value="$(arg swarm_num_uav)"/>
+		<arg name="uav_id" value="$(arg uav8_id)"/>
+		<arg name="sdf" value="$(find prometheus_gazebo)/amov_models/Multisolo/uav8/uav8.sdf"/>
+		<arg name="model" value="uav8"/>
+		<arg name="uav_init_x" value="$(arg uav8_init_x)"/>
+		<arg name="uav_init_y" value="$(arg uav8_init_y)"/>
+		<arg name="uav_init_z" value="0.15"/>
+		<arg name="uav_init_yaw" value="0.0"/>
+	</include>
+    <!-- 9号飞机 -->
+	<include file="$(find prometheus_gazebo)/launch_swarm/sitl_swarm_basic.launch">
+		<arg name="swarm_num_uav" value="$(arg swarm_num_uav)"/>
+		<arg name="uav_id" value="$(arg uav9_id)"/>
+		<arg name="sdf" value="$(find prometheus_gazebo)/amov_models/Multisolo/uav9/uav9.sdf"/>
+		<arg name="model" value="uav9"/>
+		<arg name="uav_init_x" value="$(arg uav9_init_x)"/>
+		<arg name="uav_init_y" value="$(arg uav9_init_y)"/>
+		<arg name="uav_init_z" value="0.15"/>
+		<arg name="uav_init_yaw" value="0.0"/>
+	</include>
 <!-- 启动estimator -->
 	<node pkg="prometheus_swarm_control" type="swarm_estimator" name="swarm_estimator_uav1" output="screen">
 		<param name="uav_id" value="$(arg uav1_id)"/>
@@ -140,6 +200,22 @@
 	</node>
 	<node pkg="prometheus_swarm_control" type="swarm_estimator" name="swarm_estimator_uav5" output="screen">
 		<param name="uav_id" value="$(arg uav5_id)"/>
+		<param name="input_source" value="$(arg input_source)" />
+	</node>
+	<node pkg="prometheus_swarm_control" type="swarm_estimator" name="swarm_estimator_uav6" output="screen">
+		<param name="uav_id" value="$(arg uav6_id)"/>
+		<param name="input_source" value="$(arg input_source)" />
+	</node>
+	<node pkg="prometheus_swarm_control" type="swarm_estimator" name="swarm_estimator_uav7" output="screen">
+		<param name="uav_id" value="$(arg uav7_id)"/>
+		<param name="input_source" value="$(arg input_source)" />
+	</node>
+	<node pkg="prometheus_swarm_control" type="swarm_estimator" name="swarm_estimator_uav8" output="screen">
+		<param name="uav_id" value="$(arg uav8_id)"/>
+		<param name="input_source" value="$(arg input_source)" />
+	</node>
+	<node pkg="prometheus_swarm_control" type="swarm_estimator" name="swarm_estimator_uav9" output="screen">
+		<param name="uav_id" value="$(arg uav9_id)"/>
 		<param name="input_source" value="$(arg input_source)" />
 	</node>
 <!-- 启动controller -->
@@ -206,6 +282,66 @@
 	<node pkg="prometheus_swarm_control" type="swarm_controller" name="swarm_controller_uav5" output="screen">
 		<param name="swarm_num_uav" value="$(arg swarm_num_uav)"/>
 		<param name="uav_id" value="$(arg uav5_id)"/>
+		<param name="collision_flag" value="$(arg collision_flag)"/>
+		<param name="Takeoff_height" value="$(arg Takeoff_height)"/>
+		<param name="Disarm_height" value="$(arg Disarm_height)"/>
+		<param name="Land_speed" value="$(arg Land_speed)"/>
+		<param name="Land_mode" value="$(arg Land_mode)"/>
+		<param name="geo_fence/x_min" value="$(arg x_min)"/>
+		<param name="geo_fence/x_max" value="$(arg x_max)"/>
+		<param name="geo_fence/y_min" value="$(arg y_min)"/>
+		<param name="geo_fence/y_max" value="$(arg y_max)"/>
+		<param name="geo_fence/z_min" value="$(arg z_min)"/>
+		<param name="geo_fence/z_max" value="$(arg z_max)"/>
+	</node>
+	<node pkg="prometheus_swarm_control" type="swarm_controller" name="swarm_controller_uav6" output="screen">
+		<param name="swarm_num_uav" value="$(arg swarm_num_uav)"/>
+		<param name="uav_id" value="$(arg uav6_id)"/>
+		<param name="collision_flag" value="$(arg collision_flag)"/>
+		<param name="Takeoff_height" value="$(arg Takeoff_height)"/>
+		<param name="Disarm_height" value="$(arg Disarm_height)"/>
+		<param name="Land_speed" value="$(arg Land_speed)"/>
+		<param name="Land_mode" value="$(arg Land_mode)"/>
+		<param name="geo_fence/x_min" value="$(arg x_min)"/>
+		<param name="geo_fence/x_max" value="$(arg x_max)"/>
+		<param name="geo_fence/y_min" value="$(arg y_min)"/>
+		<param name="geo_fence/y_max" value="$(arg y_max)"/>
+		<param name="geo_fence/z_min" value="$(arg z_min)"/>
+		<param name="geo_fence/z_max" value="$(arg z_max)"/>
+	</node>
+	<node pkg="prometheus_swarm_control" type="swarm_controller" name="swarm_controller_uav7" output="screen">
+		<param name="swarm_num_uav" value="$(arg swarm_num_uav)"/>
+		<param name="uav_id" value="$(arg uav7_id)"/>
+		<param name="collision_flag" value="$(arg collision_flag)"/>
+		<param name="Takeoff_height" value="$(arg Takeoff_height)"/>
+		<param name="Disarm_height" value="$(arg Disarm_height)"/>
+		<param name="Land_speed" value="$(arg Land_speed)"/>
+		<param name="Land_mode" value="$(arg Land_mode)"/>
+		<param name="geo_fence/x_min" value="$(arg x_min)"/>
+		<param name="geo_fence/x_max" value="$(arg x_max)"/>
+		<param name="geo_fence/y_min" value="$(arg y_min)"/>
+		<param name="geo_fence/y_max" value="$(arg y_max)"/>
+		<param name="geo_fence/z_min" value="$(arg z_min)"/>
+		<param name="geo_fence/z_max" value="$(arg z_max)"/>
+	</node>
+	<node pkg="prometheus_swarm_control" type="swarm_controller" name="swarm_controller_uav8" output="screen">
+		<param name="swarm_num_uav" value="$(arg swarm_num_uav)"/>
+		<param name="uav_id" value="$(arg uav8_id)"/>
+		<param name="collision_flag" value="$(arg collision_flag)"/>
+		<param name="Takeoff_height" value="$(arg Takeoff_height)"/>
+		<param name="Disarm_height" value="$(arg Disarm_height)"/>
+		<param name="Land_speed" value="$(arg Land_speed)"/>
+		<param name="Land_mode" value="$(arg Land_mode)"/>
+		<param name="geo_fence/x_min" value="$(arg x_min)"/>
+		<param name="geo_fence/x_max" value="$(arg x_max)"/>
+		<param name="geo_fence/y_min" value="$(arg y_min)"/>
+		<param name="geo_fence/y_max" value="$(arg y_max)"/>
+		<param name="geo_fence/z_min" value="$(arg z_min)"/>
+		<param name="geo_fence/z_max" value="$(arg z_max)"/>
+	</node>
+	<node pkg="prometheus_swarm_control" type="swarm_controller" name="swarm_controller_uav9" output="screen">
+		<param name="swarm_num_uav" value="$(arg swarm_num_uav)"/>
+		<param name="uav_id" value="$(arg uav9_id)"/>
 		<param name="collision_flag" value="$(arg collision_flag)"/>
 		<param name="Takeoff_height" value="$(arg Takeoff_height)"/>
 		<param name="Disarm_height" value="$(arg Disarm_height)"/>
@@ -294,6 +430,66 @@
 		<param name="geo_fence/z_min" value="$(arg z_min)"/>
 		<param name="geo_fence/z_max" value="$(arg z_max)"/>
 	</node>
+	<node pkg="prometheus_swarm_control" type="uav_planner" name="uav_planner_uav6" output="screen" >
+		<!--param name="swarm_num_uav" value="$(arg swarm_num_uav)"/-->
+		<param name="uav_id" value="$(arg uav6_id)"/>
+		<param name="collision_flag" value="$(arg collision_flag)"/>
+		<param name="Takeoff_height" value="$(arg Takeoff_height)"/>
+		<param name="Disarm_height" value="$(arg Disarm_height)"/>
+		<param name="Land_speed" value="$(arg Land_speed)"/>
+		<param name="Land_mode" value="$(arg Land_mode)"/>
+		<param name="geo_fence/x_min" value="$(arg x_min)"/>
+		<param name="geo_fence/x_max" value="$(arg x_max)"/>
+		<param name="geo_fence/y_min" value="$(arg y_min)"/>
+		<param name="geo_fence/y_max" value="$(arg y_max)"/>
+		<param name="geo_fence/z_min" value="$(arg z_min)"/>
+		<param name="geo_fence/z_max" value="$(arg z_max)"/>
+	</node>
+	<node pkg="prometheus_swarm_control" type="uav_planner" name="uav_planner_uav7" output="screen" >
+		<!--param name="swarm_num_uav" value="$(arg swarm_num_uav)"/-->
+		<param name="uav_id" value="$(arg uav7_id)"/>
+		<param name="collision_flag" value="$(arg collision_flag)"/>
+		<param name="Takeoff_height" value="$(arg Takeoff_height)"/>
+		<param name="Disarm_height" value="$(arg Disarm_height)"/>
+		<param name="Land_speed" value="$(arg Land_speed)"/>
+		<param name="Land_mode" value="$(arg Land_mode)"/>
+		<param name="geo_fence/x_min" value="$(arg x_min)"/>
+		<param name="geo_fence/x_max" value="$(arg x_max)"/>
+		<param name="geo_fence/y_min" value="$(arg y_min)"/>
+		<param name="geo_fence/y_max" value="$(arg y_max)"/>
+		<param name="geo_fence/z_min" value="$(arg z_min)"/>
+		<param name="geo_fence/z_max" value="$(arg z_max)"/>
+	</node>
+	<node pkg="prometheus_swarm_control" type="uav_planner" name="uav_planner_uav8" output="screen" >
+		<!--param name="swarm_num_uav" value="$(arg swarm_num_uav)"/-->
+		<param name="uav_id" value="$(arg uav8_id)"/>
+		<param name="collision_flag" value="$(arg collision_flag)"/>
+		<param name="Takeoff_height" value="$(arg Takeoff_height)"/>
+		<param name="Disarm_height" value="$(arg Disarm_height)"/>
+		<param name="Land_speed" value="$(arg Land_speed)"/>
+		<param name="Land_mode" value="$(arg Land_mode)"/>
+		<param name="geo_fence/x_min" value="$(arg x_min)"/>
+		<param name="geo_fence/x_max" value="$(arg x_max)"/>
+		<param name="geo_fence/y_min" value="$(arg y_min)"/>
+		<param name="geo_fence/y_max" value="$(arg y_max)"/>
+		<param name="geo_fence/z_min" value="$(arg z_min)"/>
+		<param name="geo_fence/z_max" value="$(arg z_max)"/>
+	</node>
+	<node pkg="prometheus_swarm_control" type="uav_planner" name="uav_planner_uav9" output="screen" >
+		<!--param name="swarm_num_uav" value="$(arg swarm_num_uav)"/-->
+		<param name="uav_id" value="$(arg uav9_id)"/>
+		<param name="collision_flag" value="$(arg collision_flag)"/>
+		<param name="Takeoff_height" value="$(arg Takeoff_height)"/>
+		<param name="Disarm_height" value="$(arg Disarm_height)"/>
+		<param name="Land_speed" value="$(arg Land_speed)"/>
+		<param name="Land_mode" value="$(arg Land_mode)"/>
+		<param name="geo_fence/x_min" value="$(arg x_min)"/>
+		<param name="geo_fence/x_max" value="$(arg x_max)"/>
+		<param name="geo_fence/y_min" value="$(arg y_min)"/>
+		<param name="geo_fence/y_max" value="$(arg y_max)"/>
+		<param name="geo_fence/z_min" value="$(arg z_min)"/>
+		<param name="geo_fence/z_max" value="$(arg z_max)"/>
+	</node>
 <!-- 启动virtual_sensor -->
 	<node pkg="prometheus_swarm_control" type="virtual_sensor" name="virtual_sensor_uav1" output="screen" >
 		<!--param name="swarm_num_uav" value="$(arg swarm_num_uav)"/-->
@@ -358,6 +554,66 @@
 	<node pkg="prometheus_swarm_control" type="virtual_sensor" name="virtual_sensor_uav5" output="screen" >
 		<!--param name="swarm_num_uav" value="$(arg swarm_num_uav)"/-->
 		<param name="uav_id" value="$(arg uav5_id)"/>
+		<param name="collision_flag" value="$(arg collision_flag)"/>
+		<param name="Takeoff_height" value="$(arg Takeoff_height)"/>
+		<param name="Disarm_height" value="$(arg Disarm_height)"/>
+		<param name="Land_speed" value="$(arg Land_speed)"/>
+		<param name="Land_mode" value="$(arg Land_mode)"/>
+		<param name="geo_fence/x_min" value="$(arg x_min)"/>
+		<param name="geo_fence/x_max" value="$(arg x_max)"/>
+		<param name="geo_fence/y_min" value="$(arg y_min)"/>
+		<param name="geo_fence/y_max" value="$(arg y_max)"/>
+		<param name="geo_fence/z_min" value="$(arg z_min)"/>
+		<param name="geo_fence/z_max" value="$(arg z_max)"/>
+	</node>
+	<node pkg="prometheus_swarm_control" type="virtual_sensor" name="virtual_sensor_uav6" output="screen" >
+		<!--param name="swarm_num_uav" value="$(arg swarm_num_uav)"/-->
+		<param name="uav_id" value="$(arg uav6_id)"/>
+		<param name="collision_flag" value="$(arg collision_flag)"/>
+		<param name="Takeoff_height" value="$(arg Takeoff_height)"/>
+		<param name="Disarm_height" value="$(arg Disarm_height)"/>
+		<param name="Land_speed" value="$(arg Land_speed)"/>
+		<param name="Land_mode" value="$(arg Land_mode)"/>
+		<param name="geo_fence/x_min" value="$(arg x_min)"/>
+		<param name="geo_fence/x_max" value="$(arg x_max)"/>
+		<param name="geo_fence/y_min" value="$(arg y_min)"/>
+		<param name="geo_fence/y_max" value="$(arg y_max)"/>
+		<param name="geo_fence/z_min" value="$(arg z_min)"/>
+		<param name="geo_fence/z_max" value="$(arg z_max)"/>
+	</node>
+	<node pkg="prometheus_swarm_control" type="virtual_sensor" name="virtual_sensor_uav7" output="screen" >
+		<!--param name="swarm_num_uav" value="$(arg swarm_num_uav)"/-->
+		<param name="uav_id" value="$(arg uav7_id)"/>
+		<param name="collision_flag" value="$(arg collision_flag)"/>
+		<param name="Takeoff_height" value="$(arg Takeoff_height)"/>
+		<param name="Disarm_height" value="$(arg Disarm_height)"/>
+		<param name="Land_speed" value="$(arg Land_speed)"/>
+		<param name="Land_mode" value="$(arg Land_mode)"/>
+		<param name="geo_fence/x_min" value="$(arg x_min)"/>
+		<param name="geo_fence/x_max" value="$(arg x_max)"/>
+		<param name="geo_fence/y_min" value="$(arg y_min)"/>
+		<param name="geo_fence/y_max" value="$(arg y_max)"/>
+		<param name="geo_fence/z_min" value="$(arg z_min)"/>
+		<param name="geo_fence/z_max" value="$(arg z_max)"/>
+	</node>
+	<node pkg="prometheus_swarm_control" type="virtual_sensor" name="virtual_sensor_uav8" output="screen" >
+		<!--param name="swarm_num_uav" value="$(arg swarm_num_uav)"/-->
+		<param name="uav_id" value="$(arg uav8_id)"/>
+		<param name="collision_flag" value="$(arg collision_flag)"/>
+		<param name="Takeoff_height" value="$(arg Takeoff_height)"/>
+		<param name="Disarm_height" value="$(arg Disarm_height)"/>
+		<param name="Land_speed" value="$(arg Land_speed)"/>
+		<param name="Land_mode" value="$(arg Land_mode)"/>
+		<param name="geo_fence/x_min" value="$(arg x_min)"/>
+		<param name="geo_fence/x_max" value="$(arg x_max)"/>
+		<param name="geo_fence/y_min" value="$(arg y_min)"/>
+		<param name="geo_fence/y_max" value="$(arg y_max)"/>
+		<param name="geo_fence/z_min" value="$(arg z_min)"/>
+		<param name="geo_fence/z_max" value="$(arg z_max)"/>
+	</node>
+	<node pkg="prometheus_swarm_control" type="virtual_sensor" name="virtual_sensor_uav9" output="screen" >
+		<!--param name="swarm_num_uav" value="$(arg swarm_num_uav)"/-->
+		<param name="uav_id" value="$(arg uav9_id)"/>
 		<param name="collision_flag" value="$(arg collision_flag)"/>
 		<param name="Takeoff_height" value="$(arg Takeoff_height)"/>
 		<param name="Disarm_height" value="$(arg Disarm_height)"/>

@@ -4,7 +4,7 @@
 Author: lcf
 Date: 2022-03-23 23:00:05
 LastEditors: lcf
-LastEditTime: 2022-03-26 18:34:05
+LastEditTime: 2022-03-26 19:32:16
 FilePath: /swarm_ws2/src/swarm_control/scripts/statisticians_scribble.py
 Description:
 
@@ -34,19 +34,23 @@ site_number = 0
 # sites = []  # [x,y,z,quality]
 
 #plot related
-fig,ax = plt.subplots()
-ln, = plt.plot([], [], 'ro')
+fig,ax = plt.subplots(nrows=1, ncols=1, figsize=(10, 5))
+
+plt.style.use("ggplot")
+# ln, = plt.plot([], [], 'ro')
 
 timeList = []
-dataList = []
-
+# dataList = []
+y1 = []
+y2 = []
+y3 = []
 
 ###global variables
 
 ax.set_ylim(0, 1) #TODO
 ax.set_xlim(0, 600) #TODO 5min
 
-fig.suptitle("Experiment")
+title = fig.suptitle("Experiment")
 ax.set_ylabel("percentage")
 ax.set_xlabel("time")
 
@@ -68,7 +72,7 @@ def updateParamInfo():
 
 
 
-def getStatisticianMessage_cb(msg):
+def getStatisticianMessage_cb(event):
     global msg_time
     global total_functional_uav
     global Sx
@@ -82,9 +86,12 @@ def getStatisticianMessage_cb(msg):
     # global sites
     
     global timeList
-    global dataList
+    # global dataList
+    global y1
+    global y2
+    global y3
 
-    msg_time = msg.header.stamp.secs - experiment_begin_time
+    msg_time = rospy.get_time() - experiment_begin_time
     total_functional_uav = msg.total_functional_uav
     Sx = msg.Sx
     Sy = msg.Sy
@@ -97,27 +104,38 @@ def getStatisticianMessage_cb(msg):
     for i in range(0,site_number):
         S_site.append(msg.S_site[i])
     timeList.append(msg_time)
-    dataList.append(S_site[0]) #TODO
+    y1.append(S_site[0]/total_functional_uav) #TODO
+    y2.append(S_site[1]/total_functional_uav) #TODO
+    y3.append(S_site[2]/total_functional_uav) #TODO
     rospy.loginfo("[Sx,Sy,Sz,Sw,total_functional_uav]: [%d, %d, %d, %d, %d]",
                   Sx, Sy, Sz, Sw, total_functional_uav)
+    print("y1: ")
+    print(y1)
+    print("y2: ")
+    print(y2)
+    print("y3: ")
+    print(y3)
 
 
-def updatePlotFunc(arg):
+def updatePlotFunc(i):
     global site_number
     global dataList
     global msg_time
     
     print("Updating plot function: ")
-    print("dataList")
-    print(dataList)
+    # print("dataList")
+    # print(dataList)
     print("timeList")
     print(timeList)
-    ln.set_data(timeList, dataList)
-    return ln,
+    ax.plot(timeList, y1, color="red")
+    ax.plot(timeList, y2, color="green")
+    ax.plot(timeList, y3, color="blue")
+    # ln.set_data(timeList, dataList)
+    # return ln,
 
 def plotThread():
     print("Plot thread\n")
-    ani = FuncAnimation(fig, updatePlotFunc,blit=True)
+    ani = FuncAnimation(fig, updatePlotFunc,interval=100)
     plt.show()
     # while True:
     #     updatePlotFunc()
@@ -130,7 +148,8 @@ if __name__ == '__main__':
     while experiment_begin_time == 0: #while experiment has not started yet
         updateParamInfo()
     print("experiment started\n")
-    rospy.Subscriber("/statisticians_parchment", StatisticiansParchment, getStatisticianMessage_cb)
+    rospy.Timer(rospy.Duration(2),getStatisticianMessage_cb)
+    # rospy.Subscriber("/statisticians_parchment", StatisticiansParchment, getStatisticianMessage_cb)
     plotThread()
     _thread.start_new_thread(rospy.spin, ())
     # rospy.spin()
