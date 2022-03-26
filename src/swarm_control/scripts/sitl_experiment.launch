@@ -57,6 +57,15 @@
 	<arg name="z_min" default="-1.0"/>
 	<arg name="z_max" default="50.0"/>
 
+	<param name="total_functional_uav" value="1"/>
+	<param name="Sx" value="0"/>
+	<param name="Sy" value="0"/>
+	<param name="Sz" value="0"/>
+	<param name="Sw" value="0"/>
+	<param name="S_site_1" value="0"/>
+	<param name="S_site_2" value="0"/>
+	<param name="S_site_3" value="0"/>
+
 	<param name="experiment_begin_time" value="0"/>
 
 	<param name="sensor_noise_stdev" value="0.01"/>

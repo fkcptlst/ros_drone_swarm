@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-03-25 23:41:46
  * @LastEditors: lcf
- * @LastEditTime: 2022-03-26 18:31:13
+ * @LastEditTime: 2022-03-26 21:07:48
  * @FilePath: /swarm_ws2/src/swarm_control/src/statistician.cpp
  * @Description: node to process global experiment data
  *
@@ -25,7 +25,7 @@ ros::Subscriber Commitment_sub[MAX_UAV_NUM + 1];  //用于订阅commitment
 
 ros::Subscriber Gazebo_odom_sub[MAX_UAV_NUM + 1]; //用于订Odometry
 
-ros::Publisher parchment_pub; // transmit to statisticians_scribble.py
+// ros::Publisher parchment_pub; // transmit to statisticians_scribble.py
 
 prometheus_msgs::DroneState DroneStateList[MAX_UAV_NUM + 1];
 prometheus_msgs::Commitment CommitmentList[MAX_UAV_NUM + 1];
@@ -34,6 +34,8 @@ nav_msgs::Odometry GazeboOdomList[MAX_UAV_NUM + 1];
 bool DroneStateValidFlgList[MAX_UAV_NUM + 1]; //用于标记是否有效，避免发布已经失效的无人机信息
 
 Eigen::Vector3d dronePos[MAX_UAV_NUM + 1]; // drone position vector
+
+// bool hasDoubleCheckedIfAllUAVDiedFlg = false;
 
 void drone_state_topicUpdate_cb(const prometheus_msgs::DroneState::ConstPtr &state_msg, int drone_id);
 void commitment_topicUpdate_cb(const prometheus_msgs::Commitment::ConstPtr &commitment_msg, int drone_id);
@@ -50,9 +52,25 @@ int main(int argc, char **argv)
     cout << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>statistician<<<<<<<<<<<<<<<<<<<<<<<<< " << endl;
     // 读取参数，变量初始化
     init(nh);
+
+    int experiment_begin_time = 0;
+
+    do
+    {
+        ros::param::get("/experiment_begin_time",experiment_begin_time);
+    }while(experiment_begin_time == 0); //wait until experiment_begin
+
+    Info("Experiment begin\n");
+
     for (int i = 0; i <= MAX_UAV_NUM; i++)
     {
-        DroneStateValidFlgList[i] = false;
+        DroneStateValidFlgList[i] = true; //initial state is valid
+    }
+
+//initialize commitment
+    for(int i = 0; i <= MAX_UAV_NUM; i++) //TODO check initial state,might need to change
+    {
+        CommitmentList[i].commitmentState = POLLING;
     }
 
     // 建议控制频率 ： 10 - 50Hz, 控制频率取决于控制形式，若控制方式为速度或加速度应适当提高频率
@@ -72,10 +90,10 @@ int main(int argc, char **argv)
     }
 
     //【发布】prometheus_msgs::StatisticiansParchment
-    parchment_pub = nh.advertise<prometheus_msgs::StatisticiansParchment>("/statisticians_parchment", 1); //queue size = 1
+    // parchment_pub = nh.advertise<prometheus_msgs::StatisticiansParchment>("/statisticians_parchment", 1); //queue size = 1
 
     ros::Timer debug_timer = nh.createTimer(ros::Duration(10.0), debug_cb);
-    ros::Timer globalUpdate_timer = nh.createTimer(ros::Duration(1), globalUpdate_cb); // TODO status update per 1 seconds, no less than 1 second
+    ros::Timer globalUpdate_timer = nh.createTimer(ros::Duration(2), globalUpdate_cb); // TODO status update per 1 seconds, no less than 1 second
 
     ros::spin();
 
@@ -136,46 +154,53 @@ void globalUpdate_cb(const ros::TimerEvent &e) // publish更新所有无人机�
     sorted_sites = sites;
     sort(sorted_sites.begin(), sorted_sites.end(), compareSiteQuality); // sort by quality, desc
 
-    prometheus_msgs::StatisticiansParchment parchment;
+    // prometheus_msgs::StatisticiansParchment parchment;
     int total_functional_uav = 0; // reset before update
     int Sx = 0;                   // num of committed to current best
     int Sy = 0;                   // num of committed to previous
     int Sz = 0;                   // num of polling
     int Sw = 0;                   // num of others
+    int S_site[20] = {0}; //initialise
 
     for (int i = 1; i <= swarm_num_uav; i++)
     {
         if (DroneStateValidFlgList[i] == true)
         {
             total_functional_uav++;
+            // hasDoubleCheckedIfAllUAVDiedFlg = false;
             if (CommitmentList[i].commitmentState == POLLING)
             {
                 Sz++;
             }
-            else // committed
+            else if(CommitmentList[i].commitmentState == COMMITTED)// committed
             {
                 Site current(CommitmentList[i].sitePos[0], CommitmentList[i].sitePos[1], CommitmentList[i].sitePos[2], CommitmentList[i].quality);
                 if(current == sorted_sites[0]) //current best
                 {
                     Sx++;
                 }
-                else if(current == sorted_sites[1])
+                else if(current == sorted_sites[1]) //last best
                 {
                     Sy++;
                 }
-                else
+                else //otherwise
                 {
                     Sw++;
                 }
 
-                for (int i = 1; i <= site_number; i++)
+                for (int i = 0; i < site_number; i++)
                 {
                     if(current == sites[i])
                     {
-                        parchment.S_site[i]++;
+                        S_site[i]++;
+                        TraceableInfo(L_YELLOW("triggered\n"));
                         break;
                     }
                 }
+            }
+            else //UNCOMMITTED
+            {
+                ;
             }
             // generateCommitmentMarker(markerArray, CommitmentList[i], dronePos[i], i);
             // generate_uav_idMarker(markerArray, dronePos[i], i);
@@ -192,11 +217,24 @@ void globalUpdate_cb(const ros::TimerEvent &e) // publish更新所有无人机�
     }
     */
     // It sucks
-    parchment.total_functional_uav = total_functional_uav;
-    parchment.Sx = Sx;
-    parchment.Sy = Sy;
-    parchment.Sz = Sz;
-    parchment.Sw = Sw;
-    parchment.header.stamp = ros::Time::now(); // add timestamp
-    parchment_pub.publish(parchment);
+
+    // if(total_functional_uav == 0 && hasDoubleCheckedIfAllUAVDiedFlg == true) //has double checked that all failed
+    TraceableInfo("total_functional_uav: %d\n",total_functional_uav);
+    ros::param::set("/total_functional_uav",total_functional_uav);
+    ros::param::set("/Sx",Sx);
+    ros::param::set("/Sy",Sy);
+    ros::param::set("/Sz",Sz);
+    ros::param::set("/Sw",Sw);
+    for(int i = 1; i <= site_number; i++)
+    {
+        ros::param::set("/S_site_"+std::to_string(i),S_site[i-1]);
+        TraceableInfo("S_site_%d: %d\n",i,S_site[i-1]);
+    }
+    // parchment.total_functional_uav = total_functional_uav;
+    // parchment.Sx = Sx;
+    // parchment.Sy = Sy;
+    // parchment.Sz = Sz;
+    // parchment.Sw = Sw;
+    // parchment.header.stamp = ros::Time::now(); // add timestamp
+    // parchment_pub.publish(parchment);
 }

@@ -23,3 +23,13 @@ to build, use compile.sh
 to generate .launch file, use launchfileGen.sh
 
 注意Python脚本前面一定要加shebang，要不然运行不起
+
+
+statistician.cpp line 60
+
+```
+    for(int i = 0; i <= MAX_UAV_NUM; i++) //TODO check initial state,might need to change
+    {
+        CommitmentList[i].commitmentState = POLLING;
+    }
+```
