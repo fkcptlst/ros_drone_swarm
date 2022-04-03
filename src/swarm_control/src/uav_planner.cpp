@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-01 17:15:50
  * @LastEditors: lcf
- * @LastEditTime: 2022-03-25 22:53:15
+ * @LastEditTime: 2022-04-03 21:27:49
  * @FilePath: /swarm_ws2/src/swarm_control/src/uav_planner.cpp
  * @Description: this node oversees everything involved in a single uav
  *
@@ -115,7 +115,6 @@ int main(int argc, char **argv)
         printf_param();
     }
 
-
     //【订阅】本机状态信息
     drone_state_sub = nh.subscribe<prometheus_msgs::DroneState>(uav_name + "/prometheus/drone_state", 5, drone_state_cb); // update self state
     //【订阅】地面站命令
@@ -124,9 +123,9 @@ int main(int argc, char **argv)
     //【发布】决策的控制信息
     flightCommand_pub = nh.advertise<prometheus_msgs::SwarmCommand>(uav_name + "/prometheus/swarm_command", 2); // command publisher, default buffer is 2
 
-    while(start_arm_and_takeoff_flg == false) //while hasn't taken off yet
+    while (start_arm_and_takeoff_flg == false) // while hasn't taken off yet
     {
-        ros::spinOnce(); //check if should take off
+        ros::spinOnce(); // check if should take off
     }
     //【发布】飞行相关信息，用于避障
     navDroneStateTX_pub = nh.advertise<prometheus_msgs::DroneState>(uav_name + "/prometheus/commBuffer_TX/drone_state", 2); // broadcast publisher, default buffer is 2
@@ -143,12 +142,12 @@ int main(int argc, char **argv)
     sensorBuffer_sub = nh.subscribe<prometheus_msgs::SensorMsg>(uav_name + "/prometheus/sensorBuffer", 10, sensorBuffer_cb);
 
     ros::Timer debug_timer = nh.createTimer(ros::Duration(10.0), debug_cb);
-    ros::Timer droneStateTXLoop_Timer = nh.createTimer(ros::Duration(0.1), droneStateTXLoop_cb);
+    ros::Timer droneStateTXLoop_Timer = nh.createTimer(ros::Duration(0.2), droneStateTXLoop_cb); // XXX navigationLoop_cb rate, 5Hz
     ros::Timer commitmentTXLoop_Timer = nh.createTimer(ros::Duration(0.1), commitmentTXLoop_cb);
     ros::Timer commitmentRegularLoop_Timer = nh.createTimer(ros::Duration(0.1), commitmentRegularLoop_cb);
 
     ros::Timer sensorLoop_timer = nh.createTimer(ros::Duration(0.5), sensorloop_cb);
-    ros::Timer commandPublishLoop_timer = nh.createTimer(ros::Duration(0.5), navigationLoop_cb); // TODO this need fixing
+    ros::Timer commandPublishLoop_timer = nh.createTimer(ros::Duration(0.01), navigationLoop_cb); // TODO 100Hz, this need fixing
 
     ros::Timer comm_LRU_aging_timer = nh.createTimer(ros::Duration(0.5), comm_LRU_aging_cb);
 
@@ -170,12 +169,12 @@ void armAndTakeoff()
     takeoff_flightCommand.Mode = prometheus_msgs::SwarmCommand::Idle;
     takeoff_flightCommand.yaw_ref = 999;
     flightCommand_pub.publish(takeoff_flightCommand); //【发布】arm
-    ros::Duration(2).sleep(); //TODO 2 seconds
+    ros::Duration(2).sleep();                         // TODO 2 seconds
     DEBUG(TraceableInfo(L_YELLOW("attempted takeoff\n"));)
     takeoff_flightCommand.Mode = prometheus_msgs::SwarmCommand::Takeoff;
     takeoff_flightCommand.yaw_ref = 0.0;
     flightCommand_pub.publish(takeoff_flightCommand); //【发布】takeoff
-    ros::Duration(3).sleep(); //TODO 3 seconds
+    ros::Duration(3).sleep();                         // TODO 3 seconds
 
     DEBUG(TraceableInfo(L_YELLOW("armAndTakeoff() end\n"));)
     All_Offboard_Switch = true; // allow self navigation
@@ -192,7 +191,7 @@ void landDrone()
     flightCommand_pub.publish(land_flightCommand); //【发布】takeoff
 }
 //-----------------TODO essentials-----------------------------------------------------------------------------------------------------------------------------------------------
-bool with_prob_of(float prob)
+bool with_prob_of(float prob) // roll the dice
 {
     random_device rd;  // random device
     mt19937 gen(rd()); // seed
@@ -208,7 +207,7 @@ bool with_prob_of(float prob)
     }
 }
 
-void sync_selfCommitment_with_site_m(ros::Time _timeStamp) // a utility func
+void sync_selfCommitment_with_site_m(ros::Time _timeStamp) // a utility func, synchronize with current commitment
 {
     selfCommitment.sitePos[0] = site_m.sitePos[0];
     selfCommitment.sitePos[1] = site_m.sitePos[1];
@@ -456,28 +455,25 @@ void navigationLoop_cb(const ros::TimerEvent &e)
 
     collisionAvoidance();
 
-    if (!collision_flag) // if is not on collision course
+    if (check_if_reached_waypoint(navTargetPos))
     {
-        if (check_if_reached_waypoint(navTargetPos))
-        {
-            generateRandomWaypoint(navTargetPos);
-        }
-        else
-        {
-            // TODO check if too long hasn't reached the waypoint
-        }
-
-        // update flight command
-        flightCommand.Mode = prometheus_msgs::SwarmCommand::Move;         // move mode
-        flightCommand.Move_mode = prometheus_msgs::SwarmCommand::XYZ_POS; // XYZ_POS
-
-        flightCommand.position_ref[0] = navTargetPos[0];
-        flightCommand.position_ref[1] = navTargetPos[1];
-        flightCommand.position_ref[2] = navTargetPos[2];
-
-        // double cosVal = navTargetPos.dot(pos_drone) / (navTargetPos.norm()*pos_drone.norm());
-        // flightCommand.yaw_ref = acos()
+        generateRandomWaypoint(navTargetPos);
     }
+    else
+    {
+        // TODO check if too long hasn't reached the waypoint
+    }
+
+    // update flight command
+    flightCommand.Mode = prometheus_msgs::SwarmCommand::Move;         // move mode
+    flightCommand.Move_mode = prometheus_msgs::SwarmCommand::XYZ_POS; // XYZ_POS
+
+    flightCommand.position_ref[0] = navTargetPos[0];
+    flightCommand.position_ref[1] = navTargetPos[1];
+    flightCommand.position_ref[2] = navTargetPos[2];
+
+    // double cosVal = navTargetPos.dot(pos_drone) / (navTargetPos.norm()*pos_drone.norm());
+    // flightCommand.yaw_ref = acos()
     // publish flight command at the end
     flightCommand_pub.publish(flightCommand);
 }

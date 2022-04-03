@@ -86,7 +86,6 @@ doubleyaw_drone;
 
 **/uav2/prometheus/sensor/monocular_down/image_raw**
 
-
 ```
 	<!-- 启动status_visualisation 
 	<node pkg="prometheus_swarm_control" type="status_visualisation" name="status_visualisation_uav1" output="screen" >
@@ -154,3 +153,9 @@ doubleyaw_drone;
 	</node>
 	-->
 ```
+
+
+
+
+WARN  [mc_pos_control] invalid setpoints
+WARN  [mc_pos_control] Failsafe: blind land
