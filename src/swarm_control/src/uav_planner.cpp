@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-01 17:15:50
  * @LastEditors: lcf
- * @LastEditTime: 2022-04-03 21:27:49
+ * @LastEditTime: 2022-04-04 11:16:04
  * @FilePath: /swarm_ws2/src/swarm_control/src/uav_planner.cpp
  * @Description: this node oversees everything involved in a single uav
  *
@@ -239,10 +239,10 @@ void droneStateRX_cb(const prometheus_msgs::DroneState::ConstPtr &state_msg)
     {
         return;
     }
-    if (neighbourState[idx].age > 0 && neighbourState[idx].state.header.seq > state_msg->header.seq) //如果比上一次获得的信息新，则更新
+    if (neighbourState[idx].age > 0) //  && neighbourState[idx].state.header.seq > state_msg->header.seq) //如果比上一次获得的信息新，则更新
     {
         neighbourState[idx].state = *state_msg;
-        setNthBitTo1(neighbourState[idx].age, 8); //更新age
+        neighbourState[idx].age = 0; //更新age
     }
 }
 
@@ -260,7 +260,10 @@ void comm_LRU_aging_cb(const ros::TimerEvent &e)
 {
     for (int i = 0; i <= MAX_UAV_NUM; i++)
     {
-        neighbourState[i].age = neighbourState[i].age >> 1;
+        if (neighbourState[i].age >= 0) // is valid
+        {
+            neighbourState[i].age++;
+        }
     }
 }
 
@@ -384,6 +387,7 @@ void socialLoop_cb(const ros::TimerEvent &e)
                 site_m.sitePos = site_v.sitePos;
                 site_m.quality = 0;
                 navTargetPos = site_v.sitePos;
+                navTargetPos[2] = CruiseHeight;
 
                 selfCommitment.commitmentState = POLLING;
                 sync_selfCommitment_with_site_m(maxPtr->header.stamp);
@@ -422,12 +426,15 @@ void generateRandomWaypoint(Eigen::Vector3d &waypoint)
     waypoint[0] = (float)Xdistribut(gen);
     waypoint[1] = (float)Ydistribut(gen);
     waypoint[2] = CruiseHeight;
+
+    Info(L_YELLOW("random waypoint set to: [%lf, %lf, %lf]\n"),waypoint[0],waypoint[1],waypoint[2]);
 }
 
 bool check_if_reached_waypoint(Eigen::Vector3d &waypoint)
 {
     if ((pos_drone - waypoint).squaredNorm() <= WaypointMinSeparationThreshold * WaypointMinSeparationThreshold)
     {
+        Info(L_GREEN("waypoint [%lf, %lf, %lf] reached\n"),waypoint[0],waypoint[1],waypoint[2]);
         return true;
     }
     else
@@ -453,6 +460,35 @@ void navigationLoop_cb(const ros::TimerEvent &e)
         return;
     }
 
+    Eigen::Vector3d OutputVelocity(0,0,0);
+
+    double migrationVelocityCoefficient = 2; // 2m/s //TODO: check coefficient
+    Eigen::Vector3d migrationVelocity = navTargetPos - pos_drone; 
+    migrationVelocity.normalize();
+    migrationVelocity*=migrationVelocityCoefficient;
+
+    OutputVelocity+=migrationVelocity;
+
+    //Repulsion
+    const double r_rep = 25;//repulsion radius
+    const double p_rep = 0.4;//repulsion coefficient
+
+    long long ageThreshold = 5;
+    // for (int i = 0; i <= MAX_UAV_NUM; i++)
+    // {
+    //     if (neighbourState[i].age >= 0 && neighbourState[i].age <= ageThreshold) // is valid
+    //     {
+    //         Eigen::Vector3d pos_neighbour(neighbourState[i].state.position[0],neighbourState[i].state.position[1],neighbourState[i].state.position[2]);//
+    //         Eigen::Vector3d direction_vec = pos_drone - pos_neighbour; //self - other
+    //         double sqaredDistance = direction_vec.squaredNorm();
+    //         direction_vec.normalize();
+    //         if(sqaredDistance <= r_rep*r_rep) //within repulsion distance
+    //         {
+    //             OutputVelocity+=p_rep*(r_rep - sqrt(sqaredDistance))*direction_vec;
+    //         }
+    //     }
+    // }
+
     collisionAvoidance();
 
     if (check_if_reached_waypoint(navTargetPos))
@@ -465,12 +501,21 @@ void navigationLoop_cb(const ros::TimerEvent &e)
     }
 
     // update flight command
-    flightCommand.Mode = prometheus_msgs::SwarmCommand::Move;         // move mode
-    flightCommand.Move_mode = prometheus_msgs::SwarmCommand::XYZ_POS; // XYZ_POS
+    flightCommand.Mode = prometheus_msgs::SwarmCommand::Move;              // move mode
+    flightCommand.Move_mode = prometheus_msgs::SwarmCommand::XY_VEL_Z_POS; // XY_VEL_Z_POS
 
-    flightCommand.position_ref[0] = navTargetPos[0];
-    flightCommand.position_ref[1] = navTargetPos[1];
-    flightCommand.position_ref[2] = navTargetPos[2];
+    // flightCommand.position_ref[0] = navTargetPos[0];
+    // flightCommand.position_ref[1] = navTargetPos[1];
+    // flightCommand.position_ref[2] = navTargetPos[2];
+
+    flightCommand.velocity_ref[0] = OutputVelocity[0];
+    flightCommand.velocity_ref[1] = OutputVelocity[1];
+    flightCommand.velocity_ref[2] = 0;
+    
+    flightCommand.position_ref[2] = CruiseHeight;
+
+    Info(L_BLUE("navigation: "));
+    cout <<"waypoint: " <<navTargetPos<<"migration: "<<migrationVelocity <<"target vel: "<< OutputVelocity[0] << " " << OutputVelocity[1] <<"\n";
 
     // double cosVal = navTargetPos.dot(pos_drone) / (navTargetPos.norm()*pos_drone.norm());
     // flightCommand.yaw_ref = acos()

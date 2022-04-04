@@ -126,7 +126,7 @@
 		<param name="geo_fence/z_max" value="$(arg z_max)"/>
 	</node>
 <!-- 启动planner -->
-	<node pkg="prometheus_swarm_control" type="uav_planner" name="uav_planner_uav1" output="screen" >
+	<node pkg="prometheus_swarm_control" type="uav_planner" name="uav_planner_uav1" output="screen" launch-prefix="gnome-terminal --tab --">
 		<!--param name="swarm_num_uav" value="$(arg swarm_num_uav)"/-->
 		<param name="uav_id" value="$(arg uav1_id)"/>
 		<param name="collision_flag" value="$(arg collision_flag)"/>
@@ -141,7 +141,7 @@
 		<param name="geo_fence/z_min" value="$(arg z_min)"/>
 		<param name="geo_fence/z_max" value="$(arg z_max)"/>
 	</node>
-	<node pkg="prometheus_swarm_control" type="uav_planner" name="uav_planner_uav2" output="screen" >
+	<node pkg="prometheus_swarm_control" type="uav_planner" name="uav_planner_uav2" output="screen" launch-prefix="gnome-terminal --tab --">
 		<!--param name="swarm_num_uav" value="$(arg swarm_num_uav)"/-->
 		<param name="uav_id" value="$(arg uav2_id)"/>
 		<param name="collision_flag" value="$(arg collision_flag)"/>
