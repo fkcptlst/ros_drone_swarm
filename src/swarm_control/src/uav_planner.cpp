@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-01 17:15:50
  * @LastEditors: lcf
- * @LastEditTime: 2022-04-04 11:16:04
+ * @LastEditTime: 2022-04-04 11:21:41
  * @FilePath: /swarm_ws2/src/swarm_control/src/uav_planner.cpp
  * @Description: this node oversees everything involved in a single uav
  *
@@ -445,9 +445,6 @@ bool check_if_reached_waypoint(Eigen::Vector3d &waypoint)
 
 //-----------------TODO NAVIGATION ----------------------------------------------------------------
 
-void collisionAvoidance() // TODO collision avoidance implement
-{
-}
 /**
  * @description: 发布飞行控制命令的回调函数
  * @param {TimerEvent} &e
@@ -474,22 +471,29 @@ void navigationLoop_cb(const ros::TimerEvent &e)
     const double p_rep = 0.4;//repulsion coefficient
 
     long long ageThreshold = 5;
-    // for (int i = 0; i <= MAX_UAV_NUM; i++)
-    // {
-    //     if (neighbourState[i].age >= 0 && neighbourState[i].age <= ageThreshold) // is valid
-    //     {
-    //         Eigen::Vector3d pos_neighbour(neighbourState[i].state.position[0],neighbourState[i].state.position[1],neighbourState[i].state.position[2]);//
-    //         Eigen::Vector3d direction_vec = pos_drone - pos_neighbour; //self - other
-    //         double sqaredDistance = direction_vec.squaredNorm();
-    //         direction_vec.normalize();
-    //         if(sqaredDistance <= r_rep*r_rep) //within repulsion distance
-    //         {
-    //             OutputVelocity+=p_rep*(r_rep - sqrt(sqaredDistance))*direction_vec;
-    //         }
-    //     }
-    // }
+    for (int i = 0; i <= MAX_UAV_NUM; i++)
+    {
+        if (neighbourState[i].age >= 0 && neighbourState[i].age <= ageThreshold) // is valid
+        {
+            Eigen::Vector3d pos_neighbour(neighbourState[i].state.position[0],neighbourState[i].state.position[1],neighbourState[i].state.position[2]);//
+            Eigen::Vector3d direction_vec = pos_drone - pos_neighbour; //self - other
+            double sqaredDistance = direction_vec.squaredNorm();
+            direction_vec.normalize();
+            if(sqaredDistance <= r_rep*r_rep) //within repulsion distance
+            {
+                OutputVelocity+=p_rep*(r_rep - sqrt(sqaredDistance))*direction_vec;
+            }
+        }
+    }
 
-    collisionAvoidance();
+
+    //Constraint
+    const double maxSpeed = 8; //TODO 8m/s max speed
+    if(OutputVelocity.squaredNorm() >= maxSpeed*maxSpeed)
+    {
+        OutputVelocity.normalize();
+        OutputVelocity*=maxSpeed;
+    }
 
     if (check_if_reached_waypoint(navTargetPos))
     {
