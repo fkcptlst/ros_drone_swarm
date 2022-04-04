@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-02-01 17:15:50
  * @LastEditors: lcf
- * @LastEditTime: 2022-04-04 11:21:41
+ * @LastEditTime: 2022-04-04 12:05:21
  * @FilePath: /swarm_ws2/src/swarm_control/src/uav_planner.cpp
  * @Description: this node oversees everything involved in a single uav
  *
@@ -239,11 +239,12 @@ void droneStateRX_cb(const prometheus_msgs::DroneState::ConstPtr &state_msg)
     {
         return;
     }
-    if (neighbourState[idx].age > 0) //  && neighbourState[idx].state.header.seq > state_msg->header.seq) //如果比上一次获得的信息新，则更新
-    {
+    // if (neighbourState[idx].age > 0) //  && neighbourState[idx].state.header.seq > state_msg->header.seq) //如果比上一次获得的信息新，则更新
+    // {
+        //TODO check if sequence is needed
         neighbourState[idx].state = *state_msg;
         neighbourState[idx].age = 0; //更新age
-    }
+    // }
 }
 
 void commitmentRX_cb(const prometheus_msgs::Commitment::ConstPtr &commitment_msg)
@@ -459,7 +460,7 @@ void navigationLoop_cb(const ros::TimerEvent &e)
 
     Eigen::Vector3d OutputVelocity(0,0,0);
 
-    double migrationVelocityCoefficient = 2; // 2m/s //TODO: check coefficient
+    double migrationVelocityCoefficient = 3; // 3m/s //TODO: check coefficient
     Eigen::Vector3d migrationVelocity = navTargetPos - pos_drone; 
     migrationVelocity.normalize();
     migrationVelocity*=migrationVelocityCoefficient;
@@ -467,7 +468,7 @@ void navigationLoop_cb(const ros::TimerEvent &e)
     OutputVelocity+=migrationVelocity;
 
     //Repulsion
-    const double r_rep = 25;//repulsion radius
+    const double r_rep = 20;//repulsion radius, 20m
     const double p_rep = 0.4;//repulsion coefficient
 
     long long ageThreshold = 5;
@@ -476,12 +477,13 @@ void navigationLoop_cb(const ros::TimerEvent &e)
         if (neighbourState[i].age >= 0 && neighbourState[i].age <= ageThreshold) // is valid
         {
             Eigen::Vector3d pos_neighbour(neighbourState[i].state.position[0],neighbourState[i].state.position[1],neighbourState[i].state.position[2]);//
-            Eigen::Vector3d direction_vec = pos_drone - pos_neighbour; //self - other
-            double sqaredDistance = direction_vec.squaredNorm();
-            direction_vec.normalize();
+            Eigen::Vector3d counter_direction_vec = pos_drone - pos_neighbour; //self - other
+            double sqaredDistance = counter_direction_vec.squaredNorm();
+            counter_direction_vec.normalize();
             if(sqaredDistance <= r_rep*r_rep) //within repulsion distance
             {
-                OutputVelocity+=p_rep*(r_rep - sqrt(sqaredDistance))*direction_vec;
+                OutputVelocity+=p_rep*(r_rep - sqrt(sqaredDistance))*counter_direction_vec;
+                Info(L_YELLOW("avoiding neighbour: %d\n"),i);
             }
         }
     }
@@ -518,8 +520,8 @@ void navigationLoop_cb(const ros::TimerEvent &e)
     
     flightCommand.position_ref[2] = CruiseHeight;
 
-    Info(L_BLUE("navigation: "));
-    cout <<"waypoint: " <<navTargetPos<<"migration: "<<migrationVelocity <<"target vel: "<< OutputVelocity[0] << " " << OutputVelocity[1] <<"\n";
+    // Info(L_BLUE("navigation: "));
+    // cout <<"waypoint: " <<navTargetPos<<"migration: "<<migrationVelocity <<"target vel: "<< OutputVelocity[0] << " " << OutputVelocity[1] <<"\n";
 
     // double cosVal = navTargetPos.dot(pos_drone) / (navTargetPos.norm()*pos_drone.norm());
     // flightCommand.yaw_ref = acos()

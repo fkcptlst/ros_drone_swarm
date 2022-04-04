@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-03-25 15:27:25
  * @LastEditors: lcf
- * @LastEditTime: 2022-03-26 11:12:23
+ * @LastEditTime: 2022-04-04 11:30:15
  * @FilePath: /swarm_ws2/src/swarm_control/include/experiment_basics.h
  * @Description: useful datastructures, constants, and functions
  *
@@ -14,7 +14,7 @@
 
 using namespace std;
 
-const float COLLISION_AVOIDANCE_COMMRANGE_THRESHOLD = 30.0; // 30m collision avoidance comm range
+const float COLLISION_AVOIDANCE_COMMRANGE_THRESHOLD = 50.0; // 50m collision avoidance comm range
 const float VOTING_COMMRANGE_THRESHOLD = 60.0;              // XXX 60m voting comm range
 
 const float SiteMinSeparationThreshold = 10.0;    // 10m min site separation

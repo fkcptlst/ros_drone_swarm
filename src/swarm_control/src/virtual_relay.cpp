@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-01-31 21:34:24
  * @LastEditors: lcf
- * @LastEditTime: 2022-03-26 12:04:43
+ * @LastEditTime: 2022-04-04 11:29:48
  * @FilePath: /swarm_ws2/src/swarm_control/src/virtual_relay.cpp
  * @Description: This node observes position of all vehicles and unicasts relevant info to each vehicle, modified from swarm_controller
  *
@@ -93,7 +93,7 @@ int main(int argc, char **argv)
 #endif
 
     ros::Timer debug_timer = nh.createTimer(ros::Duration(10.0), debug_cb);
-    ros::Timer globalUpdate_timer = nh.createTimer(ros::Duration(0.5), globalUpdate_cb); //TODO update per 0.5 seconds
+    ros::Timer globalUpdate_timer = nh.createTimer(ros::Duration(0.2), globalUpdate_cb); //TODO 5Hz
 
     ros::spin();
 

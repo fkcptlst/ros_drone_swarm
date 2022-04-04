@@ -2,7 +2,7 @@
  * @Author: lcf
  * @Date: 2022-03-25 12:42:22
  * @LastEditors: lcf
- * @LastEditTime: 2022-03-26 18:51:46
+ * @LastEditTime: 2022-04-04 12:07:56
  * @FilePath: /swarm_ws2/src/swarm_control/src/lab_assistant.cpp
  * @Description: a node to control experiment setup
  *
@@ -234,7 +234,7 @@ void agenda1() // experiment schedule
     TimeTriggeredEvent event1 = makeArrangement(0, set_params_1); //set default parameters
     TimeTriggeredEvent event2 = makeArrangement(1, broadcastBeginExperiment);
     TimeTriggeredEvent event3 = makeArrangement(200, set_params_2); //change parameters
-    TimeTriggeredEvent event4 = makeArrangement(300, broadcastEndExperiment);
+    TimeTriggeredEvent event4 = makeArrangement(3000, broadcastEndExperiment);
     printEventQueue();
 }
 
@@ -258,7 +258,8 @@ void set_params_1()
 void set_params_2()
 {
     Experiment_params params = currentParams;
-    params.sites[2].sitePos[0] = 70;
+    params.sites[2].quality = 0.4;
+    params.sites[0].quality = 0.8;
     set_experiment_parameters(params);
 }
 
